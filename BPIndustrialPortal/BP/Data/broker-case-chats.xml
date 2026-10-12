@@ -1,0 +1,334 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BrokerCaseChatData>
+  <Messages>
+    <Message>
+      <MessageId>BMSG-001</MessageId>
+      <CaseId>CID-233</CaseId>
+      <Sender>ServiceRep</Sender>
+      <SenderName>Brooklyn Simmons</SenderName>
+      <Text>Hello! We're here to help. What can we do for you?</Text>
+      <SentAt>2026-06-22T15:24:00</SentAt>
+    </Message>
+    <Message>
+      <MessageId>BMSG-002</MessageId>
+      <CaseId>CID-233</CaseId>
+      <Sender>ServiceRep</Sender>
+      <SenderName>Brooklyn Simmons</SenderName>
+      <Text>Thanks for contacting us! What support do you need?</Text>
+      <SentAt>2026-06-22T15:24:30</SentAt>
+    </Message>
+    <Message>
+      <MessageId>BMSG-003</MessageId>
+      <CaseId>CID-233</CaseId>
+      <Sender>Customer</Sender>
+      <SenderName>Acme Manufacturing Ltd.</SenderName>
+      <Text>Hi, I believe there is an issue with the charges on my latest invoice. The billed amount seems higher than expected. Could you please review it?</Text>
+      <SentAt>2026-06-22T16:15:00</SentAt>
+    </Message>
+    <Message>
+      <MessageId>BMSG-004</MessageId>
+      <CaseId>CID-233</CaseId>
+      <Sender>ServiceRep</Sender>
+      <SenderName>Brooklyn Simmons</SenderName>
+      <Text>Thank you for reaching out. We'd be happy to help. Could you please provide the invoice number and details of the discrepancy you've identified?</Text>
+      <SentAt>2026-06-22T16:45:00</SentAt>
+    </Message>
+    <!-- CID-232: Greenfield Retail Group - Missing invoice -->
+    <Message>
+      <MessageId>BMSG-005</MessageId>
+      <CaseId>CID-232</CaseId>
+      <Sender>ServiceRep</Sender>
+      <SenderName>James Carter</SenderName>
+      <Text>Hello! We received your request about a missing invoice. Let me look into this for you.</Text>
+      <SentAt>2026-06-20T09:00:00</SentAt>
+    </Message>
+    <Message>
+      <MessageId>BMSG-006</MessageId>
+      <CaseId>CID-232</CaseId>
+      <Sender>Customer</Sender>
+      <SenderName>Greenfield Retail Group</SenderName>
+      <Text>Hi, we have not received our invoice for the billing period ending May 31st. Could you please resend it?</Text>
+      <SentAt>2026-06-20T09:15:00</SentAt>
+    </Message>
+    <Message>
+      <MessageId>BMSG-006</MessageId>
+      <CaseId>CID-232</CaseId>
+      <Sender>ServiceRep</Sender>
+      <SenderName>James Carter</SenderName>
+      <Text>I can see the invoice was generated on June 1st. It may have gone to spam. Could you confirm the email address on file?</Text>
+      <SentAt>2026-06-20T09:30:00</SentAt>
+    </Message>
+    <Message>
+      <MessageId>BMSG-007</MessageId>
+      <CaseId>CID-232</CaseId>
+      <Sender>Customer</Sender>
+      <SenderName>Greenfield Retail Group</SenderName>
+      <Text>The address on file should be accounts@greenfieldretail.com. Please resend it there.</Text>
+      <SentAt>2026-06-20T09:45:00</SentAt>
+    </Message>
+    <Message>
+      <MessageId>BMSG-008</MessageId>
+      <CaseId>CID-232</CaseId>
+      <Sender>ServiceRep</Sender>
+      <SenderName>James Carter</SenderName>
+      <Text>Done! The invoice has been resent to accounts@greenfieldretail.com. Please allow a few minutes for delivery.</Text>
+      <SentAt>2026-06-21T10:00:00</SentAt>
+    </Message>
+    <Message>
+      <MessageId>BMSG-009</MessageId>
+      <CaseId>CID-231</CaseId>
+      <Sender>ServiceRep</Sender>
+      <SenderName>Sarah Mitchell</SenderName>
+      <Text>Hi there! How can I assist you with your balance or payment inquiry today?</Text>
+      <SentAt>2026-06-18T11:00:00</SentAt>
+    </Message>
+    <Message>
+      <MessageId>BMSG-010</MessageId>
+      <CaseId>CID-231</CaseId>
+      <Sender>Customer</Sender>
+      <SenderName>Horizon Logistics</SenderName>
+      <Text>Hello, we made a payment on June 10th but our account still shows an outstanding balance. Can you verify?</Text>
+      <SentAt>2026-06-18T11:10:00</SentAt>
+    </Message>
+    <Message>
+      <MessageId>BMSG-011</MessageId>
+      <CaseId>CID-231</CaseId>
+      <Sender>ServiceRep</Sender>
+      <SenderName>Sarah Mitchell</SenderName>
+      <Text>I can see a payment was received on June 10th. However, it appears it was applied to a previous balance. Your current amount due is $1,240.00 for the June period.</Text>
+      <SentAt>2026-06-18T11:25:00</SentAt>
+    </Message>
+    <Message>
+      <MessageId>BMSG-012</MessageId>
+      <CaseId>CID-231</CaseId>
+      <Sender>Customer</Sender>
+      <SenderName>Horizon Logistics</SenderName>
+      <Text>Understood. We will process the payment for $1,240.00 by end of this week.</Text>
+      <SentAt>2026-06-19T08:00:00</SentAt>
+    </Message>
+    <Message>
+      <MessageId>BMSG-013</MessageId>
+      <CaseId>CID-230</CaseId>
+      <Sender>ServiceRep</Sender>
+      <SenderName>Emily Rogers</SenderName>
+      <Text>Hello! Thank you for reaching out. How can we help you today?</Text>
+      <SentAt>2026-06-14T10:00:00</SentAt>
+    </Message>
+    <Message>
+      <MessageId>BMSG-014</MessageId>
+      <CaseId>CID-230</CaseId>
+      <Sender>Customer</Sender>
+      <SenderName>Northstar Warehousing</SenderName>
+      <Text>Hi, we are expanding our facility and would like to know what options are available for upgrading our energy plan.</Text>
+      <SentAt>2026-06-14T10:20:00</SentAt>
+    </Message>
+    <Message>
+      <MessageId>BMSG-015</MessageId>
+      <CaseId>CID-230</CaseId>
+      <Sender>ServiceRep</Sender>
+      <SenderName>Emily Rogers</SenderName>
+      <Text>That's great news! We have several commercial plans that can accommodate higher usage. I can arrange for an account specialist to contact you with tailored options.</Text>
+      <SentAt>2026-06-15T09:00:00</SentAt>
+    </Message>
+    <Message>
+      <MessageId>BMSG-016</MessageId>
+      <CaseId>CID-230</CaseId>
+      <Sender>Customer</Sender>
+      <SenderName>Northstar Warehousing</SenderName>
+      <Text>That would be great. Please have them call us at their earliest convenience.</Text>
+      <SentAt>2026-06-15T09:30:00</SentAt>
+    </Message>
+    <Message>
+      <MessageId>BMSG-017</MessageId>
+      <CaseId>CID-229</CaseId>
+      <Sender>ServiceRep</Sender>
+      <SenderName>Brooklyn Simmons</SenderName>
+      <Text>Hello! We've received your inquiry. Could you please describe the issue you're experiencing?</Text>
+      <SentAt>2026-06-14T13:00:00</SentAt>
+    </Message>
+    <Message>
+      <MessageId>BMSG-018</MessageId>
+      <CaseId>CID-229</CaseId>
+      <Sender>Customer</Sender>
+      <SenderName>Elite Business Park</SenderName>
+      <Text>We are noticing intermittent power fluctuations in our east wing. This has been affecting our tenants' equipment.</Text>
+      <SentAt>2026-06-14T13:20:00</SentAt>
+    </Message>
+    <Message>
+      <MessageId>BMSG-019</MessageId>
+      <CaseId>CID-229</CaseId>
+      <Sender>ServiceRep</Sender>
+      <SenderName>Brooklyn Simmons</SenderName>
+      <Text>I'm sorry to hear that. I've escalated this to our technical team. An engineer will be in contact within 24 hours to schedule a site visit.</Text>
+      <SentAt>2026-06-14T13:45:00</SentAt>
+    </Message>
+    <Message>
+      <MessageId>BMSG-020</MessageId>
+      <CaseId>CID-229</CaseId>
+      <Sender>Customer</Sender>
+      <SenderName>Elite Business Park</SenderName>
+      <Text>Thank you. Please treat this as high priority as it's impacting business operations.</Text>
+      <SentAt>2026-06-16T09:00:00</SentAt>
+    </Message>
+    <Message>
+      <MessageId>BMSG-021</MessageId>
+      <CaseId>CID-228</CaseId>
+      <Sender>ServiceRep</Sender>
+      <SenderName>James Carter</SenderName>
+      <Text>Hello! We understand you have not received your invoice. Let me check our records.</Text>
+      <SentAt>2026-06-12T09:00:00</SentAt>
+    </Message>
+    <Message>
+      <MessageId>BMSG-022</MessageId>
+      <CaseId>CID-228</CaseId>
+      <Sender>Customer</Sender>
+      <SenderName>Pinnacle Commerce Center</SenderName>
+      <Text>Correct. We need the invoice for May billing to process our internal payment approval.</Text>
+      <SentAt>2026-06-12T09:10:00</SentAt>
+    </Message>
+    <Message>
+      <MessageId>BMSG-023</MessageId>
+      <CaseId>CID-228</CaseId>
+      <Sender>ServiceRep</Sender>
+      <SenderName>James Carter</SenderName>
+      <Text>I've resent the May invoice to your registered email. You should receive it shortly. This case is now resolved.</Text>
+      <SentAt>2026-06-14T10:00:00</SentAt>
+    </Message>
+    <Message>
+      <MessageId>BMSG-024</MessageId>
+      <CaseId>CID-227</CaseId>
+      <Sender>ServiceRep</Sender>
+      <SenderName>Sarah Mitchell</SenderName>
+      <Text>Hi! I see you have a payment inquiry. How can I help?</Text>
+      <SentAt>2026-05-10T10:00:00</SentAt>
+    </Message>
+    <Message>
+      <MessageId>BMSG-025</MessageId>
+      <CaseId>CID-227</CaseId>
+      <Sender>Customer</Sender>
+      <SenderName>Polar Storage Solutions</SenderName>
+      <Text>We submitted a payment via bank transfer on April 28th but it hasn't been reflected in our account yet.</Text>
+      <SentAt>2026-05-10T10:15:00</SentAt>
+    </Message>
+    <Message>
+      <MessageId>BMSG-026</MessageId>
+      <CaseId>CID-227</CaseId>
+      <Sender>ServiceRep</Sender>
+      <SenderName>Sarah Mitchell</SenderName>
+      <Text>I've flagged this with our payments team. Bank transfers can take 3-5 business days to reflect. We'll confirm once the payment is posted.</Text>
+      <SentAt>2026-05-12T09:00:00</SentAt>
+    </Message>
+    <Message>
+      <MessageId>BMSG-027</MessageId>
+      <CaseId>CID-226</CaseId>
+      <Sender>ServiceRep</Sender>
+      <SenderName>Emily Rogers</SenderName>
+      <Text>Hello! How can we assist you today?</Text>
+      <SentAt>2026-05-08T14:00:00</SentAt>
+    </Message>
+    <Message>
+      <MessageId>BMSG-028</MessageId>
+      <CaseId>CID-226</CaseId>
+      <Sender>Customer</Sender>
+      <SenderName>Pinnacle Commerce Center</SenderName>
+      <Text>We would like to update our billing contact details. Can you guide us on how to do that?</Text>
+      <SentAt>2026-05-08T14:10:00</SentAt>
+    </Message>
+    <Message>
+      <MessageId>BMSG-029</MessageId>
+      <CaseId>CID-226</CaseId>
+      <Sender>ServiceRep</Sender>
+      <SenderName>Emily Rogers</SenderName>
+      <Text>Sure! You can update your billing contact in the portal under Account Settings &gt; Contacts. Alternatively, I can update it for you right now if you provide the new details.</Text>
+      <SentAt>2026-05-09T09:00:00</SentAt>
+    </Message>
+    <Message>
+      <MessageId>BMSG-030</MessageId>
+      <CaseId>CID-226</CaseId>
+      <Sender>Customer</Sender>
+      <SenderName>Pinnacle Commerce Center</SenderName>
+      <Text>We'll handle it through the portal. Thank you!</Text>
+      <SentAt>2026-05-09T09:20:00</SentAt>
+    </Message>
+    <Message>
+      <MessageId>BMSG-031</MessageId>
+      <CaseId>CID-225</CaseId>
+      <Sender>ServiceRep</Sender>
+      <SenderName>Brooklyn Simmons</SenderName>
+      <Text>Hello! I'm here to assist with your balance inquiry. What can I help you with?</Text>
+      <SentAt>2026-05-05T11:00:00</SentAt>
+    </Message>
+    <Message>
+      <MessageId>BMSG-032</MessageId>
+      <CaseId>CID-225</CaseId>
+      <Sender>Customer</Sender>
+      <SenderName>Horizon Logistics</SenderName>
+      <Text>We need a breakdown of the outstanding balance listed on our account.</Text>
+      <SentAt>2026-05-05T11:15:00</SentAt>
+    </Message>
+    <Message>
+      <MessageId>BMSG-033</MessageId>
+      <CaseId>CID-225</CaseId>
+      <Sender>ServiceRep</Sender>
+      <SenderName>Brooklyn Simmons</SenderName>
+      <Text>The balance of $3,480.00 consists of $2,100.00 for April usage and $1,380.00 carried forward from March.</Text>
+      <SentAt>2026-05-06T09:00:00</SentAt>
+    </Message>
+    <Message>
+      <MessageId>BMSG-034</MessageId>
+      <CaseId>CID-225</CaseId>
+      <Sender>Customer</Sender>
+      <SenderName>Horizon Logistics</SenderName>
+      <Text>Understood. We'll process the full payment by May 7th.</Text>
+      <SentAt>2026-05-06T09:30:00</SentAt>
+    </Message>
+    <Message>
+      <MessageId>BMSG-035</MessageId>
+      <CaseId>CID-225</CaseId>
+      <Sender>ServiceRep</Sender>
+      <SenderName>Brooklyn Simmons</SenderName>
+      <Text>Payment confirmed. Your account is now up to date. This case is now closed.</Text>
+      <SentAt>2026-05-07T10:00:00</SentAt>
+    </Message>
+    <Message>
+      <MessageId>BMSG-036</MessageId>
+      <CaseId>CID-224</CaseId>
+      <Sender>ServiceRep</Sender>
+      <SenderName>James Carter</SenderName>
+      <Text>Hello! We received your inquiry. How can we help?</Text>
+      <SentAt>2026-05-02T09:00:00</SentAt>
+    </Message>
+    <Message>
+      <MessageId>BMSG-037</MessageId>
+      <CaseId>CID-224</CaseId>
+      <Sender>Customer</Sender>
+      <SenderName>Elite Business Park</SenderName>
+      <Text>We'd like to request a certificate of account standing for our upcoming lease renewal with the building owner.</Text>
+      <SentAt>2026-05-02T09:15:00</SentAt>
+    </Message>
+    <Message>
+      <MessageId>BMSG-038</MessageId>
+      <CaseId>CID-224</CaseId>
+      <Sender>ServiceRep</Sender>
+      <SenderName>James Carter</SenderName>
+      <Text>No problem! I've initiated the request. The certificate will be emailed to your account address within 2 business days.</Text>
+      <SentAt>2026-05-03T10:00:00</SentAt>
+    </Message>
+    <Message>
+      <MessageId>BMSG-039</MessageId>
+      <CaseId>CID-224</CaseId>
+      <Sender>Customer</Sender>
+      <SenderName>Elite Business Park</SenderName>
+      <Text>Perfect, thank you very much.</Text>
+      <SentAt>2026-05-04T08:30:00</SentAt>
+    </Message>
+    <Message>
+      <MessageId>BMSG-040</MessageId>
+      <CaseId>CID-224</CaseId>
+      <Sender>ServiceRep</Sender>
+      <SenderName>James Carter</SenderName>
+      <Text>The certificate has been sent. This case is now closed. Have a great day!</Text>
+      <SentAt>2026-05-04T09:00:00</SentAt>
+    </Message>
+  </Messages>
+</BrokerCaseChatData>

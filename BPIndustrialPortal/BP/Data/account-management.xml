@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<AccountManagementData>
+  <Users>
+    <User>
+      <UserId>AM001</UserId>
+      <FirstName>Maria</FirstName>
+      <LastName>Smith</LastName>
+      <Title>TBH</Title>
+      <AccountLevel>ADMIN</AccountLevel>
+      <AccountType>admin</AccountType>
+      <Role>billing</Role>
+      <EmailId>Maria.Smith@bp.com</EmailId>
+      <Phone>678-785-5354</Phone>
+      <Permissions>Primary Account Holder</Permissions>
+      <Password>admin1234</Password>
+      <CreatedOn>5/18/2026</CreatedOn>
+      <LastLogin>5/18/2026 3:00 PM</LastLogin>
+      <LastLogout>5/18/2026 3:00 PM</LastLogout>
+      <Status>Active</Status>
+    </User>
+    <User>
+      <UserId>AM002</UserId>
+      <FirstName>Alex</FirstName>
+      <LastName>Johnson</LastName>
+      <Title>TBH</Title>
+      <AccountLevel>SUPER ADMIN</AccountLevel>
+      <AccountType>super admin</AccountType>
+      <Role>billing</Role>
+      <EmailId>Alex.Johnson@bp.com</EmailId>
+      <Phone>678-785-5452</Phone>
+      <Permissions>Primary Account Holder,Portal Administrator</Permissions>
+      <Password>admin1234</Password>
+      <CreatedOn>8/16/2025</CreatedOn>
+      <LastLogin>6/16/2026 3:00 PM</LastLogin>
+      <LastLogout>6/16/2026 3:00 PM</LastLogout>
+      <Status>Active</Status>
+    </User>
+    <User>
+      <UserId>AM003</UserId>
+      <FirstName>Emily</FirstName>
+      <LastName>Davis</LastName>
+      <Title>TBH</Title>
+      <AccountLevel>ADMIN</AccountLevel>
+      <AccountType>admin</AccountType>
+      <Role>billing</Role>
+      <EmailId>Emily.Davis@bp.com</EmailId>
+      <Phone>678-785-5451</Phone>
+      <Permissions>Contract / Renewal Contact</Permissions>
+      <Password>admin1234</Password>
+      <CreatedOn>8/12/2025</CreatedOn>
+      <LastLogin>8/12/2025 3:00 PM</LastLogin>
+      <LastLogout>8/12/2025 3:00 PM</LastLogout>
+      <Status>Active</Status>
+    </User>
+    <User>
+      <UserId>AM004</UserId>
+      <FirstName>David</FirstName>
+      <LastName>Brown</LastName>
+      <Title>TBH</Title>
+      <AccountLevel>ADMIN</AccountLevel>
+      <AccountType>admin</AccountType>
+      <Role>billing</Role>
+      <EmailId>David.Brown@bp.com</EmailId>
+      <Phone>678-785-5054</Phone>
+      <Permissions>Primary Account Holder</Permissions>
+      <Password>admin1234</Password>
+      <CreatedOn>8/11/2025</CreatedOn>
+      <LastLogin>8/11/2026 3:00 PM</LastLogin>
+      <LastLogout>8/11/2026 3:00 PM</LastLogout>
+      <Status>Active</Status>
+    </User>
+    <User>
+      <UserId>AM005</UserId>
+      <FirstName>James</FirstName>
+      <LastName>Wilson</LastName>
+      <Title>TBH</Title>
+      <AccountLevel>ADMIN</AccountLevel>
+      <AccountType>admin</AccountType>
+      <Role>billing</Role>
+      <EmailId>James.Wilson@bp.com</EmailId>
+      <Phone>678-785-5099</Phone>
+      <Permissions></Permissions>
+      <Password>admin1234</Password>
+      <CreatedOn>8/20/2025</CreatedOn>
+      <LastLogin></LastLogin>
+      <LastLogout></LastLogout>
+      <Status>Pending</Status>
+    </User>
+    <User>
+      <UserId>AM006</UserId>
+      <FirstName>Alex</FirstName>
+      <LastName>Doe</LastName>
+      <Title>TBH</Title>
+      <AccountLevel>ADMIN</AccountLevel>
+      <AccountType>admin</AccountType>
+      <Role>billing</Role>
+      <EmailId>Alex@db.com</EmailId>
+      <Phone>15551234567</Phone>
+      <Permissions></Permissions>
+      <Password>admin1234</Password>
+      <CreatedOn>6/30/2026</CreatedOn>
+      <LastLogin></LastLogin>
+      <LastLogout></LastLogout>
+      <Status>Pending</Status>
+    </User>
+  </Users>
+  <PendingInvitations>
+    <Invitation>
+      <InvitationId>INV001</InvitationId>
+      <FirstName>James</FirstName>
+      <LastName>Wilson</LastName>
+      <Title>TBH</Title>
+      <EmailId>James.Wilson@bp.com</EmailId>
+      <AccountLevel>ADMIN</AccountLevel>
+      <Phone>678-785-5099</Phone>
+      <Permissions></Permissions>
+      <InvitedOn>5/20/2026</InvitedOn>
+      <InvitedBy>Alex Johnson</InvitedBy>
+      <Status>Pending</Status>
+    </Invitation>
+    <Invitation>
+      <InvitationId>INV002</InvitationId>
+      <FirstName>Alex</FirstName>
+      <LastName>Doe</LastName>
+      <Title>TBH</Title>
+      <EmailId>Alex@db.com</EmailId>
+      <AccountLevel>ADMIN</AccountLevel>
+      <Phone>15551234567</Phone>
+      <Permissions></Permissions>
+      <InvitedOn>6/30/2026</InvitedOn>
+      <InvitedBy>System</InvitedBy>
+      <Status>Pending</Status>
+    </Invitation>
+  </PendingInvitations>
+</AccountManagementData>

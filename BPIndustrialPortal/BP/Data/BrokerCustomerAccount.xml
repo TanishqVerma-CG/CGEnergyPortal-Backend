@@ -1,0 +1,967 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<CustomerDetails>
+
+	<Customer Id="1">
+		<Name>Acme Manufacturing Ltd.</Name>
+		<Contract>
+			<ContractId>10293</ContractId>
+			<Status>Active</Status>
+			<MeterCount>5</MeterCount>
+			<AnnualUsage Unit="MWh">12760</AnnualUsage>
+			<ContractTermMonths>36</ContractTermMonths>
+			<BrokerMargin>0.25</BrokerMargin>
+			<Price>2150.00</Price>
+			<Product>Fixed Energy</Product>
+			<StartDate>2024-08-01</StartDate>
+			<EndDate>2026-08-01</EndDate>
+		</Contract>
+
+		<Contract>
+			<ContractId>10292</ContractId>
+			<Status>Active</Status>
+			<MeterCount>4</MeterCount>
+			<AnnualUsage Unit="MWh">11840</AnnualUsage>
+			<ContractTermMonths>24</ContractTermMonths>
+			<BrokerMargin>0.23</BrokerMargin>
+			<Price>1980.00</Price>
+			<Product>Fixed Energy</Product>
+			<StartDate>2024-05-01</StartDate>
+			<EndDate>2026-05-01</EndDate>
+		</Contract>
+
+		<Contract>
+			<ContractId>10291</ContractId>
+			<Status>Active</Status>
+			<MeterCount>6</MeterCount>
+			<AnnualUsage Unit="MWh">13250</AnnualUsage>
+			<ContractTermMonths>36</ContractTermMonths>
+			<BrokerMargin>0.24</BrokerMargin>
+			<Price>2235.00</Price>
+			<Product>Green Energy</Product>
+			<StartDate>2024-03-15</StartDate>
+			<EndDate>2027-03-15</EndDate>
+		</Contract>
+
+
+		<Meters>
+			<Meter>
+				<MeterId>00313867</MeterId>
+				<UAN></UAN>
+				<LDC>23220644990</LDC>
+				<Utility>Northeast Electric</Utility>
+				<ServiceAddress>456 Oak Street, Dallas, TX 75201</ServiceAddress>
+				<Status>ACTIVE</Status>
+				<StartDate>2024-08-01</StartDate>
+				<StopDate></StopDate>
+				<AnnualUsage Unit="MWh">280</AnnualUsage>
+			</Meter>
+
+			<Meter>
+				<MeterId>00313866</MeterId>
+				<UAN></UAN>
+				<LDC>23220644991</LDC>
+				<Utility>Metro Energy Services</Utility>
+				<ServiceAddress>789 Pine Street, Houston, TX 77002</ServiceAddress>
+				<Status>ACTIVE</Status>
+				<StartDate>2024-08-01</StartDate>
+				<StopDate></StopDate>
+				<AnnualUsage Unit="MWh">300</AnnualUsage>
+			</Meter>
+
+			<Meter>
+				<MeterId>00313865</MeterId>
+				<UAN></UAN>
+				<LDC>23220644992</LDC>
+				<Utility>Monarch Energy</Utility>
+				<ServiceAddress>321 Birch Lane, Austin, TX 78701</ServiceAddress>
+				<Status>PENDING</Status>
+				<StartDate>2025-02-15</StartDate>
+				<StopDate></StopDate>
+				<AnnualUsage Unit="MWh">250</AnnualUsage>
+			</Meter>
+
+			<Meter>
+				<MeterId>00313864</MeterId>
+				<UAN></UAN>
+				<LDC>23220644993</LDC>
+				<Utility>Metro Energy Services</Utility>
+				<ServiceAddress>654 Cedar Boulevard, Fort Worth, TX 76102</ServiceAddress>
+				<Status>ACTIVE</Status>
+				<StartDate>2025-05-10</StartDate>
+				<StopDate></StopDate>
+				<AnnualUsage Unit="MWh">300</AnnualUsage>
+			</Meter>
+
+			<Meter>
+				<MeterId>00313863</MeterId>
+				<UAN></UAN>
+				<LDC>23220644994</LDC>
+				<Utility>Monarch Energy</Utility>
+				<ServiceAddress>123 Maplewood Avenue, San Antonio, TX 78201</ServiceAddress>
+				<Status>INACTIVE</Status>
+				<StartDate>2024-08-01</StartDate>
+				<StopDate>2026-05-01</StopDate>
+				<AnnualUsage Unit="MWh">250</AnnualUsage>
+			</Meter>
+
+		</Meters>
+
+	</Customer>
+
+	<Customer Id="2">
+		<Name>Greenfield Retail Group</Name>
+
+		<Contract>
+			<ContractId>10294</ContractId>
+			<Status>Active</Status>
+			<MeterCount>45</MeterCount>
+			<AnnualUsage Unit="MWh">13420</AnnualUsage>
+			<ContractTermMonths>24</ContractTermMonths>
+			<BrokerMargin>0.22</BrokerMargin>
+			<Price>1875.00</Price>
+			<Product>Retail Energy</Product>
+			<StartDate>2024-09-01</StartDate>
+			<EndDate>2026-09-01</EndDate>
+		</Contract>
+
+		<Contract>
+			<ContractId>10290</ContractId>
+			<Status>Expired</Status>
+			<MeterCount>5</MeterCount>
+			<AnnualUsage Unit="MWh">12190</AnnualUsage>
+			<ContractTermMonths>24</ContractTermMonths>
+			<BrokerMargin>0.20</BrokerMargin>
+			<Price>1895.00</Price>
+			<Product>Fixed Energy</Product>
+			<StartDate>2021-08-01</StartDate>
+			<EndDate>2023-08-01</EndDate>
+		</Contract>
+
+		<Contract>
+			<ContractId>10289</ContractId>
+			<Status>Expired</Status>
+			<MeterCount>4</MeterCount>
+			<AnnualUsage Unit="MWh">11450</AnnualUsage>
+			<ContractTermMonths>12</ContractTermMonths>
+			<BrokerMargin>0.18</BrokerMargin>
+			<Price>1750.00</Price>
+			<Product>Variable Energy</Product>
+			<StartDate>2020-08-01</StartDate>
+			<EndDate>2021-08-01</EndDate>
+		</Contract>
+
+		<Contract>
+			<ContractId>10288</ContractId>
+			<Status>Active</Status>
+			<MeterCount>7</MeterCount>
+			<AnnualUsage Unit="MWh">14860</AnnualUsage>
+			<ContractTermMonths>48</ContractTermMonths>
+			<BrokerMargin>0.27</BrokerMargin>
+			<Price>2450.00</Price>
+			<Product>Renewable Energy</Product>
+			<StartDate>2025-01-01</StartDate>
+			<EndDate>2029-01-01</EndDate>
+		</Contract>
+
+
+		<Meters>
+			<Meter>
+				<MeterId>00420001</MeterId>
+				<LDC>33220644001</LDC>
+				<Utility>Metro Energy Services</Utility>
+				<ServiceAddress>100 Retail Plaza, Chicago, IL 60601</ServiceAddress>
+				<Status>ACTIVE</Status>
+				<StartDate>2024-09-01</StartDate>
+				<StopDate></StopDate>
+				<AnnualUsage Unit="MWh">280</AnnualUsage>
+			</Meter>
+			<Meter>
+				<MeterId>0031386</MeterId>
+				<UAN></UAN>
+				<LDC>23220644990</LDC>
+				<Utility>Northeast Electric</Utility>
+				<ServiceAddress>456 Oak Street, Dallas, TX 75201</ServiceAddress>
+				<Status>ACTIVE</Status>
+				<StartDate>2024-08-01</StartDate>
+				<StopDate></StopDate>
+				<AnnualUsage Unit="MWh">280</AnnualUsage>
+			</Meter>
+
+			<Meter>
+				<MeterId>0031387</MeterId>
+				<UAN></UAN>
+				<LDC>23220644991</LDC>
+				<Utility>Metro Energy Services</Utility>
+				<ServiceAddress>789 Pine Street, Houston, TX 77002</ServiceAddress>
+				<Status>ACTIVE</Status>
+				<StartDate>2024-08-01</StartDate>
+				<StopDate></StopDate>
+				<AnnualUsage Unit="MWh">280</AnnualUsage>
+			</Meter>
+
+			<Meter>
+				<MeterId>0031388</MeterId>
+				<UAN></UAN>
+				<LDC>23220644992</LDC>
+				<Utility>Monarch Energy</Utility>
+				<ServiceAddress>321 Birch Lane, Austin, TX 78701</ServiceAddress>
+				<Status>PENDING</Status>
+				<StartDate>2025-02-15</StartDate>
+				<StopDate></StopDate>
+				<AnnualUsage Unit="MWh">280</AnnualUsage>
+			</Meter>
+		</Meters>
+
+	</Customer>
+
+	<Customer Id="3">
+		<Name>Horizon Logistics</Name>
+
+		<Contract>
+			<ContractId>10295</ContractId>
+			<Status>Active</Status>
+			<MeterCount>36</MeterCount>
+			<AnnualUsage Unit="MWh">11950</AnnualUsage>
+			<ContractTermMonths>36</ContractTermMonths>
+			<BrokerMargin>0.20</BrokerMargin>
+			<Price>1950.00</Price>
+			<Product>Logistics Energy</Product>
+			<StartDate>2024-07-01</StartDate>
+			<EndDate>2027-07-01</EndDate>
+		</Contract>
+
+		<Contract>
+			<ContractId>10287</ContractId>
+			<Status>Active</Status>
+			<MeterCount>5</MeterCount>
+			<AnnualUsage Unit="MWh">12230</AnnualUsage>
+			<ContractTermMonths>36</ContractTermMonths>
+			<BrokerMargin>0.21</BrokerMargin>
+			<Price>2080.00</Price>
+			<Product>Fixed Energy</Product>
+			<StartDate>2023-07-01</StartDate>
+			<EndDate>2026-07-01</EndDate>
+		</Contract>
+
+		<Contract>
+			<ContractId>10286</ContractId>
+			<Status>Expired</Status>
+			<MeterCount>3</MeterCount>
+			<AnnualUsage Unit="MWh">9100</AnnualUsage>
+			<ContractTermMonths>24</ContractTermMonths>
+			<BrokerMargin>0.19</BrokerMargin>
+			<Price>1695.00</Price>
+			<Product>Variable Energy</Product>
+			<StartDate>2019-01-01</StartDate>
+			<EndDate>2021-01-01</EndDate>
+		</Contract>
+
+		<Meters>
+			<Meter>
+				<MeterId>00420022</MeterId>
+				<LDC>33220644001</LDC>
+				<Utility>Metro Energy Services</Utility>
+				<ServiceAddress>100 Retail Plaza, Chicago, IL 60601</ServiceAddress>
+				<Status>ACTIVE</Status>
+				<StartDate>2024-09-01</StartDate>
+				<StopDate></StopDate>
+				<AnnualUsage Unit="MWh">280</AnnualUsage>
+			</Meter>
+			<Meter>
+				<MeterId>0031386</MeterId>
+				<UAN></UAN>
+				<LDC>23220644990</LDC>
+				<Utility>Northeast Electric</Utility>
+				<ServiceAddress>456 Oak Street, Dallas, TX 75201</ServiceAddress>
+				<Status>ACTIVE</Status>
+				<StartDate>2024-08-01</StartDate>
+				<StopDate></StopDate>
+				<AnnualUsage Unit="MWh">580</AnnualUsage>
+			</Meter>
+
+			<Meter>
+				<MeterId>0031387</MeterId>
+				<UAN></UAN>
+				<LDC>23220644991</LDC>
+				<Utility>Metro Energy Services</Utility>
+				<ServiceAddress>789 Pine Street, Houston, TX 77002</ServiceAddress>
+				<Status>ACTIVE</Status>
+				<StartDate>2024-08-01</StartDate>
+				<StopDate></StopDate>
+				<AnnualUsage Unit="MWh">290</AnnualUsage>
+
+			</Meter>
+
+			<Meter>
+				<MeterId>0031388</MeterId>
+				<UAN></UAN>
+				<LDC>23220644992</LDC>
+				<Utility>Monarch Energy</Utility>
+				<ServiceAddress>321 Birch Lane, Austin, TX 78701</ServiceAddress>
+				<Status>PENDING</Status>
+				<StartDate>2025-02-15</StartDate>
+				<StopDate></StopDate>
+				<AnnualUsage Unit="MWh">650</AnnualUsage>
+
+			</Meter>
+		</Meters>
+	</Customer>
+
+	<Customer Id="4">
+		<Name>Northstar Warehousing</Name>
+
+		<Contract>
+			<ContractId>10295</ContractId>
+			<Status>Active</Status>
+			<MeterCount>36</MeterCount>
+			<AnnualUsage Unit="MWh">11950</AnnualUsage>
+			<ContractTermMonths>36</ContractTermMonths>
+			<BrokerMargin>0.20</BrokerMargin>
+			<Price>1950.00</Price>
+			<Product>Logistics Energy</Product>
+			<StartDate>2024-07-01</StartDate>
+			<EndDate>2027-07-01</EndDate>
+		</Contract>
+
+		<Contract>
+			<ContractId>10285</ContractId>
+			<Status>Active</Status>
+			<MeterCount>4</MeterCount>
+			<AnnualUsage Unit="MWh">10450</AnnualUsage>
+			<ContractTermMonths>24</ContractTermMonths>
+			<BrokerMargin>0.22</BrokerMargin>
+			<Price>1830.00</Price>
+			<Product>Solar Energy</Product>
+			<StartDate>2024-10-01</StartDate>
+			<EndDate>2026-10-01</EndDate>
+		</Contract>
+
+		<Meters>
+			<Meter>
+				<MeterId>00420022</MeterId>
+				<LDC>33220644001</LDC>
+				<Utility>Metro Energy Services</Utility>
+				<ServiceAddress>100 Retail Plaza, Chicago, IL 60601</ServiceAddress>
+				<Status>ACTIVE</Status>
+				<StartDate>2024-09-01</StartDate>
+				<StopDate></StopDate>
+				<AnnualUsage Unit="MWh">610</AnnualUsage>
+
+			</Meter>
+			<Meter>
+				<MeterId>0031386</MeterId>
+				<UAN></UAN>
+				<LDC>23220644990</LDC>
+				<Utility>Northeast Electric</Utility>
+				<ServiceAddress>456 Oak Street, Dallas, TX 75201</ServiceAddress>
+				<Status>ACTIVE</Status>
+				<StartDate>2024-08-01</StartDate>
+				<StopDate></StopDate>
+				<AnnualUsage Unit="MWh">380</AnnualUsage>
+
+			</Meter>
+
+			<Meter>
+				<MeterId>0031387</MeterId>
+				<UAN></UAN>
+				<LDC>23220644991</LDC>
+				<Utility>Metro Energy Services</Utility>
+				<ServiceAddress>789 Pine Street, Houston, TX 77002</ServiceAddress>
+				<Status>ACTIVE</Status>
+				<StartDate>2024-08-01</StartDate>
+				<StopDate></StopDate>
+				<AnnualUsage Unit="MWh">230</AnnualUsage>
+			</Meter>
+
+			<Meter>
+				<MeterId>0031388</MeterId>
+				<UAN></UAN>
+				<LDC>23220644992</LDC>
+				<Utility>Monarch Energy</Utility>
+				<ServiceAddress>321 Birch Lane, Austin, TX 78701</ServiceAddress>
+				<Status>PENDING</Status>
+				<StartDate>2025-02-15</StartDate>
+				<StopDate></StopDate>
+				<AnnualUsage Unit="MWh">480</AnnualUsage>
+
+			</Meter>
+		</Meters>
+	</Customer>
+
+	<Customer Id="5">
+		<Name>Elite Business Park</Name>
+
+		<Contract>
+			<ContractId>10295</ContractId>
+			<Status>Active</Status>
+			<MeterCount>36</MeterCount>
+			<AnnualUsage Unit="MWh">11950</AnnualUsage>
+			<ContractTermMonths>36</ContractTermMonths>
+			<BrokerMargin>0.20</BrokerMargin>
+			<Price>1950.00</Price>
+			<Product>Logistics Energy</Product>
+			<StartDate>2024-07-01</StartDate>
+			<EndDate>2027-07-01</EndDate>
+		</Contract>
+
+		<Contract>
+			<ContractId>10284</ContractId>
+			<Status>Expired</Status>
+			<MeterCount>4</MeterCount>
+			<AnnualUsage Unit="MWh">10980</AnnualUsage>
+			<ContractTermMonths>12</ContractTermMonths>
+			<BrokerMargin>0.17</BrokerMargin>
+			<Price>1650.00</Price>
+			<Product>Variable Energy</Product>
+			<StartDate>2018-06-01</StartDate>
+			<EndDate>2019-06-01</EndDate>
+		</Contract>
+
+		<Contract>
+			<ContractId>10283</ContractId>
+			<Status>Active</Status>
+			<MeterCount>6</MeterCount>
+			<AnnualUsage Unit="MWh">13520</AnnualUsage>
+			<ContractTermMonths>36</ContractTermMonths>
+			<BrokerMargin>0.26</BrokerMargin>
+			<Price>2310.00</Price>
+			<Product>Green Energy</Product>
+			<StartDate>2024-12-01</StartDate>
+			<EndDate>2027-12-01</EndDate>
+		</Contract>
+
+		<Meters>
+			<Meter>
+				<MeterId>00420023</MeterId>
+				<LDC>33220644001</LDC>
+				<Utility>Metro Energy Services</Utility>
+				<ServiceAddress>100 Retail Plaza, Chicago, IL 60601</ServiceAddress>
+				<Status>ACTIVE</Status>
+				<StartDate>2024-09-01</StartDate>
+				<StopDate></StopDate>
+				<AnnualUsage Unit="MWh">610</AnnualUsage>
+
+			</Meter>
+			<Meter>
+				<MeterId>0031386</MeterId>
+				<UAN></UAN>
+				<LDC>23220644990</LDC>
+				<Utility>Northeast Electric</Utility>
+				<ServiceAddress>456 Oak Street, Dallas, TX 75201</ServiceAddress>
+				<Status>ACTIVE</Status>
+				<StartDate>2024-08-01</StartDate>
+				<StopDate></StopDate>
+				<AnnualUsage Unit="MWh">380</AnnualUsage>
+
+			</Meter>
+
+			<Meter>
+				<MeterId>0031356</MeterId>
+				<UAN></UAN>
+				<LDC>23220644991</LDC>
+				<Utility>Metro Energy Services</Utility>
+				<ServiceAddress>789 Pine Street, Houston, TX 77002</ServiceAddress>
+				<Status>ACTIVE</Status>
+				<StartDate>2024-08-01</StartDate>
+				<StopDate></StopDate>
+				<AnnualUsage Unit="MWh">230</AnnualUsage>
+			</Meter>
+
+			<Meter>
+				<MeterId>0031388</MeterId>
+				<UAN></UAN>
+				<LDC>23220644992</LDC>
+				<Utility>Monarch Energy</Utility>
+				<ServiceAddress>321 Birch Lane, Austin, TX 78701</ServiceAddress>
+				<Status>PENDING</Status>
+				<StartDate>2025-02-15</StartDate>
+				<StopDate></StopDate>
+				<AnnualUsage Unit="MWh">480</AnnualUsage>
+
+			</Meter>
+		</Meters>
+	</Customer>
+
+	<Customer Id="6">
+		<Name>Pinnacle Commerce Center</Name>
+
+		<Contract>
+			<ContractId>10295</ContractId>
+			<Status>Active</Status>
+			<MeterCount>36</MeterCount>
+			<AnnualUsage Unit="MWh">11950</AnnualUsage>
+			<ContractTermMonths>36</ContractTermMonths>
+			<BrokerMargin>0.20</BrokerMargin>
+			<Price>1950.00</Price>
+			<Product>Logistics Energy</Product>
+			<StartDate>2024-07-01</StartDate>
+			<EndDate>2027-07-01</EndDate>
+		</Contract>
+
+		<Contract>
+			<ContractId>10284</ContractId>
+			<Status>Expired</Status>
+			<MeterCount>4</MeterCount>
+			<AnnualUsage Unit="MWh">10980</AnnualUsage>
+			<ContractTermMonths>12</ContractTermMonths>
+			<BrokerMargin>0.17</BrokerMargin>
+			<Price>1650.00</Price>
+			<Product>Variable Energy</Product>
+			<StartDate>2018-06-01</StartDate>
+			<EndDate>2019-06-01</EndDate>
+		</Contract>
+
+		<Contract>
+			<ContractId>10283</ContractId>
+			<Status>Active</Status>
+			<MeterCount>6</MeterCount>
+			<AnnualUsage Unit="MWh">13520</AnnualUsage>
+			<ContractTermMonths>36</ContractTermMonths>
+			<BrokerMargin>0.26</BrokerMargin>
+			<Price>2310.00</Price>
+			<Product>Green Energy</Product>
+			<StartDate>2024-12-01</StartDate>
+			<EndDate>2027-12-01</EndDate>
+		</Contract>
+
+		<Meters>
+			<Meter>
+				<MeterId>00420001</MeterId>
+				<LDC>33220644001</LDC>
+				<Utility>Metro Energy Services</Utility>
+				<ServiceAddress>100 Retail Plaza, Chicago, IL 60601</ServiceAddress>
+				<Status>ACTIVE</Status>
+				<StartDate>2024-09-01</StartDate>
+				<StopDate></StopDate>
+				<AnnualUsage Unit="MWh">610</AnnualUsage>
+
+			</Meter>
+			<Meter>
+				<MeterId>00420022</MeterId>
+				<UAN></UAN>
+				<LDC>23220644990</LDC>
+				<Utility>Northeast Electric</Utility>
+				<ServiceAddress>456 Oak Street, Dallas, TX 75201</ServiceAddress>
+				<Status>ACTIVE</Status>
+				<StartDate>2024-08-01</StartDate>
+				<StopDate></StopDate>
+				<AnnualUsage Unit="MWh">380</AnnualUsage>
+
+			</Meter>
+
+			<Meter>
+				<MeterId>00420024</MeterId>
+				<UAN></UAN>
+				<LDC>23220644991</LDC>
+				<Utility>Metro Energy Services</Utility>
+				<ServiceAddress>789 Pine Street, Houston, TX 77002</ServiceAddress>
+				<Status>ACTIVE</Status>
+				<StartDate>2024-08-01</StartDate>
+				<StopDate></StopDate>
+				<AnnualUsage Unit="MWh">230</AnnualUsage>
+			</Meter>
+
+			<Meter>
+				<MeterId>0031386</MeterId>
+				<UAN></UAN>
+				<LDC>23220644992</LDC>
+				<Utility>Monarch Energy</Utility>
+				<ServiceAddress>321 Birch Lane, Austin, TX 78701</ServiceAddress>
+				<Status>PENDING</Status>
+				<StartDate>2025-02-15</StartDate>
+				<StopDate></StopDate>
+				<AnnualUsage Unit="MWh">480</AnnualUsage>
+
+			</Meter>
+		</Meters>
+	</Customer>
+
+	<Customer Id="7">
+		<Name>Polar Storage Solutions</Name>
+
+		<Contract>
+			<ContractId>10295</ContractId>
+			<Status>Active</Status>
+			<MeterCount>36</MeterCount>
+			<AnnualUsage Unit="MWh">11950</AnnualUsage>
+			<ContractTermMonths>36</ContractTermMonths>
+			<BrokerMargin>0.20</BrokerMargin>
+			<Price>1950.00</Price>
+			<Product>Logistics Energy</Product>
+			<StartDate>2024-07-01</StartDate>
+			<EndDate>2027-07-01</EndDate>
+		</Contract>
+
+		<Contract>
+			<ContractId>10282</ContractId>
+			<Status>Expired</Status>
+			<MeterCount>2</MeterCount>
+			<AnnualUsage Unit="MWh">7540</AnnualUsage>
+			<ContractTermMonths>12</ContractTermMonths>
+			<BrokerMargin>0.15</BrokerMargin>
+			<Price>1490.00</Price>
+			<Product>Basic Energy</Product>
+			<StartDate>2017-01-01</StartDate>
+			<EndDate>2018-01-01</EndDate>
+		</Contract>
+
+		<Meters>
+			<Meter>
+				<MeterId>00420001</MeterId>
+				<LDC>33220644001</LDC>
+				<Utility>Metro Energy Services</Utility>
+				<ServiceAddress>100 Retail Plaza, Chicago, IL 60601</ServiceAddress>
+				<Status>ACTIVE</Status>
+				<StartDate>2024-09-01</StartDate>
+				<StopDate></StopDate>
+				<AnnualUsage Unit="MWh">610</AnnualUsage>
+
+			</Meter>
+			<Meter>
+				<MeterId>0031386</MeterId>
+				<UAN></UAN>
+				<LDC>23220644990</LDC>
+				<Utility>Northeast Electric</Utility>
+				<ServiceAddress>456 Oak Street, Dallas, TX 75201</ServiceAddress>
+				<Status>ACTIVE</Status>
+				<StartDate>2024-08-01</StartDate>
+				<StopDate></StopDate>
+				<AnnualUsage Unit="MWh">380</AnnualUsage>
+
+			</Meter>
+
+			<Meter>
+				<MeterId>00420022</MeterId>
+				<UAN></UAN>
+				<LDC>23220644991</LDC>
+				<Utility>Metro Energy Services</Utility>
+				<ServiceAddress>789 Pine Street, Houston, TX 77002</ServiceAddress>
+				<Status>ACTIVE</Status>
+				<StartDate>2024-08-01</StartDate>
+				<StopDate></StopDate>
+				<AnnualUsage Unit="MWh">230</AnnualUsage>
+			</Meter>
+
+			<Meter>
+				<MeterId>0031390</MeterId>
+				<UAN></UAN>
+				<LDC>23220644992</LDC>
+				<Utility>Monarch Energy</Utility>
+				<ServiceAddress>321 Birch Lane, Austin, TX 78701</ServiceAddress>
+				<Status>PENDING</Status>
+				<StartDate>2025-02-15</StartDate>
+				<StopDate></StopDate>
+				<AnnualUsage Unit="MWh">480</AnnualUsage>
+
+			</Meter>
+		</Meters>
+	</Customer>
+
+	<Customer Id="8">
+		<Name>Pinnacle Commerce Center</Name>
+
+		<Contract>
+			<ContractId>10295</ContractId>
+			<Status>Active</Status>
+			<MeterCount>36</MeterCount>
+			<AnnualUsage Unit="MWh">11950</AnnualUsage>
+			<ContractTermMonths>36</ContractTermMonths>
+			<BrokerMargin>0.20</BrokerMargin>
+			<Price>1950.00</Price>
+			<Product>Logistics Energy</Product>
+			<StartDate>2024-07-01</StartDate>
+			<EndDate>2027-07-01</EndDate>
+		</Contract>
+
+		<Contract>
+			<ContractId>10282</ContractId>
+			<Status>Expired</Status>
+			<MeterCount>2</MeterCount>
+			<AnnualUsage Unit="MWh">7540</AnnualUsage>
+			<ContractTermMonths>12</ContractTermMonths>
+			<BrokerMargin>0.15</BrokerMargin>
+			<Price>1490.00</Price>
+			<Product>Basic Energy</Product>
+			<StartDate>2017-01-01</StartDate>
+			<EndDate>2018-01-01</EndDate>
+		</Contract>
+
+		<Contract>
+			<ContractId>10284</ContractId>
+			<Status>Expired</Status>
+			<MeterCount>4</MeterCount>
+			<AnnualUsage Unit="MWh">10980</AnnualUsage>
+			<ContractTermMonths>12</ContractTermMonths>
+			<BrokerMargin>0.17</BrokerMargin>
+			<Price>1650.00</Price>
+			<Product>Variable Energy</Product>
+			<StartDate>2018-06-01</StartDate>
+			<EndDate>2019-06-01</EndDate>
+		</Contract>
+
+		<Contract>
+			<ContractId>10283</ContractId>
+			<Status>Active</Status>
+			<MeterCount>6</MeterCount>
+			<AnnualUsage Unit="MWh">13520</AnnualUsage>
+			<ContractTermMonths>36</ContractTermMonths>
+			<BrokerMargin>0.26</BrokerMargin>
+			<Price>2310.00</Price>
+			<Product>Green Energy</Product>
+			<StartDate>2024-12-01</StartDate>
+			<EndDate>2027-12-01</EndDate>
+		</Contract>
+
+		<Meters>
+			<Meter>
+				<MeterId>00420001</MeterId>
+				<LDC>33220644001</LDC>
+				<Utility>Metro Energy Services</Utility>
+				<ServiceAddress>100 Retail Plaza, Chicago, IL 60601</ServiceAddress>
+				<Status>ACTIVE</Status>
+				<StartDate>2024-09-01</StartDate>
+				<StopDate></StopDate>
+				<AnnualUsage Unit="MWh">610</AnnualUsage>
+
+			</Meter>
+			<Meter>
+				<MeterId>0031390</MeterId>
+				<UAN></UAN>
+				<LDC>23220644990</LDC>
+				<Utility>Northeast Electric</Utility>
+				<ServiceAddress>456 Oak Street, Dallas, TX 75201</ServiceAddress>
+				<Status>ACTIVE</Status>
+				<StartDate>2024-08-01</StartDate>
+				<StopDate></StopDate>
+				<AnnualUsage Unit="MWh">380</AnnualUsage>
+
+			</Meter>
+
+			<Meter>
+				<MeterId>0031356</MeterId>
+				<UAN></UAN>
+				<LDC>23220644991</LDC>
+				<Utility>Metro Energy Services</Utility>
+				<ServiceAddress>789 Pine Street, Houston, TX 77002</ServiceAddress>
+				<Status>ACTIVE</Status>
+				<StartDate>2024-08-01</StartDate>
+				<StopDate></StopDate>
+				<AnnualUsage Unit="MWh">230</AnnualUsage>
+			</Meter>
+
+			<Meter>
+				<MeterId>0031388</MeterId>
+				<UAN></UAN>
+				<LDC>23220644992</LDC>
+				<Utility>Monarch Energy</Utility>
+				<ServiceAddress>321 Birch Lane, Austin, TX 78701</ServiceAddress>
+				<Status>PENDING</Status>
+				<StartDate>2025-02-15</StartDate>
+				<StopDate></StopDate>
+				<AnnualUsage Unit="MWh">480</AnnualUsage>
+
+			</Meter>
+		</Meters>
+	</Customer>
+
+	<Customer Id="9">
+		<Name>Horizon Logistics</Name>
+
+		<Contract>
+			<ContractId>10284</ContractId>
+			<Status>Expired</Status>
+			<MeterCount>4</MeterCount>
+			<AnnualUsage Unit="MWh">10980</AnnualUsage>
+			<ContractTermMonths>12</ContractTermMonths>
+			<BrokerMargin>0.17</BrokerMargin>
+			<Price>1650.00</Price>
+			<Product>Variable Energy</Product>
+			<StartDate>2018-06-01</StartDate>
+			<EndDate>2019-06-01</EndDate>
+		</Contract>
+
+		<Contract>
+			<ContractId>10283</ContractId>
+			<Status>Active</Status>
+			<MeterCount>6</MeterCount>
+			<AnnualUsage Unit="MWh">13520</AnnualUsage>
+			<ContractTermMonths>36</ContractTermMonths>
+			<BrokerMargin>0.26</BrokerMargin>
+			<Price>2310.00</Price>
+			<Product>Green Energy</Product>
+			<StartDate>2024-12-01</StartDate>
+			<EndDate>2027-12-01</EndDate>
+		</Contract>
+
+		<Contract>
+			<ContractId>10295</ContractId>
+			<Status>Active</Status>
+			<MeterCount>36</MeterCount>
+			<AnnualUsage Unit="MWh">11950</AnnualUsage>
+			<ContractTermMonths>36</ContractTermMonths>
+			<BrokerMargin>0.20</BrokerMargin>
+			<Price>1950.00</Price>
+			<Product>Logistics Energy</Product>
+			<StartDate>2024-07-01</StartDate>
+			<EndDate>2027-07-01</EndDate>
+		</Contract>
+		<Meters>
+			<Meter>
+				<MeterId>00420001</MeterId>
+				<LDC>33220644001</LDC>
+				<Utility>Metro Energy Services</Utility>
+				<ServiceAddress>100 Retail Plaza, Chicago, IL 60601</ServiceAddress>
+				<Status>ACTIVE</Status>
+				<StartDate>2024-09-01</StartDate>
+				<StopDate></StopDate>
+				<AnnualUsage Unit="MWh">610</AnnualUsage>
+
+			</Meter>
+			<Meter>
+				<MeterId>0031342</MeterId>
+				<UAN></UAN>
+				<LDC>23220644990</LDC>
+				<Utility>Northeast Electric</Utility>
+				<ServiceAddress>456 Oak Street, Dallas, TX 75201</ServiceAddress>
+				<Status>ACTIVE</Status>
+				<StartDate>2024-08-01</StartDate>
+				<StopDate></StopDate>
+				<AnnualUsage Unit="MWh">380</AnnualUsage>
+
+			</Meter>
+
+			<Meter>
+				<MeterId>0042744</MeterId>
+				<UAN></UAN>
+				<LDC>23220644991</LDC>
+				<Utility>Metro Energy Services</Utility>
+				<ServiceAddress>789 Pine Street, Houston, TX 77002</ServiceAddress>
+				<Status>ACTIVE</Status>
+				<StartDate>2024-08-01</StartDate>
+				<StopDate></StopDate>
+				<AnnualUsage Unit="MWh">230</AnnualUsage>
+			</Meter>
+
+			<Meter>
+				<MeterId>0031387</MeterId>
+				<UAN></UAN>
+				<LDC>23220644992</LDC>
+				<Utility>Monarch Energy</Utility>
+				<ServiceAddress>321 Birch Lane, Austin, TX 78701</ServiceAddress>
+				<Status>PENDING</Status>
+				<StartDate>2025-02-15</StartDate>
+				<StopDate></StopDate>
+				<AnnualUsage Unit="MWh">480</AnnualUsage>
+
+			</Meter>
+		</Meters>
+	</Customer>
+
+	<Customer Id="10">
+		<Name>Elite Business Park</Name>
+
+		<Contract>
+			<ContractId>10290</ContractId>
+			<Status>Expired</Status>
+			<MeterCount>5</MeterCount>
+			<AnnualUsage Unit="MWh">12190</AnnualUsage>
+			<ContractTermMonths>24</ContractTermMonths>
+			<BrokerMargin>0.20</BrokerMargin>
+			<Price>1895.00</Price>
+			<Product>Fixed Energy</Product>
+			<StartDate>2021-08-01</StartDate>
+			<EndDate>2023-08-01</EndDate>
+		</Contract>
+
+		<Contract>
+			<ContractId>10289</ContractId>
+			<Status>Expired</Status>
+			<MeterCount>4</MeterCount>
+			<AnnualUsage Unit="MWh">11450</AnnualUsage>
+			<ContractTermMonths>12</ContractTermMonths>
+			<BrokerMargin>0.18</BrokerMargin>
+			<Price>1750.00</Price>
+			<Product>Variable Energy</Product>
+			<StartDate>2020-08-01</StartDate>
+			<EndDate>2021-08-01</EndDate>
+		</Contract>
+
+		<Contract>
+			<ContractId>10288</ContractId>
+			<Status>Active</Status>
+			<MeterCount>7</MeterCount>
+			<AnnualUsage Unit="MWh">14860</AnnualUsage>
+			<ContractTermMonths>48</ContractTermMonths>
+			<BrokerMargin>0.27</BrokerMargin>
+			<Price>2450.00</Price>
+			<Product>Renewable Energy</Product>
+			<StartDate>2025-01-01</StartDate>
+			<EndDate>2029-01-01</EndDate>
+		</Contract>
+
+		<Contract>
+			<ContractId>10295</ContractId>
+			<Status>Active</Status>
+			<MeterCount>36</MeterCount>
+			<AnnualUsage Unit="MWh">11950</AnnualUsage>
+			<ContractTermMonths>36</ContractTermMonths>
+			<BrokerMargin>0.20</BrokerMargin>
+			<Price>1950.00</Price>
+			<Product>Logistics Energy</Product>
+			<StartDate>2024-07-01</StartDate>
+			<EndDate>2027-07-01</EndDate>
+		</Contract>
+		<Meters>
+			<Meter>
+				<MeterId>00420001</MeterId>
+				<LDC>33220644001</LDC>
+				<Utility>Metro Energy Services</Utility>
+				<ServiceAddress>100 Retail Plaza, Chicago, IL 60601</ServiceAddress>
+				<Status>ACTIVE</Status>
+				<StartDate>2024-09-01</StartDate>
+				<StopDate></StopDate>
+				<AnnualUsage Unit="MWh">610</AnnualUsage>
+
+			</Meter>
+			<Meter>
+				<MeterId>0031386</MeterId>
+				<UAN></UAN>
+				<LDC>23220644990</LDC>
+				<Utility>Northeast Electric</Utility>
+				<ServiceAddress>456 Oak Street, Dallas, TX 75201</ServiceAddress>
+				<Status>ACTIVE</Status>
+				<StartDate>2024-08-01</StartDate>
+				<StopDate></StopDate>
+				<AnnualUsage Unit="MWh">380</AnnualUsage>
+
+			</Meter>
+
+			<Meter>
+				<MeterId>0031388</MeterId>
+				<UAN></UAN>
+				<LDC>23220644991</LDC>
+				<Utility>Metro Energy Services</Utility>
+				<ServiceAddress>789 Pine Street, Houston, TX 77002</ServiceAddress>
+				<Status>ACTIVE</Status>
+				<StartDate>2024-08-01</StartDate>
+				<StopDate></StopDate>
+				<AnnualUsage Unit="MWh">230</AnnualUsage>
+			</Meter>
+
+			<Meter>
+				<MeterId>0042744</MeterId>
+				<UAN></UAN>
+				<LDC>23220644992</LDC>
+				<Utility>Monarch Energy</Utility>
+				<ServiceAddress>321 Birch Lane, Austin, TX 78701</ServiceAddress>
+				<Status>PENDING</Status>
+				<StartDate>2025-02-15</StartDate>
+				<StopDate></StopDate>
+				<AnnualUsage Unit="MWh">480</AnnualUsage>
+
+			</Meter>
+		</Meters>
+	</Customer>
+
+</CustomerDetails>
+

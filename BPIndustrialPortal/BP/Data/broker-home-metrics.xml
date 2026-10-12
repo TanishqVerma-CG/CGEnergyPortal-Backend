@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BrokerHomeMetrics>
+    <LastUpdated>2025-08-06T13:59:00</LastUpdated>
+    <SummaryMetrics>
+        <CustomersManaged>
+            <Total>185</Total>
+            <NewThisMonth>12</NewThisMonth>
+            <Churned>2</Churned>
+        </CustomersManaged>
+        <ActiveContracts>
+            <Total>312</Total>
+            <Fixed>204</Fixed>
+            <Variable>108</Variable>
+        </ActiveContracts>
+        <UpcomingRenewals>
+            <Total>27</Total>
+            <Pending>9</Pending>
+            <AvgDaysToExpiry>34</AvgDaysToExpiry>
+        </UpcomingRenewals>
+        <MetersManaged>
+            <Total>498</Total>
+            <Decreased>310</Decreased>
+            <Increased>188</Increased>
+        </MetersManaged>
+        <AnnualUsage>
+            <TotalMWh>92450</TotalMWh>
+            <YoYChange>+5.7%</YoYChange>
+        </AnnualUsage>
+    </SummaryMetrics>
+    <RecentActivity>
+        <ContractAmendmentsSigned>
+            <Count>12</Count>
+            <Label>Across all customers</Label>
+        </ContractAmendmentsSigned>
+        <OpenSupportRequests>
+            <Count>11</Count>
+            <HighPriority>5</HighPriority>
+        </OpenSupportRequests>
+        <UpcomingContractRenewals>
+            <Count>20</Count>
+            <DueWithinDays>90</DueWithinDays>
+        </UpcomingContractRenewals>
+        <EstimatedRevenueAtRenewal>
+            <Amount>285400</Amount>
+            <RenewalCount>20</RenewalCount>
+        </EstimatedRevenueAtRenewal>
+    </RecentActivity>
+</BrokerHomeMetrics>

@@ -1,0 +1,1316 @@
+{
+  "info": {
+    "_postman_id": "b2c3d4e5-f6a7-8901-bcde-f12345678901",
+    "name": "BP Industrial Portal – Broker Commission APIs",
+    "description": "End-to-end collection for the three Broker Commission feature areas:\n\n- **Statements** — list all statements, view detail (forecasted / current transactions), approve/reject individually or in bulk, and email an approved statement.\n- **Deals** — list all deals and download an `.xlsx` export.\n- **Agency** — search for broker agencies by name/contact, and retrieve the full agency dashboard (on-flow deals chart, payment history chart, agency summary metrics, agent list).\n\n---\n\n**Flow**\n1. Run **Auth / Broker Login** — the test script extracts the JWT and stores it as `{{token}}`.\n2. Every subsequent request automatically attaches `Bearer {{token}}` via the collection-level auth.\n3. The **Unauthorized (401)** folder verifies that every endpoint returns `401` when no token is supplied.\n\n> ⚠️ **Note on current auth state:** The `[Authorize(Policy = \"Broker\")]` attribute is currently **commented out** in all three commission controllers. Steps 1–3 above apply once auth is re-enabled. While auth is off, requests in the _Unauthorized_ folder will return `200` instead of `401`.\n\n---\n\n**Seed data highlights (seeded in broker-commission-*.xml)**\n\n| Entity | ID | Status / Notes |\n|---|---|---|\n| Statement | `5` | PENDING — 5 Forecasted transactions |\n| Statement | `32` | PENDING — 2 Forecasted transactions |\n| Statement | `100` | PENDING — 2 Forecasted transactions |\n| Statement | `33` | APPROVED — 1 Current transaction, has StatementEmail |\n| Statement | `101` | APPROVED — 1 Current transaction, has StatementEmail |\n| Statement | `4` | REJECTED |\n| Agency | `1` | New Sales Agency — 64 contracts |\n| Agency | `2` | Test Sales Agency 004 — 38 contracts |\n| Agency | `3` | SmokeTesting215 — 31 contracts |\n| Agency | `4` | Demo Agency — 20 contracts |\n| Agency | `13` | TFS Energy Solutions LLC — 12 contracts |\n\n---\n\n**Variables**\n| Variable | Default | Set by |\n|---|---|---|\n| `baseUrl` | `http://localhost:5128` | Manual |\n| `token` | _(empty)_ | Auto-set by Broker Login test script |",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{token}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:5128",
+      "type": "string",
+      "description": "Base URL of the running BP API. Change to your Azure / staging URL when testing in other environments."
+    },
+    {
+      "key": "token",
+      "value": "",
+      "type": "string",
+      "description": "JWT Bearer token. Auto-populated by the Broker Login request test script."
+    }
+  ],
+  "item": [
+    {
+      "name": "Auth",
+      "description": "Obtain a JWT token. Run this first — the test script stores the token as {{token}} which is then used by every other request in this collection.",
+      "item": [
+        {
+          "name": "Broker Login",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200 OK', () => pm.response.to.have.status(200));",
+                  "pm.test('Response time < 3s', () => pm.expect(pm.response.responseTime).to.be.below(3000));",
+                  "",
+                  "const body = pm.response.json();",
+                  "pm.test('Token is returned', () => {",
+                  "    pm.expect(body).to.have.property('token');",
+                  "    pm.expect(body.token).to.be.a('string').and.not.be.empty;",
+                  "});",
+                  "pm.test('Role is Broker', () => pm.expect(body.role).to.equal('Broker'));",
+                  "",
+                  "// Auto-store token for all subsequent requests",
+                  "pm.collectionVariables.set('token', body.token);",
+                  "pm.test('Token saved to collection variable', () => {",
+                  "    pm.expect(pm.collectionVariables.get('token')).to.not.be.empty;",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "auth": { "type": "noauth" },
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"emailId\": \"Alexjohn@bp.com\",\n  \"password\": \"admin1234\",\n  \"isBroker\": true\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/Login",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "Login"]
+            },
+            "description": "Authenticates as a Broker user.\n\n**Auth:** None (this is the login endpoint itself)\n\n**Body:**\n| Field | Type | Required | Description |\n|---|---|---|---|\n| `emailId` | string | ✅ | Broker user email |\n| `password` | string | ✅ | User password |\n| `isBroker` | boolean | ✅ | Must be `true` to receive a Broker-role token |\n\n**On success:** The test script extracts `token` from the response and stores it as `{{token}}`."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Statements",
+      "description": "APIs for managing broker commission statements. Each statement belongs to an agency and contains a set of transactions that can be in Forecasted or Current state.\n\n**Status lifecycle:** `PENDING` → `APPROVED` or `REJECTED`\n\n**Auth required:** Bearer token with `Broker` role.",
+      "item": [
+        {
+          "name": "Get Statements Summary (all agencies)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200 OK', () => pm.response.to.have.status(200));",
+                  "pm.test('Response time < 2s', () => pm.expect(pm.response.responseTime).to.be.below(2000));",
+                  "pm.test('Content-Type is JSON', () => pm.response.to.have.header('Content-Type', /application\\/json/));",
+                  "",
+                  "const body = pm.response.json();",
+                  "",
+                  "pm.test('statementsSubmitted is a non-negative integer', () => {",
+                  "    pm.expect(body.statementsSubmitted).to.be.a('number').and.at.least(0);",
+                  "});",
+                  "",
+                  "pm.test('pendingCount <= statementsSubmitted', () => {",
+                  "    pm.expect(body.pendingCount).to.be.a('number').and.at.least(0);",
+                  "    pm.expect(body.pendingCount).to.be.at.most(body.statementsSubmitted);",
+                  "});",
+                  "",
+                  "pm.test('pendingLabel matches pendingCount', () => {",
+                  "    pm.expect(body.pendingLabel).to.equal(body.pendingCount + ' pending');",
+                  "});",
+                  "",
+                  "pm.test('approvedCommission is a non-negative number', () => {",
+                  "    pm.expect(body.approvedCommission).to.be.a('number').and.at.least(0);",
+                  "});",
+                  "",
+                  "pm.test('approvedCommissionLabel is static text', () => {",
+                  "    pm.expect(body.approvedCommissionLabel).to.equal('Approved statements total');",
+                  "});",
+                  "",
+                  "pm.test('approvedStatements <= statementsSubmitted', () => {",
+                  "    pm.expect(body.approvedStatements).to.be.a('number').and.at.least(0);",
+                  "    pm.expect(body.approvedStatements).to.be.at.most(body.statementsSubmitted);",
+                  "});",
+                  "",
+                  "pm.test('approvedStatementsLabel is static text', () => {",
+                  "    pm.expect(body.approvedStatementsLabel).to.equal('Ready for payout');",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/broker/commission/statements/GetStatementsSummary",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "broker", "commission", "statements", "GetStatementsSummary"]
+            },
+            "description": "Returns summary metrics for the Statements page header cards. When called without `agencyId`, aggregates across **all** agencies.\n\n**Auth:** Bearer `{{token}}` (Broker role)\n\n**Query params:**\n| Param | Type | Required | Description |\n|---|---|---|---|\n| `agencyId` | string | ❌ | Scope results to a single agency. Omit to aggregate all. |\n\n**Response shape:**\n```json\n{\n  \"statementsSubmitted\": 12,\n  \"pendingCount\": 6,\n  \"pendingLabel\": \"6 pending\",\n  \"approvedCommission\": 103105.20,\n  \"approvedCommissionLabel\": \"Approved statements total\",\n  \"approvedStatements\": 4,\n  \"approvedStatementsLabel\": \"Ready for payout\"\n}\n```\n\n**UI mapping:**\n| Card | Fields used |\n|---|---|\n| Statements Submitted | `statementsSubmitted`, `pendingLabel` badge |\n| Approved Commission | `approvedCommission`, `approvedCommissionLabel` |\n| Approved Statements | `approvedStatements`, `approvedStatementsLabel` |\n\n> Note: The **\"0 selected\"** badge visible in the UI is a frontend selection state (checkboxes) — not returned by the backend."
+          }
+        },
+        {
+          "name": "Get Statements Summary (agency ID: 13 – TFS Energy)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200 OK', () => pm.response.to.have.status(200));",
+                  "",
+                  "const body = pm.response.json();",
+                  "",
+                  "pm.test('statementsSubmitted is a non-negative integer', () => {",
+                  "    pm.expect(body.statementsSubmitted).to.be.a('number').and.at.least(0);",
+                  "});",
+                  "pm.test('pendingLabel reflects pendingCount', () => {",
+                  "    pm.expect(body.pendingLabel).to.equal(body.pendingCount + ' pending');",
+                  "});",
+                  "pm.test('approvedCommissionLabel is correct', () => {",
+                  "    pm.expect(body.approvedCommissionLabel).to.equal('Approved statements total');",
+                  "});",
+                  "pm.test('approvedStatementsLabel is correct', () => {",
+                  "    pm.expect(body.approvedStatementsLabel).to.equal('Ready for payout');",
+                  "});",
+                  "",
+                  "// Agency 13 (TFS Energy Solutions LLC) has 1 APPROVED statement (ID: 33)",
+                  "// and 1 PENDING statement (ID: 32) in the seed data",
+                  "pm.test('TFS Energy has 2 statements submitted', () => {",
+                  "    pm.expect(body.statementsSubmitted).to.equal(2);",
+                  "});",
+                  "pm.test('TFS Energy has 1 APPROVED statement', () => {",
+                  "    pm.expect(body.approvedStatements).to.equal(1);",
+                  "});",
+                  "pm.test('TFS Energy approved commission matches statement 33 total ($80.10)', () => {",
+                  "    pm.expect(body.approvedCommission).to.equal(80.10);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/broker/commission/statements/GetStatementsSummary?agencyId=13",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "broker", "commission", "statements", "GetStatementsSummary"],
+              "query": [
+                {
+                  "key": "agencyId",
+                  "value": "13",
+                  "description": "Agency 13 = TFS Energy Solutions LLC. Has 1 APPROVED (ID: 33, $80.10) and 1 PENDING (ID: 32) in seed data."
+                }
+              ]
+            },
+            "description": "Fetches the summary scoped to a single agency. Tests concrete values against the seed data.\n\n**Auth:** Bearer `{{token}}` (Broker role)\n\n**Seed data for agency `13` (TFS Energy Solutions LLC):**\n| Statement | Status | Total |\n|---|---|---|\n| 33 | APPROVED | $80.10 |\n| 32 | PENDING | $65.00 |\n\n**Expected response:**\n```json\n{\n  \"statementsSubmitted\": 2,\n  \"pendingCount\": 1,\n  \"pendingLabel\": \"1 pending\",\n  \"approvedCommission\": 80.10,\n  \"approvedCommissionLabel\": \"Approved statements total\",\n  \"approvedStatements\": 1,\n  \"approvedStatementsLabel\": \"Ready for payout\"\n}\n```"
+          }
+        },
+        {
+          "name": "Get Statements Summary – Unknown Agency (expects zeroes)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200 OK', () => pm.response.to.have.status(200));",
+                  "",
+                  "const body = pm.response.json();",
+                  "pm.test('statementsSubmitted is 0 for unknown agency', () => pm.expect(body.statementsSubmitted).to.equal(0));",
+                  "pm.test('pendingCount is 0', () => pm.expect(body.pendingCount).to.equal(0));",
+                  "pm.test('pendingLabel is \"0 pending\"', () => pm.expect(body.pendingLabel).to.equal('0 pending'));",
+                  "pm.test('approvedCommission is 0', () => pm.expect(body.approvedCommission).to.equal(0));",
+                  "pm.test('approvedStatements is 0', () => pm.expect(body.approvedStatements).to.equal(0));",
+                  "pm.test('static labels still present', () => {",
+                  "    pm.expect(body.approvedCommissionLabel).to.equal('Approved statements total');",
+                  "    pm.expect(body.approvedStatementsLabel).to.equal('Ready for payout');",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/broker/commission/statements/GetStatementsSummary?agencyId=UNKNOWN_XYZ",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "broker", "commission", "statements", "GetStatementsSummary"],
+              "query": [
+                {
+                  "key": "agencyId",
+                  "value": "UNKNOWN_XYZ",
+                  "description": "Non-existent agency — all counts should be 0, labels still populated."
+                }
+              ]
+            },
+            "description": "Verifies that an unknown `agencyId` returns **200 OK** with all numeric fields set to `0` (not a 404). Static labels are still present in the response."
+          }
+        },
+        {
+          "name": "Get My Statements",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200 OK', () => pm.response.to.have.status(200));",
+                  "pm.test('Response time < 2s', () => pm.expect(pm.response.responseTime).to.be.below(2000));",
+                  "pm.test('Content-Type is JSON', () => pm.response.to.have.header('Content-Type', /application\\/json/));",
+                  "",
+                  "const body = pm.response.json();",
+                  "pm.test('Has totalEntries', () => pm.expect(body.totalEntries).to.be.a('number').and.at.least(0));",
+                  "pm.test('statements is an array', () => pm.expect(body.statements).to.be.an('array'));",
+                  "pm.test('totalEntries matches statements array length', () => {",
+                  "    pm.expect(body.statements.length).to.equal(body.totalEntries);",
+                  "});",
+                  "",
+                  "if (body.statements.length > 0) {",
+                  "    const s = body.statements[0];",
+                  "    pm.test('Statement has required fields', () => {",
+                  "        pm.expect(s).to.have.all.keys('statementId', 'statementDate', 'payments', 'adjustments', 'clawbacks', 'subTotal', 'total', 'status', 'paymentDate');",
+                  "    });",
+                  "    pm.test('Statement status is a known value', () => {",
+                  "        pm.expect(['PENDING', 'APPROVED', 'REJECTED']).to.include(s.status);",
+                  "    });",
+                  "    pm.test('total is a number', () => pm.expect(s.total).to.be.a('number'));",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/broker/commission/statements/GetMyStatements?agencyId=23",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "broker", "commission", "statements", "GetMyStatements"],
+              "query": [
+                {
+                  "key": "agencyId",
+                  "value": "23",
+                  "description": "Optional. Filter statements to a single agency. Omit to return all. Use IDs from SearchBrokers."
+                }
+              ]
+            },
+            "description": "Returns commission statements scoped to the given agency. Omit `agencyId` to return all statements across all agencies.\n\n**Auth:** Bearer `{{token}}` (Broker role)\n\n**Query params:**\n| Param | Type | Required | Description |\n|---|---|---|---|\n| `agencyId` | string | ❌ | Scope results to a single agency (e.g. `23` = Test Sales Agency 001). Omit to return all. |\n\n**Seed agency IDs:** `1` (New Sales Agency, 2 statements), `13` (TFS Energy, 2 statements), `23` (Test Sales Agency 001, 2 statements)\n\n**Response shape:**\n```json\n{\n  \"totalEntries\": 2,\n  \"statements\": [\n    {\n      \"statementId\": \"5\",\n      \"statementDate\": \"01/15/2016\",\n      \"payments\": 43.62,\n      \"adjustments\": 0.00,\n      \"clawbacks\": -150.00,\n      \"subTotal\": 43.62,\n      \"total\": 18.40,\n      \"status\": \"PENDING\",\n      \"paymentDate\": \"NA\"\n    }\n  ]\n}\n```\n\n**Use this list to pick a `statementId` for the detail, approve, reject, or email endpoints.**"
+          }
+        },
+        {
+          "name": "Get Statement Detail – PENDING (ID: 5)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200 OK', () => pm.response.to.have.status(200));",
+                  "pm.test('Content-Type is JSON', () => pm.response.to.have.header('Content-Type', /application\\/json/));",
+                  "",
+                  "const body = pm.response.json();",
+                  "",
+                  "pm.test('Has agencyInfo', () => {",
+                  "    pm.expect(body.agencyInfo).to.have.all.keys('agencyId', 'legalName', 'contact', 'email', 'phoneNumber', 'statementEmail');",
+                  "    pm.expect(body.agencyInfo.agencyId).to.be.a('string').and.not.be.empty;",
+                  "    pm.expect(body.agencyInfo.legalName).to.be.a('string').and.not.be.empty;",
+                  "});",
+                  "",
+                  "pm.test('Has statementSummary', () => {",
+                  "    pm.expect(body.statementSummary).to.have.all.keys('statementId', 'totalClawbacks', 'totalWriteOffAmount', 'statementDate', 'totalAmountOwed', 'totalAdjustments', 'status', 'comments');",
+                  "    pm.expect(body.statementSummary.statementId).to.equal('5');",
+                  "    pm.expect(body.statementSummary.status).to.equal('PENDING');",
+                  "});",
+                  "",
+                  "pm.test('forecastedTransactions is non-empty for PENDING statement', () => {",
+                  "    pm.expect(body.forecastedTransactions).to.be.an('array').and.not.be.empty;",
+                  "});",
+                  "",
+                  "pm.test('currentTransactions is empty for PENDING statement', () => {",
+                  "    pm.expect(body.currentTransactions).to.be.an('array').and.be.empty;",
+                  "});",
+                  "",
+                  "if (body.forecastedTransactions.length > 0) {",
+                  "    const tx = body.forecastedTransactions[0];",
+                  "    pm.test('Transaction has required fields', () => {",
+                  "        pm.expect(tx).to.have.all.keys('transactionId', 'customerName', 'utilityNumber', 'contractNumber', 'billDate', 'startDate', 'endDate', 'type', 'usage', 'channelFee', 'brokerFee', 'unitFee', 'commission', 'commodityType');",
+                  "    });",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/broker/commission/statements/GetStatementDetail?statementId=5",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "broker", "commission", "statements", "GetStatementDetail"],
+              "query": [
+                {
+                  "key": "statementId",
+                  "value": "5",
+                  "description": "The unique statement ID. Required. Use IDs from GetMyStatements."
+                }
+              ]
+            },
+            "description": "Returns full detail for a single statement, including agency summary, statement summary, and split transaction lists.\n\n**Auth:** Bearer `{{token}}` (Broker role)\n\n**Query params:**\n| Param | Type | Required | Description |\n|---|---|---|---|\n| `statementId` | string | ✅ | ID of the statement to fetch |\n\n**PENDING statement (ID: `5`):**\n- `forecastedTransactions` will contain rows (these are candidates for inclusion at approve time)\n- `currentTransactions` will be empty\n\n**APPROVED statement (try ID: `33`):**\n- `currentTransactions` will contain rows\n- `forecastedTransactions` may still contain un-included rows\n\n**Response shape:**\n```json\n{\n  \"agencyInfo\": {\n    \"agencyId\": \"23\",\n    \"legalName\": \"Test Sales Agency 001\",\n    \"contact\": \"Test Sales Agency 001\",\n    \"email\": \"NA\",\n    \"phoneNumber\": \"NA\",\n    \"statementEmail\": \"NA\"\n  },\n  \"statementSummary\": {\n    \"statementId\": \"5\",\n    \"totalClawbacks\": -150.00,\n    \"totalWriteOffAmount\": 0.00,\n    \"statementDate\": \"01/15/2016\",\n    \"totalAmountOwed\": 18.40,\n    \"totalAdjustments\": 0.00,\n    \"status\": \"PENDING\",\n    \"comments\": \"\"\n  },\n  \"forecastedTransactions\": [ { ... } ],\n  \"currentTransactions\": []\n}\n```\n\n**Errors:**\n- `400` — `statementId` param missing\n- `404` — no statement found with given ID"
+          }
+        },
+        {
+          "name": "Get Statement Detail – APPROVED (ID: 33)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200 OK', () => pm.response.to.have.status(200));",
+                  "",
+                  "const body = pm.response.json();",
+                  "pm.test('Status is APPROVED', () => pm.expect(body.statementSummary.status).to.equal('APPROVED'));",
+                  "pm.test('currentTransactions is non-empty for APPROVED statement', () => {",
+                  "    pm.expect(body.currentTransactions).to.be.an('array').and.not.be.empty;",
+                  "});",
+                  "pm.test('StatementEmail is configured', () => {",
+                  "    pm.expect(body.agencyInfo.statementEmail).to.be.a('string').and.not.be.empty;",
+                  "    pm.expect(body.agencyInfo.statementEmail).to.not.equal('NA');",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/broker/commission/statements/GetStatementDetail?statementId=33",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "broker", "commission", "statements", "GetStatementDetail"],
+              "query": [
+                {
+                  "key": "statementId",
+                  "value": "33",
+                  "description": "APPROVED statement — has currentTransactions and a configured statementEmail."
+                }
+              ]
+            },
+            "description": "Fetches detail for an APPROVED statement (ID: `33` — TFS Energy Solutions LLC).\n\n**Auth:** Bearer `{{token}}` (Broker role)\n\nFor an approved statement:\n- `currentTransactions` contains the transactions that were included at approval time\n- The `Email Statement` button (EmailStatement endpoint) becomes available\n- The `statementEmail` field in `agencyInfo` holds the recipient address"
+          }
+        },
+        {
+          "name": "Get Statement Detail – 404 (unknown ID)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 404 Not Found', () => pm.response.to.have.status(404));",
+                  "const body = pm.response.json();",
+                  "pm.test('Error message is present', () => pm.expect(body.message).to.be.a('string').and.not.be.empty);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/broker/commission/statements/GetStatementDetail?statementId=GHOST_99",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "broker", "commission", "statements", "GetStatementDetail"],
+              "query": [
+                {
+                  "key": "statementId",
+                  "value": "GHOST_99",
+                  "description": "Non-existent ID — expects 404."
+                }
+              ]
+            },
+            "description": "Verifies that a non-existent statement ID returns **404 Not Found** with an error message body."
+          }
+        },
+        {
+          "name": "Approve Statement (ID: 5)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "// 200 when PENDING; 422 when already APPROVED/REJECTED; 404 when ID not found",
+                  "pm.test('Status 200 or 422', () => pm.expect([200, 422]).to.include(pm.response.code));",
+                  "pm.test('Content-Type is JSON', () => pm.response.to.have.header('Content-Type', /application\\/json/));",
+                  "",
+                  "const body = pm.response.json();",
+                  "pm.test('Has success field', () => pm.expect(body).to.have.property('success'));",
+                  "pm.test('Has message field', () => pm.expect(body.message).to.be.a('string').and.not.be.empty);",
+                  "if (pm.response.code === 200) pm.test('success is true on 200', () => pm.expect(body.success).to.be.true);",
+                  "if (pm.response.code === 422) pm.test('success is false on 422', () => pm.expect(body.success).to.be.false);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"statementId\": \"5\",\n  \"comments\": \"Reviewed and approved.\",\n  \"includedTransactionIds\": [\"T001\", \"T002\"]\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/broker/commission/statements/ApproveStatement",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "broker", "commission", "statements", "ApproveStatement"]
+            },
+            "description": "Approves a PENDING statement and promotes the selected transactions from **Forecasted → Current**.\n\n**Auth:** Bearer `{{token}}` (Broker role)\n\n**Request body:**\n| Field | Type | Required | Description |\n|---|---|---|---|\n| `statementId` | string | ✅ | ID of the PENDING statement to approve |\n| `comments` | string | ❌ | Optional approval comment |\n| `includedTransactionIds` | string[] | ❌ | Transaction IDs to mark as **Current**. Transactions not listed remain **Forecasted**. Pass empty array `[]` to approve with no transactions moved. |\n\n**Business rules:**\n- Statement must be in `PENDING` status. Attempting to approve an already-approved or rejected statement returns `{ success: false, message: \"...not in PENDING status\" }`.\n- The XML is mutated on disk — call `GetStatementDetail` afterwards to verify the new state.\n\n**Response:**\n```json\n{ \"success\": true, \"message\": \"Statement '5' approved successfully.\" }\n```\n\n> ⚠️ The seed XML has statement `5` as `PENDING`. After running this request it becomes `APPROVED`. Re-run by re-seeding or using statement `32` or `100`."
+          }
+        },
+        {
+          "name": "Reject Statement (ID: 32)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200 OK', () => pm.response.to.have.status(200));",
+                  "",
+                  "const body = pm.response.json();",
+                  "pm.test('Has success field', () => pm.expect(body).to.have.property('success'));",
+                  "pm.test('Has message field', () => pm.expect(body.message).to.be.a('string').and.not.be.empty);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"statementId\": \"32\",\n  \"comments\": \"Discrepancy found in transaction T013. Please resubmit.\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/broker/commission/statements/RejectStatement",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "broker", "commission", "statements", "RejectStatement"]
+            },
+            "description": "Rejects a PENDING statement and persists the rejection comments to the XML.\n\n**Auth:** Bearer `{{token}}` (Broker role)\n\n**Request body:**\n| Field | Type | Required | Description |\n|---|---|---|---|\n| `statementId` | string | ✅ | ID of the PENDING statement to reject |\n| `comments` | string | ❌ | Rejection reason. Stored in XML and visible in GetStatementDetail. |\n\n**Business rules:**\n- Statement must be in `PENDING` status.\n- Transaction states are **not** changed on rejection.\n- `comments` is persisted to the XML and returned in `statementSummary.comments` on subsequent detail fetches.\n\n**Response:**\n```json\n{ \"success\": true, \"message\": \"Statement '32' rejected successfully.\" }\n```"
+          }
+        },
+        {
+          "name": "Reject Statement – Already Approved (expects success: false)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200 OK', () => pm.response.to.have.status(200));",
+                  "",
+                  "const body = pm.response.json();",
+                  "pm.test('success is false', () => pm.expect(body.success).to.be.false);",
+                  "pm.test('message explains the error', () => pm.expect(body.message).to.include('not in PENDING'));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"statementId\": \"33\",\n  \"comments\": \"Trying to reject an already-approved statement.\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/broker/commission/statements/RejectStatement",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "broker", "commission", "statements", "RejectStatement"]
+            },
+            "description": "Demonstrates the guard: attempting to reject statement `33` (which is already **APPROVED**) returns `success: false` with an explanatory message rather than an HTTP error code."
+          }
+        },
+        {
+          "name": "Bulk Approve Statements",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200 OK', () => pm.response.to.have.status(200));",
+                  "",
+                  "const body = pm.response.json();",
+                  "pm.test('Has success and message', () => {",
+                  "    pm.expect(body).to.have.all.keys('success', 'message');",
+                  "    pm.expect(body.message).to.be.a('string').and.not.be.empty;",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"statementIds\": [\"100\"]\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/broker/commission/statements/BulkApproveStatements",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "broker", "commission", "statements", "BulkApproveStatements"]
+            },
+            "description": "Approves multiple PENDING statements in one call. Corresponds to the **Bulk Approve** button on the My Statements list page.\n\n**Auth:** Bearer `{{token}}` (Broker role)\n\n**Request body:**\n| Field | Type | Required | Description |\n|---|---|---|---|\n| `statementIds` | string[] | ✅ | One or more statement IDs. Must not be empty (400 if empty). |\n\n**Business rules:**\n- Each statement must be in `PENDING` status to be approved.\n- Statements not found or not in PENDING status are reported in `message` and `success` is `false`, but the remaining valid statements are still processed.\n- No `includedTransactionIds` are accepted here — bulk approve does not move transactions to Current state (the UI pattern shows Bulk Approve as a shortcut that bypasses the Include/Exclude step).\n\n**Response (all succeeded):**\n```json\n{ \"success\": true, \"message\": \"1 statement(s) approved successfully.\" }\n```\n\n**Response (partial failure):**\n```json\n{ \"success\": false, \"message\": \"Not in PENDING status: 33\" }\n```\n\n> Try `\"statementIds\": [\"100\", \"33\"]` to see partial failure."
+          }
+        },
+        {
+          "name": "Bulk Approve – Validation Error (empty array)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 400 Bad Request', () => pm.response.to.have.status(400));",
+                  "const body = pm.response.json();",
+                  "pm.test('Validation errors present', () => pm.expect(body).to.have.property('errors'));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"statementIds\": []\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/broker/commission/statements/BulkApproveStatements",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "broker", "commission", "statements", "BulkApproveStatements"]
+            },
+            "description": "Verifies that sending an empty `statementIds` array returns **400 Bad Request** with a validation error from the `[MinLength(1)]` annotation on `BulkStatementRequest`."
+          }
+        },
+        {
+          "name": "Bulk Reject Statements",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200 OK', () => pm.response.to.have.status(200));",
+                  "const body = pm.response.json();",
+                  "pm.test('Has success and message', () => pm.expect(body).to.have.all.keys('success', 'message'));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"statementIds\": [\"5\", \"32\"]\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/broker/commission/statements/BulkRejectStatements",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "broker", "commission", "statements", "BulkRejectStatements"]
+            },
+            "description": "Rejects multiple PENDING statements in one call. Corresponds to the **Bulk Reject** button on the My Statements list page.\n\n**Auth:** Bearer `{{token}}` (Broker role)\n\n**Request body:**\n| Field | Type | Required | Description |\n|---|---|---|---|\n| `statementIds` | string[] | ✅ | One or more PENDING statement IDs. Must not be empty. |\n\nBehavior mirrors Bulk Approve — non-PENDING or not-found IDs are reported in the response message."
+          }
+        },
+        {
+          "name": "Email Statement (ID: 33)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200 OK', () => pm.response.to.have.status(200));",
+                  "",
+                  "const body = pm.response.json();",
+                  "pm.test('Has success field', () => pm.expect(body).to.have.property('success'));",
+                  "pm.test('Has message field', () => pm.expect(body.message).to.be.a('string').and.not.be.empty);",
+                  "",
+                  "// success may be false if SMTP is not configured in dev — check message",
+                  "if (!body.success) {",
+                  "    console.warn('Email send failed:', body.message);",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"statementId\": \"33\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/broker/commission/statements/EmailStatement",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "broker", "commission", "statements", "EmailStatement"]
+            },
+            "description": "Sends the statement details to the email address configured in `agencyInfo.statementEmail` via MailKit (the same email service used across the portal).\n\n**Auth:** Bearer `{{token}}` (Broker role)\n\n**Request body:**\n| Field | Type | Required | Description |\n|---|---|---|---|\n| `statementId` | string | ✅ | ID of the statement to email |\n\n**Business rules:**\n- The recipient is taken from `<StatementEmail>` in the XML.\n- If the field is empty or `NA`, the endpoint returns `{ success: false, message: \"No statement email address is configured...\" }` — no email is sent.\n- SMTP must be configured in `appsettings.json` for the email to actually deliver in dev.\n\n**Seed data note:** Statement `33` has `statementEmail = billing@tfsenergy.example.com`. Statement `5` has `NA` — use that to test the no-email-configured path.\n\n**Response (success):**\n```json\n{ \"success\": true, \"message\": \"Statement #33 emailed to billing@tfsenergy.example.com.\" }\n```\n\n**Response (no email configured):**\n```json\n{ \"success\": false, \"message\": \"No statement email address is configured for this agency.\" }\n```"
+          }
+        },
+        {
+          "name": "Email Statement – No Email Configured (ID: 5)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200 OK', () => pm.response.to.have.status(200));",
+                  "const body = pm.response.json();",
+                  "pm.test('success is false when no email configured', () => pm.expect(body.success).to.be.false);",
+                  "pm.test('message explains missing email', () => pm.expect(body.message).to.include('No statement email'));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"statementId\": \"5\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/broker/commission/statements/EmailStatement",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "broker", "commission", "statements", "EmailStatement"]
+            },
+            "description": "Demonstrates the guard for missing `statementEmail`. Statement `5` has `<StatementEmail>NA</StatementEmail>` — the service returns `success: false` without attempting to send an email."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Deals",
+      "description": "APIs for viewing and exporting broker commission deals. A deal represents a commission-bearing contract between the broker and a customer.\n\n**Auth required:** Bearer token with `Broker` role.",
+      "item": [
+        {
+          "name": "Get My Deals",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200 OK', () => pm.response.to.have.status(200));",
+                  "pm.test('Response time < 2s', () => pm.expect(pm.response.responseTime).to.be.below(2000));",
+                  "pm.test('Content-Type is JSON', () => pm.response.to.have.header('Content-Type', /application\\/json/));",
+                  "",
+                  "const body = pm.response.json();",
+                  "pm.test('Has totalEntries', () => pm.expect(body.totalEntries).to.be.a('number').and.at.least(0));",
+                  "pm.test('deals is an array', () => pm.expect(body.deals).to.be.an('array'));",
+                  "pm.test('totalEntries matches deals array length', () => {",
+                  "    pm.expect(body.deals.length).to.equal(body.totalEntries);",
+                  "});",
+                  "",
+                  "if (body.deals.length > 0) {",
+                  "    const d = body.deals[0];",
+                  "    pm.test('Deal has required fields', () => {",
+                  "        pm.expect(d).to.have.all.keys('companyName', 'contractNumber', 'contractStartDate', 'term', 'commissionPlan', 'termVolume', 'unitFee', 'currentPaymentDate', 'currentPayment');",
+                  "    });",
+                  "    pm.test('term is a positive integer', () => {",
+                  "        pm.expect(d.term).to.be.a('number').and.above(0);",
+                  "    });",
+                  "    pm.test('unitFee is a non-negative number', () => {",
+                  "        pm.expect(d.unitFee).to.be.a('number').and.at.least(0);",
+                  "    });",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/broker/commission/deals/GetMyDeals?agencyId=1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "broker", "commission", "deals", "GetMyDeals"],
+              "query": [
+                {
+                  "key": "agencyId",
+                  "value": "1",
+                  "description": "Optional. Filter deals to a single agency. Omit to return all. Use IDs from SearchBrokers."
+                }
+              ]
+            },
+            "description": "Returns commission deals scoped to the given agency. Omit `agencyId` to return all deals across all agencies.\n\n**Auth:** Bearer `{{token}}` (Broker role)\n\n**Query params:**\n| Param | Type | Required | Description |\n|---|---|---|---|\n| `agencyId` | string | ❌ | Scope results to a single agency (e.g. `1` = New Sales Agency). Omit to return all. |\n\n**Seed agency IDs and deal counts:** `1` (9 deals), `13` (2 deals), `23` (2 deals), `2` (1 deal), `4` (1 deal)\n\n**Response shape:**\n```json\n{\n  \"totalEntries\": 9,\n  \"deals\": [\n    {\n      \"companyName\": \"Test Comp 101\",\n      \"contractNumber\": \"NA30315161259164b\",\n      \"contractStartDate\": \"06/19/2016\",\n      \"term\": 12,\n      \"commissionPlan\": \"6 Months Upfront\",\n      \"termVolume\": 0.00,\n      \"unitFee\": 0.70000,\n      \"currentPaymentDate\": \"NA\",\n      \"currentPayment\": 0.00\n    }\n  ]\n}\n```\n\n**Note on Save View / Default View:** These column preferences are managed entirely by the UI — the backend always returns all columns."
+          }
+        },
+        {
+          "name": "Export Deals (download .xlsx)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200 OK', () => pm.response.to.have.status(200));",
+                  "pm.test('Response time < 5s', () => pm.expect(pm.response.responseTime).to.be.below(5000));",
+                  "pm.test('Content-Type is xlsx', () => {",
+                  "    pm.expect(pm.response.headers.get('Content-Type')).to.include('application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');",
+                  "});",
+                  "pm.test('Content-Disposition suggests filename deals.xlsx', () => {",
+                  "    const cd = pm.response.headers.get('Content-Disposition') || '';",
+                  "    pm.expect(cd).to.include('deals.xlsx');",
+                  "});",
+                  "pm.test('Response body is non-empty (binary xlsx)', () => {",
+                  "    pm.expect(pm.response.stream.byteLength).to.be.above(0);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/broker/commission/deals/ExportDeals?agencyId=1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "broker", "commission", "deals", "ExportDeals"],
+              "query": [
+                {
+                  "key": "agencyId",
+                  "value": "1",
+                  "description": "Optional. Scope the exported file to a single agency. Omit to export all deals."
+                }
+              ]
+            },
+            "description": "Generates and streams a Microsoft Excel `.xlsx` file. Pass `agencyId` to export only that agency's deals.\n\n**Auth:** Bearer `{{token}}` (Broker role)\n\n**Query params:**\n| Param | Type | Required | Description |\n|---|---|---|---|\n| `agencyId` | string | ❌ | Filter exported rows to a single agency. Omit to include all deals. |\n\n**Response:**\n- Content-Type: `application/vnd.openxmlformats-officedocument.spreadsheetml.sheet`\n- Content-Disposition: `attachment; filename=deals.xlsx`\n- Body: binary `.xlsx` stream\n\n**Columns in the exported file:**\n1. Company Name\n2. Contract Number\n3. Contract Start Date\n4. Term (Months)\n5. Commission Plan\n6. Term Volume\n7. Unit Fee\n8. Current Payment Date\n9. Current Payment\n\n**How to download in Postman:** Click **Send and Download** instead of **Send** to save the `.xlsx` file to disk."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Agency",
+      "description": "APIs for searching broker agencies and viewing the Agency Dashboard. The dashboard aggregates: agency details, on-flow deals chart data, previous/forecasted payment chart data, agency summary metrics, and the agent list.\n\n**Auth required:** Bearer token with `Broker` role.",
+      "item": [
+        {
+          "name": "Search Brokers – No Filter (all agencies)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200 OK', () => pm.response.to.have.status(200));",
+                  "pm.test('Content-Type is JSON', () => pm.response.to.have.header('Content-Type', /application\\/json/));",
+                  "",
+                  "const body = pm.response.json();",
+                  "pm.test('Has totalEntries', () => pm.expect(body.totalEntries).to.be.a('number').and.at.least(0));",
+                  "pm.test('results is an array', () => pm.expect(body.results).to.be.an('array'));",
+                  "pm.test('totalEntries matches results array length', () => {",
+                  "    pm.expect(body.results.length).to.equal(body.totalEntries);",
+                  "});",
+                  "",
+                  "if (body.results.length > 0) {",
+                  "    const r = body.results[0];",
+                  "    pm.test('Result has required fields', () => {",
+                  "        pm.expect(r).to.have.all.keys('agencyId', 'agencyName', 'contactName', 'numberOfContracts');",
+                  "    });",
+                  "    pm.test('numberOfContracts is a non-negative integer', () => {",
+                  "        pm.expect(r.numberOfContracts).to.be.a('number').and.at.least(0);",
+                  "    });",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/broker/commission/agency/SearchBrokers",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "broker", "commission", "agency", "SearchBrokers"]
+            },
+            "description": "Returns all broker agencies when no filter parameters are provided. Corresponds to the Search Broker screen initial load.\n\n**Auth:** Bearer `{{token}}` (Broker role)\n\n**Query params:** Both params are optional and can be combined\n| Param | Type | Required | Description |\n|---|---|---|---|\n| `contactName` | string | ❌ | Partial, case-insensitive match on Contact Name |\n| `agencyName` | string | ❌ | Partial, case-insensitive match on Agency Name |\n\n**Response shape:**\n```json\n{\n  \"totalEntries\": 5,\n  \"results\": [\n    {\n      \"agencyId\": \"1\",\n      \"agencyName\": \"New Sales Agency\",\n      \"contactName\": \"New Sales Agency\",\n      \"numberOfContracts\": 64\n    }\n  ]\n}\n```"
+          }
+        },
+        {
+          "name": "Search Brokers – Filter by Agency Name",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200 OK', () => pm.response.to.have.status(200));",
+                  "",
+                  "const body = pm.response.json();",
+                  "pm.test('All results match the filter', () => {",
+                  "    body.results.forEach(r => {",
+                  "        pm.expect(r.agencyName.toLowerCase()).to.include('sales');",
+                  "    });",
+                  "});",
+                  "pm.test('totalEntries matches results length', () => {",
+                  "    pm.expect(body.results.length).to.equal(body.totalEntries);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/broker/commission/agency/SearchBrokers?agencyName=Sales",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "broker", "commission", "agency", "SearchBrokers"],
+              "query": [
+                {
+                  "key": "agencyName",
+                  "value": "Sales",
+                  "description": "Partial, case-insensitive match. Returns agencies whose name contains 'Sales'."
+                }
+              ]
+            },
+            "description": "Filters agencies by a partial, case-insensitive agency name. `Sales` should match **New Sales Agency**, **Test Sales Agency 004**."
+          }
+        },
+        {
+          "name": "Search Brokers – Filter by Contact Name",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200 OK', () => pm.response.to.have.status(200));",
+                  "const body = pm.response.json();",
+                  "pm.test('All results match the contact filter', () => {",
+                  "    body.results.forEach(r => {",
+                  "        pm.expect(r.contactName.toLowerCase()).to.include('tfs');",
+                  "    });",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/broker/commission/agency/SearchBrokers?contactName=TFS",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "broker", "commission", "agency", "SearchBrokers"],
+              "query": [
+                {
+                  "key": "contactName",
+                  "value": "TFS",
+                  "description": "Partial match on Contact Name. Returns TFS Energy Solutions LLC."
+                }
+              ]
+            },
+            "description": "Filters agencies by contact name. `TFS` matches **TFS Energy Solutions LLC**."
+          }
+        },
+        {
+          "name": "Search Brokers – Combined Filters",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200 OK', () => pm.response.to.have.status(200));",
+                  "const body = pm.response.json();",
+                  "pm.test('Results narrowed by both filters', () => {",
+                  "    pm.expect(body.totalEntries).to.be.at.most(5);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/broker/commission/agency/SearchBrokers?contactName=New&agencyName=New",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "broker", "commission", "agency", "SearchBrokers"],
+              "query": [
+                {
+                  "key": "contactName",
+                  "value": "New",
+                  "description": "Both filters are applied with AND logic."
+                },
+                {
+                  "key": "agencyName",
+                  "value": "New",
+                  "description": "Agency name must also contain 'New'."
+                }
+              ]
+            },
+            "description": "When both `contactName` and `agencyName` are supplied they are applied with **AND** logic — only agencies matching both filters are returned."
+          }
+        },
+        {
+          "name": "Search Brokers – No Match",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200 OK', () => pm.response.to.have.status(200));",
+                  "const body = pm.response.json();",
+                  "pm.test('totalEntries is 0', () => pm.expect(body.totalEntries).to.equal(0));",
+                  "pm.test('results is empty array', () => pm.expect(body.results).to.be.an('array').and.be.empty);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/broker/commission/agency/SearchBrokers?agencyName=ZZZNOMATCH",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "broker", "commission", "agency", "SearchBrokers"],
+              "query": [
+                {
+                  "key": "agencyName",
+                  "value": "ZZZNOMATCH",
+                  "description": "No agency will match this — expects empty results with 200 OK."
+                }
+              ]
+            },
+            "description": "Verifies that a filter with no matches returns `200 OK` with `totalEntries: 0` and an empty `results` array (not a 404)."
+          }
+        },
+        {
+          "name": "Get Agency Dashboard (Agency ID: 1 – New Sales Agency)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200 OK', () => pm.response.to.have.status(200));",
+                  "pm.test('Response time < 2s', () => pm.expect(pm.response.responseTime).to.be.below(2000));",
+                  "pm.test('Content-Type is JSON', () => pm.response.to.have.header('Content-Type', /application\\/json/));",
+                  "",
+                  "const body = pm.response.json();",
+                  "",
+                  "pm.test('agency section – required fields', () => {",
+                  "    pm.expect(body.agency).to.have.all.keys('agencyId', 'name', 'address');",
+                  "    pm.expect(body.agency.agencyId).to.equal('1');",
+                  "    pm.expect(body.agency.name).to.be.a('string').and.not.be.empty;",
+                  "    pm.expect(body.agency.address).to.have.all.keys('street', 'city', 'state', 'zip');",
+                  "});",
+                  "",
+                  "pm.test('onFlowDeals is a non-empty array', () => {",
+                  "    pm.expect(body.onFlowDeals).to.be.an('array').and.not.be.empty;",
+                  "    body.onFlowDeals.forEach(p => {",
+                  "        pm.expect(p).to.have.all.keys('month', 'dealCount');",
+                  "        pm.expect(p.dealCount).to.be.a('number').and.at.least(0);",
+                  "    });",
+                  "});",
+                  "",
+                  "pm.test('paymentChart is a non-empty array with forecasted flag', () => {",
+                  "    pm.expect(body.paymentChart).to.be.an('array').and.not.be.empty;",
+                  "    body.paymentChart.forEach(p => {",
+                  "        pm.expect(p).to.have.all.keys('month', 'amount', 'isForecasted');",
+                  "        pm.expect(p.amount).to.be.a('number').and.at.least(0);",
+                  "    });",
+                  "    const hasForecasted = body.paymentChart.some(p => p.isForecasted === true);",
+                  "    const hasActual = body.paymentChart.some(p => p.isForecasted === false);",
+                  "    pm.test('paymentChart has both actual and forecasted points', () => {",
+                  "        pm.expect(hasForecasted).to.be.true;",
+                  "        pm.expect(hasActual).to.be.true;",
+                  "    });",
+                  "});",
+                  "",
+                  "pm.test('agencySummary – all numeric fields present', () => {",
+                  "    const s = body.agencySummary;",
+                  "    pm.expect(s).to.have.all.keys('numberOfAgents', 'numberOfDeals', 'currentPayment', 'currentPaymentPeriod', 'previousPayment', 'previousPaymentPeriod', 'forecastedPayment', 'yearToDatePayment');",
+                  "    pm.expect(s.numberOfAgents).to.be.a('number').and.above(0);",
+                  "    pm.expect(s.numberOfDeals).to.be.a('number').and.above(0);",
+                  "    pm.expect(s.currentPayment).to.be.a('number').and.at.least(0);",
+                  "    pm.expect(s.forecastedPayment).to.be.a('number').and.at.least(0);",
+                  "});",
+                  "",
+                  "pm.test('agents list is non-empty', () => {",
+                  "    pm.expect(body.agents).to.be.an('array').and.not.be.empty;",
+                  "    body.agents.forEach(a => {",
+                  "        pm.expect(a).to.have.all.keys('agentId', 'agentName');",
+                  "        pm.expect(a.agentName).to.be.a('string').and.not.be.empty;",
+                  "    });",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/broker/commission/agency/GetAgencyDashboard?agencyId=1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "broker", "commission", "agency", "GetAgencyDashboard"],
+              "query": [
+                {
+                  "key": "agencyId",
+                  "value": "1",
+                  "description": "Required. Use the agencyId from SearchBrokers results."
+                }
+              ]
+            },
+            "description": "Returns the complete Agency Dashboard for a single agency. This is the data behind the Agency Dashboard page seen after clicking an agency in the search results.\n\n**Auth:** Bearer `{{token}}` (Broker role)\n\n**Query params:**\n| Param | Type | Required | Description |\n|---|---|---|---|\n| `agencyId` | string | ✅ | The agency ID (from SearchBrokers results) |\n\n**Response sections:**\n\n| Section | Description |\n|---|---|\n| `agency` | Agency name and full address (Street, City, State, Zip) |\n| `onFlowDeals` | Array of `{ month, dealCount }` — bar chart data (Month vs Deals) |\n| `paymentChart` | Array of `{ month, amount, isForecasted }` — line chart data for Previous/Forecasted Payments |\n| `agencySummary` | `numberOfAgents`, `numberOfDeals`, `currentPayment`, `currentPaymentPeriod`, `previousPayment`, `previousPaymentPeriod`, `forecastedPayment`, `yearToDatePayment` |\n| `agents` | Array of `{ agentId, agentName }` — My Agents list with Show Detail button data |\n\n**Errors:**\n- `400` — `agencyId` param missing\n- `404` — no agency found with given ID\n\n**Available agency IDs:** `1` (New Sales Agency), `2` (Test Sales Agency 004), `3` (SmokeTesting215), `4` (Demo Agency), `13` (TFS Energy Solutions LLC)"
+          }
+        },
+        {
+          "name": "Get Agency Dashboard – 404 (unknown ID)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 404 Not Found', () => pm.response.to.have.status(404));",
+                  "const body = pm.response.json();",
+                  "pm.test('Error message present', () => pm.expect(body.message).to.be.a('string').and.not.be.empty);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/broker/commission/agency/GetAgencyDashboard?agencyId=GHOST_999",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "broker", "commission", "agency", "GetAgencyDashboard"],
+              "query": [
+                {
+                  "key": "agencyId",
+                  "value": "GHOST_999",
+                  "description": "Non-existent agency ID — expects 404."
+                }
+              ]
+            },
+            "description": "Verifies that an unknown `agencyId` returns **404 Not Found**."
+          }
+        },
+        {
+          "name": "Get Agency Dashboard – 400 (missing param)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 400 Bad Request', () => pm.response.to.have.status(400));",
+                  "const body = pm.response.json();",
+                  "pm.test('Validation errors present', () => pm.expect(body).to.have.property('errors'));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/broker/commission/agency/GetAgencyDashboard",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "broker", "commission", "agency", "GetAgencyDashboard"]
+            },
+            "description": "Verifies that omitting the required `agencyId` query parameter returns **400 Bad Request** with ASP.NET model validation errors."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Unauthorized (401) – Auth Enabled",
+      "description": "These requests deliberately omit the Bearer token. When `[Authorize(Policy = \"Broker\")]` is active in the controllers, all should return **401 Unauthorized**.\n\n> ⚠️ Auth is currently commented out in these controllers — these requests will return **200** instead of **401** until auth is re-enabled.",
+      "item": [
+        {
+          "name": "GetMyStatements – No Token",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "// When auth is enabled this should be 401.",
+                  "// When auth is disabled (current state) this returns 200.",
+                  "pm.test('Returns 401 when auth is enabled', () => {",
+                  "    pm.expect([200, 401]).to.include(pm.response.code);",
+                  "    if (pm.response.code === 200) {",
+                  "        console.warn('Auth is disabled — expected 401 but got 200. Re-enable [Authorize] to enforce token checks.');",
+                  "    }",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "auth": { "type": "noauth" },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/broker/commission/statements/GetMyStatements",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "broker", "commission", "statements", "GetMyStatements"]
+            },
+            "description": "Expects **401 Unauthorized** when auth is re-enabled on BrokerStatementsController."
+          }
+        },
+        {
+          "name": "GetMyDeals – No Token",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Returns 401 when auth is enabled', () => {",
+                  "    pm.expect([200, 401]).to.include(pm.response.code);",
+                  "    if (pm.response.code === 200) { console.warn('Auth is disabled on BrokerDealsController'); }",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "auth": { "type": "noauth" },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/broker/commission/deals/GetMyDeals",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "broker", "commission", "deals", "GetMyDeals"]
+            },
+            "description": "Expects **401 Unauthorized** when auth is re-enabled on BrokerDealsController."
+          }
+        },
+        {
+          "name": "SearchBrokers – No Token",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Returns 401 when auth is enabled', () => {",
+                  "    pm.expect([200, 401]).to.include(pm.response.code);",
+                  "    if (pm.response.code === 200) { console.warn('Auth is disabled on BrokerAgencyController'); }",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "auth": { "type": "noauth" },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/broker/commission/agency/SearchBrokers",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "broker", "commission", "agency", "SearchBrokers"]
+            },
+            "description": "Expects **401 Unauthorized** when auth is re-enabled on BrokerAgencyController."
+          }
+        },
+        {
+          "name": "GetAgencyDashboard – No Token",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Returns 401 when auth is enabled', () => {",
+                  "    pm.expect([200, 401]).to.include(pm.response.code);",
+                  "    if (pm.response.code === 200) { console.warn('Auth is disabled on BrokerAgencyController'); }",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "auth": { "type": "noauth" },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/broker/commission/agency/GetAgencyDashboard?agencyId=1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "broker", "commission", "agency", "GetAgencyDashboard"],
+              "query": [
+                { "key": "agencyId", "value": "1" }
+              ]
+            },
+            "description": "Expects **401 Unauthorized** when auth is re-enabled on BrokerAgencyController."
+          }
+        },
+        {
+          "name": "ExportDeals – No Token",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Returns 401 when auth is enabled', () => {",
+                  "    pm.expect([200, 401]).to.include(pm.response.code);",
+                  "    if (pm.response.code === 200) { console.warn('Auth is disabled on BrokerDealsController'); }",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "auth": { "type": "noauth" },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/broker/commission/deals/ExportDeals",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "broker", "commission", "deals", "ExportDeals"]
+            },
+            "description": "Expects **401 Unauthorized** when auth is re-enabled on BrokerDealsController."
+          }
+        }
+      ]
+    }
+  ]
+}

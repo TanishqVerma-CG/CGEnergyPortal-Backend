@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BrokerOpenSupportRequests>
+    <LastUpdated>2025-08-06T13:59:00</LastUpdated>
+    <Items>
+        <Item>
+            <Customer>Acme Manufacturing Ltd.</Customer>
+            <RequestType>Billing Dispute</RequestType>
+            <Priority>HIGH</Priority>
+            <CreatedOn>5/22/2026</CreatedOn>
+        </Item>
+        <Item>
+            <Customer>Greenfield Retail Group</Customer>
+            <RequestType>Information Request</RequestType>
+            <Priority>HIGH</Priority>
+            <CreatedOn>5/18/2026</CreatedOn>
+        </Item>
+        <Item>
+            <Customer>Horizon Logistics</Customer>
+            <RequestType>Billing Dispute</RequestType>
+            <Priority>MEDIUM</Priority>
+            <CreatedOn>5/15/2026</CreatedOn>
+        </Item>
+        <Item>
+            <Customer>Northstar Warehousing</Customer>
+            <RequestType>Information Request</RequestType>
+            <Priority>MEDIUM</Priority>
+            <CreatedOn>5/12/2026</CreatedOn>
+        </Item>
+        <Item>
+            <Customer>Elite Business Park</Customer>
+            <RequestType>Information Request</RequestType>
+            <Priority>MEDIUM</Priority>
+            <CreatedOn>5/8/2026</CreatedOn>
+        </Item>
+        <Item>
+            <Customer>Greenfield Retail Group</Customer>
+            <RequestType>Billing Dispute</RequestType>
+            <Priority>LOW</Priority>
+            <CreatedOn>5/8/2026</CreatedOn>
+        </Item>
+        <Item>
+            <Customer>Horizon Logistics</Customer>
+            <RequestType>Other</RequestType>
+            <Priority>MEDIUM</Priority>
+            <CreatedOn>5/7/2026</CreatedOn>
+        </Item>
+        <Item>
+            <Customer>Northstar Warehousing</Customer>
+            <RequestType>Information Request</RequestType>
+            <Priority>LOW</Priority>
+            <CreatedOn>5/6/2026</CreatedOn>
+        </Item>
+        <Item>
+            <Customer>Horizon Logistics</Customer>
+            <RequestType>Billing Dispute</RequestType>
+            <Priority>MEDIUM</Priority>
+            <CreatedOn>5/5/2026</CreatedOn>
+        </Item>
+        <Item>
+            <Customer>Elite Business Park</Customer>
+            <RequestType>Other</RequestType>
+            <Priority>HIGH</Priority>
+            <CreatedOn>5/3/2026</CreatedOn>
+        </Item>
+    </Items>
+</BrokerOpenSupportRequests>

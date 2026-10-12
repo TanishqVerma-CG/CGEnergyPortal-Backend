@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Users>
+  <User>
+    <UserId>1</UserId>
+    <Name>Alex John</Name>
+    <EmailId>Alexjohn@cginfinity.com</EmailId>
+	<ContactNumber>9876543210</ContactNumber>
+    <PrimaryBusinessNumber>180012345665</PrimaryBusinessNumber>
+    <Address1>123 Industrial Av</Address1>
+    <Address2>Building A, Floor 3</Address2>
+    <City>Houston</City>
+    <State>Texas</State>
+    <Zipcode>77001</Zipcode>
+    <Country>USA</Country>
+    <Password>admin1234</Password>
+    <Role>billing</Role>
+    <CreatedOn>1/1/2026</CreatedOn>
+	  <LastLogin>1/1/2026</LastLogin>
+	  <LastLogout>1/1/2026</LastLogout>
+  </User>
+  <User>
+    <UserId>2</UserId>
+    <Name>John Doe</Name>
+    <EmailId>john@cginfinity.com</EmailId>
+    <ContactNumber>9123456780</ContactNumber>
+    <PrimaryBusinessNumber>1800654321</PrimaryBusinessNumber>
+    <Address1>456 Refinery Road</Address1>
+    <Address2>Unit 5</Address2>
+    <City>Dallas</City>
+    <State>Texas</State>
+    <Zipcode>75201</Zipcode>
+    <Country>USA</Country>
+    <Password>admin1234</Password>
+    <Role>billing</Role>
+    <Status>Active</Status>
+    <AccountType>ADMIN</AccountType>
+    <CreatedOn>6/15/2026</CreatedOn>
+	  <LastLogin>6/15/2026</LastLogin>
+	  <LastLogout>6/15/2026</LastLogout>
+  </User>
+  <User>
+    <UserId>3</UserId>
+    <Name>Sarah Mitchell</Name>
+    <EmailId>sarah.mitchell@cginfinity.com</EmailId>
+    <ContactNumber>9812345670</ContactNumber>
+    <PrimaryBusinessNumber>1800987654</PrimaryBusinessNumber>
+    <Address1>789 Energy Blvd</Address1>
+    <Address2>Suite 12</Address2>
+    <City>Houston</City>
+    <State>Texas</State>
+    <Zipcode>77002</Zipcode>
+    <Country>USA</Country>
+    <Password>sarah@123</Password>
+    <Role>broker</Role>
+    <CreatedOn>6/6/2026</CreatedOn>
+	  <LastLogin>6/6/2026</LastLogin>
+    <LastLogout>6/6/2026</LastLogout>
+	  
+  </User>
+	
+	<User>
+    <UserId>34</UserId>
+    <Name>Kumar Vikram</Name>
+    <EmailId>kumar.vikram@cginfinity.com</EmailId>
+    <ContactNumber>9812345670</ContactNumber>
+    <PrimaryBusinessNumber>1800987654</PrimaryBusinessNumber>
+    <Address1>789 Energy Blvd</Address1>
+    <Address2>Suite 12</Address2>
+    <City>Houston</City>
+    <State>Texas</State>
+    <Zipcode>77002</Zipcode>
+    <Country>USA</Country>
+    <Password>vik@123</Password>
+    <Role>broker</Role>
+    <CreatedOn>6/6/2026</CreatedOn>
+	  <LastLogin>6/6/2026</LastLogin>
+    <LastLogout>6/6/2026</LastLogout>
+	  
+  </User>
+	
+	<User>
+    <UserId>346</UserId>
+    <Name>Kumar Vikram</Name>
+    <EmailId>kunalk71@gmail.com</EmailId>
+    <ContactNumber>9812345670</ContactNumber>
+    <PrimaryBusinessNumber>1800987654</PrimaryBusinessNumber>
+    <Address1>789 Energy Blvd</Address1>
+    <Address2>Suite 12</Address2>
+    <City>Houston</City>
+    <State>Texas</State>
+    <Zipcode>77002</Zipcode>
+    <Country>USA</Country>
+    <Password>vik@123</Password>
+    <Role>broker</Role>
+    <CreatedOn>6/6/2026</CreatedOn>
+	  <LastLogin>6/6/2026</LastLogin>
+    <LastLogout>6/6/2026</LastLogout>
+	  
+  </User>
+	
+	<User>
+    <UserId>348</UserId>
+    <Name>Manas Arora</Name>
+    <EmailId>manas,arora@cginfinity.com</EmailId>
+    <ContactNumber>9812345670</ContactNumber>
+    <PrimaryBusinessNumber>1800987654</PrimaryBusinessNumber>
+    <Address1>789 Energy Blvd</Address1>
+    <Address2>Suite 12</Address2>
+    <City>Houston</City>
+    <State>Texas</State>
+    <Zipcode>77002</Zipcode>
+    <Country>USA</Country>
+    <Password>manas@123</Password>
+    <Role>broker</Role>
+    <CreatedOn>6/6/2026</CreatedOn>
+	  <LastLogin>6/6/2026</LastLogin>
+    <LastLogout>6/6/2026</LastLogout>
+	  
+  </User>
+
+</Users>

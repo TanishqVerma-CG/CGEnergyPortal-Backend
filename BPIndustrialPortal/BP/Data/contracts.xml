@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContractData>
+  <LastUpdated>2026-06-06 13:59:00</LastUpdated>
+  <Contracts>
+
+
+    <Contract>
+    <ContractId>all</ContractId>
+      <Label>All contracts</Label>
+      <ActiveContracts>4</ActiveContracts>
+      <TotalMeter>9</TotalMeter>
+      <TotalContractVolumeMWh>5200</TotalContractVolumeMWh>
+      <ExpiringIn30Days>1</ExpiringIn30Days>
+      <ExpiringContract>
+        <Count>2</Count>
+        <DaysLabel>60 days</DaysLabel>
+      </ExpiringContract>
+      <ContractUtilization>
+        <Count>4</Count>
+        <UsedMWh>85</UsedMWh>
+        <ContractedMWh>92</ContractedMWh>
+      </ContractUtilization>
+ <ExpiringIn>
+    <Days>25</Days>
+        <ExpiryDate>Mar 31, 2026</ExpiryDate>
+      </ExpiringIn>
+      <ActiveMeter>
+        <Count>9</Count>
+      </ActiveMeter>
+      <OpenQuoteRequests>3</OpenQuoteRequests>
+      <QuotesApproved>2</QuotesApproved>
+    </Contract>
+
+
+    <Contract>
+      <ContractId>2453</ContractId>
+      <Label>2453</Label>
+    <ActiveContracts>2</ActiveContracts>
+ <TotalMeter>3</TotalMeter>
+      <TotalContractVolumeMWh>1800</TotalContractVolumeMWh>
+      <ExpiringIn30Days>1</ExpiringIn30Days>
+      <ExpiringContract>
+  <Count>1</Count>
+   <DaysLabel>30 days</DaysLabel>
+</ExpiringContract>
+      <ContractUtilization>
+        <Count>4</Count>
+        <UsedMWh>85</UsedMWh>
+     <ContractedMWh>92</ContractedMWh>
+      </ContractUtilization>
+      <ExpiringIn>
+        <Days>25</Days>
+        <ExpiryDate>Apr 30, 2025</ExpiryDate>
+      </ExpiringIn>
+      <ActiveMeter>
+        <Count>5</Count>
+   </ActiveMeter>
+      <OpenQuoteRequests>1</OpenQuoteRequests>
+      <QuotesApproved>1</QuotesApproved>
+    </Contract>
+
+
+    <Contract>
+      <ContractId>2452</ContractId>
+      <Label>2452</Label>
+    <ActiveContracts>1</ActiveContracts>
+      <TotalMeter>2</TotalMeter>
+      <TotalContractVolumeMWh>1400</TotalContractVolumeMWh>
+      <ExpiringIn30Days>0</ExpiringIn30Days>
+      <ExpiringContract>
+        <Count>1</Count>
+        <DaysLabel>60 days</DaysLabel>
+      </ExpiringContract>
+      <ContractUtilization>
+  <Count>3</Count>
+  <UsedMWh>60</UsedMWh>
+        <ContractedMWh>70</ContractedMWh>
+      </ContractUtilization>
+   <ExpiringIn>
+      <Days>60</Days>
+        <ExpiryDate>Jan 05, 2026</ExpiryDate>
+    </ExpiringIn>
+      <ActiveMeter>
+        <Count>2</Count>
+      </ActiveMeter>
+      <OpenQuoteRequests>1</OpenQuoteRequests>
+      <QuotesApproved>0</QuotesApproved>
+    </Contract>
+
+    <Contract>
+      <ContractId>2451</ContractId>
+      <Label>2451</Label>
+      <ActiveContracts>1</ActiveContracts>
+      <TotalMeter>2</TotalMeter>
+      <TotalContractVolumeMWh>1100</TotalContractVolumeMWh>
+   <ExpiringIn30Days>0</ExpiringIn30Days>
+      <ExpiringContract>
+        <Count>0</Count>
+  <DaysLabel></DaysLabel>
+      </ExpiringContract>
+   <ContractUtilization>
+   <Count>2</Count>
+        <UsedMWh>45</UsedMWh>
+ <ContractedMWh>55</ContractedMWh>
+      </ContractUtilization>
+      <ExpiringIn>
+        <Days>120</Days>
+     <ExpiryDate>Dec 03, 2025</ExpiryDate>
+      </ExpiringIn>
+      <ActiveMeter>
+        <Count>2</Count>
+  </ActiveMeter>
+      <OpenQuoteRequests>0</OpenQuoteRequests>
+      <QuotesApproved>1</QuotesApproved>
+    </Contract>
+
+    <Contract>
+      <ContractId>2449</ContractId>
+      <Label>2449</Label>
+  <ActiveContracts>1</ActiveContracts>
+      <TotalMeter>2</TotalMeter>
+      <TotalContractVolumeMWh>900</TotalContractVolumeMWh>
+<ExpiringIn30Days>0</ExpiringIn30Days>
+      <ExpiringContract>
+ <Count>0</Count>
+     <DaysLabel></DaysLabel>
+      </ExpiringContract>
+      <ContractUtilization>
+        <Count>2</Count>
+    <UsedMWh>38</UsedMWh>
+<ContractedMWh>45</ContractedMWh>
+      </ContractUtilization>
+   <ExpiringIn>
+     <Days>180</Days>
+        <ExpiryDate>Feb 02, 2026</ExpiryDate>
+      </ExpiringIn>
+      <ActiveMeter>
+        <Count>2</Count>
+      </ActiveMeter>
+      <OpenQuoteRequests>1</OpenQuoteRequests>
+      <QuotesApproved>0</QuotesApproved>
+  </Contract>
+
+    <Contract>
+      <ContractId>2450</ContractId>
+      <Label>2450</Label>
+      <ActiveContracts>1</ActiveContracts>
+      <TotalMeter>2</TotalMeter>
+      <TotalContractVolumeMWh>1200</TotalContractVolumeMWh>
+    <ExpiringIn30Days>0</ExpiringIn30Days>
+      <ExpiringContract>
+        <Count>0</Count>
+  <DaysLabel></DaysLabel>
+      </ExpiringContract>
+      <ContractUtilization>
+        <Count>2</Count>
+        <UsedMWh>52</UsedMWh>
+   <ContractedMWh>60</ContractedMWh>
+ </ContractUtilization>
+      <ExpiringIn>
+        <Days>210</Days>
+        <ExpiryDate>Mar 15, 2026</ExpiryDate>
+      </ExpiringIn>
+      <ActiveMeter>
+   <Count>2</Count>
+      </ActiveMeter>
+      <OpenQuoteRequests>0</OpenQuoteRequests>
+      <QuotesApproved>0</QuotesApproved>
+    </Contract>
+
+  <Contract>
+  <ContractId>2448</ContractId>
+      <Label>2448</Label>
+      <ActiveContracts>1</ActiveContracts>
+      <TotalMeter>1</TotalMeter>
+      <TotalContractVolumeMWh>800</TotalContractVolumeMWh>
+   <ExpiringIn30Days>0</ExpiringIn30Days>
+      <ExpiringContract>
+    <Count>0</Count>
+  <DaysLabel></DaysLabel>
+    </ExpiringContract>
+      <ContractUtilization>
+        <Count>1</Count>
+    <UsedMWh>30</UsedMWh>
+<ContractedMWh>40</ContractedMWh>
+      </ContractUtilization>
+      <ExpiringIn>
+        <Days>240</Days>
+        <ExpiryDate>Jan 10, 2026</ExpiryDate>
+      </ExpiringIn>
+      <ActiveMeter>
+   <Count>1</Count>
+      </ActiveMeter>
+      <OpenQuoteRequests>0</OpenQuoteRequests>
+      <QuotesApproved>0</QuotesApproved>
+    </Contract>
+
+  </Contracts>
+</ContractData>

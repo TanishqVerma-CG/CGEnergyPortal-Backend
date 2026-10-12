@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContractsMeters>
+  <ContractMeters>
+
+    <ContractMeter>
+      <ContractId>2453</ContractId>
+      <Meters>
+
+        <Meter>
+          <MeterId>00313867</MeterId>
+          <UAN>-</UAN>
+          <LDC>23220644990</LDC>
+          <Utility>Northeast Electric</Utility>
+          <ServiceAddress>456 Oak Street, Dallas, TX 75201</ServiceAddress>
+          <Status>ACTIVE</Status>
+          <StartDate>5/1/2024</StartDate>
+          <StopDate></StopDate>
+          <AnnualUsage>1248750</AnnualUsage>
+        </Meter>
+
+        <Meter>
+          <MeterId>00313866</MeterId>
+          <UAN>-</UAN>
+          <LDC>23220644991</LDC>
+          <Utility>Metro Energy Services</Utility>
+          <ServiceAddress>789 Pine Street, Houston, TX 77002</ServiceAddress>
+          <Status>ACTIVE</Status>
+          <StartDate>8/15/2024</StartDate>
+          <StopDate></StopDate>
+          <AnnualUsage>1087320</AnnualUsage>
+        </Meter>
+
+        <Meter>
+          <MeterId>00313865</MeterId>
+          <UAN>-</UAN>
+          <LDC>23220644992</LDC>
+          <Utility>Monarch Energy</Utility>
+          <ServiceAddress>321 Birch Lane, Austin, TX 78701</ServiceAddress>
+          <Status>INACTIVE</Status>
+          <StartDate>5/1/2024</StartDate>
+          <StopDate>4/15/2026</StopDate>
+          <AnnualUsage>1356890</AnnualUsage>
+        </Meter>
+
+      </Meters>
+    </ContractMeter>
+
+    <ContractMeter>
+      <ContractId>2452</ContractId>
+      <Meters>
+
+        <Meter>
+          <MeterId>00313864</MeterId>
+          <UAN>-</UAN>
+          <LDC>23220644993</LDC>
+          <Utility>Metro Energy Services</Utility>
+          <ServiceAddress>654 Cedar Boulevard, Fort Worth, TX 76102</ServiceAddress>
+          <Status>ACTIVE</Status>
+          <StartDate>2/10/2025</StartDate>
+          <StopDate></StopDate>
+          <AnnualUsage>1192440</AnnualUsage>
+        </Meter>
+
+        <Meter>
+          <MeterId>00313863</MeterId>
+          <UAN>-</UAN>
+          <LDC>23220644994</LDC>
+          <Utility>Monarch Energy</Utility>
+          <ServiceAddress>123 Maplewood Avenue, San Antonio, TX 78201</ServiceAddress>
+          <Status>INACTIVE</Status>
+          <StartDate>5/1/2024</StartDate>
+          <StopDate>3/31/2026</StopDate>
+          <AnnualUsage>1024610</AnnualUsage>
+        </Meter>
+
+      </Meters>
+    </ContractMeter>
+
+    <ContractMeter>
+      <ContractId>2451</ContractId>
+      <Meters>
+
+        <Meter>
+          <MeterId>00313862</MeterId>
+          <UAN>-</UAN>
+          <LDC>23220644995</LDC>
+          <Utility>Texas Power Grid</Utility>
+          <ServiceAddress>987 Elm Avenue, Plano, TX 75023</ServiceAddress>
+          <Status>ACTIVE</Status>
+          <StartDate>3/1/2024</StartDate>
+          <StopDate></StopDate>
+          <AnnualUsage>1312580</AnnualUsage>
+        </Meter>
+
+        <Meter>
+          <MeterId>00313861</MeterId>
+          <UAN>-</UAN>
+          <LDC>23220644996</LDC>
+          <Utility>Gulf Coast Energy</Utility>
+          <ServiceAddress>234 Magnolia Drive, Arlington, TX 76010</ServiceAddress>
+          <Status>ACTIVE</Status>
+          <StartDate>6/15/2024</StartDate>
+          <StopDate></StopDate>
+          <AnnualUsage>985140</AnnualUsage>
+        </Meter>
+
+      </Meters>
+    </ContractMeter>
+
+    <ContractMeter>
+      <ContractId>2450</ContractId>
+      <Meters>
+
+        <Meter>
+          <MeterId>00313860</MeterId>
+          <UAN>-</UAN>
+          <LDC>23220644997</LDC>
+          <Utility>Lone Star Utilities</Utility>
+          <ServiceAddress>567 Pecan Street, Corpus Christi, TX 78401</ServiceAddress>
+          <Status>ACTIVE</Status>
+          <StartDate>1/1/2024</StartDate>
+          <StopDate></StopDate>
+          <AnnualUsage>874230</AnnualUsage>
+        </Meter>
+
+        <Meter>
+          <MeterId>00313859</MeterId>
+          <UAN>-</UAN>
+          <LDC>23220644998</LDC>
+          <Utility>Northeast Electric</Utility>
+          <ServiceAddress>890 Cedar Street, Lubbock, TX 79401</ServiceAddress>
+          <Status>PENDING</Status>
+          <StartDate>7/1/2026</StartDate>
+          <StopDate></StopDate>
+          <AnnualUsage>956430</AnnualUsage>
+        </Meter>
+
+      </Meters>
+    </ContractMeter>
+
+    <ContractMeter>
+      <ContractId>2449</ContractId>
+      <Meters>
+
+        <Meter>
+          <MeterId>00313858</MeterId>
+          <UAN>-</UAN>
+          <LDC>23220644999</LDC>
+          <Utility>Texas Power Grid</Utility>
+          <ServiceAddress>234 Oak Lane, Amarillo, TX 79101</ServiceAddress>
+          <Status>ACTIVE</Status>
+          <StartDate>4/1/2024</StartDate>
+          <StopDate></StopDate>
+          <AnnualUsage>1123780</AnnualUsage>
+        </Meter>
+
+        <Meter>
+          <MeterId>00313857</MeterId>
+          <UAN>-</UAN>
+          <LDC>23220645000</LDC>
+          <Utility>Metro Energy Services</Utility>
+          <ServiceAddress>567 Birch Avenue, El Paso, TX 79901</ServiceAddress>
+          <Status>ACTIVE</Status>
+          <StartDate>9/1/2024</StartDate>
+          <StopDate></StopDate>
+          <AnnualUsage>1045620</AnnualUsage>
+        </Meter>
+
+      </Meters>
+    </ContractMeter>
+
+    <ContractMeter>
+      <ContractId>2448</ContractId>
+      <Meters>
+
+        <Meter>
+          <MeterId>00313856</MeterId>
+          <UAN>-</UAN>
+          <LDC>23220645001</LDC>
+          <Utility>Gulf Coast Energy</Utility>
+          <ServiceAddress>789 Pine Road, Waco, TX 76701</ServiceAddress>
+          <Status>ACTIVE</Status>
+          <StartDate>2/1/2024</StartDate>
+          <StopDate></StopDate>
+          <AnnualUsage>1198340</AnnualUsage>
+        </Meter>
+
+      </Meters>
+    </ContractMeter>
+
+  </ContractMeters>
+</ContractsMeters>

@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<MyAccountDashboard>
+
+	<SummaryCards>
+		<TotalCustomers>10</TotalCustomers>
+		<ActiveContracts>16</ActiveContracts>
+		<MeterCount>498</MeterCount>
+		<TotalAnnualLoad unit="MWh">92450</TotalAnnualLoad>
+		<ExpiringIn90Days>20</ExpiringIn90Days>
+	</SummaryCards>
+
+	<CustomerPortfolio>
+
+		<Customer>
+			<Id>1</Id>
+			<Name>Acme Manufacturing Ltd.</Name>
+			<ActiveContracts>12</ActiveContracts>
+			<ActiveMeters>24</ActiveMeters>
+			<AnnualUsage unit="MWh">12760</AnnualUsage>
+			<ExpiringContracts>5</ExpiringContracts>
+			<ExpiredContracts>8</ExpiredContracts>
+		</Customer>
+
+		<Customer>
+			<Id>2</Id>
+			<Name>Greenfield Retail Group</Name>
+			<ActiveContracts>10</ActiveContracts>
+			<ActiveMeters>45</ActiveMeters>
+			<AnnualUsage unit="MWh">13420</AnnualUsage>
+			<ExpiringContracts>2</ExpiringContracts>
+			<ExpiredContracts>3</ExpiredContracts>
+		</Customer>
+
+		<Customer>
+			<Id>3</Id>
+			<Name>Horizon Logistics</Name>
+			<ActiveContracts>9</ActiveContracts>
+			<ActiveMeters>36</ActiveMeters>
+			<AnnualUsage unit="MWh">11950</AnnualUsage>
+			<ExpiringContracts>5</ExpiringContracts>
+			<ExpiredContracts>2</ExpiredContracts>
+		</Customer>
+
+		<Customer>
+			<Id>4</Id>
+			<Name>Northstar Warehousing</Name>
+			<ActiveContracts>8</ActiveContracts>
+			<ActiveMeters>16</ActiveMeters>
+			<AnnualUsage unit="MWh">10850</AnnualUsage>
+			<ExpiringContracts>3</ExpiringContracts>
+			<ExpiredContracts>1</ExpiredContracts>
+		</Customer>
+
+		<Customer>
+			<Id>5</Id>
+			<Name>Elite Business Park</Name>
+			<ActiveContracts>12</ActiveContracts>
+			<ActiveMeters>48</ActiveMeters>
+			<AnnualUsage unit="MWh">14150</AnnualUsage>
+			<ExpiringContracts>4</ExpiringContracts>
+			<ExpiredContracts>2</ExpiredContracts>
+		</Customer>
+
+		<Customer>
+			<Id>6</Id>
+			<Name>Pinnacle Commerce Center</Name>
+			<ActiveContracts>20</ActiveContracts>
+			<ActiveMeters>45</ActiveMeters>
+			<AnnualUsage unit="MWh">13420</AnnualUsage>
+			<ExpiringContracts>5</ExpiringContracts>
+			<ExpiredContracts>3</ExpiredContracts>
+		</Customer>
+
+		<Customer>
+			<Id>7</Id>
+			<Name>Polar Storage Solutions</Name>
+			<ActiveContracts>8</ActiveContracts>
+			<ActiveMeters>45</ActiveMeters>
+			<AnnualUsage unit="MWh">11950</AnnualUsage>
+			<ExpiringContracts>4</ExpiringContracts>
+			<ExpiredContracts>1</ExpiredContracts>
+		</Customer>
+
+		<Customer>
+			<Id>8</Id>
+			<Name>Pinnacle Commerce Center</Name>
+			<ActiveContracts>5</ActiveContracts>
+			<ActiveMeters>45</ActiveMeters>
+			<AnnualUsage unit="MWh">10850</AnnualUsage>
+			<ExpiringContracts>6</ExpiringContracts>
+			<ExpiredContracts>5</ExpiredContracts>
+		</Customer>
+
+		<Customer>
+			<Id>9</Id>
+			<Name>Horizon Logistics</Name>
+			<ActiveContracts>6</ActiveContracts>
+			<ActiveMeters>45</ActiveMeters>
+			<AnnualUsage unit="MWh">14150</AnnualUsage>
+			<ExpiringContracts>7</ExpiringContracts>
+			<ExpiredContracts>4</ExpiredContracts>
+		</Customer>
+
+		<Customer>
+			<Id>10</Id>
+			<Name>Elite Business Park</Name>
+			<ActiveContracts>8</ActiveContracts>
+			<ActiveMeters>45</ActiveMeters>
+			<AnnualUsage unit="MWh">10850</AnnualUsage>
+			<ExpiringContracts>7</ExpiringContracts>
+			<ExpiredContracts>3</ExpiredContracts>
+		</Customer>
+
+	</CustomerPortfolio>
+
+</MyAccountDashboard>

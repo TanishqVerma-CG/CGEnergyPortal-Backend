@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContractHistoryData>
+  <Contracts>
+
+    <Contract>
+      <ContractId>all</ContractId>
+      <History>
+        <Entry>
+          <EntryId>CH001</EntryId>
+          <EffectiveDate>4/10/2025</EffectiveDate>
+          <EventType>Original Contract Executed</EventType>
+          <Description>Customer signed Fixed Price Energy Supply Agreement</Description>
+          <DocumentName>Energy Supply Agreement - Fixed Price</DocumentName>
+          <DocumentUrl>/documents/contract-all-original.pdf</DocumentUrl>
+        </Entry>
+        <Entry>
+          <EntryId>CH002</EntryId>
+          <EffectiveDate>4/10/2025</EffectiveDate>
+          <EventType>Authorization Received</EventType>
+          <Description>Customer authorized BP to act on account</Description>
+          <DocumentName>Letter of Authorization (LOA)</DocumentName>
+          <DocumentUrl>/documents/contract-all-loa.pdf</DocumentUrl>
+        </Entry>
+        <Entry>
+          <EntryId>CH003</EntryId>
+          <EffectiveDate>4/11/2025</EffectiveDate>
+          <EventType>Contract Amendment</EventType>
+          <Description>Added new meter to existing agreement</Description>
+          <DocumentName>Amendment #1 - Meter Addition</DocumentName>
+          <DocumentUrl>/documents/contract-all-amendment-1.pdf</DocumentUrl>
+        </Entry>
+        <Entry>
+          <EntryId>CH004</EntryId>
+          <EffectiveDate>2/5/2026</EffectiveDate>
+          <EventType>Contract Amendment</EventType>
+          <Description>Updated service address information</Description>
+          <DocumentName>Amendment #2 - Service Address Update</DocumentName>
+          <DocumentUrl>/documents/contract-all-amendment-2.pdf</DocumentUrl>
+        </Entry>
+        <Entry>
+          <EntryId>CH005</EntryId>
+          <EffectiveDate>3/20/2026</EffectiveDate>
+          <EventType>Renewal Executed</EventType>
+          <Description>Customer renewed Fixed Price agreement for additional 24 months</Description>
+          <DocumentName>Renewal Amendment - Fixed Price 24 Month Term</DocumentName>
+          <DocumentUrl>/documents/contract-all-renewal.pdf</DocumentUrl>
+        </Entry>
+      </History>
+    </Contract>
+
+    <Contract>
+      <ContractId>2453</ContractId>
+      <History>
+        <Entry>
+          <EntryId>CH001</EntryId>
+          <EffectiveDate>4/10/2025</EffectiveDate>
+          <EventType>Original Contract Executed</EventType>
+          <Description>Customer signed Fixed Price Energy Supply Agreement</Description>
+          <DocumentName>Energy Supply Agreement - Fixed Price</DocumentName>
+          <DocumentUrl>/documents/contract-2453-original.pdf</DocumentUrl>
+        </Entry>
+        <Entry>
+          <EntryId>CH002</EntryId>
+          <EffectiveDate>4/10/2025</EffectiveDate>
+          <EventType>Authorization Received</EventType>
+          <Description>Customer authorized BP to act on account</Description>
+          <DocumentName>Letter of Authorization (LOA)</DocumentName>
+          <DocumentUrl>/documents/contract-2453-loa.pdf</DocumentUrl>
+        </Entry>
+        <Entry>
+          <EntryId>CH003</EntryId>
+          <EffectiveDate>4/11/2025</EffectiveDate>
+          <EventType>Contract Amendment</EventType>
+          <Description>Added new meter to existing agreement</Description>
+          <DocumentName>Amendment #1 - Meter Addition</DocumentName>
+          <DocumentUrl>/documents/contract-2453-amendment-1.pdf</DocumentUrl>
+        </Entry>
+        <Entry>
+          <EntryId>CH004</EntryId>
+          <EffectiveDate>3/20/2026</EffectiveDate>
+          <EventType>Renewal Executed</EventType>
+          <Description>Customer renewed Fixed Price agreement for additional 24 months</Description>
+          <DocumentName>Renewal Amendment - Fixed Price 24 Month Term</DocumentName>
+          <DocumentUrl>/documents/contract-2453-renewal.pdf</DocumentUrl>
+        </Entry>
+      </History>
+    </Contract>
+
+    <Contract>
+      <ContractId>2452</ContractId>
+      <History>
+        <Entry>
+          <EntryId>CH001</EntryId>
+          <EffectiveDate>5/15/2025</EffectiveDate>
+          <EventType>Original Contract Executed</EventType>
+          <Description>Customer signed Index Price Energy Supply Agreement</Description>
+          <DocumentName>Energy Supply Agreement - Index Price</DocumentName>
+          <DocumentUrl>/documents/contract-2452-original.pdf</DocumentUrl>
+        </Entry>
+        <Entry>
+          <EntryId>CH002</EntryId>
+          <EffectiveDate>5/15/2025</EffectiveDate>
+          <EventType>Authorization Received</EventType>
+          <Description>Customer authorized BP to act on account</Description>
+          <DocumentName>Letter of Authorization (LOA)</DocumentName>
+          <DocumentUrl>/documents/contract-2452-loa.pdf</DocumentUrl>
+        </Entry>
+        <Entry>
+          <EntryId>CH003</EntryId>
+          <EffectiveDate>2/5/2026</EffectiveDate>
+          <EventType>Contract Amendment</EventType>
+          <Description>Updated service address information</Description>
+          <DocumentName>Amendment #1 - Service Address Update</DocumentName>
+          <DocumentUrl>/documents/contract-2452-amendment-1.pdf</DocumentUrl>
+        </Entry>
+      </History>
+    </Contract>
+
+    <Contract>
+      <ContractId>2451</ContractId>
+      <History>
+        <Entry>
+          <EntryId>CH001</EntryId>
+          <EffectiveDate>1/20/2025</EffectiveDate>
+          <EventType>Original Contract Executed</EventType>
+          <Description>Customer signed Fixed Price Energy Supply Agreement</Description>
+          <DocumentName>Energy Supply Agreement - Fixed Price</DocumentName>
+          <DocumentUrl>/documents/contract-2451-original.pdf</DocumentUrl>
+        </Entry>
+        <Entry>
+          <EntryId>CH002</EntryId>
+          <EffectiveDate>1/20/2025</EffectiveDate>
+          <EventType>Authorization Received</EventType>
+          <Description>Customer authorized BP to act on account</Description>
+          <DocumentName>Letter of Authorization (LOA)</DocumentName>
+          <DocumentUrl>/documents/contract-2451-loa.pdf</DocumentUrl>
+        </Entry>
+      </History>
+    </Contract>
+
+    <Contract>
+      <ContractId>2450</ContractId>
+      <History>
+        <Entry>
+          <EntryId>CH001</EntryId>
+          <EffectiveDate>8/1/2024</EffectiveDate>
+          <EventType>Original Contract Executed</EventType>
+          <Description>Customer signed Fixed Price Energy Supply Agreement</Description>
+          <DocumentName>Energy Supply Agreement - Fixed Price</DocumentName>
+          <DocumentUrl>/documents/contract-2450-original.pdf</DocumentUrl>
+        </Entry>
+        <Entry>
+          <EntryId>CH002</EntryId>
+          <EffectiveDate>8/1/2024</EffectiveDate>
+          <EventType>Authorization Received</EventType>
+          <Description>Customer authorized BP to act on account</Description>
+          <DocumentName>Letter of Authorization (LOA)</DocumentName>
+          <DocumentUrl>/documents/contract-2450-loa.pdf</DocumentUrl>
+        </Entry>
+      </History>
+    </Contract>
+
+    <Contract>
+      <ContractId>2449</ContractId>
+      <History>
+        <Entry>
+          <EntryId>CH001</EntryId>
+          <EffectiveDate>8/1/2024</EffectiveDate>
+          <EventType>Original Contract Executed</EventType>
+          <Description>Customer signed Load Following Energy Supply Agreement</Description>
+          <DocumentName>Energy Supply Agreement - Load Following</DocumentName>
+          <DocumentUrl>/documents/contract-2449-original.pdf</DocumentUrl>
+        </Entry>
+        <Entry>
+          <EntryId>CH002</EntryId>
+          <EffectiveDate>8/1/2024</EffectiveDate>
+          <EventType>Authorization Received</EventType>
+          <Description>Customer authorized BP to act on account</Description>
+          <DocumentName>Letter of Authorization (LOA)</DocumentName>
+          <DocumentUrl>/documents/contract-2449-loa.pdf</DocumentUrl>
+        </Entry>
+      </History>
+    </Contract>
+
+    <Contract>
+      <ContractId>2448</ContractId>
+      <History>
+        <Entry>
+          <EntryId>CH001</EntryId>
+          <EffectiveDate>8/1/2024</EffectiveDate>
+          <EventType>Original Contract Executed</EventType>
+          <Description>Customer signed Fixed Price Energy Supply Agreement</Description>
+          <DocumentName>Energy Supply Agreement - Fixed Price</DocumentName>
+          <DocumentUrl>/documents/contract-2448-original.pdf</DocumentUrl>
+        </Entry>
+        <Entry>
+          <EntryId>CH002</EntryId>
+          <EffectiveDate>8/1/2024</EffectiveDate>
+          <EventType>Authorization Received</EventType>
+          <Description>Customer authorized BP to act on account</Description>
+          <DocumentName>Letter of Authorization (LOA)</DocumentName>
+          <DocumentUrl>/documents/contract-2448-loa.pdf</DocumentUrl>
+        </Entry>
+      </History>
+    </Contract>
+  </Contracts>
+</ContractHistoryData>

@@ -1,0 +1,825 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BrokerRenewals>
+	<Summary>
+		<UpcomingRenewals>35</UpcomingRenewals>
+		<CustomersImpacted>12</CustomersImpacted>
+		<RenewalDueThisWeek>8</RenewalDueThisWeek>
+		<DueToday>3</DueToday>
+		<PendingRenewalRequests>10</PendingRenewalRequests>
+		<NewRequestsToday>4</NewRequestsToday>
+		<QuotesPending>15</QuotesPending>
+		<CustomersAwaitingQuotes>9</CustomersAwaitingQuotes>
+		<TotalEntries>10</TotalEntries>
+	</Summary>
+	<Customers>
+		<Customer>
+			<CompanyName>Acme Manufacturing Ltd.</CompanyName>
+			<Contracts>
+				<Contract>
+					<ContractId>CID-10293</ContractId>
+					<ServiceAddress>456 Oak Street, Dallas, TX 75201</ServiceAddress>
+					<ContractStatus>ACTIVE</ContractStatus>
+					<CurrentPlan>24</CurrentPlan>
+					<StartDate>8/1/2024</StartDate>
+					<EndDate>7/31/2026</EndDate>
+					<DaysRemaining>12</DaysRemaining>
+					<LastQuoteStatus>QUOTE SENT</LastQuoteStatus>
+					<ProductType>Fixed</ProductType>
+					<ContractTerm>24</ContractTerm>
+					<MeterCount>5</MeterCount>
+					<QuoteHistory>
+						<Quote>
+							<QuoteId>QT-10033</QuoteId>
+							<RequestedOn>5/10/2026</RequestedOn>
+							<RequestedPlan>Market Index</RequestedPlan>
+							<TermLength>24</TermLength>
+							<QuotedPrice>62.45</QuotedPrice>
+							<BrokerMargin>0.025</BrokerMargin>
+							<Status>QUOTE SENT</Status>
+							<SentOn>5/21/2026</SentOn>
+							<RateType>Fixed</RateType>
+							<BaseCharge>5</BaseCharge>
+							<BaseChargeUnit>month</BaseChargeUnit>
+							<FinalRate>62.475</FinalRate>
+							<QuoteValidTill>4 February, 2026</QuoteValidTill>
+						</Quote>
+						<Quote>
+							<QuoteId>QT-10019</QuoteId>
+							<RequestedOn>5/10/2026</RequestedOn>
+							<RequestedPlan>Fixed Price</RequestedPlan>
+							<TermLength>24</TermLength>
+							<QuotedPrice>61.10</QuotedPrice>
+							<BrokerMargin>0.075</BrokerMargin>
+							<Status>QUOTE SENT</Status>
+							<SentOn>5/12/2026</SentOn>
+							<RateType>Fixed</RateType>
+							<BaseCharge>5</BaseCharge>
+							<BaseChargeUnit>month</BaseChargeUnit>
+							<FinalRate>61.175</FinalRate>
+							<QuoteValidTill>4 January, 2027</QuoteValidTill>
+						</Quote>
+						<Quote>
+							<QuoteId>QT-10005</QuoteId>
+							<RequestedOn>4/25/2026</RequestedOn>
+							<RequestedPlan>Fixed Price</RequestedPlan>
+							<TermLength>18</TermLength>
+							<QuotedPrice>63.80</QuotedPrice>
+							<BrokerMargin>0.029</BrokerMargin>
+							<Status>REJECTED</Status>
+							<SentOn>4/27/2026</SentOn>
+							<RateType>Fixed</RateType>
+							<BaseCharge>5</BaseCharge>
+							<BaseChargeUnit>month</BaseChargeUnit>
+							<FinalRate>63.829</FinalRate>
+							<QuoteValidTill>4 February, 2026</QuoteValidTill>
+						</Quote>
+					</QuoteHistory>
+				</Contract>
+				<Contract>
+					<ContractId>CID-10292</ContractId>
+					<ServiceAddress>321 Birch Lane, Austin, TX 78701</ServiceAddress>
+					<ContractStatus>ACTIVE</ContractStatus>
+					<CurrentPlan>24</CurrentPlan>
+					<StartDate>8/1/2024</StartDate>
+					<EndDate>6/15/2026</EndDate>
+					<DaysRemaining>15</DaysRemaining>
+					<LastQuoteStatus>REQUESTED</LastQuoteStatus>
+					<ProductType>Fixed</ProductType>
+					<ContractTerm>24</ContractTerm>
+					<MeterCount>5</MeterCount>
+					<QuoteHistory>
+						<Quote>
+							<QuoteId>QT-10032</QuoteId>
+							<RequestedOn>5/10/2026</RequestedOn>
+							<RequestedPlan>Market Index</RequestedPlan>
+							<TermLength>24</TermLength>
+							<QuotedPrice>62.45</QuotedPrice>
+							<BrokerMargin>0.025</BrokerMargin>
+							<Status>REQUESTED</Status>
+							<SentOn></SentOn>
+							<RateType>Fixed</RateType>
+							<BaseCharge>5</BaseCharge>
+							<BaseChargeUnit>month</BaseChargeUnit>
+							<FinalRate>62.475</FinalRate>
+							<QuoteValidTill>4 February, 2026</QuoteValidTill>
+						</Quote>
+						<Quote>
+							<QuoteId>QT-10018</QuoteId>
+							<RequestedOn>5/10/2026</RequestedOn>
+							<RequestedPlan>Fixed Price</RequestedPlan>
+							<TermLength>24</TermLength>
+							<QuotedPrice>61.10</QuotedPrice>
+							<BrokerMargin>0.025</BrokerMargin>
+							<Status>REJECTED</Status>
+							<SentOn>5/12/2026</SentOn>
+							<RateType>Fixed</RateType>
+							<BaseCharge>5</BaseCharge>
+							<BaseChargeUnit>month</BaseChargeUnit>
+							<FinalRate>61.125</FinalRate>
+							<QuoteValidTill>4 January, 2027</QuoteValidTill>
+						</Quote>
+						<Quote>
+							<QuoteId>QT-10009</QuoteId>
+							<RequestedOn>4/25/2026</RequestedOn>
+							<RequestedPlan>Fixed Price</RequestedPlan>
+							<TermLength>18</TermLength>
+							<QuotedPrice>63.80</QuotedPrice>
+							<BrokerMargin>0.025</BrokerMargin>
+							<Status>REJECTED</Status>
+							<SentOn>4/27/2026</SentOn>
+							<RateType>Fixed</RateType>
+							<BaseCharge>5</BaseCharge>
+							<BaseChargeUnit>month</BaseChargeUnit>
+							<FinalRate>63.825</FinalRate>
+							<QuoteValidTill>4 February, 2026</QuoteValidTill>
+						</Quote>
+					</QuoteHistory>
+				</Contract>
+				<Contract>
+					<ContractId>CID-10291</ContractId>
+					<ServiceAddress>321 Birch Lane, Austin, TX 78701</ServiceAddress>
+					<ContractStatus>ACTIVE</ContractStatus>
+					<CurrentPlan>24</CurrentPlan>
+					<StartDate>8/1/2024</StartDate>
+					<EndDate>6/25/2026</EndDate>
+					<DaysRemaining>25</DaysRemaining>
+					<LastQuoteStatus>APPROVED</LastQuoteStatus>
+					<ProductType>Fixed</ProductType>
+					<ContractTerm>24</ContractTerm>
+					<MeterCount>5</MeterCount>
+					<QuoteHistory>
+						<Quote>
+							<QuoteId>QT-10031</QuoteId>
+							<RequestedOn>5/8/2026</RequestedOn>
+							<RequestedPlan>Fixed Price</RequestedPlan>
+							<TermLength>24</TermLength>
+							<QuotedPrice>60.50</QuotedPrice>
+							<BrokerMargin>0.025</BrokerMargin>
+							<Status>APPROVED</Status>
+							<SentOn>5/20/2026</SentOn>
+							<RateType>Fixed</RateType>
+							<BaseCharge>5</BaseCharge>
+							<BaseChargeUnit>month</BaseChargeUnit>
+							<FinalRate>60.525</FinalRate>
+							<QuoteValidTill>4 February, 2026</QuoteValidTill>
+						</Quote>
+						<Quote>
+							<QuoteId>QT-10017</QuoteId>
+							<RequestedOn>4/28/2026</RequestedOn>
+							<RequestedPlan>Market Index</RequestedPlan>
+							<TermLength>24</TermLength>
+							<QuotedPrice>62.45</QuotedPrice>
+							<BrokerMargin>0.025</BrokerMargin>
+							<Status>REJECTED</Status>
+							<SentOn>5/1/2026</SentOn>
+							<RateType>Fixed</RateType>
+							<BaseCharge>5</BaseCharge>
+							<BaseChargeUnit>month</BaseChargeUnit>
+							<FinalRate>62.475</FinalRate>
+							<QuoteValidTill>4 February, 2026</QuoteValidTill>
+						</Quote>
+					</QuoteHistory>
+				</Contract>
+				<Contract>
+					<ContractId>CID-10290</ContractId>
+					<ServiceAddress>123 Maplewood Avenue, San Antonio, TX 78205</ServiceAddress>
+					<ContractStatus>ACTIVE</ContractStatus>
+					<CurrentPlan>24</CurrentPlan>
+					<StartDate>8/1/2024</StartDate>
+					<EndDate>8/14/2026</EndDate>
+					<DaysRemaining>35</DaysRemaining>
+					<LastQuoteStatus>REQUESTED</LastQuoteStatus>
+					<ProductType>Fixed</ProductType>
+					<ContractTerm>24</ContractTerm>
+					<MeterCount>5</MeterCount>
+					<QuoteHistory>
+						<Quote>
+							<QuoteId>QT-10030</QuoteId>
+							<RequestedOn>5/8/2026</RequestedOn>
+							<RequestedPlan>Fixed Price</RequestedPlan>
+							<TermLength>24</TermLength>
+							<QuotedPrice>61.20</QuotedPrice>
+							<BrokerMargin>0.025</BrokerMargin>
+							<Status>REQUESTED</Status>
+							<SentOn></SentOn>
+							<RateType>Fixed</RateType>
+							<BaseCharge>5</BaseCharge>
+							<BaseChargeUnit>month</BaseChargeUnit>
+							<FinalRate>61.225</FinalRate>
+							<QuoteValidTill>4 February, 2026</QuoteValidTill>
+						</Quote>
+						<Quote>
+							<QuoteId>QT-10016</QuoteId>
+							<RequestedOn>4/22/2026</RequestedOn>
+							<RequestedPlan>Market Index</RequestedPlan>
+							<TermLength>18</TermLength>
+							<QuotedPrice>63.80</QuotedPrice>
+							<BrokerMargin>0.025</BrokerMargin>
+							<Status>REJECTED</Status>
+							<SentOn>4/25/2026</SentOn>
+							<RateType>Fixed</RateType>
+							<BaseCharge>5</BaseCharge>
+							<BaseChargeUnit>month</BaseChargeUnit>
+							<FinalRate>63.825</FinalRate>
+							<QuoteValidTill>4 February, 2026</QuoteValidTill>
+						</Quote>
+					</QuoteHistory>
+				</Contract>
+			</Contracts>
+		</Customer>
+		<!-- ── Greenfield Retail Group ── -->
+		<Customer>
+			<CompanyName>Greenfield Retail Group</CompanyName>
+			<Contracts>
+				<Contract>
+					<ContractId>CID-10285</ContractId>
+					<ServiceAddress>789 Commerce Drive, Houston, TX 77001</ServiceAddress>
+					<ContractStatus>ACTIVE</ContractStatus>
+					<CurrentPlan>24</CurrentPlan>
+					<StartDate>8/1/2024</StartDate>
+					<EndDate>7/20/2026</EndDate>
+					<DaysRemaining>10</DaysRemaining>
+					<LastQuoteStatus>QUOTE SENT</LastQuoteStatus>
+					<ProductType>Fixed</ProductType>
+					<ContractTerm>24</ContractTerm>
+					<MeterCount>5</MeterCount>
+					<QuoteHistory>
+						<Quote>
+							<QuoteId>QT-10028</QuoteId>
+							<RequestedOn>5/5/2026</RequestedOn>
+							<RequestedPlan>Fixed Price</RequestedPlan>
+							<TermLength>24</TermLength>
+							<QuotedPrice>61.80</QuotedPrice>
+							<BrokerMargin>0.030</BrokerMargin>
+							<Status>QUOTE SENT</Status>
+							<SentOn>5/18/2026</SentOn>
+							<RateType>Fixed</RateType>
+							<BaseCharge>5</BaseCharge>
+							<BaseChargeUnit>month</BaseChargeUnit>
+							<FinalRate>61.830</FinalRate>
+							<QuoteValidTill>4 February, 2026</QuoteValidTill>
+						</Quote>
+						<Quote>
+							<QuoteId>QT-10014</QuoteId>
+							<RequestedOn>4/20/2026</RequestedOn>
+							<RequestedPlan>Market Index</RequestedPlan>
+							<TermLength>24</TermLength>
+							<QuotedPrice>63.20</QuotedPrice>
+							<BrokerMargin>0.030</BrokerMargin>
+							<Status>REJECTED</Status>
+							<SentOn>4/24/2026</SentOn>
+							<RateType>Fixed</RateType>
+							<BaseCharge>5</BaseCharge>
+							<BaseChargeUnit>month</BaseChargeUnit>
+							<FinalRate>63.230</FinalRate>
+							<QuoteValidTill>4 February, 2026</QuoteValidTill>
+						</Quote>
+					</QuoteHistory>
+				</Contract>
+				<Contract>
+					<ContractId>CID-10284</ContractId>
+					<ServiceAddress>789 Commerce Drive, Houston, TX 77001</ServiceAddress>
+					<ContractStatus>ACTIVE</ContractStatus>
+					<CurrentPlan>36</CurrentPlan>
+					<StartDate>8/1/2024</StartDate>
+					<EndDate>8/5/2026</EndDate>
+					<DaysRemaining>26</DaysRemaining>
+					<LastQuoteStatus>APPROVED</LastQuoteStatus>
+					<ProductType>Fixed</ProductType>
+					<ContractTerm>24</ContractTerm>
+					<MeterCount>5</MeterCount>
+					<QuoteHistory>
+						<Quote>
+							<QuoteId>QT-10027</QuoteId>
+							<RequestedOn>4/28/2026</RequestedOn>
+							<RequestedPlan>Fixed Price</RequestedPlan>
+							<TermLength>36</TermLength>
+							<QuotedPrice>59.90</QuotedPrice>
+							<BrokerMargin>0.030</BrokerMargin>
+							<Status>APPROVED</Status>
+							<SentOn>5/10/2026</SentOn>
+							<RateType>Fixed</RateType>
+							<BaseCharge>5</BaseCharge>
+							<BaseChargeUnit>month</BaseChargeUnit>
+							<FinalRate>59.930</FinalRate>
+							<QuoteValidTill>4 November, 2026</QuoteValidTill>
+						</Quote>
+					</QuoteHistory>
+				</Contract>
+				<Contract>
+					<ContractId>CID-10283</ContractId>
+					<ServiceAddress>510 Industrial Boulevard, Houston, TX 77002</ServiceAddress>
+					<ContractStatus>ACTIVE</ContractStatus>
+					<CurrentPlan>24</CurrentPlan>
+					<StartDate>8/1/2024</StartDate>
+					<EndDate>9/10/2026</EndDate>
+					<DaysRemaining>62</DaysRemaining>
+					<LastQuoteStatus>APPROVED</LastQuoteStatus>
+					<ProductType>Fixed</ProductType>
+					<ContractTerm>24</ContractTerm>
+					<MeterCount>5</MeterCount>
+					<QuoteHistory>
+						<Quote>
+							<QuoteId>QT-10013</QuoteId>
+							<RequestedOn>4/15/2026</RequestedOn>
+							<RequestedPlan>Market Index</RequestedPlan>
+							<TermLength>24</TermLength>
+							<QuotedPrice>62.10</QuotedPrice>
+							<BrokerMargin>0.030</BrokerMargin>
+							<Status>APPROVED</Status>
+							<SentOn>4/22/2026</SentOn>
+							<RateType>Fixed</RateType>
+							<BaseCharge>5</BaseCharge>
+							<BaseChargeUnit>month</BaseChargeUnit>
+							<FinalRate>62.130</FinalRate>
+							<QuoteValidTill>4 February, 2026</QuoteValidTill>
+						</Quote>
+					</QuoteHistory>
+				</Contract>
+				<Contract>
+					<ContractId>CID-10282</ContractId>
+					<ServiceAddress>510 Industrial Boulevard, Houston, TX 77002</ServiceAddress>
+					<ContractStatus>ACTIVE</ContractStatus>
+					<CurrentPlan>24</CurrentPlan>
+					<StartDate>8/1/2024</StartDate>
+					<EndDate>10/1/2026</EndDate>
+					<DaysRemaining>83</DaysRemaining>
+					<LastQuoteStatus>APPROVED</LastQuoteStatus>
+					<ProductType>Fixed</ProductType>
+					<ContractTerm>24</ContractTerm>
+					<MeterCount>5</MeterCount>
+					<QuoteHistory>
+						<Quote>
+							<QuoteId>QT-10008</QuoteId>
+							<RequestedOn>4/10/2026</RequestedOn>
+							<RequestedPlan>Fixed Price</RequestedPlan>
+							<TermLength>24</TermLength>
+							<QuotedPrice>60.75</QuotedPrice>
+							<BrokerMargin>0.030</BrokerMargin>
+							<Status>APPROVED</Status>
+							<SentOn>4/18/2026</SentOn>
+							<RateType>Fixed</RateType>
+							<BaseCharge>5</BaseCharge>
+							<BaseChargeUnit>month</BaseChargeUnit>
+							<FinalRate>60.780</FinalRate>
+							<QuoteValidTill>4 February, 2026</QuoteValidTill>
+						</Quote>
+					</QuoteHistory>
+				</Contract>
+			</Contracts>
+		</Customer>
+		<!-- ── Northstar Warehousing ── -->
+		<Customer>
+			<CompanyName>Northstar Warehousing</CompanyName>
+			<Contracts>
+				<Contract>
+					<ContractId>CID-10278</ContractId>
+					<ServiceAddress>1200 Harbor Road, Tampa, FL 33601</ServiceAddress>
+					<ContractStatus>ACTIVE</ContractStatus>
+					<CurrentPlan>24</CurrentPlan>
+					<StartDate>8/1/2024</StartDate>
+					<EndDate>7/15/2026</EndDate>
+					<DaysRemaining>5</DaysRemaining>
+					<LastQuoteStatus>REQUESTED</LastQuoteStatus>
+					<ProductType>Fixed</ProductType>
+					<ContractTerm>24</ContractTerm>
+					<MeterCount>5</MeterCount>
+					<QuoteHistory>
+						<Quote>
+							<QuoteId>QT-10026</QuoteId>
+							<RequestedOn>5/12/2026</RequestedOn>
+							<RequestedPlan>Fixed Price</RequestedPlan>
+							<TermLength>24</TermLength>
+							<QuotedPrice>62.00</QuotedPrice>
+							<BrokerMargin>0.040</BrokerMargin>
+							<Status>REQUESTED</Status>
+							<SentOn></SentOn>
+							<RateType>Fixed</RateType>
+							<BaseCharge>5</BaseCharge>
+							<BaseChargeUnit>month</BaseChargeUnit>
+							<FinalRate>62.040</FinalRate>
+							<QuoteValidTill>4 February, 2026</QuoteValidTill>
+						</Quote>
+						<Quote>
+							<QuoteId>QT-10012</QuoteId>
+							<RequestedOn>4/18/2026</RequestedOn>
+							<RequestedPlan>Market Index</RequestedPlan>
+							<TermLength>24</TermLength>
+							<QuotedPrice>63.50</QuotedPrice>
+							<BrokerMargin>0.040</BrokerMargin>
+							<Status>REJECTED</Status>
+							<SentOn>4/23/2026</SentOn>
+							<RateType>Fixed</RateType>
+							<BaseCharge>5</BaseCharge>
+							<BaseChargeUnit>month</BaseChargeUnit>
+							<FinalRate>63.540</FinalRate>
+							<QuoteValidTill>4 February, 2026</QuoteValidTill>
+						</Quote>
+					</QuoteHistory>
+				</Contract>
+				<Contract>
+					<ContractId>CID-10277</ContractId>
+					<ServiceAddress>1200 Harbor Road, Tampa, FL 33601</ServiceAddress>
+					<ContractStatus>ACTIVE</ContractStatus>
+					<CurrentPlan>36</CurrentPlan>
+					<StartDate>8/1/2024</StartDate>
+					<EndDate>7/22/2026</EndDate>
+					<DaysRemaining>12</DaysRemaining>
+					<LastQuoteStatus>QUOTE SENT</LastQuoteStatus>
+					<ProductType>Fixed</ProductType>
+					<ContractTerm>24</ContractTerm>
+					<MeterCount>5</MeterCount>
+					<QuoteHistory>
+						<Quote>
+							<QuoteId>QT-10025</QuoteId>
+							<RequestedOn>5/8/2026</RequestedOn>
+							<RequestedPlan>Fixed Price</RequestedPlan>
+							<TermLength>36</TermLength>
+							<QuotedPrice>60.20</QuotedPrice>
+							<BrokerMargin>0.040</BrokerMargin>
+							<Status>QUOTE SENT</Status>
+							<SentOn>5/20/2026</SentOn>
+							<RateType>Fixed</RateType>
+							<BaseCharge>5</BaseCharge>
+							<BaseChargeUnit>month</BaseChargeUnit>
+							<FinalRate>60.240</FinalRate>
+							<QuoteValidTill>4 February, 2026</QuoteValidTill>
+						</Quote>
+						<Quote>
+							<QuoteId>QT-10011</QuoteId>
+							<RequestedOn>4/15/2026</RequestedOn>
+							<RequestedPlan>Market Index</RequestedPlan>
+							<TermLength>24</TermLength>
+							<QuotedPrice>62.90</QuotedPrice>
+							<BrokerMargin>0.040</BrokerMargin>
+							<Status>REJECTED</Status>
+							<SentOn>4/20/2026</SentOn>
+							<RateType>Fixed</RateType>
+							<BaseCharge>5</BaseCharge>
+							<BaseChargeUnit>month</BaseChargeUnit>
+							<FinalRate>62.940</FinalRate>
+							<QuoteValidTill>4 February, 2026</QuoteValidTill>
+						</Quote>
+					</QuoteHistory>
+				</Contract>
+				<Contract>
+					<ContractId>CID-10276</ContractId>
+					<ServiceAddress>330 Warehouse Lane, Orlando, FL 32801</ServiceAddress>
+					<ContractStatus>ACTIVE</ContractStatus>
+					<CurrentPlan>24</CurrentPlan>
+					<StartDate>8/1/2024</StartDate>
+					<EndDate>7/30/2026</EndDate>
+					<DaysRemaining>20</DaysRemaining>
+					<LastQuoteStatus>APPROVED</LastQuoteStatus>
+					<ProductType>Fixed</ProductType>
+					<ContractTerm>24</ContractTerm>
+					<MeterCount>5</MeterCount>
+					<QuoteHistory>
+						<Quote>
+							<QuoteId>QT-10024</QuoteId>
+							<RequestedOn>4/30/2026</RequestedOn>
+							<RequestedPlan>Fixed Price</RequestedPlan>
+							<TermLength>24</TermLength>
+							<QuotedPrice>61.50</QuotedPrice>
+							<BrokerMargin>0.040</BrokerMargin>
+							<Status>APPROVED</Status>
+							<SentOn>5/12/2026</SentOn>
+							<RateType>Fixed</RateType>
+							<BaseCharge>5</BaseCharge>
+							<BaseChargeUnit>month</BaseChargeUnit>
+							<FinalRate>61.540</FinalRate>
+							<QuoteValidTill>4 January, 2027</QuoteValidTill>
+						</Quote>
+					</QuoteHistory>
+				</Contract>
+				<Contract>
+					<ContractId>CID-10275</ContractId>
+					<ServiceAddress>330 Warehouse Lane, Orlando, FL 32801</ServiceAddress>
+					<ContractStatus>ACTIVE</ContractStatus>
+					<CurrentPlan>24</CurrentPlan>
+					<StartDate>8/1/2024</StartDate>
+					<EndDate>9/1/2026</EndDate>
+					<DaysRemaining>53</DaysRemaining>
+					<LastQuoteStatus>APPROVED</LastQuoteStatus>
+					<ProductType>Fixed</ProductType>
+					<ContractTerm>24</ContractTerm>
+					<MeterCount>5</MeterCount>
+					<QuoteHistory>
+						<Quote>
+							<QuoteId>QT-10007</QuoteId>
+							<RequestedOn>4/8/2026</RequestedOn>
+							<RequestedPlan>Market Index</RequestedPlan>
+							<TermLength>24</TermLength>
+							<QuotedPrice>62.80</QuotedPrice>
+							<BrokerMargin>0.040</BrokerMargin>
+							<Status>APPROVED</Status>
+							<SentOn>4/16/2026</SentOn>
+							<RateType>Fixed</RateType>
+							<BaseCharge>5</BaseCharge>
+							<BaseChargeUnit>month</BaseChargeUnit>
+							<FinalRate>62.840</FinalRate>
+							<QuoteValidTill>4 February, 2026</QuoteValidTill>
+						</Quote>
+					</QuoteHistory>
+				</Contract>
+			</Contracts>
+		</Customer>
+		<!-- ── Horizon Logistics ── -->
+		<Customer>
+			<CompanyName>Horizon Logistics</CompanyName>
+			<Contracts>
+				<Contract>
+					<ContractId>CID-10268</ContractId>
+					<ServiceAddress>4500 Freight Street, Atlanta, GA 30301</ServiceAddress>
+					<ContractStatus>ACTIVE</ContractStatus>
+					<CurrentPlan>24</CurrentPlan>
+					<StartDate>8/1/2024</StartDate>
+					<EndDate>7/18/2026</EndDate>
+					<DaysRemaining>8</DaysRemaining>
+					<LastQuoteStatus>REQUESTED</LastQuoteStatus>
+					<ProductType>Fixed</ProductType>
+					<ContractTerm>24</ContractTerm>
+					<MeterCount>5</MeterCount>
+					<QuoteHistory>
+						<Quote>
+							<QuoteId>QT-10023</QuoteId>
+							<RequestedOn>5/14/2026</RequestedOn>
+							<RequestedPlan>Fixed Price</RequestedPlan>
+							<TermLength>24</TermLength>
+							<QuotedPrice>61.60</QuotedPrice>
+							<BrokerMargin>0.035</BrokerMargin>
+							<Status>REQUESTED</Status>
+							<SentOn></SentOn>
+							<RateType>Fixed</RateType>
+							<BaseCharge>5</BaseCharge>
+							<BaseChargeUnit>month</BaseChargeUnit>
+							<FinalRate>61.635</FinalRate>
+							<QuoteValidTill>4 February, 2026</QuoteValidTill>
+						</Quote>
+						<Quote>
+							<QuoteId>QT-10010</QuoteId>
+							<RequestedOn>4/22/2026</RequestedOn>
+							<RequestedPlan>Market Index</RequestedPlan>
+							<TermLength>24</TermLength>
+							<QuotedPrice>63.10</QuotedPrice>
+							<BrokerMargin>0.035</BrokerMargin>
+							<Status>REJECTED</Status>
+							<SentOn>4/28/2026</SentOn>
+							<RateType>Fixed</RateType>
+							<BaseCharge>5</BaseCharge>
+							<BaseChargeUnit>month</BaseChargeUnit>
+							<FinalRate>63.135</FinalRate>
+							<QuoteValidTill>4 February, 2026</QuoteValidTill>
+						</Quote>
+					</QuoteHistory>
+				</Contract>
+				<Contract>
+					<ContractId>CID-10267</ContractId>
+					<ServiceAddress>4500 Freight Street, Atlanta, GA 30301</ServiceAddress>
+					<ContractStatus>ACTIVE</ContractStatus>
+					<CurrentPlan>24</CurrentPlan>
+					<StartDate>8/1/2024</StartDate>
+					<EndDate>7/25/2026</EndDate>
+					<DaysRemaining>15</DaysRemaining>
+					<LastQuoteStatus>QUOTE SENT</LastQuoteStatus>
+					<ProductType>Fixed</ProductType>
+					<ContractTerm>24</ContractTerm>
+					<MeterCount>5</MeterCount>
+					<QuoteHistory>
+						<Quote>
+							<QuoteId>QT-10022</QuoteId>
+							<RequestedOn>5/10/2026</RequestedOn>
+							<RequestedPlan>Market Index</RequestedPlan>
+							<TermLength>24</TermLength>
+							<QuotedPrice>62.30</QuotedPrice>
+							<BrokerMargin>0.035</BrokerMargin>
+							<Status>QUOTE SENT</Status>
+							<SentOn>5/22/2026</SentOn>
+							<RateType>Fixed</RateType>
+							<BaseCharge>5</BaseCharge>
+							<BaseChargeUnit>month</BaseChargeUnit>
+							<FinalRate>62.335</FinalRate>
+							<QuoteValidTill>4 February, 2026</QuoteValidTill>
+						</Quote>
+						<Quote>
+							<QuoteId>QT-10006</QuoteId>
+							<RequestedOn>4/18/2026</RequestedOn>
+							<RequestedPlan>Fixed Price</RequestedPlan>
+							<TermLength>18</TermLength>
+							<QuotedPrice>64.00</QuotedPrice>
+							<BrokerMargin>0.035</BrokerMargin>
+							<Status>REJECTED</Status>
+							<SentOn>4/22/2026</SentOn>
+							<RateType>Fixed</RateType>
+							<BaseCharge>5</BaseCharge>
+							<BaseChargeUnit>month</BaseChargeUnit>
+							<FinalRate>64.035</FinalRate>
+							<QuoteValidTill>4 February, 2026</QuoteValidTill>
+						</Quote>
+					</QuoteHistory>
+				</Contract>
+				<Contract>
+					<ContractId>CID-10266</ContractId>
+					<ServiceAddress>910 Logistics Park, Nashville, TN 37201</ServiceAddress>
+					<ContractStatus>ACTIVE</ContractStatus>
+					<CurrentPlan>36</CurrentPlan>
+					<StartDate>8/1/2024</StartDate>
+					<EndDate>9/15/2026</EndDate>
+					<DaysRemaining>67</DaysRemaining>
+					<LastQuoteStatus>APPROVED</LastQuoteStatus>
+					<ProductType>Fixed</ProductType>
+					<ContractTerm>24</ContractTerm>
+					<MeterCount>5</MeterCount>
+					<QuoteHistory>
+						<Quote>
+							<QuoteId>QT-10021</QuoteId>
+							<RequestedOn>4/12/2026</RequestedOn>
+							<RequestedPlan>Fixed Price</RequestedPlan>
+							<TermLength>36</TermLength>
+							<QuotedPrice>59.50</QuotedPrice>
+							<BrokerMargin>0.035</BrokerMargin>
+							<Status>APPROVED</Status>
+							<SentOn>4/25/2026</SentOn>
+							<RateType>Fixed</RateType>
+							<BaseCharge>5</BaseCharge>
+							<BaseChargeUnit>month</BaseChargeUnit>
+							<FinalRate>59.535</FinalRate>
+							<QuoteValidTill>4 February, 2026</QuoteValidTill>
+						</Quote>
+					</QuoteHistory>
+				</Contract>
+				<Contract>
+					<ContractId>CID-10265</ContractId>
+					<ServiceAddress>910 Logistics Park, Nashville, TN 37201</ServiceAddress>
+					<ContractStatus>ACTIVE</ContractStatus>
+					<CurrentPlan>24</CurrentPlan>
+					<StartDate>8/1/2024</StartDate>
+					<EndDate>10/10/2026</EndDate>
+					<DaysRemaining>92</DaysRemaining>
+					<LastQuoteStatus>APPROVED</LastQuoteStatus>
+					<ProductType>Fixed</ProductType>
+					<ContractTerm>24</ContractTerm>
+					<MeterCount>5</MeterCount>
+					<QuoteHistory>
+						<Quote>
+							<QuoteId>QT-10003</QuoteId>
+							<RequestedOn>4/5/2026</RequestedOn>
+							<RequestedPlan>Market Index</RequestedPlan>
+							<TermLength>24</TermLength>
+							<QuotedPrice>62.60</QuotedPrice>
+							<BrokerMargin>0.035</BrokerMargin>
+							<Status>APPROVED</Status>
+							<SentOn>4/14/2026</SentOn>
+							<RateType>Fixed</RateType>
+							<BaseCharge>5</BaseCharge>
+							<BaseChargeUnit>month</BaseChargeUnit>
+							<FinalRate>62.635</FinalRate>
+							<QuoteValidTill>4 February, 2026</QuoteValidTill>
+						</Quote>
+					</QuoteHistory>
+				</Contract>
+			</Contracts>
+		</Customer>
+		<!-- ── Elite Business Park ── -->
+		<Customer>
+			<CompanyName>Elite Business Park</CompanyName>
+			<Contracts>
+				<Contract>
+					<ContractId>CID-10258</ContractId>
+					<ServiceAddress>200 Business Circle, Phoenix, AZ 85001</ServiceAddress>
+					<ContractStatus>ACTIVE</ContractStatus>
+					<CurrentPlan>24</CurrentPlan>
+					<StartDate>8/1/2024</StartDate>
+					<EndDate>7/20/2026</EndDate>
+					<DaysRemaining>10</DaysRemaining>
+					<LastQuoteStatus>QUOTE SENT</LastQuoteStatus>
+					<ProductType>Fixed</ProductType>
+					<ContractTerm>24</ContractTerm>
+					<MeterCount>5</MeterCount>
+					<QuoteHistory>
+						<Quote>
+							<QuoteId>QT-10020</QuoteId>
+							<RequestedOn>5/6/2026</RequestedOn>
+							<RequestedPlan>Fixed Price</RequestedPlan>
+							<TermLength>24</TermLength>
+							<QuotedPrice>61.40</QuotedPrice>
+							<BrokerMargin>0.045</BrokerMargin>
+							<Status>QUOTE SENT</Status>
+							<SentOn>5/19/2026</SentOn>
+							<RateType>Fixed</RateType>
+							<BaseCharge>5</BaseCharge>
+							<BaseChargeUnit>month</BaseChargeUnit>
+							<FinalRate>61.445</FinalRate>
+							<QuoteValidTill>4 February, 2026</QuoteValidTill>
+						</Quote>
+						<Quote>
+							<QuoteId>QT-10015</QuoteId>
+							<RequestedOn>4/25/2026</RequestedOn>
+							<RequestedPlan>Market Index</RequestedPlan>
+							<TermLength>24</TermLength>
+							<QuotedPrice>63.00</QuotedPrice>
+							<BrokerMargin>0.045</BrokerMargin>
+							<Status>REJECTED</Status>
+							<SentOn>4/30/2026</SentOn>
+							<RateType>Fixed</RateType>
+							<BaseCharge>5</BaseCharge>
+							<BaseChargeUnit>month</BaseChargeUnit>
+							<FinalRate>63.045</FinalRate>
+							<QuoteValidTill>4 February, 2026</QuoteValidTill>
+						</Quote>
+					</QuoteHistory>
+				</Contract>
+				<Contract>
+					<ContractId>CID-10257</ContractId>
+					<ServiceAddress>200 Business Circle, Phoenix, AZ 85001</ServiceAddress>
+					<ContractStatus>ACTIVE</ContractStatus>
+					<CurrentPlan>36</CurrentPlan>
+					<StartDate>8/1/2024</StartDate>
+					<EndDate>7/28/2026</EndDate>
+					<DaysRemaining>18</DaysRemaining>
+					<LastQuoteStatus>REQUESTED</LastQuoteStatus>
+					<ProductType>Fixed</ProductType>
+					<ContractTerm>24</ContractTerm>
+					<MeterCount>5</MeterCount>
+					<QuoteHistory>
+						<Quote>
+							<QuoteId>QT-10029</QuoteId>
+							<RequestedOn>5/9/2026</RequestedOn>
+							<RequestedPlan>Fixed Price</RequestedPlan>
+							<TermLength>36</TermLength>
+							<QuotedPrice>59.80</QuotedPrice>
+							<BrokerMargin>0.045</BrokerMargin>
+							<Status>REQUESTED</Status>
+							<SentOn></SentOn>
+							<RateType>Fixed</RateType>
+							<BaseCharge>5</BaseCharge>
+							<BaseChargeUnit>month</BaseChargeUnit>
+							<FinalRate>59.845</FinalRate>
+							<QuoteValidTill>4 February, 2026</QuoteValidTill>
+						</Quote>
+					</QuoteHistory>
+				</Contract>
+				<Contract>
+					<ContractId>CID-10256</ContractId>
+					<ServiceAddress>875 Corporate Boulevard, Scottsdale, AZ 85250</ServiceAddress>
+					<ContractStatus>ACTIVE</ContractStatus>
+					<CurrentPlan>24</CurrentPlan>
+					<StartDate>8/1/2024</StartDate>
+					<EndDate>9/5/2026</EndDate>
+					<DaysRemaining>57</DaysRemaining>
+					<LastQuoteStatus>APPROVED</LastQuoteStatus>
+					<ProductType>Fixed</ProductType>
+					<ContractTerm>24</ContractTerm>
+					<MeterCount>5</MeterCount>
+					<QuoteHistory>
+						<Quote>
+							<QuoteId>QT-10002</QuoteId>
+							<RequestedOn>4/5/2026</RequestedOn>
+							<RequestedPlan>Fixed Price</RequestedPlan>
+							<TermLength>24</TermLength>
+							<QuotedPrice>61.00</QuotedPrice>
+							<BrokerMargin>0.045</BrokerMargin>
+							<Status>APPROVED</Status>
+							<SentOn>4/15/2026</SentOn>
+							<RateType>Fixed</RateType>
+							<BaseCharge>5</BaseCharge>
+							<BaseChargeUnit>month</BaseChargeUnit>
+							<FinalRate>61.045</FinalRate>
+							<QuoteValidTill>4 February, 2026</QuoteValidTill>
+						</Quote>
+					</QuoteHistory>
+				</Contract>
+				<Contract>
+					<ContractId>CID-10255</ContractId>
+					<ServiceAddress>875 Corporate Boulevard, Scottsdale, AZ 85250</ServiceAddress>
+					<ContractStatus>ACTIVE</ContractStatus>
+					<CurrentPlan>24</CurrentPlan>
+					<StartDate>8/1/2024</StartDate>
+					<EndDate>11/1/2026</EndDate>
+					<DaysRemaining>114</DaysRemaining>
+					<LastQuoteStatus>APPROVED</LastQuoteStatus>
+					<ProductType>Fixed</ProductType>
+					<ContractTerm>24</ContractTerm>
+					<MeterCount>5</MeterCount>
+					<QuoteHistory>
+						<Quote>
+							<QuoteId>QT-10001</QuoteId>
+							<RequestedOn>4/1/2026</RequestedOn>
+							<RequestedPlan>Market Index</RequestedPlan>
+							<TermLength>24</TermLength>
+							<QuotedPrice>62.20</QuotedPrice>
+							<BrokerMargin>0.045</BrokerMargin>
+							<Status>APPROVED</Status>
+							<SentOn>4/10/2026</SentOn>
+							<RateType>Fixed</RateType>
+							<BaseCharge>5</BaseCharge>
+							<BaseChargeUnit>month</BaseChargeUnit>
+							<FinalRate>62.245</FinalRate>
+							<QuoteValidTill>3 November, 2026</QuoteValidTill>
+						</Quote>
+					</QuoteHistory>
+				</Contract>
+			</Contracts>
+		</Customer>
+	</Customers>
+</BrokerRenewals>

@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MeterData>
+	<LastUpdated>2026-06-06 13:59:00</LastUpdated>
+	<Meters>
+
+		<Meter>
+			<MeterId>all</MeterId>
+			<Label>All meters</Label>
+			<CurrentMonthUsage>
+				<UsageMWh>850</UsageMWh>
+				<VsLastMonthPercent>12</VsLastMonthPercent>
+				<VsLastMonthDirection>up</VsLastMonthDirection>
+			</CurrentMonthUsage>
+			<UsageVsContracted>
+				<UtilizedPercent>92</UtilizedPercent>
+				<UsedMWh>85</UsedMWh>
+				<ContractedMWh>92</ContractedMWh>
+			</UsageVsContracted>
+			<PeakDemand>
+				<PeakKW>100</PeakKW>
+				<PeakDate>Aug 4, 2025</PeakDate>
+			</PeakDemand>
+			<YoYChange>
+				<ChangePercent>24</ChangePercent>
+				<Direction>up</Direction>
+				<ComparedMWh>148</ComparedMWh>
+				<ComparedYear>2024</ComparedYear>
+			</YoYChange>
+		</Meter>
+
+		<Meter>
+			<MeterId>00313867</MeterId>
+			<Label>00313867</Label>
+			<CurrentMonthUsage>
+				<UsageMWh>280</UsageMWh>
+				<VsLastMonthPercent>8</VsLastMonthPercent>
+				<VsLastMonthDirection>up</VsLastMonthDirection>
+			</CurrentMonthUsage>
+			<UsageVsContracted>
+				<UtilizedPercent>93</UtilizedPercent>
+				<UsedMWh>28</UsedMWh>
+				<ContractedMWh>30</ContractedMWh>
+			</UsageVsContracted>
+			<PeakDemand>
+				<PeakKW>40</PeakKW>
+				<PeakDate>Aug 4, 2025</PeakDate>
+			</PeakDemand>
+			<YoYChange>
+				<ChangePercent>20</ChangePercent>
+				<Direction>up</Direction>
+				<ComparedMWh>47</ComparedMWh>
+				<ComparedYear>2024</ComparedYear>
+			</YoYChange>
+		</Meter>
+
+		<Meter>
+			<MeterId>00313868</MeterId>
+			<Label>00313868</Label>
+			<CurrentMonthUsage>
+				<UsageMWh>300</UsageMWh>
+				<VsLastMonthPercent>15</VsLastMonthPercent>
+				<VsLastMonthDirection>up</VsLastMonthDirection>
+			</CurrentMonthUsage>
+			<UsageVsContracted>
+				<UtilizedPercent>94</UtilizedPercent>
+				<UsedMWh>30</UsedMWh>
+				<ContractedMWh>32</ContractedMWh>
+			</UsageVsContracted>
+			<PeakDemand>
+				<PeakKW>35</PeakKW>
+				<PeakDate>Aug 4, 2025</PeakDate>
+			</PeakDemand>
+			<YoYChange>
+				<ChangePercent>25</ChangePercent>
+				<Direction>up</Direction>
+				<ComparedMWh>50</ComparedMWh>
+				<ComparedYear>2024</ComparedYear>
+			</YoYChange>
+		</Meter>
+
+		<Meter>
+			<MeterId>00313869</MeterId>
+			<Label>00313869</Label>
+			<CurrentMonthUsage>
+				<UsageMWh>270</UsageMWh>
+				<VsLastMonthPercent>12</VsLastMonthPercent>
+				<VsLastMonthDirection>up</VsLastMonthDirection>
+			</CurrentMonthUsage>
+			<UsageVsContracted>
+				<UtilizedPercent>90</UtilizedPercent>
+				<UsedMWh>27</UsedMWh>
+				<ContractedMWh>30</ContractedMWh>
+			</UsageVsContracted>
+			<PeakDemand>
+				<PeakKW>25</PeakKW>
+				<PeakDate>Aug 4, 2025</PeakDate>
+			</PeakDemand>
+			<YoYChange>
+				<ChangePercent>27</ChangePercent>
+				<Direction>up</Direction>
+				<ComparedMWh>51</ComparedMWh>
+				<ComparedYear>2025</ComparedYear>
+			</YoYChange>
+		</Meter>
+
+		<Meter>
+			<MeterId>00313870</MeterId>
+			<Label>00313870</Label>
+			<CurrentMonthUsage>
+				<UsageMWh>260</UsageMWh>
+				<VsLastMonthPercent>11</VsLastMonthPercent>
+				<VsLastMonthDirection>up</VsLastMonthDirection>
+			</CurrentMonthUsage>
+			<UsageVsContracted>
+				<UtilizedPercent>91</UtilizedPercent>
+				<UsedMWh>26</UsedMWh>
+				<ContractedMWh>29</ContractedMWh>
+			</UsageVsContracted>
+			<PeakDemand>
+				<PeakKW>38</PeakKW>
+				<PeakDate>Apr 10, 2026</PeakDate>
+			</PeakDemand>
+			<YoYChange>
+				<ChangePercent>18</ChangePercent>
+				<Direction>up</Direction>
+				<ComparedMWh>44</ComparedMWh>
+				<ComparedYear>2025</ComparedYear>
+			</YoYChange>
+		</Meter>
+
+		<Meter>
+			<MeterId>00313871</MeterId>
+			<Label>00313871</Label>
+			<CurrentMonthUsage>
+				<UsageMWh>245</UsageMWh>
+				<VsLastMonthPercent>9</VsLastMonthPercent>
+				<VsLastMonthDirection>up</VsLastMonthDirection>
+			</CurrentMonthUsage>
+			<UsageVsContracted>
+				<UtilizedPercent>88</UtilizedPercent>
+				<UsedMWh>24</UsedMWh>
+				<ContractedMWh>27</ContractedMWh>
+			</UsageVsContracted>
+			<PeakDemand>
+				<PeakKW>34</PeakKW>
+				<PeakDate>Apr 12, 2026</PeakDate>
+			</PeakDemand>
+			<YoYChange>
+				<ChangePercent>16</ChangePercent>
+				<Direction>up</Direction>
+				<ComparedMWh>42</ComparedMWh>
+				<ComparedYear>2025</ComparedYear>
+			</YoYChange>
+		</Meter>
+
+		<Meter>
+			<MeterId>00313872</MeterId>
+			<Label>00313872</Label>
+			<CurrentMonthUsage>
+				<UsageMWh>235</UsageMWh>
+				<VsLastMonthPercent>8</VsLastMonthPercent>
+				<VsLastMonthDirection>up</VsLastMonthDirection>
+			</CurrentMonthUsage>
+			<UsageVsContracted>
+				<UtilizedPercent>89</UtilizedPercent>
+				<UsedMWh>22</UsedMWh>
+				<ContractedMWh>25</ContractedMWh>
+			</UsageVsContracted>
+			<PeakDemand>
+				<PeakKW>32</PeakKW>
+				<PeakDate>May 11, 2026</PeakDate>
+			</PeakDemand>
+			<YoYChange>
+				<ChangePercent>15</ChangePercent>
+				<Direction>up</Direction>
+				<ComparedMWh>40</ComparedMWh>
+				<ComparedYear>2025</ComparedYear>
+			</YoYChange>
+		</Meter>
+
+		<Meter>
+			<MeterId>00313873</MeterId>
+			<Label>00313873</Label>
+			<CurrentMonthUsage>
+				<UsageMWh>220</UsageMWh>
+				<VsLastMonthPercent>7</VsLastMonthPercent>
+				<VsLastMonthDirection>up</VsLastMonthDirection>
+			</CurrentMonthUsage>
+			<UsageVsContracted>
+				<UtilizedPercent>87</UtilizedPercent>
+				<UsedMWh>21</UsedMWh>
+				<ContractedMWh>24</ContractedMWh>
+			</UsageVsContracted>
+			<PeakDemand>
+				<PeakKW>30</PeakKW>
+				<PeakDate>May 11, 2026</PeakDate>
+			</PeakDemand>
+			<YoYChange>
+				<ChangePercent>14</ChangePercent>
+				<Direction>up</Direction>
+				<ComparedMWh>38</ComparedMWh>
+				<ComparedYear>2025</ComparedYear>
+			</YoYChange>
+		</Meter>
+
+		<Meter>
+			<MeterId>00313874</MeterId>
+			<Label>00313874</Label>
+			<CurrentMonthUsage>
+				<UsageMWh>250</UsageMWh>
+				<VsLastMonthPercent>9</VsLastMonthPercent>
+				<VsLastMonthDirection>up</VsLastMonthDirection>
+			</CurrentMonthUsage>
+			<UsageVsContracted>
+				<UtilizedPercent>90</UtilizedPercent>
+				<UsedMWh>25</UsedMWh>
+				<ContractedMWh>28</ContractedMWh>
+			</UsageVsContracted>
+			<PeakDemand>
+				<PeakKW>36</PeakKW>
+				<PeakDate>May 11, 2026</PeakDate>
+			</PeakDemand>
+			<YoYChange>
+				<ChangePercent>17</ChangePercent>
+				<Direction>up</Direction>
+				<ComparedMWh>43</ComparedMWh>
+				<ComparedYear>2025</ComparedYear>
+			</YoYChange>
+		</Meter>
+
+		<Meter>
+			<MeterId>00313875</MeterId>
+			<Label>00313875</Label>
+			<CurrentMonthUsage>
+				<UsageMWh>238</UsageMWh>
+				<VsLastMonthPercent>7</VsLastMonthPercent>
+				<VsLastMonthDirection>up</VsLastMonthDirection>
+			</CurrentMonthUsage>
+			<UsageVsContracted>
+				<UtilizedPercent>88</UtilizedPercent>
+				<UsedMWh>23</UsedMWh>
+				<ContractedMWh>26</ContractedMWh>
+			</UsageVsContracted>
+			<PeakDemand>
+				<PeakKW>33</PeakKW>
+				<PeakDate>May 11, 2026</PeakDate>
+			</PeakDemand>
+			<YoYChange>
+				<ChangePercent>15</ChangePercent>
+				<Direction>up</Direction>
+				<ComparedMWh>41</ComparedMWh>
+				<ComparedYear>2025</ComparedYear>
+			</YoYChange>
+		</Meter>
+
+		<Meter>
+			<MeterId>00313876</MeterId>
+			<Label>00313876</Label>
+			<CurrentMonthUsage>
+				<UsageMWh>265</UsageMWh>
+				<VsLastMonthPercent>10</VsLastMonthPercent>
+				<VsLastMonthDirection>up</VsLastMonthDirection>
+			</CurrentMonthUsage>
+			<UsageVsContracted>
+				<UtilizedPercent>91</UtilizedPercent>
+				<UsedMWh>26</UsedMWh>
+				<ContractedMWh>29</ContractedMWh>
+			</UsageVsContracted>
+			<PeakDemand>
+				<PeakKW>39</PeakKW>
+				<PeakDate>May 11, 2026</PeakDate>
+			</PeakDemand>
+			<YoYChange>
+				<ChangePercent>19</ChangePercent>
+				<Direction>up</Direction>
+				<ComparedMWh>46</ComparedMWh>
+				<ComparedYear>2025</ComparedYear>
+			</YoYChange>
+		</Meter>
+
+		<Meter>
+			<MeterId>00313877</MeterId>
+			<Label>00313877</Label>
+			<CurrentMonthUsage>
+				<UsageMWh>252</UsageMWh>
+				<VsLastMonthPercent>9</VsLastMonthPercent>
+				<VsLastMonthDirection>up</VsLastMonthDirection>
+			</CurrentMonthUsage>
+			<UsageVsContracted>
+				<UtilizedPercent>89</UtilizedPercent>
+				<UsedMWh>25</UsedMWh>
+				<ContractedMWh>28</ContractedMWh>
+			</UsageVsContracted>
+			<PeakDemand>
+				<PeakKW>37</PeakKW>
+				<PeakDate>May 11, 2026</PeakDate>
+			</PeakDemand>
+			<YoYChange>
+				<ChangePercent>17</ChangePercent>
+				<Direction>up</Direction>
+				<ComparedMWh>44</ComparedMWh>
+				<ComparedYear>2025</ComparedYear>
+			</YoYChange>
+		</Meter>
+
+		<Meter>
+			<MeterId>00313878</MeterId>
+			<Label>00313878</Label>
+			<CurrentMonthUsage>
+				<UsageMWh>210</UsageMWh>
+				<VsLastMonthPercent>6</VsLastMonthPercent>
+				<VsLastMonthDirection>up</VsLastMonthDirection>
+			</CurrentMonthUsage>
+			<UsageVsContracted>
+				<UtilizedPercent>86</UtilizedPercent>
+				<UsedMWh>21</UsedMWh>
+				<ContractedMWh>24</ContractedMWh>
+			</UsageVsContracted>
+			<PeakDemand>
+				<PeakKW>28</PeakKW>
+				<PeakDate>May 11, 2026</PeakDate>
+			</PeakDemand>
+			<YoYChange>
+				<ChangePercent>13</ChangePercent>
+				<Direction>up</Direction>
+				<ComparedMWh>36</ComparedMWh>
+				<ComparedYear>2025</ComparedYear>
+			</YoYChange>
+		</Meter>
+
+	</Meters>
+</MeterData>

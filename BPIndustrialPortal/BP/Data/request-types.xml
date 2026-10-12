@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RequestTypeData>
+	<RequestTypes>
+
+		<RequestType>
+			<Label>Billing/Invoice Query</Label>
+			<ServiceRep>Sarah Mitchell</ServiceRep>
+		</RequestType>
+
+		<RequestType>
+			<Label>Missing Invoice</Label>
+			<ServiceRep>James Carter</ServiceRep>
+		</RequestType>
+
+		<RequestType>
+			<Label>Balance/Payment Inquiry</Label>
+			<ServiceRep>Emily Rogers</ServiceRep>
+		</RequestType>
+
+		<RequestType>
+			<Label>General Inquiry</Label>
+			<ServiceRep>Sarah Mitchell</ServiceRep>
+		</RequestType>
+
+		<RequestType>
+			<Label> Power Outage</Label>
+			<ServiceRep>Jonh</ServiceRep>
+		</RequestType>
+
+		<RequestType>
+			<Label>Moving Service</Label>
+			<ServiceRep>Albert Floxes</ServiceRep>
+		</RequestType>
+
+		<RequestType>
+			<Label>Payment Issue</Label>
+			<ServiceRep>James Carter</ServiceRep>
+		</RequestType>
+
+		<RequestType>
+			<Label>Other</Label>
+			<ServiceRep>James Carter</ServiceRep>
+		</RequestType>
+	</RequestTypes>
+</RequestTypeData>

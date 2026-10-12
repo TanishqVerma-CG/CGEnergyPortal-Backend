@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContractRenewal>
+
+    <ServiceAddresses>
+        <Address id="1">456 Oak Street, Dallas, TX 75201</Address>
+        <Address id="2">123 Main Street, Dallas, TX 75202</Address>
+        <Address id="3">789 Elm Street, Dallas, TX 75203</Address>
+    </ServiceAddresses>
+
+    <ExpiringContracts>
+        <ContractId>2453</ContractId>
+        <ContractId>2454</ContractId>
+        <ContractId>2442</ContractId>
+        <ContractId>2345</ContractId>
+    </ExpiringContracts>
+
+    <Plans>
+        <Plan termMonths="48">
+            <Badge>SPECIAL OFFER</Badge>
+            <Rate unit="centsPerKWh">7.9</Rate>
+            <UsageBasis>2000</UsageBasis>
+            <RateType>Fixed</RateType>
+            <BaseCharge unit="USDPerMonth">0</BaseCharge>
+        </Plan>
+
+        <Plan termMonths="36">
+            <Badge>BEST VALUE</Badge>
+            <Rate unit="centsPerKWh">8.3</Rate>
+            <UsageBasis>2000</UsageBasis>
+            <RateType>Fixed</RateType>
+            <BaseCharge unit="USDPerMonth">10</BaseCharge>
+        </Plan>
+
+        <Plan termMonths="24">
+            <Rate unit="centsPerKWh">8.9</Rate>
+            <UsageBasis>2000</UsageBasis>
+            <RateType>Fixed</RateType>
+            <BaseCharge unit="USDPerMonth">20</BaseCharge>
+        </Plan>
+
+        <Plan termMonths="18">
+            <Rate unit="centsPerKWh">9.5</Rate>
+            <UsageBasis>2000</UsageBasis>
+            <RateType>Fixed</RateType>
+            <BaseCharge unit="USDPerMonth">25</BaseCharge>
+        </Plan>
+
+        <Plan termMonths="12">
+            <Rate unit="centsPerKWh">10.2</Rate>
+            <UsageBasis>2000</UsageBasis>
+            <RateType>Fixed</RateType>
+            <BaseCharge unit="USDPerMonth">30</BaseCharge>
+        </Plan>
+    </Plans>
+
+</ContractRenewal>

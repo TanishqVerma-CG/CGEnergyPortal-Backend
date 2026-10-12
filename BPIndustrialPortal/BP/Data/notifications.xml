@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<NotificationsData>
+  <Notifications>
+    <Notification>
+      <NotificationId>4</NotificationId>
+      <Type>Support Request</Type>
+      <MeterId>00313867</MeterId>
+      <Message>Support request CID-237 has been received and is being processed.</Message>
+      <Time>03:54 PM</Time>
+      <Date>07-23-2026</Date>
+      <ActionLabel>View Support Request</ActionLabel>
+      <ActionType>support</ActionType>
+    </Notification>
+    <Notification>
+      <NotificationId>3</NotificationId>
+      <Type>Support Request</Type>
+      <MeterId>00313867</MeterId>
+      <Message>Support request CASE-237 has been received and is being processed.</Message>
+      <Time>01:31 PM</Time>
+      <Date>07-21-2026</Date>
+      <ActionLabel>View Support Request</ActionLabel>
+      <ActionType>support</ActionType>
+    </Notification>
+    <Notification>
+      <NotificationId>1</NotificationId>
+      <Type>Estimated Bill</Type>
+      <MeterId>00313868</MeterId>
+      <Message>Your estimated bill is now available for review.</Message>
+      <Time>03:24 PM</Time>
+      <Date>08/20/2025</Date>
+      <ActionLabel>View Estimated Bill</ActionLabel>
+      <ActionType>bill</ActionType>
+    </Notification>
+    <Notification>
+      <NotificationId>2</NotificationId>
+      <Type>Support Request</Type>
+      <MeterId>00313868</MeterId>
+      <Message>Your support request has been received and approved for action.</Message>
+      <Time>12:24 PM</Time>
+      <Date>08/19/2025</Date>
+      <ActionLabel>View Support Request</ActionLabel>
+      <ActionType>support</ActionType>
+    </Notification>
+  </Notifications>
+</NotificationsData>

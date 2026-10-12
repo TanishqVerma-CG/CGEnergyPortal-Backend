@@ -1,0 +1,2244 @@
+{
+  "info": {
+    "_postman_id": "bp-broker-all-apis-v1",
+    "name": "BP Industrial Portal – All Broker APIs",
+    "description": "Complete collection covering all four Broker API controller groups.\n\n## Controller Coverage\n| Controller | Routes | Description |\n|---|---|---|\n| `BrokerHomeController` | `/api/broker/home/*` | Dashboard metrics, renewal watchlist, open support requests |\n| `BrokerCustomerController` | `/api/broker/*` | Customer portfolio, contracts, meters, usage trend |\n| `BrokerRenewalsController` | `/api/broker/renewals/*` | Renewals list, contract/quote details, pricing intelligence |\n| `BrokerSupportCaseController` | `/api/broker/*` | Support case list, detail, chat, send message |\n\n## Quick Start\n1. Run **🔐 Auth → Broker Login** – the test script auto-stores the JWT as `{{token}}`.\n2. All subsequent requests inherit `Bearer {{token}}` from collection-level auth.\n3. Adjust `{{baseUrl}}` to point to your environment.\n4. Override individual variables (e.g. `{{customerId}}`) as needed for your data.\n\n## Collection Variables\n| Variable | Default | Description |\n|---|---|---|\n| `baseUrl` | `http://localhost:5128` | API host – change for Azure/staging |\n| `token` | *(empty)* | JWT – auto-set by Broker Login |\n| `customerId` | `1` | Customer ID (Acme Manufacturing Ltd.) |\n| `contractId` | `10293` | Contract ID for account-level lookups |\n| `renewalContractId` | `CID-10293` | Contract ID for renewals endpoints |\n| `meterId` | `00313867` | Meter ID for usage trend |\n| `caseNumber` | `CID-233` | Support case number |\n| `quoteId` | `QT-10033` | Quote ID for renewal quote detail |\n| `companyName` | `Acme Manufacturing Ltd.` | Company name for renewals queries |\n\n## Authorization\nAll broker endpoints are protected by `[Authorize(Policy = \"Broker\")]`. The collection sends `Authorization: Bearer {{token}}` automatically.\n\n## HTTP Status Code Reference\n| Code | Meaning |\n|---|---|\n| 200 | Success |\n| 400 | Validation error – missing or invalid parameter |\n| 401 | Unauthorized – missing, expired, or wrong-role JWT |\n| 404 | Resource not found |\n| 500 | Server error – typically a missing data file |",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      { "key": "token", "value": "{{token}}", "type": "string" }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:5128",
+      "type": "string",
+      "description": "Base URL. Override per environment (dev/staging/prod)."
+    },
+    {
+      "key": "token",
+      "value": "",
+      "type": "string",
+      "description": "JWT Bearer token. Auto-populated by Broker Login."
+    },
+    {
+      "key": "customerId",
+      "value": "1",
+      "type": "string",
+      "description": "Customer ID. 1 = Acme Manufacturing Ltd."
+    },
+    {
+      "key": "contractId",
+      "value": "10293",
+      "type": "string",
+      "description": "Contract ID for GetCustomerContract / GetCustomerContractIds."
+    },
+    {
+      "key": "renewalContractId",
+      "value": "CID-10293",
+      "type": "string",
+      "description": "Contract ID used in the renewals dataset."
+    },
+    {
+      "key": "meterId",
+      "value": "00313867",
+      "type": "string",
+      "description": "Meter ID for GetBrokerUsageTrend."
+    },
+    {
+      "key": "caseNumber",
+      "value": "CID-233",
+      "type": "string",
+      "description": "Support case number (e.g. CID-233)."
+    },
+    {
+      "key": "quoteId",
+      "value": "QT-10033",
+      "type": "string",
+      "description": "Quote ID for GetRenewalQuoteDetail."
+    },
+    {
+      "key": "companyName",
+      "value": "Acme Manufacturing Ltd.",
+      "type": "string",
+      "description": "Company name for renewals queries."
+    }
+  ],
+  "item": [
+    {
+      "name": "🔐 Auth",
+      "description": "Authentication. Run **Broker Login** first — the test script stores the JWT in `{{token}}`.",
+      "item": [
+        {
+          "name": "Broker Login",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200 OK', () => pm.response.to.have.status(200));",
+                  "pm.test('Response time < 3 s', () => pm.expect(pm.response.responseTime).to.be.below(3000));",
+                  "pm.test('Content-Type is JSON', () => pm.response.to.have.header('Content-Type', /application\\/json/));",
+                  "",
+                  "const body = pm.response.json();",
+                  "pm.test('token is present and non-empty', () => {",
+                  "  pm.expect(body).to.have.property('token');",
+                  "  pm.expect(body.token).to.be.a('string').and.not.be.empty;",
+                  "});",
+                  "pm.test('role equals Broker', () => pm.expect(body.role).to.equal('Broker'));",
+                  "pm.test('userId is a positive integer', () => pm.expect(body.userId).to.be.a('number').and.above(0));",
+                  "pm.test('username is present', () => pm.expect(body.username).to.be.a('string').and.not.be.empty);",
+                  "",
+                  "if (body.token) {",
+                  "  pm.collectionVariables.set('token', body.token);",
+                  "  pm.test('Token saved to {{token}}', () => pm.expect(pm.collectionVariables.get('token')).to.not.be.empty);",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "auth": { "type": "noauth" },
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json", "type": "text" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"emailId\": \"Alexjohn@bp.com\",\n  \"password\": \"admin1234\",\n  \"isBroker\": true\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/Login",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "Login"]
+            },
+            "description": "Authenticates a user with the `Broker` role and returns a short-lived JWT.\n\n**Request Body**\n| Field | Type | Required | Description |\n|---|---|---|---|\n| `emailId` | string | ✅ | Registered broker email |\n| `password` | string | ✅ | Account password |\n| `isBroker` | boolean | ✅ | Must be `true` to obtain a Broker-scoped JWT |\n\n**Success Response (200)**\n```json\n{\n  \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...\",\n  \"userId\": 1,\n  \"username\": \"Alex John\",\n  \"role\": \"Broker\"\n}\n```\n\n**Failure Response (401)**\n```json\n{ \"message\": \"Invalid email or password.\" }\n```\n\n**Notes**\n- Token TTL is 15 minutes (set in `appsettings.json → Jwt:ExpiryInMinutes`).\n- Re-run this request to refresh an expired token.\n- The test script automatically writes the token to `{{token}}`."
+          }
+        },
+        {
+          "name": "Broker Login – Invalid Credentials",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 401 Unauthorized', () => pm.response.to.have.status(401));",
+                  "const body = pm.response.json();",
+                  "pm.test('Error message is present', () => pm.expect(body.message).to.be.a('string').and.not.be.empty);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "auth": { "type": "noauth" },
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json", "type": "text" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"emailId\": \"notexist@example.com\",\n  \"password\": \"wrongpassword\",\n  \"isBroker\": true\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/Login",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "Login"]
+            },
+            "description": "Validates that login with bad credentials returns 401 with an error message."
+          }
+        }
+      ]
+    },
+
+    {
+      "name": "🏠 Broker Home",
+      "description": "Dashboard endpoints for the Broker Home page.\n\n**Base path:** `GET /api/broker/home/*`\n**Authorization:** Broker JWT required\n\n| Endpoint | Description |\n|---|---|\n| `GetSummaryMetrics` | Portfolio-level KPI cards |\n| `GetRecentActivity` | Rolling activity summary |\n| `GetRenewalWatchlist` | Filterable/sortable renewal table |\n| `ExportRenewalWatchlist` | Download watchlist as xlsx |\n| `GetOpenSupportRequests` | Sortable open support request table |",
+      "item": [
+        {
+          "name": "Get Summary Metrics",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200 OK', () => pm.response.to.have.status(200));",
+                  "pm.test('Response time < 2 s', () => pm.expect(pm.response.responseTime).to.be.below(2000));",
+                  "pm.test('Content-Type is JSON', () => pm.response.to.have.header('Content-Type', /application\\/json/));",
+                  "",
+                  "const b = pm.response.json();",
+                  "",
+                  "pm.test('lastUpdated is present', () => pm.expect(b).to.have.property('lastUpdated'));",
+                  "",
+                  "pm.test('customersManaged shape', () => {",
+                  "  pm.expect(b.customersManaged).to.have.all.keys('total', 'newThisMonth', 'churned');",
+                  "  pm.expect(b.customersManaged.total).to.be.a('number').and.above(0);",
+                  "  pm.expect(b.customersManaged.newThisMonth).to.be.a('number').and.at.least(0);",
+                  "  pm.expect(b.customersManaged.churned).to.be.a('number').and.at.least(0);",
+                  "});",
+                  "",
+                  "pm.test('activeContracts: fixed + variable = total', () => {",
+                  "  const ac = b.activeContracts;",
+                  "  pm.expect(ac).to.have.all.keys('total', 'fixed', 'variable');",
+                  "  pm.expect(ac.fixed + ac.variable).to.equal(ac.total);",
+                  "});",
+                  "",
+                  "pm.test('upcomingRenewals shape', () => {",
+                  "  const ur = b.upcomingRenewals;",
+                  "  pm.expect(ur).to.have.all.keys('total', 'pending', 'avgDaysToExpiry');",
+                  "  pm.expect(ur.pending).to.be.at.most(ur.total);",
+                  "  pm.expect(ur.avgDaysToExpiry).to.be.a('number').and.above(0);",
+                  "});",
+                  "",
+                  "pm.test('metersManaged: decreased + increased = total', () => {",
+                  "  const mm = b.metersManaged;",
+                  "  pm.expect(mm).to.have.all.keys('total', 'decreased', 'increased');",
+                  "  pm.expect(mm.decreased + mm.increased).to.equal(mm.total);",
+                  "});",
+                  "",
+                  "pm.test('annualUsage shape', () => {",
+                  "  pm.expect(b.annualUsage).to.have.all.keys('totalMWh', 'yoYChange');",
+                  "  pm.expect(b.annualUsage.totalMWh).to.be.a('number').and.above(0);",
+                  "  pm.expect(b.annualUsage.yoYChange).to.be.a('string').and.not.be.empty;",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/broker/home/GetSummaryMetrics",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "broker", "home", "GetSummaryMetrics"]
+            },
+            "description": "Returns the top-level KPI cards for the broker's dashboard.\n\n**Auth:** Broker JWT\n**Params:** None\n\n**Success Response (200) – `BrokerSummaryMetrics`**\n```json\n{\n  \"lastUpdated\": \"2026-07-21T08:00:00Z\",\n  \"customersManaged\": { \"total\": 185, \"newThisMonth\": 3, \"churned\": 1 },\n  \"activeContracts\": { \"total\": 312, \"fixed\": 220, \"variable\": 92 },\n  \"upcomingRenewals\": { \"total\": 35, \"pending\": 12, \"avgDaysToExpiry\": 27 },\n  \"metersManaged\": { \"total\": 498, \"decreased\": 14, \"increased\": 484 },\n  \"annualUsage\": { \"totalMWh\": 92450, \"yoYChange\": \"+4.2%\" }\n}\n```\n\n**Business Rules / Validations**\n- `activeContracts.fixed + activeContracts.variable` must equal `activeContracts.total`.\n- `metersManaged.decreased + metersManaged.increased` must equal `metersManaged.total`.\n- `upcomingRenewals.pending` must be ≤ `upcomingRenewals.total`."
+          }
+        },
+        {
+          "name": "Get Recent Activity",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200 OK', () => pm.response.to.have.status(200));",
+                  "pm.test('Response time < 2 s', () => pm.expect(pm.response.responseTime).to.be.below(2000));",
+                  "pm.test('Content-Type is JSON', () => pm.response.to.have.header('Content-Type', /application\\/json/));",
+                  "",
+                  "const b = pm.response.json();",
+                  "",
+                  "pm.test('lastUpdated is present', () => pm.expect(b).to.have.property('lastUpdated'));",
+                  "",
+                  "pm.test('contractAmendmentsSigned shape', () => {",
+                  "  pm.expect(b.contractAmendmentsSigned).to.have.all.keys('count', 'label');",
+                  "  pm.expect(b.contractAmendmentsSigned.count).to.be.a('number').and.at.least(0);",
+                  "  pm.expect(b.contractAmendmentsSigned.label).to.be.a('string').and.not.be.empty;",
+                  "});",
+                  "",
+                  "pm.test('openSupportRequests: highPriority <= count', () => {",
+                  "  const osr = b.openSupportRequests;",
+                  "  pm.expect(osr).to.have.all.keys('count', 'highPriority');",
+                  "  pm.expect(osr.highPriority).to.be.at.most(osr.count);",
+                  "});",
+                  "",
+                  "pm.test('upcomingContractRenewals shape', () => {",
+                  "  const ucr = b.upcomingContractRenewals;",
+                  "  pm.expect(ucr).to.have.all.keys('count', 'dueWithinDays');",
+                  "  pm.expect(ucr.dueWithinDays).to.be.a('number').and.above(0);",
+                  "});",
+                  "",
+                  "pm.test('estimatedRevenueAtRenewal shape', () => {",
+                  "  pm.expect(b.estimatedRevenueAtRenewal).to.have.all.keys('amount', 'renewalCount');",
+                  "  pm.expect(b.estimatedRevenueAtRenewal.amount).to.be.a('number').and.at.least(0);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/broker/home/GetRecentActivity",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "broker", "home", "GetRecentActivity"]
+            },
+            "description": "Returns the recent activity summary panel for the broker dashboard.\n\n**Auth:** Broker JWT\n**Params:** None\n\n**Success Response (200) – `BrokerRecentActivity`**\n```json\n{\n  \"lastUpdated\": \"2026-07-21T08:00:00Z\",\n  \"contractAmendmentsSigned\": { \"count\": 8, \"label\": \"Last 30 days\" },\n  \"openSupportRequests\": { \"count\": 14, \"highPriority\": 3 },\n  \"upcomingContractRenewals\": { \"count\": 35, \"dueWithinDays\": 90 },\n  \"estimatedRevenueAtRenewal\": { \"amount\": 128500.00, \"renewalCount\": 35 }\n}\n```\n\n**Business Rules**\n- `openSupportRequests.highPriority` must be ≤ `openSupportRequests.count`."
+          }
+        },
+        {
+          "name": "Get Renewal Watchlist – Default (all, daysRemaining ASC)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200 OK', () => pm.response.to.have.status(200));",
+                  "pm.test('Response time < 2 s', () => pm.expect(pm.response.responseTime).to.be.below(2000));",
+                  "pm.test('Content-Type is JSON', () => pm.response.to.have.header('Content-Type', /application\\/json/));",
+                  "",
+                  "const b = pm.response.json();",
+                  "",
+                  "pm.test('totalEntries matches items.length', () => {",
+                  "  pm.expect(b.totalEntries).to.be.a('number').and.at.least(0);",
+                  "  pm.expect(b.items.length).to.equal(b.totalEntries);",
+                  "});",
+                  "",
+                  "pm.test('Has 5 filter buckets (all, 0-15, 16-30, 31-60, 61-90)', () => {",
+                  "  pm.expect(b.filters).to.be.an('array').with.lengthOf(5);",
+                  "  const vals = b.filters.map(f => f.value);",
+                  "  pm.expect(vals).to.include.members(['all', '0-15', '16-30', '31-60', '61-90']);",
+                  "});",
+                  "",
+                  "pm.test('Bucket counts sum to all count', () => {",
+                  "  const allCount = b.filters.find(f => f.value === 'all').count;",
+                  "  const bucketSum = b.filters.filter(f => f.value !== 'all').reduce((s, f) => s + f.count, 0);",
+                  "  pm.expect(bucketSum).to.equal(allCount);",
+                  "});",
+                  "",
+                  "pm.test('Each item has required fields with correct types', () => {",
+                  "  b.items.forEach(item => {",
+                  "    pm.expect(item.customer).to.be.a('string').and.not.be.empty;",
+                  "    pm.expect(item.brokerMargin).to.be.a('number').and.above(0);",
+                  "    pm.expect(item.termMonths).to.be.a('number').and.above(0);",
+                  "    pm.expect(item.volumeMWh).to.be.a('number').and.above(0);",
+                  "    pm.expect(item.daysRemaining).to.be.a('number').and.at.least(0);",
+                  "  });",
+                  "});",
+                  "",
+                  "pm.test('Items sorted by daysRemaining ASC', () => {",
+                  "  const days = b.items.map(i => i.daysRemaining);",
+                  "  pm.expect(days).to.deep.equal([...days].sort((a, b) => a - b));",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/broker/home/GetRenewalWatchlist",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "broker", "home", "GetRenewalWatchlist"]
+            },
+            "description": "Returns the renewal watchlist with filter and sort options.\n\n**Auth:** Broker JWT\n\n**Query Parameters**\n| Param | Type | Default | Allowed Values | Description |\n|---|---|---|---|---|\n| `daysFilter` | string | `all` | `all`, `0-15`, `16-30`, `31-60`, `61-90` | Day-bucket filter |\n| `sortBy` | string | `daysRemaining` | `customer`, `brokerMargin`, `termMonths`, `volumeMWh`, `daysRemaining` | Sort column |\n| `sortOrder` | string | `asc` | `asc`, `desc` | Sort direction |\n\n**Success Response (200) – `RenewalWatchlistResponse`**\n```json\n{\n  \"totalEntries\": 35,\n  \"filters\": [\n    { \"label\": \"All\", \"value\": \"all\", \"count\": 35 },\n    { \"label\": \"0-15 days\", \"value\": \"0-15\", \"count\": 8 },\n    { \"label\": \"16-30 days\", \"value\": \"16-30\", \"count\": 10 },\n    { \"label\": \"31-60 days\", \"value\": \"31-60\", \"count\": 12 },\n    { \"label\": \"61-90 days\", \"value\": \"61-90\", \"count\": 5 }\n  ],\n  \"items\": [\n    {\n      \"customer\": \"Acme Manufacturing Ltd.\",\n      \"brokerMargin\": 0.25,\n      \"termMonths\": 24,\n      \"volumeMWh\": 12760.0,\n      \"daysRemaining\": 12\n    }\n  ]\n}\n```\n\n**Business Rules**\n- Bucket counts (0-15 + 16-30 + 31-60 + 61-90) must sum to the `all` count.\n- Response is sorted by `sortBy` in the direction of `sortOrder`."
+          }
+        },
+        {
+          "name": "Get Renewal Watchlist – Filter 0-15 Days",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200 OK', () => pm.response.to.have.status(200));",
+                  "const b = pm.response.json();",
+                  "pm.test('totalEntries matches items.length', () => pm.expect(b.items.length).to.equal(b.totalEntries));",
+                  "pm.test('All items have daysRemaining within 0-15', () => {",
+                  "  b.items.forEach(item => pm.expect(item.daysRemaining).to.be.within(0, 15));",
+                  "});",
+                  "pm.test('Filter bucket count matches totalEntries', () => {",
+                  "  const bucket = b.filters.find(f => f.value === '0-15');",
+                  "  pm.expect(bucket).to.exist;",
+                  "  pm.expect(bucket.count).to.equal(b.totalEntries);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/broker/home/GetRenewalWatchlist?daysFilter=0-15",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "broker", "home", "GetRenewalWatchlist"],
+              "query": [
+                { "key": "daysFilter", "value": "0-15", "description": "Show only contracts expiring in 0-15 days." }
+              ]
+            },
+            "description": "Filters the watchlist to show only contracts expiring in the next 0–15 days."
+          }
+        },
+        {
+          "name": "Get Renewal Watchlist – Sort by brokerMargin DESC",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200 OK', () => pm.response.to.have.status(200));",
+                  "const b = pm.response.json();",
+                  "pm.test('Items sorted by brokerMargin DESC', () => {",
+                  "  const margins = b.items.map(i => i.brokerMargin);",
+                  "  pm.expect(margins).to.deep.equal([...margins].sort((a, z) => z - a));",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/broker/home/GetRenewalWatchlist?sortBy=brokerMargin&sortOrder=desc",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "broker", "home", "GetRenewalWatchlist"],
+              "query": [
+                { "key": "sortBy", "value": "brokerMargin", "description": "Sort column." },
+                { "key": "sortOrder", "value": "desc", "description": "Descending order." }
+              ]
+            },
+            "description": "Returns all renewals sorted by broker margin, highest first."
+          }
+        },
+        {
+          "name": "Export Renewal Watchlist – All",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200 OK', () => pm.response.to.have.status(200));",
+                  "pm.test('Response time < 5 s', () => pm.expect(pm.response.responseTime).to.be.below(5000));",
+                  "pm.test('Content-Type is XLSX', () => {",
+                  "  pm.expect(pm.response.headers.get('Content-Type')).to.include('application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');",
+                  "});",
+                  "pm.test('Content-Disposition contains filename', () => {",
+                  "  const cd = pm.response.headers.get('Content-Disposition') || '';",
+                  "  pm.expect(cd).to.include('renewal-watchlist-');",
+                  "  pm.expect(cd).to.include('.xlsx');",
+                  "});",
+                  "pm.test('Response body is non-empty binary', () => {",
+                  "  pm.expect(pm.response.responseSize).to.be.above(0);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/broker/home/ExportRenewalWatchlist",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "broker", "home", "ExportRenewalWatchlist"]
+            },
+            "description": "Downloads the renewal watchlist as a timestamped Excel (.xlsx) file.\n\n**Auth:** Broker JWT\n\n**Query Parameters**\n| Param | Type | Default | Allowed Values | Description |\n|---|---|---|---|---|\n| `daysFilter` | string | `all` | `all`, `0-15`, `16-30`, `31-60`, `61-90` | Day-bucket filter applied before export |\n\n**Success Response (200)**\n- Content-Type: `application/vnd.openxmlformats-officedocument.spreadsheetml.sheet`\n- Content-Disposition: `attachment; filename=renewal-watchlist-{yyyyMMdd_HHmmss}.xlsx`\n- Binary body – save directly to disk.\n\n**Notes**\n- Use Postman's **Send and Download** option to save the file.\n- The filename contains a UTC timestamp generated at the time of the request."
+          }
+        },
+        {
+          "name": "Export Renewal Watchlist – Filter 0-15 Days",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200 OK', () => pm.response.to.have.status(200));",
+                  "pm.test('Content-Type is XLSX', () => {",
+                  "  pm.expect(pm.response.headers.get('Content-Type')).to.include('spreadsheetml.sheet');",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/broker/home/ExportRenewalWatchlist?daysFilter=0-15",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "broker", "home", "ExportRenewalWatchlist"],
+              "query": [
+                { "key": "daysFilter", "value": "0-15", "description": "Export only 0-15 day renewals." }
+              ]
+            },
+            "description": "Exports only the 0-15 day renewal bucket as an xlsx file."
+          }
+        },
+        {
+          "name": "Get Open Support Requests – Default (createdOn DESC)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200 OK', () => pm.response.to.have.status(200));",
+                  "pm.test('Response time < 2 s', () => pm.expect(pm.response.responseTime).to.be.below(2000));",
+                  "pm.test('Content-Type is JSON', () => pm.response.to.have.header('Content-Type', /application\\/json/));",
+                  "",
+                  "const b = pm.response.json();",
+                  "pm.test('totalEntries matches items.length', () => pm.expect(b.items.length).to.equal(b.totalEntries));",
+                  "",
+                  "pm.test('Each item has required fields', () => {",
+                  "  b.items.forEach(item => {",
+                  "    pm.expect(item.customer).to.be.a('string').and.not.be.empty;",
+                  "    pm.expect(item.requestType).to.be.a('string').and.not.be.empty;",
+                  "    pm.expect(item.priority).to.be.a('string').and.not.be.empty;",
+                  "    pm.expect(item.createdOn).to.be.a('string').and.not.be.empty;",
+                  "  });",
+                  "});",
+                  "",
+                  "pm.test('Priority values are valid', () => {",
+                  "  const valid = ['HIGH', 'MEDIUM', 'LOW'];",
+                  "  b.items.forEach(item => pm.expect(valid).to.include(item.priority.toUpperCase()));",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/broker/home/GetOpenSupportRequests",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "broker", "home", "GetOpenSupportRequests"]
+            },
+            "description": "Returns all open support requests across the broker's customer portfolio.\n\n**Auth:** Broker JWT\n\n**Query Parameters**\n| Param | Type | Default | Allowed Values | Description |\n|---|---|---|---|---|\n| `sortBy` | string | `createdOn` | `customer`, `requestType`, `priority`, `createdOn` | Sort column |\n| `sortOrder` | string | `desc` | `asc`, `desc` | Sort direction |\n\n**Success Response (200) – `BrokerOpenSupportRequestsResponse`**\n```json\n{\n  \"totalEntries\": 14,\n  \"items\": [\n    {\n      \"customer\": \"Acme Manufacturing Ltd.\",\n      \"requestType\": \"Billing/Invoice query\",\n      \"priority\": \"HIGH\",\n      \"createdOn\": \"6/22/2026\"\n    }\n  ]\n}\n```\n\n**Business Rules**\n- `priority` must be one of: `HIGH`, `MEDIUM`, `LOW`.\n- Default sort is newest first (`createdOn DESC`)."
+          }
+        },
+        {
+          "name": "Get Open Support Requests – Sort by Priority ASC",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200 OK', () => pm.response.to.have.status(200));",
+                  "const b = pm.response.json();",
+                  "pm.test('Has items array', () => pm.expect(b.items).to.be.an('array'));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/broker/home/GetOpenSupportRequests?sortBy=priority&sortOrder=asc",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "broker", "home", "GetOpenSupportRequests"],
+              "query": [
+                { "key": "sortBy", "value": "priority", "description": "Sort by priority." },
+                { "key": "sortOrder", "value": "asc", "description": "LOW → MEDIUM → HIGH." }
+              ]
+            },
+            "description": "Returns open support requests sorted by priority ascending (LOW → MEDIUM → HIGH)."
+          }
+        },
+        {
+          "name": "⛔ Unauthorized – Get Summary Metrics",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 401 Unauthorized', () => pm.response.to.have.status(401));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "auth": { "type": "noauth" },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/broker/home/GetSummaryMetrics",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "broker", "home", "GetSummaryMetrics"]
+            },
+            "description": "Verifies that the endpoint returns 401 when no Bearer token is supplied."
+          }
+        }
+      ]
+    },
+
+    {
+      "name": "👥 Broker Customers",
+      "description": "Customer portfolio, contract, meter, and usage-trend endpoints.\n\n**Base paths:** `GET /api/broker/*` and `GET /api/GetBrokerUsageTrend`\n**Authorization:** Broker JWT required\n\n| Endpoint | Description |\n|---|---|\n| `GetCustomerSummaryCards` | Portfolio-level summary cards |\n| `GetCustomerPortfolio` | Full customer list |\n| `GetCustomerContract` | Contracts for a specific customer+contract pair |\n| `GetCustomerMeters` | Meters for a customer |\n| `GetCustomerContractIds` | List of contract IDs for a customer |\n| `GetCustomerMeterIds` | List of meter IDs for a customer |\n| `GetBrokerUsageTrend` | Usage trend data for a meter |",
+      "item": [
+        {
+          "name": "Get Customer Summary Cards",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200 OK', () => pm.response.to.have.status(200));",
+                  "pm.test('Response time < 2 s', () => pm.expect(pm.response.responseTime).to.be.below(2000));",
+                  "pm.test('Content-Type is JSON', () => pm.response.to.have.header('Content-Type', /application\\/json/));",
+                  "",
+                  "const b = pm.response.json();",
+                  "pm.test('Shape is correct', () => {",
+                  "  pm.expect(b).to.have.all.keys('totalCustomers', 'activeContracts', 'meterCount', 'totalAnnualLoad', 'totalAnnualLoadUnit', 'expiringIn90Days');",
+                  "});",
+                  "pm.test('totalCustomers > 0', () => pm.expect(b.totalCustomers).to.be.above(0));",
+                  "pm.test('meterCount > 0', () => pm.expect(b.meterCount).to.be.above(0));",
+                  "pm.test('totalAnnualLoadUnit is present', () => pm.expect(b.totalAnnualLoadUnit).to.be.a('string').and.not.be.empty);",
+                  "pm.test('expiringIn90Days >= 0', () => pm.expect(b.expiringIn90Days).to.be.at.least(0));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/broker/GetCustomerSummaryCards",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "broker", "GetCustomerSummaryCards"]
+            },
+            "description": "Returns portfolio-level summary cards for the Broker Customer page.\n\n**Auth:** Broker JWT\n**Params:** None\n\n**Success Response (200) – `BrokerSummaryCards`**\n```json\n{\n  \"totalCustomers\": 185,\n  \"activeContracts\": 312,\n  \"meterCount\": 498,\n  \"totalAnnualLoad\": 92450.0,\n  \"totalAnnualLoadUnit\": \"MWh\",\n  \"expiringIn90Days\": 20\n}\n```"
+          }
+        },
+        {
+          "name": "Get Customer Portfolio",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200 OK', () => pm.response.to.have.status(200));",
+                  "pm.test('Content-Type is JSON', () => pm.response.to.have.header('Content-Type', /application\\/json/));",
+                  "",
+                  "const b = pm.response.json();",
+                  "pm.test('totalEntries > 0', () => pm.expect(b.totalEntries).to.be.above(0));",
+                  "pm.test('customers array length matches totalEntries', () => pm.expect(b.customers.length).to.equal(b.totalEntries));",
+                  "",
+                  "pm.test('Each customer has required fields', () => {",
+                  "  b.customers.forEach(c => {",
+                  "    pm.expect(c.id).to.be.a('number').and.above(0);",
+                  "    pm.expect(c.name).to.be.a('string').and.not.be.empty;",
+                  "    pm.expect(c.activeContracts).to.be.a('number').and.at.least(0);",
+                  "    pm.expect(c.activeMeters).to.be.a('number').and.at.least(0);",
+                  "    pm.expect(c.annualUsage).to.be.a('number').and.at.least(0);",
+                  "    pm.expect(c.annualUsageUnit).to.be.a('string').and.not.be.empty;",
+                  "  });",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/broker/GetCustomerPortfolio",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "broker", "GetCustomerPortfolio"]
+            },
+            "description": "Returns the full list of customers in the broker's portfolio.\n\n**Auth:** Broker JWT\n**Params:** None\n\n**Success Response (200) – `BrokerCustomerPortfolioResponse`**\n```json\n{\n  \"totalEntries\": 185,\n  \"customers\": [\n    {\n      \"id\": 1,\n      \"name\": \"Acme Manufacturing Ltd.\",\n      \"activeContracts\": 12,\n      \"activeMeters\": 24,\n      \"annualUsage\": 12760.0,\n      \"annualUsageUnit\": \"MWh\",\n      \"expiringContracts\": 5,\n      \"expiredContracts\": 8\n    }\n  ]\n}\n```"
+          }
+        },
+        {
+          "name": "Get Customer Contract – Valid",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200 OK', () => pm.response.to.have.status(200));",
+                  "pm.test('Content-Type is JSON', () => pm.response.to.have.header('Content-Type', /application\\/json/));",
+                  "",
+                  "const b = pm.response.json();",
+                  "pm.test('Response is an array of contracts', () => pm.expect(b).to.be.an('array'));",
+                  "",
+                  "pm.test('Each contract has required fields', () => {",
+                  "  b.forEach(c => {",
+                  "    pm.expect(c.contractId).to.be.a('string').and.not.be.empty;",
+                  "    pm.expect(c.status).to.be.a('string').and.not.be.empty;",
+                  "    pm.expect(c.meterCount).to.be.a('number').and.above(0);",
+                  "    pm.expect(c.annualUsage).to.be.a('number').and.above(0);",
+                  "    pm.expect(c.startDate).to.be.a('string').and.not.be.empty;",
+                  "    pm.expect(c.endDate).to.be.a('string').and.not.be.empty;",
+                  "    pm.expect(c.brokerMargin).to.be.a('number').and.above(0);",
+                  "    pm.expect(c.price).to.be.a('number').and.above(0);",
+                  "  });",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/broker/GetCustomerContract?customerId={{customerId}}&contractId={{contractId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "broker", "GetCustomerContract"],
+              "query": [
+                { "key": "customerId", "value": "{{customerId}}", "description": "Customer ID (integer, required)." },
+                { "key": "contractId", "value": "{{contractId}}", "description": "Contract ID (string, required)." }
+              ]
+            },
+            "description": "Returns contract details for a specific customer and contract.\n\n**Auth:** Broker JWT\n\n**Query Parameters**\n| Param | Type | Required | Description |\n|---|---|---|---|\n| `customerId` | integer | ✅ | Customer ID |\n| `contractId` | string | ✅ | Contract ID |\n\n**Success Response (200) – `List<BrokerContract>`**\n```json\n[\n  {\n    \"contractId\": \"10293\",\n    \"status\": \"Active\",\n    \"meterCount\": 5,\n    \"annualUsage\": 12760.0,\n    \"annualUsageUnit\": \"MWh\",\n    \"contractTermMonths\": 36,\n    \"brokerMargin\": 0.25,\n    \"price\": 2150.0,\n    \"product\": \"Fixed Energy\",\n    \"startDate\": \"2024-08-01\",\n    \"endDate\": \"2026-08-01\"\n  }\n]\n```\n\n**Error Responses**\n| Code | Trigger |\n|---|---|\n| 404 | Customer or contract not found |"
+          }
+        },
+        {
+          "name": "Get Customer Contract – Not Found (404)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 404 Not Found', () => pm.response.to.have.status(404));",
+                  "const b = pm.response.json();",
+                  "pm.test('Error message present', () => pm.expect(b.message).to.be.a('string').and.not.be.empty);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/broker/GetCustomerContract?customerId=99999&contractId=INVALID-999",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "broker", "GetCustomerContract"],
+              "query": [
+                { "key": "customerId", "value": "99999", "description": "Non-existent customer ID." },
+                { "key": "contractId", "value": "INVALID-999", "description": "Non-existent contract ID." }
+              ]
+            },
+            "description": "Validates 404 is returned when the customer or contract does not exist."
+          }
+        },
+        {
+          "name": "Get Customer Meters – Valid",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200 OK', () => pm.response.to.have.status(200));",
+                  "pm.test('Content-Type is JSON', () => pm.response.to.have.header('Content-Type', /application\\/json/));",
+                  "",
+                  "const b = pm.response.json();",
+                  "pm.test('totalEntries >= 0', () => pm.expect(b.totalEntries).to.be.at.least(0));",
+                  "pm.test('meters.length matches totalEntries', () => pm.expect(b.meters.length).to.equal(b.totalEntries));",
+                  "",
+                  "pm.test('Each meter has required fields', () => {",
+                  "  b.meters.forEach(m => {",
+                  "    pm.expect(m.meterId).to.be.a('string').and.not.be.empty;",
+                  "    pm.expect(m.utility).to.be.a('string').and.not.be.empty;",
+                  "    pm.expect(m.serviceAddress).to.be.a('string').and.not.be.empty;",
+                  "    pm.expect(m.status).to.be.a('string').and.not.be.empty;",
+                  "    pm.expect(m.annualUsage).to.be.a('number').and.at.least(0);",
+                  "  });",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/broker/GetCustomerMeters?customerId={{customerId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "broker", "GetCustomerMeters"],
+              "query": [
+                { "key": "customerId", "value": "{{customerId}}", "description": "Customer ID (integer, required)." }
+              ]
+            },
+            "description": "Returns all meters associated with a customer.\n\n**Auth:** Broker JWT\n\n**Query Parameters**\n| Param | Type | Required | Description |\n|---|---|---|---|\n| `customerId` | integer | ✅ | Customer ID |\n\n**Success Response (200) – `BrokerMeterListResponse`**\n```json\n{\n  \"totalEntries\": 24,\n  \"meters\": [\n    {\n      \"meterId\": \"00313867\",\n      \"uan\": \"\",\n      \"ldc\": \"23220644990\",\n      \"utility\": \"Northeast Electric\",\n      \"serviceAddress\": \"456 Oak Street, Dallas, TX 75201\",\n      \"status\": \"ACTIVE\",\n      \"startDate\": \"2024-08-01\",\n      \"stopDate\": \"\",\n      \"annualUsage\": 280.0,\n      \"annualUsageUnit\": \"MWh\"\n    }\n  ]\n}\n```\n\n**Error Responses**\n| Code | Trigger |\n|---|---|\n| 404 | Customer ID not found |"
+          }
+        },
+        {
+          "name": "Get Customer Meters – Not Found (404)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 404 Not Found', () => pm.response.to.have.status(404));",
+                  "const b = pm.response.json();",
+                  "pm.test('Error message present', () => pm.expect(b.message).to.be.a('string').and.not.be.empty);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/broker/GetCustomerMeters?customerId=99999",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "broker", "GetCustomerMeters"],
+              "query": [
+                { "key": "customerId", "value": "99999", "description": "Non-existent customer ID." }
+              ]
+            },
+            "description": "Validates 404 is returned for a non-existent customer ID."
+          }
+        },
+        {
+          "name": "Get Customer Contract IDs",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200 OK', () => pm.response.to.have.status(200));",
+                  "pm.test('Content-Type is JSON', () => pm.response.to.have.header('Content-Type', /application\\/json/));",
+                  "",
+                  "const b = pm.response.json();",
+                  "pm.test('Response is an array of strings', () => {",
+                  "  pm.expect(b).to.be.an('array');",
+                  "  b.forEach(id => pm.expect(id).to.be.a('string').and.not.be.empty);",
+                  "});",
+                  "pm.test('At least one contract ID returned', () => pm.expect(b.length).to.be.above(0));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/broker/GetCustomerContractIds?customerId={{customerId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "broker", "GetCustomerContractIds"],
+              "query": [
+                { "key": "customerId", "value": "{{customerId}}", "description": "Customer ID (integer, required)." }
+              ]
+            },
+            "description": "Returns a plain array of contract ID strings for a customer. Useful for populating dropdowns.\n\n**Auth:** Broker JWT\n\n**Query Parameters**\n| Param | Type | Required | Description |\n|---|---|---|---|\n| `customerId` | integer | ✅ | Customer ID |\n\n**Success Response (200) – `List<string>`**\n```json\n[\"10293\", \"10292\", \"10291\"]\n```\n\n**Error Responses**\n| Code | Trigger |\n|---|---|\n| 404 | Customer ID not found |"
+          }
+        },
+        {
+          "name": "Get Customer Meter IDs",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200 OK', () => pm.response.to.have.status(200));",
+                  "const b = pm.response.json();",
+                  "pm.test('Response is an array of strings', () => {",
+                  "  pm.expect(b).to.be.an('array');",
+                  "  b.forEach(id => pm.expect(id).to.be.a('string').and.not.be.empty);",
+                  "});",
+                  "pm.test('At least one meter ID returned', () => pm.expect(b.length).to.be.above(0));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/broker/GetCustomerMeterIds?customerId={{customerId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "broker", "GetCustomerMeterIds"],
+              "query": [
+                { "key": "customerId", "value": "{{customerId}}", "description": "Customer ID (integer, required)." }
+              ]
+            },
+            "description": "Returns a plain array of meter ID strings for a customer. Useful for populating dropdowns.\n\n**Auth:** Broker JWT\n\n**Query Parameters**\n| Param | Type | Required | Description |\n|---|---|---|---|\n| `customerId` | integer | ✅ | Customer ID |\n\n**Success Response (200) – `List<string>`**\n```json\n[\"00313867\", \"00313866\", \"00313865\"]\n```\n\n**Error Responses**\n| Code | Trigger |\n|---|---|\n| 404 | Customer ID not found |"
+          }
+        },
+        {
+          "name": "Get Broker Usage Trend – Default Date Range",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200 OK', () => pm.response.to.have.status(200));",
+                  "pm.test('Response time < 3 s', () => pm.expect(pm.response.responseTime).to.be.below(3000));",
+                  "pm.test('Content-Type is JSON', () => pm.response.to.have.header('Content-Type', /application\\/json/));",
+                  "",
+                  "const b = pm.response.json();",
+                  "pm.test('meterId matches request', () => pm.expect(b.meterId).to.equal(pm.collectionVariables.get('meterId')));",
+                  "pm.test('startDate and endDate are present', () => {",
+                  "  pm.expect(b.startDate).to.be.a('string').and.not.be.empty;",
+                  "  pm.expect(b.endDate).to.be.a('string').and.not.be.empty;",
+                  "});",
+                  "pm.test('trends is an array', () => pm.expect(b.trends).to.be.an('array'));",
+                  "",
+                  "pm.test('Each trend month has summary and data points', () => {",
+                  "  b.trends.forEach(t => {",
+                  "    pm.expect(t.month).to.be.a('string').and.not.be.empty;",
+                  "    pm.expect(t.summary).to.have.all.keys('totalUsageMWh', 'contractedBlockedVolumeMWh', 'marketIndexVolumeMWh', 'contractCoveragePercent');",
+                  "    pm.expect(t.dataPoints).to.be.an('array');",
+                  "    t.dataPoints.forEach(dp => {",
+                  "      pm.expect(dp.day).to.be.a('number').and.within(1, 31);",
+                  "      pm.expect(dp.actualUsageMWh).to.be.a('number').and.at.least(0);",
+                  "    });",
+                  "  });",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/GetBrokerUsageTrend?meterId={{meterId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "GetBrokerUsageTrend"],
+              "query": [
+                { "key": "meterId", "value": "{{meterId}}", "description": "Meter ID (string, required)." }
+              ]
+            },
+            "description": "Returns daily usage trend data for a specific meter. When `startDate`/`endDate` are omitted the current calendar month is used.\n\n**Auth:** Broker JWT\n\n**Query Parameters**\n| Param | Type | Required | Default | Description |\n|---|---|---|---|---|\n| `meterId` | string | ✅ | — | Meter ID |\n| `startDate` | DateTime | ❌ | First day of current month | Inclusive range start (ISO 8601) |\n| `endDate` | DateTime | ❌ | Last day of start month | Inclusive range end (ISO 8601) |\n\n**Success Response (200) – `BrokerUsageTrendResponse`**\n```json\n{\n  \"meterId\": \"00313867\",\n  \"startDate\": \"2026-07-01T00:00:00Z\",\n  \"endDate\": \"2026-07-31T00:00:00Z\",\n  \"trends\": [\n    {\n      \"month\": \"July 2026\",\n      \"summary\": {\n        \"totalUsageMWh\": 280.0,\n        \"contractedBlockedVolumeMWh\": 250.0,\n        \"marketIndexVolumeMWh\": 30.0,\n        \"contractCoveragePercent\": 89.3\n      },\n      \"dataPoints\": [\n        {\n          \"day\": 1,\n          \"actualUsageMWh\": 9.2,\n          \"contractedBlockedVolumeMWh\": 8.5,\n          \"marketIndexVolumeMWh\": 0.7,\n          \"averageTemperatureF\": 85.4\n        }\n      ]\n    }\n  ]\n}\n```\n\n**Error Responses**\n| Code | Trigger |\n|---|---|\n| 404 | No trend data found for the meter ID |"
+          }
+        },
+        {
+          "name": "Get Broker Usage Trend – Custom Date Range",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200 OK', () => pm.response.to.have.status(200));",
+                  "const b = pm.response.json();",
+                  "pm.test('meterId is present', () => pm.expect(b.meterId).to.be.a('string').and.not.be.empty);",
+                  "pm.test('trends array returned', () => pm.expect(b.trends).to.be.an('array'));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/GetBrokerUsageTrend?meterId={{meterId}}&startDate=2026-06-01&endDate=2026-06-30",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "GetBrokerUsageTrend"],
+              "query": [
+                { "key": "meterId", "value": "{{meterId}}", "description": "Meter ID (required)." },
+                { "key": "startDate", "value": "2026-06-01", "description": "Range start – ISO 8601 date." },
+                { "key": "endDate", "value": "2026-06-30", "description": "Range end – ISO 8601 date." }
+              ]
+            },
+            "description": "Usage trend for June 2026 using explicit startDate / endDate parameters."
+          }
+        },
+        {
+          "name": "Get Broker Usage Trend – Not Found (404)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 404 Not Found', () => pm.response.to.have.status(404));",
+                  "const b = pm.response.json();",
+                  "pm.test('Error message present', () => pm.expect(b.message).to.include('INVALID-METER-999'));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/GetBrokerUsageTrend?meterId=INVALID-METER-999",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "GetBrokerUsageTrend"],
+              "query": [
+                { "key": "meterId", "value": "INVALID-METER-999", "description": "Non-existent meter ID." }
+              ]
+            },
+            "description": "Validates 404 is returned when the meter ID has no trend data."
+          }
+        },
+        {
+          "name": "⛔ Unauthorized – Get Customer Summary Cards",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 401 Unauthorized', () => pm.response.to.have.status(401));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "auth": { "type": "noauth" },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/broker/GetCustomerSummaryCards",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "broker", "GetCustomerSummaryCards"]
+            },
+            "description": "Verifies 401 when no token is provided."
+          }
+        }
+      ]
+    },
+
+    {
+      "name": "🔄 Broker Renewals",
+      "description": "Renewals management endpoints.\n\n**Base path:** `GET /api/broker/renewals/*`\n**Authorization:** Broker JWT required\n\n| Endpoint | Description |\n|---|---|\n| `GetRenewalsSummary` | Top-level renewals KPI cards |\n| `GetCustomerRenewalsList` | Sortable customer renewals list |\n| `GetCustomerRenewalSummary` | Summary cards for a specific customer |\n| `GetCustomerContracts` | Filterable contract list for a customer |\n| `GetServiceAddressDropdown` | Service address filter options |\n| `GetContractDropdown` | Contract filter options |\n| `GetQuoteByContractId` | Quote history for a contract |\n| `GetRenewalQuoteDetail` | Detailed quote popup data |\n| `GetPricingIntelligence` | Live pricing matrix |\n| `GetPricingTrend` | Pricing trend chart data |\n| `GetPricingSnapshotDetails` | Pricing snapshot summary |\n| `GetContractDetails` | Contract details panel |",
+      "item": [
+        {
+          "name": "Get Renewals Summary",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200 OK', () => pm.response.to.have.status(200));",
+                  "pm.test('Content-Type is JSON', () => pm.response.to.have.header('Content-Type', /application\\/json/));",
+                  "",
+                  "const b = pm.response.json();",
+                  "pm.test('Shape is correct', () => {",
+                  "  pm.expect(b).to.have.all.keys('upcomingRenewals', 'customersImpacted', 'annualRevenueAtRisk', 'estimatedLoadAtRisk');",
+                  "});",
+                  "pm.test('upcomingRenewals > 0', () => pm.expect(b.upcomingRenewals).to.be.above(0));",
+                  "pm.test('customersImpacted > 0', () => pm.expect(b.customersImpacted).to.be.above(0));",
+                  "pm.test('annualRevenueAtRisk > 0', () => pm.expect(b.annualRevenueAtRisk).to.be.above(0));",
+                  "pm.test('estimatedLoadAtRisk > 0', () => pm.expect(b.estimatedLoadAtRisk).to.be.above(0));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/broker/renewals/GetRenewalsSummary",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "broker", "renewals", "GetRenewalsSummary"]
+            },
+            "description": "Returns the top-level renewals KPI cards.\n\n**Auth:** Broker JWT\n**Params:** None\n\n**Success Response (200) – `BrokerRenewalsSummary`**\n```json\n{\n  \"upcomingRenewals\": 35,\n  \"customersImpacted\": 12,\n  \"annualRevenueAtRisk\": 128500.00,\n  \"estimatedLoadAtRisk\": 92450.0\n}\n```"
+          }
+        },
+        {
+          "name": "Get Customer Renewals List – Default (customer ASC)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200 OK', () => pm.response.to.have.status(200));",
+                  "pm.test('Content-Type is JSON', () => pm.response.to.have.header('Content-Type', /application\\/json/));",
+                  "",
+                  "const b = pm.response.json();",
+                  "pm.test('totalEntries matches customers.length', () => pm.expect(b.customers.length).to.equal(b.totalEntries));",
+                  "",
+                  "pm.test('Each customer row has required fields', () => {",
+                  "  b.customers.forEach(c => {",
+                  "    pm.expect(c.companyName).to.be.a('string').and.not.be.empty;",
+                  "    pm.expect(c.totalContracts).to.be.a('number').and.at.least(0);",
+                  "    pm.expect(c.expiringContracts).to.be.a('number').and.at.least(0);",
+                  "    pm.expect(c.pendingRequests).to.be.a('number').and.at.least(0);",
+                  "    pm.expect(c.expiringContracts).to.be.at.most(c.totalContracts);",
+                  "  });",
+                  "});",
+                  "",
+                  "pm.test('List sorted by companyName ASC', () => {",
+                  "  const names = b.customers.map(c => c.companyName.toLowerCase());",
+                  "  pm.expect(names).to.deep.equal([...names].sort());",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/broker/renewals/GetCustomerRenewalsList",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "broker", "renewals", "GetCustomerRenewalsList"]
+            },
+            "description": "Returns the list of customers with renewal data, sortable.\n\n**Auth:** Broker JWT\n\n**Query Parameters**\n| Param | Type | Default | Allowed Values | Description |\n|---|---|---|---|---|\n| `sortBy` | string | `customer` | `customer`, `totalContracts`, `expiringContracts`, `pendingRequests` | Sort column |\n| `sortOrder` | string | `asc` | `asc`, `desc` | Sort direction |\n\n**Success Response (200) – `BrokerCustomerRenewalsListResponse`**\n```json\n{\n  \"totalEntries\": 12,\n  \"customers\": [\n    {\n      \"companyName\": \"Acme Manufacturing Ltd.\",\n      \"totalContracts\": 12,\n      \"expiringContracts\": 5,\n      \"pendingRequests\": 2\n    }\n  ]\n}\n```\n\n**Business Rules**\n- `expiringContracts` ≤ `totalContracts` for every row."
+          }
+        },
+        {
+          "name": "Get Customer Renewals List – Sort by ExpiringContracts DESC",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200 OK', () => pm.response.to.have.status(200));",
+                  "const b = pm.response.json();",
+                  "pm.test('Sorted by expiringContracts DESC', () => {",
+                  "  const vals = b.customers.map(c => c.expiringContracts);",
+                  "  pm.expect(vals).to.deep.equal([...vals].sort((a, z) => z - a));",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/broker/renewals/GetCustomerRenewalsList?sortBy=expiringContracts&sortOrder=desc",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "broker", "renewals", "GetCustomerRenewalsList"],
+              "query": [
+                { "key": "sortBy", "value": "expiringContracts", "description": "Sort by number of expiring contracts." },
+                { "key": "sortOrder", "value": "desc", "description": "Most expiring first." }
+              ]
+            },
+            "description": "Returns the customer renewals list sorted by expiring contracts (most urgent first)."
+          }
+        },
+        {
+          "name": "Get Customer Renewal Summary – Valid",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200 OK', () => pm.response.to.have.status(200));",
+                  "pm.test('Content-Type is JSON', () => pm.response.to.have.header('Content-Type', /application\\/json/));",
+                  "",
+                  "const b = pm.response.json();",
+                  "pm.test('Shape is correct', () => {",
+                  "  pm.expect(b).to.have.all.keys('activeContracts', 'renewalPending', 'openRequest', 'quotesApproved');",
+                  "});",
+                  "pm.test('All values are non-negative integers', () => {",
+                  "  Object.values(b).forEach(v => pm.expect(v).to.be.a('number').and.at.least(0));",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/broker/renewals/GetCustomerRenewalSummary?companyName={{companyName}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "broker", "renewals", "GetCustomerRenewalSummary"],
+              "query": [
+                { "key": "companyName", "value": "{{companyName}}", "description": "Company name (string, required)." }
+              ]
+            },
+            "description": "Returns the customer-level renewal summary cards.\n\n**Auth:** Broker JWT\n\n**Query Parameters**\n| Param | Type | Required | Description |\n|---|---|---|---|\n| `companyName` | string | ✅ | Exact company name |\n\n**Success Response (200) – `BrokerCustomerRenewalSummary`**\n```json\n{\n  \"activeContracts\": 12,\n  \"renewalPending\": 5,\n  \"openRequest\": 2,\n  \"quotesApproved\": 1\n}\n```\n\n**Error Responses**\n| Code | Trigger |\n|---|---|\n| 400 | `companyName` is missing or whitespace |\n| 404 | Company not found |"
+          }
+        },
+        {
+          "name": "Get Customer Renewal Summary – Missing companyName (400)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 400 Bad Request', () => pm.response.to.have.status(400));",
+                  "const b = pm.response.json();",
+                  "pm.test('Error message contains companyName', () => pm.expect(JSON.stringify(b)).to.include('companyName'));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/broker/renewals/GetCustomerRenewalSummary",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "broker", "renewals", "GetCustomerRenewalSummary"]
+            },
+            "description": "Validates 400 is returned when the required `companyName` parameter is omitted."
+          }
+        },
+        {
+          "name": "Get Customer Renewal Summary – Not Found (404)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 404 Not Found', () => pm.response.to.have.status(404));",
+                  "const b = pm.response.json();",
+                  "pm.test('Error message present', () => pm.expect(b.message).to.be.a('string').and.not.be.empty);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/broker/renewals/GetCustomerRenewalSummary?companyName=NonExistentCompanyXYZ",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "broker", "renewals", "GetCustomerRenewalSummary"],
+              "query": [
+                { "key": "companyName", "value": "NonExistentCompanyXYZ", "description": "Non-existent company name." }
+              ]
+            },
+            "description": "Validates 404 when the company name does not match any record."
+          }
+        },
+        {
+          "name": "Get Customer Contracts – All Defaults",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200 OK', () => pm.response.to.have.status(200));",
+                  "pm.test('Content-Type is JSON', () => pm.response.to.have.header('Content-Type', /application\\/json/));",
+                  "",
+                  "const b = pm.response.json();",
+                  "pm.test('totalEntries matches contracts.length', () => pm.expect(b.contracts.length).to.equal(b.totalEntries));",
+                  "",
+                  "pm.test('Each contract row has required fields', () => {",
+                  "  b.contracts.forEach(c => {",
+                  "    pm.expect(c.contractId).to.be.a('string').and.not.be.empty;",
+                  "    pm.expect(c.serviceAddress).to.be.a('string').and.not.be.empty;",
+                  "    pm.expect(c.contractStatus).to.be.a('string').and.not.be.empty;",
+                  "    pm.expect(c.daysRemaining).to.be.a('number');",
+                  "    pm.expect(c.endDate).to.be.a('string').and.not.be.empty;",
+                  "    pm.expect(c.lastQuoteStatus).to.be.a('string');",
+                  "  });",
+                  "});",
+                  "",
+                  "pm.test('Sorted by daysRemaining ASC', () => {",
+                  "  const days = b.contracts.map(c => c.daysRemaining);",
+                  "  pm.expect(days).to.deep.equal([...days].sort((a, b) => a - b));",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/broker/renewals/GetCustomerContracts?companyName={{companyName}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "broker", "renewals", "GetCustomerContracts"],
+              "query": [
+                { "key": "companyName", "value": "{{companyName}}", "description": "Company name (required)." }
+              ]
+            },
+            "description": "Returns the filterable/sortable contract list for a specific customer.\n\n**Auth:** Broker JWT\n\n**Query Parameters**\n| Param | Type | Required | Default | Description |\n|---|---|---|---|---|\n| `companyName` | string | ✅ | — | Exact company name |\n| `serviceAddress` | string | ❌ | `all` | Filter by service address; `all` = no filter |\n| `expiringContract` | string | ❌ | `all` | Filter: `all`, `expiring`, `active` |\n| `sortBy` | string | ❌ | `daysRemaining` | Column to sort on |\n| `sortOrder` | string | ❌ | `asc` | `asc` or `desc` |\n\n**Success Response (200) – `BrokerCustomerContractsResponse`**\n```json\n{\n  \"totalEntries\": 5,\n  \"contracts\": [\n    {\n      \"contractId\": \"CID-10293\",\n      \"serviceAddress\": \"456 Oak Street, Dallas, TX 75201\",\n      \"contractStatus\": \"ACTIVE\",\n      \"currentPlan\": 24,\n      \"endDate\": \"7/31/2026\",\n      \"startDate\": \"8/1/2024\",\n      \"contractTerm\": \"24\",\n      \"productType\": \"Fixed\",\n      \"meterCount\": \"5\",\n      \"daysRemaining\": 12,\n      \"lastQuoteStatus\": \"QUOTE SENT\"\n    }\n  ]\n}\n```\n\n**Error Responses**\n| Code | Trigger |\n|---|---|\n| 400 | `companyName` is missing or whitespace |\n| 404 | Company not found |"
+          }
+        },
+        {
+          "name": "Get Customer Contracts – With Filters and Custom Sort",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200 OK', () => pm.response.to.have.status(200));",
+                  "const b = pm.response.json();",
+                  "pm.test('contracts is an array', () => pm.expect(b.contracts).to.be.an('array'));",
+                  "pm.test('Sorted by endDate DESC', () => pm.expect(b.contracts.length).to.be.at.least(0));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/broker/renewals/GetCustomerContracts?companyName={{companyName}}&expiringContract=expiring&sortBy=endDate&sortOrder=desc",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "broker", "renewals", "GetCustomerContracts"],
+              "query": [
+                { "key": "companyName", "value": "{{companyName}}", "description": "Company name (required)." },
+                { "key": "expiringContract", "value": "expiring", "description": "Show only expiring contracts." },
+                { "key": "sortBy", "value": "endDate", "description": "Sort by contract end date." },
+                { "key": "sortOrder", "value": "desc", "description": "Most recent end date first." }
+              ]
+            },
+            "description": "Returns only expiring contracts for a customer, sorted by end date descending."
+          }
+        },
+        {
+          "name": "Get Customer Contracts – Missing companyName (400)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 400 Bad Request', () => pm.response.to.have.status(400));",
+                  "const b = pm.response.json();",
+                  "pm.test('Error message mentions companyName', () => pm.expect(JSON.stringify(b)).to.include('companyName'));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/broker/renewals/GetCustomerContracts",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "broker", "renewals", "GetCustomerContracts"]
+            },
+            "description": "Validates 400 when the required `companyName` parameter is absent."
+          }
+        },
+        {
+          "name": "Get Service Address Dropdown",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200 OK', () => pm.response.to.have.status(200));",
+                  "pm.test('Content-Type is JSON', () => pm.response.to.have.header('Content-Type', /application\\/json/));",
+                  "const b = pm.response.json();",
+                  "pm.test('Response is an array of strings', () => {",
+                  "  pm.expect(b).to.be.an('array');",
+                  "  b.forEach(addr => pm.expect(addr).to.be.a('string').and.not.be.empty);",
+                  "});",
+                  "pm.test('At least one address returned', () => pm.expect(b.length).to.be.above(0));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/broker/renewals/GetServiceAddressDropdown?companyName={{companyName}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "broker", "renewals", "GetServiceAddressDropdown"],
+              "query": [
+                { "key": "companyName", "value": "{{companyName}}", "description": "Company name (required)." }
+              ]
+            },
+            "description": "Returns distinct service addresses for the customer's contracts. Used to populate the Service Address filter dropdown.\n\n**Auth:** Broker JWT\n\n**Query Parameters**\n| Param | Type | Required | Description |\n|---|---|---|---|\n| `companyName` | string | ✅ | Exact company name |\n\n**Success Response (200) – `List<string>`**\n```json\n[\n  \"456 Oak Street, Dallas, TX 75201\",\n  \"789 Elm Ave, Austin, TX 78701\"\n]\n```\n\n**Error Responses**\n| Code | Trigger |\n|---|---|\n| 400 | `companyName` is missing or whitespace |\n| 404 | Company not found |"
+          }
+        },
+        {
+          "name": "Get Contract Dropdown",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200 OK', () => pm.response.to.have.status(200));",
+                  "const b = pm.response.json();",
+                  "pm.test('Response is an array', () => pm.expect(b).to.be.an('array'));",
+                  "pm.test('Each option has contractId and serviceAddress', () => {",
+                  "  b.forEach(opt => {",
+                  "    pm.expect(opt.contractId).to.be.a('string').and.not.be.empty;",
+                  "    pm.expect(opt.serviceAddress).to.be.a('string').and.not.be.empty;",
+                  "  });",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/broker/renewals/GetContractDropdown?companyName={{companyName}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "broker", "renewals", "GetContractDropdown"],
+              "query": [
+                { "key": "companyName", "value": "{{companyName}}", "description": "Company name (required)." }
+              ]
+            },
+            "description": "Returns contract options for the pricing intelligence contract-picker dropdown.\n\n**Auth:** Broker JWT\n\n**Query Parameters**\n| Param | Type | Required | Description |\n|---|---|---|---|\n| `companyName` | string | ✅ | Exact company name |\n\n**Success Response (200) – `List<BrokerContractDropdownOption>`**\n```json\n[\n  { \"contractId\": \"CID-10293\", \"serviceAddress\": \"456 Oak Street, Dallas, TX 75201\" },\n  { \"contractId\": \"CID-10292\", \"serviceAddress\": \"789 Elm Ave, Austin, TX 78701\" }\n]\n```\n\n**Error Responses**\n| Code | Trigger |\n|---|---|\n| 400 | `companyName` is missing or whitespace |\n| 404 | Company not found |"
+          }
+        },
+        {
+          "name": "Get Quote By Contract ID – Valid",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200 OK', () => pm.response.to.have.status(200));",
+                  "pm.test('Content-Type is JSON', () => pm.response.to.have.header('Content-Type', /application\\/json/));",
+                  "",
+                  "const b = pm.response.json();",
+                  "pm.test('contractId matches request', () => pm.expect(b.contractId).to.equal(pm.collectionVariables.get('renewalContractId')));",
+                  "pm.test('quotes is an array', () => pm.expect(b.quotes).to.be.an('array'));",
+                  "",
+                  "pm.test('Each quote has required fields', () => {",
+                  "  b.quotes.forEach(q => {",
+                  "    pm.expect(q.quoteId).to.be.a('string').and.not.be.empty;",
+                  "    pm.expect(q.requestedOn).to.be.a('string').and.not.be.empty;",
+                  "    pm.expect(q.requestedPlan).to.be.a('string').and.not.be.empty;",
+                  "    pm.expect(q.termLength).to.be.a('number').and.above(0);",
+                  "    pm.expect(q.quotedPrice).to.be.a('number').and.above(0);",
+                  "    pm.expect(q.brokerMargin).to.be.a('number').and.above(0);",
+                  "    pm.expect(q.status).to.be.a('string').and.not.be.empty;",
+                  "  });",
+                  "});",
+                  "",
+                  "// Save first quoteId for GetRenewalQuoteDetail",
+                  "if (b.quotes && b.quotes.length > 0) {",
+                  "  pm.collectionVariables.set('quoteId', b.quotes[0].quoteId);",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/broker/renewals/GetQuoteByContractId?contractId={{renewalContractId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "broker", "renewals", "GetQuoteByContractId"],
+              "query": [
+                { "key": "contractId", "value": "{{renewalContractId}}", "description": "Contract ID (string, required)." }
+              ]
+            },
+            "description": "Returns the full quote history for a specific contract.\n\n**Auth:** Broker JWT\n\n**Query Parameters**\n| Param | Type | Required | Description |\n|---|---|---|---|\n| `contractId` | string | ✅ | Contract ID (renewals dataset) |\n\n**Success Response (200) – `BrokerContractQuoteHistory`**\n```json\n{\n  \"contractId\": \"CID-10293\",\n  \"quotes\": [\n    {\n      \"quoteId\": \"QT-10033\",\n      \"requestedOn\": \"5/10/2026\",\n      \"requestedPlan\": \"Market Index\",\n      \"termLength\": 24,\n      \"quotedPrice\": 62.45,\n      \"brokerMargin\": 0.025,\n      \"status\": \"QUOTE SENT\",\n      \"sentOn\": \"5/21/2026\"\n    }\n  ]\n}\n```\n\n**Notes**\n- The test script saves the first `quoteId` to `{{quoteId}}` for use in `GetRenewalQuoteDetail`.\n\n**Error Responses**\n| Code | Trigger |\n|---|---|\n| 400 | `contractId` is missing or whitespace |\n| 404 | Contract not found |"
+          }
+        },
+        {
+          "name": "Get Quote By Contract ID – Not Found (404)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 404 Not Found', () => pm.response.to.have.status(404));",
+                  "const b = pm.response.json();",
+                  "pm.test('Error message present', () => pm.expect(b.message).to.be.a('string').and.not.be.empty);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/broker/renewals/GetQuoteByContractId?contractId=CID-INVALID-999",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "broker", "renewals", "GetQuoteByContractId"],
+              "query": [
+                { "key": "contractId", "value": "CID-INVALID-999", "description": "Non-existent contract ID." }
+              ]
+            },
+            "description": "Validates 404 when the contract ID does not exist."
+          }
+        },
+        {
+          "name": "Get Renewal Quote Detail – Valid",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200 OK', () => pm.response.to.have.status(200));",
+                  "pm.test('Content-Type is JSON', () => pm.response.to.have.header('Content-Type', /application\\/json/));",
+                  "",
+                  "const b = pm.response.json();",
+                  "pm.test('Core contract context fields present', () => {",
+                  "  pm.expect(b.quoteId).to.be.a('string').and.not.be.empty;",
+                  "  pm.expect(b.companyName).to.be.a('string').and.not.be.empty;",
+                  "  pm.expect(b.contractId).to.be.a('string').and.not.be.empty;",
+                  "  pm.expect(b.serviceAddress).to.be.a('string').and.not.be.empty;",
+                  "  pm.expect(b.productType).to.be.a('string').and.not.be.empty;",
+                  "  pm.expect(b.meterCount).to.be.a('number').and.above(0);",
+                  "  pm.expect(b.daysRemaining).to.be.a('number');",
+                  "});",
+                  "",
+                  "pm.test('Pricing fields present and valid', () => {",
+                  "  pm.expect(b.planTermMonths).to.be.a('number').and.above(0);",
+                  "  pm.expect(b.quotedPrice).to.be.a('number').and.above(0);",
+                  "  pm.expect(b.brokerMargin).to.be.a('number').and.above(0);",
+                  "  pm.expect(b.finalRate).to.be.a('number').and.above(0);",
+                  "  pm.expect(b.rateType).to.be.a('string').and.not.be.empty;",
+                  "  pm.expect(b.quoteValidTill).to.be.a('string').and.not.be.empty;",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/broker/renewals/GetRenewalQuoteDetail?quoteId={{quoteId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "broker", "renewals", "GetRenewalQuoteDetail"],
+              "query": [
+                { "key": "quoteId", "value": "{{quoteId}}", "description": "Quote ID (string, required)." }
+              ]
+            },
+            "description": "Returns the detailed quote popup data used when a broker clicks on a specific quote.\n\n**Auth:** Broker JWT\n\n**Query Parameters**\n| Param | Type | Required | Description |\n|---|---|---|---|\n| `quoteId` | string | ✅ | Quote ID |\n\n**Success Response (200) – `RenewalQuoteDetail`**\n```json\n{\n  \"quoteId\": \"QT-10033\",\n  \"requestedOn\": \"5/10/2026\",\n  \"companyName\": \"Acme Manufacturing Ltd.\",\n  \"contractId\": \"CID-10293\",\n  \"serviceAddress\": \"456 Oak Street, Dallas, TX 75201\",\n  \"productType\": \"Fixed\",\n  \"contactTerm\": \"24 months\",\n  \"meterCount\": 5,\n  \"startDate\": \"8/1/2024\",\n  \"endDate\": \"7/31/2026\",\n  \"daysRemaining\": 12,\n  \"planTermMonths\": 24,\n  \"quotedPrice\": 62.45,\n  \"rateType\": \"Market Index\",\n  \"baseCharge\": 0.50,\n  \"baseChargeUnit\": \"$/kWh\",\n  \"brokerMargin\": 0.025,\n  \"finalRate\": 62.475,\n  \"quoteValidTill\": \"6/21/2026\"\n}\n```\n\n**Error Responses**\n| Code | Trigger |\n|---|---|\n| 400 | `quoteId` is missing or whitespace |\n| 404 | Quote not found |"
+          }
+        },
+        {
+          "name": "Get Renewal Quote Detail – Not Found (404)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 404 Not Found', () => pm.response.to.have.status(404));",
+                  "const b = pm.response.json();",
+                  "pm.test('Error message present', () => pm.expect(b.message).to.be.a('string').and.not.be.empty);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/broker/renewals/GetRenewalQuoteDetail?quoteId=QT-INVALID-999",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "broker", "renewals", "GetRenewalQuoteDetail"],
+              "query": [
+                { "key": "quoteId", "value": "QT-INVALID-999", "description": "Non-existent quote ID." }
+              ]
+            },
+            "description": "Validates 404 when the quote ID does not exist."
+          }
+        },
+        {
+          "name": "Get Pricing Intelligence – Snapshot=today, Unit=$/MWh",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200 OK', () => pm.response.to.have.status(200));",
+                  "pm.test('Content-Type is JSON', () => pm.response.to.have.header('Content-Type', /application\\/json/));",
+                  "",
+                  "const b = pm.response.json();",
+                  "pm.test('contractId matches request', () => pm.expect(b.contractId).to.equal(pm.collectionVariables.get('renewalContractId')));",
+                  "pm.test('snapshot matches request', () => pm.expect(b.snapshot).to.equal('today'));",
+                  "pm.test('priceUnit matches request', () => pm.expect(b.priceUnit).to.equal('$/MWh'));",
+                  "pm.test('snapshotLabel is present', () => pm.expect(b.snapshotLabel).to.be.a('string').and.not.be.empty);",
+                  "",
+                  "pm.test('termColumns is non-empty array', () => {",
+                  "  pm.expect(b.termColumns).to.be.an('array').and.have.lengthOf.above(0);",
+                  "  b.termColumns.forEach(col => {",
+                  "    pm.expect(col.termMonths).to.be.a('number').and.above(0);",
+                  "    pm.expect(col).to.have.property('isRecommended');",
+                  "  });",
+                  "});",
+                  "",
+                  "pm.test('rows align with termColumns', () => {",
+                  "  pm.expect(b.rows).to.be.an('array').and.have.lengthOf.above(0);",
+                  "  b.rows.forEach(row => {",
+                  "    pm.expect(row.label).to.be.a('string').and.not.be.empty;",
+                  "    pm.expect(row.prices).to.be.an('array').with.lengthOf(b.termColumns.length);",
+                  "    row.prices.forEach(p => {",
+                  "      pm.expect(p.price).to.be.a('number').and.above(0);",
+                  "    });",
+                  "  });",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/broker/renewals/GetPricingIntelligence?contractId={{renewalContractId}}&snapshot=today&priceUnit=$/MWh",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "broker", "renewals", "GetPricingIntelligence"],
+              "query": [
+                { "key": "contractId", "value": "{{renewalContractId}}", "description": "Contract ID (required)." },
+                { "key": "snapshot", "value": "today", "description": "Pricing snapshot window. Allowed: today | 3days | 1week | 1month." },
+                { "key": "priceUnit", "value": "$/MWh", "description": "Price unit. Allowed: $/MWh | $/kWh. Default: $/MWh." }
+              ]
+            },
+            "description": "Returns the live pricing intelligence matrix for a contract.\n\n**Auth:** Broker JWT\n\n**Query Parameters**\n| Param | Type | Required | Allowed Values | Default | Description |\n|---|---|---|---|---|---|\n| `contractId` | string | ✅ | — | — | Contract ID |\n| `snapshot` | string | ✅ | `today`, `3days`, `1week`, `1month` | — | Pricing window |\n| `priceUnit` | string | ❌ | `$/MWh`, `$/kWh` | `$/MWh` | Price display unit |\n\n**Success Response (200) – `PricingIntelligenceResponse`**\n```json\n{\n  \"contractId\": \"CID-10293\",\n  \"priceUnit\": \"$/MWh\",\n  \"snapshot\": \"today\",\n  \"snapshotLabel\": \"Today\",\n  \"termColumns\": [\n    { \"termMonths\": 12, \"isRecommended\": false },\n    { \"termMonths\": 24, \"isRecommended\": true },\n    { \"termMonths\": 36, \"isRecommended\": false }\n  ],\n  \"rows\": [\n    {\n      \"label\": \"Fixed\",\n      \"prices\": [\n        { \"price\": 58.20, \"priceRange\": \"55.00–61.00\" },\n        { \"price\": 60.45, \"priceRange\": \"57.00–63.00\" },\n        { \"price\": 62.80, \"priceRange\": \"59.00–66.00\" }\n      ]\n    }\n  ]\n}\n```\n\n**Error Responses**\n| Code | Trigger |\n|---|---|\n| 400 | Missing `contractId`, missing `snapshot`, invalid `snapshot` value, invalid `priceUnit` value |\n| 404 | No pricing data found for the contract + snapshot combination |"
+          }
+        },
+        {
+          "name": "Get Pricing Intelligence – Snapshot=1week, Unit=$/kWh",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200 OK', () => pm.response.to.have.status(200));",
+                  "const b = pm.response.json();",
+                  "pm.test('priceUnit is $/kWh', () => pm.expect(b.priceUnit).to.equal('$/kWh'));",
+                  "pm.test('snapshot is 1week', () => pm.expect(b.snapshot).to.equal('1week'));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/broker/renewals/GetPricingIntelligence?contractId={{renewalContractId}}&snapshot=1week&priceUnit=$/kWh",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "broker", "renewals", "GetPricingIntelligence"],
+              "query": [
+                { "key": "contractId", "value": "{{renewalContractId}}", "description": "Contract ID (required)." },
+                { "key": "snapshot", "value": "1week", "description": "1-week pricing window." },
+                { "key": "priceUnit", "value": "$/kWh", "description": "Return prices in $/kWh." }
+              ]
+            },
+            "description": "Returns pricing intelligence for a 1-week snapshot in $/kWh units."
+          }
+        },
+        {
+          "name": "Get Pricing Intelligence – Invalid Snapshot (400)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 400 Bad Request', () => pm.response.to.have.status(400));",
+                  "const b = pm.response.json();",
+                  "pm.test('Error message lists valid snapshots', () => {",
+                  "  pm.expect(b.message).to.include('today');",
+                  "  pm.expect(b.message).to.include('3days');",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/broker/renewals/GetPricingIntelligence?contractId={{renewalContractId}}&snapshot=2weeks",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "broker", "renewals", "GetPricingIntelligence"],
+              "query": [
+                { "key": "contractId", "value": "{{renewalContractId}}", "description": "Contract ID." },
+                { "key": "snapshot", "value": "2weeks", "description": "INVALID snapshot value." }
+              ]
+            },
+            "description": "Validates 400 with a descriptive message when an unrecognized snapshot value is sent.\n\n**Valid snapshot values:** `today`, `3days`, `1week`, `1month`"
+          }
+        },
+        {
+          "name": "Get Pricing Intelligence – Invalid priceUnit (400)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 400 Bad Request', () => pm.response.to.have.status(400));",
+                  "const b = pm.response.json();",
+                  "pm.test('Error message mentions priceUnit', () => pm.expect(b.message).to.include('priceUnit'));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/broker/renewals/GetPricingIntelligence?contractId={{renewalContractId}}&snapshot=today&priceUnit=$/GWh",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "broker", "renewals", "GetPricingIntelligence"],
+              "query": [
+                { "key": "contractId", "value": "{{renewalContractId}}", "description": "Contract ID." },
+                { "key": "snapshot", "value": "today", "description": "Valid snapshot." },
+                { "key": "priceUnit", "value": "$/GWh", "description": "INVALID price unit." }
+              ]
+            },
+            "description": "Validates 400 when an unsupported price unit is sent.\n\n**Valid price units:** `$/MWh`, `$/kWh`"
+          }
+        },
+        {
+          "name": "Get Pricing Trend",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200 OK', () => pm.response.to.have.status(200));",
+                  "pm.test('Content-Type is JSON', () => pm.response.to.have.header('Content-Type', /application\\/json/));",
+                  "",
+                  "const b = pm.response.json();",
+                  "pm.test('contractId matches request', () => pm.expect(b.contractId).to.equal(pm.collectionVariables.get('renewalContractId')));",
+                  "pm.test('priceUnit is present', () => pm.expect(b.priceUnit).to.be.a('string').and.not.be.empty);",
+                  "pm.test('series is a non-empty array', () => pm.expect(b.series).to.be.an('array').with.lengthOf.above(0));",
+                  "",
+                  "pm.test('Each series has termMonths and dataPoints', () => {",
+                  "  b.series.forEach(s => {",
+                  "    pm.expect(s.termMonths).to.be.a('number').and.above(0);",
+                  "    pm.expect(s.dataPoints).to.be.an('array').with.lengthOf.above(0);",
+                  "    s.dataPoints.forEach(dp => {",
+                  "      pm.expect(dp.date).to.be.a('string').and.not.be.empty;",
+                  "      pm.expect(dp.price).to.be.a('number').and.above(0);",
+                  "    });",
+                  "  });",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/broker/renewals/GetPricingTrend?contractId={{renewalContractId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "broker", "renewals", "GetPricingTrend"],
+              "query": [
+                { "key": "contractId", "value": "{{renewalContractId}}", "description": "Contract ID (required)." }
+              ]
+            },
+            "description": "Returns pricing trend series data (historical price by term) for the chart.\n\n**Auth:** Broker JWT\n\n**Query Parameters**\n| Param | Type | Required | Description |\n|---|---|---|---|\n| `contractId` | string | ✅ | Contract ID |\n\n**Success Response (200) – `PricingTrendResponse`**\n```json\n{\n  \"contractId\": \"CID-10293\",\n  \"loadType\": \"Industrial\",\n  \"priceUnit\": \"$/MWh\",\n  \"series\": [\n    {\n      \"termMonths\": 12,\n      \"dataPoints\": [\n        { \"date\": \"2026-06-01\", \"price\": 57.30, \"isToday\": false },\n        { \"date\": \"2026-07-21\", \"price\": 58.20, \"isToday\": true }\n      ]\n    }\n  ]\n}\n```\n\n**Error Responses**\n| Code | Trigger |\n|---|---|\n| 400 | `contractId` is missing or whitespace |\n| 404 | No trend data found for the contract |"
+          }
+        },
+        {
+          "name": "Get Pricing Snapshot Details",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200 OK', () => pm.response.to.have.status(200));",
+                  "pm.test('Content-Type is JSON', () => pm.response.to.have.header('Content-Type', /application\\/json/));",
+                  "",
+                  "const b = pm.response.json();",
+                  "pm.test('contractId matches request', () => pm.expect(b.contractId).to.equal(pm.collectionVariables.get('renewalContractId')));",
+                  "pm.test('date is present', () => pm.expect(b.date).to.be.a('string').and.not.be.empty);",
+                  "pm.test('pricingZone is present', () => pm.expect(b.pricingZone).to.be.a('string').and.not.be.empty);",
+                  "pm.test('product is present', () => pm.expect(b.product).to.be.a('string').and.not.be.empty);",
+                  "",
+                  "pm.test('todaysLowestPrice shape', () => {",
+                  "  const tlp = b.todaysLowestPrice;",
+                  "  pm.expect(tlp.termMonths).to.be.a('number').and.above(0);",
+                  "  pm.expect(tlp.price).to.be.a('number').and.above(0);",
+                  "  pm.expect(tlp.priceUnit).to.be.a('string').and.not.be.empty;",
+                  "  pm.expect(tlp).to.have.property('changeVsYesterday');",
+                  "  pm.expect(tlp).to.have.property('changePercentVsYesterday');",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/broker/renewals/GetPricingSnapshotDetails?contractId={{renewalContractId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "broker", "renewals", "GetPricingSnapshotDetails"],
+              "query": [
+                { "key": "contractId", "value": "{{renewalContractId}}", "description": "Contract ID (required)." }
+              ]
+            },
+            "description": "Returns today's pricing snapshot summary including today's lowest price and its day-over-day change.\n\n**Auth:** Broker JWT\n\n**Query Parameters**\n| Param | Type | Required | Description |\n|---|---|---|---|\n| `contractId` | string | ✅ | Contract ID |\n\n**Success Response (200) – `PricingSnapshotDetailsResponse`**\n```json\n{\n  \"contractId\": \"CID-10293\",\n  \"date\": \"2026-07-21\",\n  \"pricingZone\": \"ERCOT North\",\n  \"product\": \"Fixed\",\n  \"todaysLowestPrice\": {\n    \"termMonths\": 24,\n    \"price\": 58.20,\n    \"priceUnit\": \"$/MWh\",\n    \"changeVsYesterday\": -0.45,\n    \"changePercentVsYesterday\": -0.77\n  }\n}\n```\n\n**Error Responses**\n| Code | Trigger |\n|---|---|\n| 404 | No snapshot data found for the contract |"
+          }
+        },
+        {
+          "name": "Get Contract Details – Valid",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200 OK', () => pm.response.to.have.status(200));",
+                  "pm.test('Content-Type is JSON', () => pm.response.to.have.header('Content-Type', /application\\/json/));",
+                  "",
+                  "const b = pm.response.json();",
+                  "pm.test('contractId matches request', () => pm.expect(b.contractId).to.equal(pm.collectionVariables.get('renewalContractId')));",
+                  "pm.test('Required fields present', () => {",
+                  "  pm.expect(b.contractTerm).to.be.a('string').and.not.be.empty;",
+                  "  pm.expect(b.startDate).to.be.a('string').and.not.be.empty;",
+                  "  pm.expect(b.endDate).to.be.a('string').and.not.be.empty;",
+                  "  pm.expect(b.daysRemaining).to.be.a('number');",
+                  "  pm.expect(b.serviceAddress).to.be.a('string').and.not.be.empty;",
+                  "  pm.expect(b.productType).to.be.a('string').and.not.be.empty;",
+                  "  pm.expect(b.contractStatus).to.be.a('string').and.not.be.empty;",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/broker/renewals/GetContractDetails?contractId={{renewalContractId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "broker", "renewals", "GetContractDetails"],
+              "query": [
+                { "key": "contractId", "value": "{{renewalContractId}}", "description": "Contract ID (required)." }
+              ]
+            },
+            "description": "Returns contract detail data for the renewals panel (used alongside pricing intelligence).\n\n**Auth:** Broker JWT\n\n**Query Parameters**\n| Param | Type | Required | Description |\n|---|---|---|---|\n| `contractId` | string | ✅ | Contract ID |\n\n**Success Response (200) – `BrokerContractDetails`**\n```json\n{\n  \"contractId\": \"CID-10293\",\n  \"contractTerm\": \"24 months\",\n  \"startDate\": \"8/1/2024\",\n  \"endDate\": \"7/31/2026\",\n  \"daysRemaining\": 12,\n  \"serviceAddress\": \"456 Oak Street, Dallas, TX 75201\",\n  \"productType\": \"Fixed\",\n  \"meterCount\": \"5\",\n  \"contractStatus\": \"ACTIVE\",\n  \"lastQuoteStatus\": \"QUOTE SENT\"\n}\n```\n\n**Error Responses**\n| Code | Trigger |\n|---|---|\n| 400 | `contractId` is missing or whitespace |\n| 404 | Contract not found |"
+          }
+        },
+        {
+          "name": "Get Contract Details – Not Found (404)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 404 Not Found', () => pm.response.to.have.status(404));",
+                  "const b = pm.response.json();",
+                  "pm.test('Error message present', () => pm.expect(b.message).to.be.a('string').and.not.be.empty);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/broker/renewals/GetContractDetails?contractId=CID-INVALID-999",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "broker", "renewals", "GetContractDetails"],
+              "query": [
+                { "key": "contractId", "value": "CID-INVALID-999", "description": "Non-existent contract ID." }
+              ]
+            },
+            "description": "Validates 404 when the contract ID does not exist."
+          }
+        },
+        {
+          "name": "⛔ Unauthorized – Get Renewals Summary",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 401 Unauthorized', () => pm.response.to.have.status(401));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "auth": { "type": "noauth" },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/broker/renewals/GetRenewalsSummary",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "broker", "renewals", "GetRenewalsSummary"]
+            },
+            "description": "Verifies 401 when no token is supplied."
+          }
+        }
+      ]
+    },
+
+    {
+      "name": "🎫 Broker Support Cases",
+      "description": "Support case management endpoints for broker users.\n\n**Base path:** `/api/broker/*`\n**Authorization:** Broker JWT required\n\n| Endpoint | Method | Description |\n|---|---|---|\n| `GetSupportCases` | GET | Full case list |\n| `GetSupportCaseSummary` | GET | KPI cards |\n| `GetSupportCaseById` | GET | Single case detail |\n| `GetSupportCaseChat` | GET | Chat messages for a case |\n| `SendSupportCaseMessage` | POST | Send a new chat message |",
+      "item": [
+        {
+          "name": "Get Support Cases",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200 OK', () => pm.response.to.have.status(200));",
+                  "pm.test('Response time < 2 s', () => pm.expect(pm.response.responseTime).to.be.below(2000));",
+                  "pm.test('Content-Type is JSON', () => pm.response.to.have.header('Content-Type', /application\\/json/));",
+                  "",
+                  "const b = pm.response.json();",
+                  "pm.test('Response is an array', () => pm.expect(b).to.be.an('array'));",
+                  "pm.test('At least one case returned', () => pm.expect(b.length).to.be.above(0));",
+                  "",
+                  "pm.test('Each case has required fields', () => {",
+                  "  b.forEach(c => {",
+                  "    pm.expect(c.caseNumber).to.be.a('string').and.not.be.empty;",
+                  "    pm.expect(c.customer).to.be.a('string').and.not.be.empty;",
+                  "    pm.expect(c.requestType).to.be.a('string').and.not.be.empty;",
+                  "    pm.expect(c.priority).to.be.a('string').and.not.be.empty;",
+                  "    pm.expect(c.createdOn).to.be.a('string').and.not.be.empty;",
+                  "    pm.expect(c.status).to.be.a('string').and.not.be.empty;",
+                  "    pm.expect(['OPEN', 'CLOSED', 'IN PROGRESS']).to.include(c.status.toUpperCase());",
+                  "  });",
+                  "});",
+                  "",
+                  "pm.test('Priority values are valid', () => {",
+                  "  const valid = ['HIGH', 'MEDIUM', 'LOW'];",
+                  "  b.forEach(c => pm.expect(valid).to.include(c.priority.toUpperCase()));",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/broker/GetSupportCases",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "broker", "GetSupportCases"]
+            },
+            "description": "Returns all support cases across the broker's customer portfolio.\n\n**Auth:** Broker JWT\n**Params:** None\n\n**Success Response (200) – `List<BrokerSupportCase>`**\n```json\n[\n  {\n    \"caseNumber\": \"CID-233\",\n    \"customer\": \"Acme Manufacturing Ltd.\",\n    \"requestType\": \"Billing/Invoice query\",\n    \"origin\": \"Portal\",\n    \"priority\": \"HIGH\",\n    \"createdOn\": \"6/22/2026\",\n    \"closedOn\": \"--\",\n    \"status\": \"OPEN\",\n    \"lastActivity\": \"6/22/2026\"\n  }\n]\n```\n\n**Business Rules**\n- `priority` must be one of: `HIGH`, `MEDIUM`, `LOW`.\n- `status` must be one of: `OPEN`, `CLOSED`, `IN PROGRESS`.\n- `closedOn` is `\"--\"` when the case is still open."
+          }
+        },
+        {
+          "name": "Get Support Case Summary",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200 OK', () => pm.response.to.have.status(200));",
+                  "pm.test('Content-Type is JSON', () => pm.response.to.have.header('Content-Type', /application\\/json/));",
+                  "",
+                  "const b = pm.response.json();",
+                  "pm.test('Shape is correct', () => {",
+                  "  pm.expect(b).to.have.all.keys('openCases', 'highPriorityCases', 'awaitingResponse', 'casesClosedThisMonth');",
+                  "});",
+                  "pm.test('highPriorityCases <= openCases', () => pm.expect(b.highPriorityCases).to.be.at.most(b.openCases));",
+                  "pm.test('awaitingResponse <= openCases', () => pm.expect(b.awaitingResponse).to.be.at.most(b.openCases));",
+                  "pm.test('All values are non-negative', () => {",
+                  "  Object.values(b).forEach(v => pm.expect(v).to.be.a('number').and.at.least(0));",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/broker/GetSupportCaseSummary",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "broker", "GetSupportCaseSummary"]
+            },
+            "description": "Returns the support case KPI summary cards.\n\n**Auth:** Broker JWT\n**Params:** None\n\n**Success Response (200) – `BrokerSupportCaseSummary`**\n```json\n{\n  \"openCases\": 14,\n  \"highPriorityCases\": 3,\n  \"awaitingResponse\": 5,\n  \"casesClosedThisMonth\": 8\n}\n```\n\n**Business Rules**\n- `highPriorityCases` ≤ `openCases`.\n- `awaitingResponse` ≤ `openCases`."
+          }
+        },
+        {
+          "name": "Get Support Case By ID – Valid",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200 OK', () => pm.response.to.have.status(200));",
+                  "pm.test('Content-Type is JSON', () => pm.response.to.have.header('Content-Type', /application\\/json/));",
+                  "",
+                  "const b = pm.response.json();",
+                  "pm.test('caseNumber matches request', () => pm.expect(b.caseNumber).to.equal(pm.collectionVariables.get('caseNumber')));",
+                  "pm.test('customer is present', () => pm.expect(b.customer).to.be.a('string').and.not.be.empty);",
+                  "pm.test('requestType is present', () => pm.expect(b.requestType).to.be.a('string').and.not.be.empty);",
+                  "pm.test('priority is valid', () => pm.expect(['HIGH', 'MEDIUM', 'LOW']).to.include(b.priority.toUpperCase()));",
+                  "pm.test('status is valid', () => pm.expect(['OPEN', 'CLOSED', 'IN PROGRESS']).to.include(b.status.toUpperCase()));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/broker/GetSupportCaseById?caseNumber={{caseNumber}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "broker", "GetSupportCaseById"],
+              "query": [
+                { "key": "caseNumber", "value": "{{caseNumber}}", "description": "Case number (string, required). E.g. CID-233." }
+              ]
+            },
+            "description": "Returns a single support case by its case number.\n\n**Auth:** Broker JWT\n\n**Query Parameters**\n| Param | Type | Required | Description |\n|---|---|---|---|\n| `caseNumber` | string | ✅ | Case number (e.g. `CID-233`) |\n\n**Success Response (200) – `BrokerSupportCase`**\n```json\n{\n  \"caseNumber\": \"CID-233\",\n  \"customer\": \"Acme Manufacturing Ltd.\",\n  \"requestType\": \"Billing/Invoice query\",\n  \"origin\": \"Portal\",\n  \"priority\": \"HIGH\",\n  \"createdOn\": \"6/22/2026\",\n  \"closedOn\": \"--\",\n  \"status\": \"OPEN\",\n  \"lastActivity\": \"6/22/2026\"\n}\n```\n\n**Error Responses**\n| Code | Trigger |\n|---|---|\n| 404 | Case number not found |"
+          }
+        },
+        {
+          "name": "Get Support Case By ID – Not Found (404)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 404 Not Found', () => pm.response.to.have.status(404));",
+                  "const b = pm.response.json();",
+                  "pm.test('Error message mentions case number', () => pm.expect(b.message).to.include('CID-INVALID-999'));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/broker/GetSupportCaseById?caseNumber=CID-INVALID-999",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "broker", "GetSupportCaseById"],
+              "query": [
+                { "key": "caseNumber", "value": "CID-INVALID-999", "description": "Non-existent case number." }
+              ]
+            },
+            "description": "Validates 404 with a descriptive error when the case number does not exist."
+          }
+        },
+        {
+          "name": "Get Support Case Chat",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200 OK', () => pm.response.to.have.status(200));",
+                  "pm.test('Content-Type is JSON', () => pm.response.to.have.header('Content-Type', /application\\/json/));",
+                  "",
+                  "const b = pm.response.json();",
+                  "pm.test('caseId is present', () => pm.expect(b.caseId).to.be.a('string').and.not.be.empty);",
+                  "pm.test('messages is an array', () => pm.expect(b.messages).to.be.an('array'));",
+                  "",
+                  "pm.test('Each message has required fields', () => {",
+                  "  b.messages.forEach(m => {",
+                  "    pm.expect(m.messageId).to.be.a('string').and.not.be.empty;",
+                  "    pm.expect(m.caseId).to.be.a('string').and.not.be.empty;",
+                  "    pm.expect(m.sender).to.be.a('string').and.not.be.empty;",
+                  "    pm.expect(m.senderName).to.be.a('string').and.not.be.empty;",
+                  "    pm.expect(m.text).to.be.a('string').and.not.be.empty;",
+                  "    pm.expect(m.sentAt).to.be.a('string').and.not.be.empty;",
+                  "  });",
+                  "});",
+                  "",
+                  "pm.test('sender values are valid', () => {",
+                  "  const validSenders = ['ServiceRep', 'Customer', 'Broker'];",
+                  "  b.messages.forEach(m => pm.expect(validSenders).to.include(m.sender));",
+                  "});",
+                  "",
+                  "pm.test('Messages are chronologically ordered', () => {",
+                  "  const times = b.messages.map(m => new Date(m.sentAt).getTime());",
+                  "  pm.expect(times).to.deep.equal([...times].sort((a, z) => a - z));",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/broker/GetSupportCaseChat?caseNumber={{caseNumber}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "broker", "GetSupportCaseChat"],
+              "query": [
+                { "key": "caseNumber", "value": "{{caseNumber}}", "description": "Case number (string, required). E.g. CID-233." }
+              ]
+            },
+            "description": "Returns the chat message thread for a support case.\n\n**Auth:** Broker JWT\n\n**Query Parameters**\n| Param | Type | Required | Description |\n|---|---|---|---|\n| `caseNumber` | string | ✅ | Case number (e.g. `CID-233`) |\n\n**Success Response (200) – `CaseChatResponse`**\n```json\n{\n  \"caseId\": \"CID-233\",\n  \"messages\": [\n    {\n      \"messageId\": \"BMSG-001\",\n      \"caseId\": \"CID-233\",\n      \"sender\": \"ServiceRep\",\n      \"senderName\": \"Brooklyn Simmons\",\n      \"text\": \"Hello! We're here to help. What can we do for you?\",\n      \"sentAt\": \"2026-06-22T15:24:00\"\n    },\n    {\n      \"messageId\": \"BMSG-003\",\n      \"caseId\": \"CID-233\",\n      \"sender\": \"Customer\",\n      \"senderName\": \"Acme Manufacturing Ltd.\",\n      \"text\": \"Hi, I believe there is an issue with the charges on my latest invoice.\",\n      \"sentAt\": \"2026-06-22T16:15:00\"\n    }\n  ]\n}\n```\n\n**Business Rules**\n- Messages are returned in chronological order (`sentAt` ascending).\n- `sender` is one of: `ServiceRep`, `Customer`, `Broker`.\n\n**Error Responses**\n| Code | Trigger |\n|---|---|\n| 404 | Case number not found |"
+          }
+        },
+        {
+          "name": "Send Support Case Message – Valid",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200 OK', () => pm.response.to.have.status(200));",
+                  "pm.test('Response time < 3 s', () => pm.expect(pm.response.responseTime).to.be.below(3000));",
+                  "pm.test('Content-Type is JSON', () => pm.response.to.have.header('Content-Type', /application\\/json/));",
+                  "",
+                  "const b = pm.response.json();",
+                  "pm.test('messageId is present and non-empty', () => pm.expect(b.messageId).to.be.a('string').and.not.be.empty);",
+                  "pm.test('caseId matches request', () => pm.expect(b.caseId).to.equal(pm.collectionVariables.get('caseNumber')));",
+                  "pm.test('sender is present', () => pm.expect(b.sender).to.be.a('string').and.not.be.empty);",
+                  "pm.test('senderName is present', () => pm.expect(b.senderName).to.be.a('string').and.not.be.empty);",
+                  "pm.test('text matches request body', () => pm.expect(b.text).to.equal('Hello, I have a question about invoice #INV-2026-07.'));",
+                  "pm.test('sentAt is a valid date string', () => pm.expect(new Date(b.sentAt).toString()).to.not.equal('Invalid Date'));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json", "type": "text" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"caseId\": \"{{caseNumber}}\",\n  \"text\": \"Hello, I have a question about invoice #INV-2026-07.\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/broker/SendSupportCaseMessage",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "broker", "SendSupportCaseMessage"]
+            },
+            "description": "Posts a new message to a support case chat thread.\n\n**Auth:** Broker JWT\n**Method:** POST\n**Content-Type:** `application/json`\n\n**Request Body – `SendMessageRequest`**\n| Field | Type | Required | Validation | Description |\n|---|---|---|---|---|\n| `caseId` | string | ✅ | Non-empty | Case ID to post to (e.g. `CID-233`) |\n| `text` | string | ✅ | Non-empty | Message body |\n\n**Example Request**\n```json\n{\n  \"caseId\": \"CID-233\",\n  \"text\": \"Hello, I have a question about invoice #INV-2026-07.\"\n}\n```\n\n**Success Response (200) – `SendMessageResponse`**\n```json\n{\n  \"messageId\": \"BMSG-010\",\n  \"caseId\": \"CID-233\",\n  \"sender\": \"Broker\",\n  \"senderName\": \"Alex John\",\n  \"text\": \"Hello, I have a question about invoice #INV-2026-07.\",\n  \"sentAt\": \"2026-07-21T10:30:00Z\"\n}\n```\n\n**Error Responses**\n| Code | Trigger |\n|---|---|\n| 400 | `caseId` or `text` is missing from the request body |\n| 404 | `caseId` does not match any existing case |"
+          }
+        },
+        {
+          "name": "Send Support Case Message – Missing caseId (400)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 400 Bad Request', () => pm.response.to.have.status(400));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json", "type": "text" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"text\": \"This message has no caseId.\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/broker/SendSupportCaseMessage",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "broker", "SendSupportCaseMessage"]
+            },
+            "description": "Validates that omitting the required `caseId` field returns 400.\n\n**Note:** `caseId` is decorated with `[Required]` on `SendMessageRequest`."
+          }
+        },
+        {
+          "name": "Send Support Case Message – Missing text (400)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 400 Bad Request', () => pm.response.to.have.status(400));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json", "type": "text" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"caseId\": \"{{caseNumber}}\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/broker/SendSupportCaseMessage",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "broker", "SendSupportCaseMessage"]
+            },
+            "description": "Validates that omitting the required `text` field returns 400.\n\n**Note:** `text` is decorated with `[Required]` on `SendMessageRequest`."
+          }
+        },
+        {
+          "name": "Send Support Case Message – Case Not Found (404)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 404 Not Found', () => pm.response.to.have.status(404));",
+                  "const b = pm.response.json();",
+                  "pm.test('Error message present', () => pm.expect(b.message).to.be.a('string').and.not.be.empty);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json", "type": "text" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"caseId\": \"CID-INVALID-999\",\n  \"text\": \"This case does not exist.\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/broker/SendSupportCaseMessage",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "broker", "SendSupportCaseMessage"]
+            },
+            "description": "Validates 404 when the `caseId` does not match any existing support case."
+          }
+        },
+        {
+          "name": "⛔ Unauthorized – Get Support Cases",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 401 Unauthorized', () => pm.response.to.have.status(401));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "auth": { "type": "noauth" },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/broker/GetSupportCases",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "broker", "GetSupportCases"]
+            },
+            "description": "Verifies 401 when no Bearer token is supplied."
+          }
+        }
+      ]
+    }
+  ]
+}

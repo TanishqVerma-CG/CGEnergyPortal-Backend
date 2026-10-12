@@ -1,0 +1,255 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Cases>
+  <Case>
+    <Customer>Pinnacle Commerce Center</Customer>
+    <CustomerId>6</CustomerId>
+    <CaseNumber>CID-237</CaseNumber>
+    <RequestType>Moving Service</RequestType>
+    <ContractId>2454</ContractId>
+    <Meter>00313867</Meter>
+    <ServiceRep>Albert Floxes</ServiceRep>
+    <Origin>Portal</Origin>
+    <Priority>HIGH</Priority>
+    <CreatedOn>7/23/2026</CreatedOn>
+    <ClosedOn>--</ClosedOn>
+    <Status>OPEN</Status>
+    <LastActivity>7/23/2026</LastActivity>
+    <RaisedBy>Broker</RaisedBy>
+    <Subject>Meter Reading Issue</Subject>
+    <Comment>Unable to capture the latest meter reading. Please investigate testing.</Comment>
+  </Case>
+  <Case>
+    <Customer>Pinnacle Commerce Center</Customer>
+    <CustomerId>6</CustomerId>
+    <CaseNumber>CID-236</CaseNumber>
+    <RequestType>Moving Service</RequestType>
+    <ContractId>2454</ContractId>
+    <Meter>00313867</Meter>
+    <ServiceRep>Albert Floxes</ServiceRep>
+    <Origin>Portal</Origin>
+    <Priority>HIGH</Priority>
+    <CreatedOn>7/23/2026</CreatedOn>
+    <ClosedOn>--</ClosedOn>
+    <Status>OPEN</Status>
+    <LastActivity>7/23/2026</LastActivity>
+    <RaisedBy>Broker</RaisedBy>
+    <Subject>Moving Service Request</Subject>
+    <Comment>Unable to capture the latest meter reading. Please investigate testing.</Comment>
+  </Case>
+  <Case>
+    <Customer>Pinnacle Commerce Center</Customer>
+    <CustomerId>6</CustomerId>
+    <CaseNumber>CID-235</CaseNumber>
+    <RequestType>Moving Service</RequestType>
+    <ContractId>6001</ContractId>
+    <Meter>9001</Meter>
+    <ServiceRep>Alex Johnson</ServiceRep>
+    <Origin>Portal</Origin>
+    <Priority>HIGH</Priority>
+    <CreatedOn>7/21/2026</CreatedOn>
+    <ClosedOn>--</ClosedOn>
+    <Status>OPEN</Status>
+    <LastActivity>7/21/2026</LastActivity>
+    <RaisedBy>broker</RaisedBy>
+    <Subject>Moving Service Request</Subject>
+    <Comment>Unable to capture the latest meter reading. Please investigate testing.</Comment>
+  </Case>
+  <Case>
+    <Customer>Pinnacle Commerce Center</Customer>
+    <CustomerId>6</CustomerId>
+    <CaseNumber>CID-234</CaseNumber>
+    <RequestType>Moving Service</RequestType>
+    <ContractId>6002</ContractId>
+    <Meter>9002</Meter>
+    <ServiceRep>Alex Johnson</ServiceRep>
+    <Origin>Portal</Origin>
+    <Priority>HIGH</Priority>
+    <CreatedOn>7/21/2026</CreatedOn>
+    <ClosedOn>--</ClosedOn>
+    <Status>OPEN</Status>
+    <LastActivity>7/21/2026</LastActivity>
+    <RaisedBy>broker</RaisedBy>
+    <Subject>Moving Service Request</Subject>
+    <Comment>Unable to capture the latest meter reading. Please investigate testing.</Comment>
+  </Case>
+  <Case>
+    <Customer>Acme Manufacturing Ltd.</Customer>
+    <CustomerId>1</CustomerId>
+    <CaseNumber>CID-233</CaseNumber>
+    <RequestType>Billing/Invoice query</RequestType>
+    <ContractId>1001</ContractId>
+    <Meter>1001</Meter>
+    <ServiceRep>Maria Lopez</ServiceRep>
+    <Origin>Portal</Origin>
+    <Priority>HIGH</Priority>
+    <CreatedOn>6/22/2026</CreatedOn>
+    <ClosedOn>--</ClosedOn>
+    <Status>OPEN</Status>
+    <LastActivity>6/22/2026</LastActivity>
+    <RaisedBy>customer</RaisedBy>
+    <Subject>Billing/Invoice Query</Subject>
+    <Comment>Unable to capture the latest meter reading. Please investigate testing.</Comment>
+  </Case>
+  <Case>
+    <Customer>Greenfield Retail Group</Customer>
+    <CustomerId>2</CustomerId>
+    <CaseNumber>CID-232</CaseNumber>
+    <RequestType>Missing invoice</RequestType>
+    <ContractId>2001</ContractId>
+    <Meter>2001</Meter>
+    <ServiceRep>Sam Patel</ServiceRep>
+    <Origin>Email</Origin>
+    <Priority>HIGH</Priority>
+    <CreatedOn>6/20/2026</CreatedOn>
+    <ClosedOn>--</ClosedOn>
+    <Status>OPEN</Status>
+    <LastActivity>6/21/2026</LastActivity>
+    <RaisedBy>customer</RaisedBy>
+    <Subject>Missing Invoice</Subject>
+    <Comment>Unable to capture the latest meter reading. Please investigate testing.</Comment>
+  </Case>
+  <Case>
+    <Customer>Horizon Logistics</Customer>
+    <CustomerId>3</CustomerId>
+    <CaseNumber>CID-231</CaseNumber>
+    <RequestType>Balance/Payment inquiry</RequestType>
+    <ContractId>3001</ContractId>
+    <Meter>3001</Meter>
+    <ServiceRep>Jamie Lee</ServiceRep>
+    <Origin>Phone</Origin>
+    <Priority>MEDIUM</Priority>
+    <CreatedOn>6/18/2026</CreatedOn>
+    <ClosedOn>--</ClosedOn>
+    <Status>OPEN</Status>
+    <LastActivity>6/19/2026</LastActivity>
+    <RaisedBy>customer</RaisedBy>
+    <Subject>Balance/Payment Inquiry</Subject>
+    <Comment>Unable to capture the latest meter reading. Please investigate testing.</Comment>
+  </Case>
+  <Case>
+    <Customer>Northstar Warehousing</Customer>
+    <CustomerId>4</CustomerId>
+    <CaseNumber>CID-230</CaseNumber>
+    <RequestType>General inquiry</RequestType>
+    <ContractId>4001</ContractId>
+    <Meter>4001</Meter>
+    <ServiceRep>Olivia Brown</ServiceRep>
+    <Origin>Portal</Origin>
+    <Priority>LOW</Priority>
+    <CreatedOn>6/14/2026</CreatedOn>
+    <ClosedOn>--</ClosedOn>
+    <Status>OPEN</Status>
+    <LastActivity>6/15/2026</LastActivity>
+    <RaisedBy>broker</RaisedBy>
+    <Subject>General Inquiry</Subject>
+    <Comment>Unable to capture the latest meter reading. Please investigate testing.</Comment>
+  </Case>
+  <Case>
+    <Customer>Elite Business Park</Customer>
+    <CustomerId>5</CustomerId>
+    <CaseNumber>CID-229</CaseNumber>
+    <RequestType>Other</RequestType>
+    <ContractId>5001</ContractId>
+    <Meter>5001</Meter>
+    <ServiceRep>David Green</ServiceRep>
+    <Origin>Phone</Origin>
+    <Priority>HIGH</Priority>
+    <CreatedOn>6/14/2026</CreatedOn>
+    <ClosedOn>--</ClosedOn>
+    <Status>OPEN</Status>
+    <LastActivity>6/16/2026</LastActivity>
+    <RaisedBy>broker</RaisedBy>
+    <Subject>Other Request</Subject>
+    <Comment>Unable to capture the latest meter reading. Please investigate testing.</Comment>
+  </Case>
+  <Case>
+    <Customer>Pinnacle Commerce Center</Customer>
+    <CustomerId>6</CustomerId>
+    <CaseNumber>CID-228</CaseNumber>
+    <RequestType>Missing invoice</RequestType>
+    <ContractId>6003</ContractId>
+    <Meter>9003</Meter>
+    <ServiceRep>Maria Lopez</ServiceRep>
+    <Origin>Email</Origin>
+    <Priority>MEDIUM</Priority>
+    <CreatedOn>6/12/2026</CreatedOn>
+    <ClosedOn>6/14/2026</ClosedOn>
+    <Status>CLOSED</Status>
+    <LastActivity>6/14/2026</LastActivity>
+    <RaisedBy>customer</RaisedBy>
+    <Subject>Missing Invoice</Subject>
+    <Comment>Unable to capture the latest meter reading. Please investigate testing.</Comment>
+  </Case>
+  <Case>
+    <Customer>Polar Storage Solutions</Customer>
+    <CustomerId>7</CustomerId>
+    <CaseNumber>CID-227</CaseNumber>
+    <RequestType>Balance/Payment inquiry</RequestType>
+    <ContractId>7001</ContractId>
+    <Meter>7001</Meter>
+    <ServiceRep>Sam Patel</ServiceRep>
+    <Origin>Portal</Origin>
+    <Priority>HIGH</Priority>
+    <CreatedOn>5/10/2026</CreatedOn>
+    <ClosedOn>--</ClosedOn>
+    <Status>OPEN</Status>
+    <LastActivity>5/12/2026</LastActivity>
+    <RaisedBy>broker</RaisedBy>
+    <Subject>Balance/Payment Inquiry</Subject>
+    <Comment>Unable to capture the latest meter reading. Please investigate testing.</Comment>
+  </Case>
+  <Case>
+    <Customer>Pinnacle Commerce Center</Customer>
+    <CustomerId>6</CustomerId>
+    <CaseNumber>CID-226</CaseNumber>
+    <RequestType>General inquiry</RequestType>
+    <ContractId>6004</ContractId>
+    <Meter>9004</Meter>
+    <ServiceRep>Olivia Brown</ServiceRep>
+    <Origin>Email</Origin>
+    <Priority>HIGH</Priority>
+    <CreatedOn>5/08/2026</CreatedOn>
+    <ClosedOn>5/09/2026</ClosedOn>
+    <Status>CLOSED</Status>
+    <LastActivity>5/09/2026</LastActivity>
+    <RaisedBy>customer</RaisedBy>
+    <Subject>General Inquiry</Subject>
+    <Comment>Unable to capture the latest meter reading. Please investigate testing.</Comment>
+  </Case>
+  <Case>
+    <Customer>Horizon Logistics</Customer>
+    <CustomerId>3</CustomerId>
+    <CaseNumber>CID-225</CaseNumber>
+    <RequestType>Balance/Payment inquiry</RequestType>
+    <ContractId>3002</ContractId>
+    <Meter>3002</Meter>
+    <ServiceRep>David Green</ServiceRep>
+    <Origin>Phone</Origin>
+    <Priority>MEDIUM</Priority>
+    <CreatedOn>5/05/2026</CreatedOn>
+    <ClosedOn>5/07/2026</ClosedOn>
+    <Status>CLOSED</Status>
+    <LastActivity>5/07/2026</LastActivity>
+    <RaisedBy>broker</RaisedBy>
+    <Subject>Balance/Payment Inquiry</Subject>
+    <Comment>Unable to capture the latest meter reading. Please investigate testing.</Comment>
+  </Case>
+  <Case>
+    <Customer>Elite Business Park</Customer>
+    <CustomerId>5</CustomerId>
+    <CaseNumber>CID-224</CaseNumber>
+    <RequestType>Other</RequestType>
+    <ContractId>5002</ContractId>
+    <Meter>5002</Meter>
+    <ServiceRep>Alex Johnson</ServiceRep>
+    <Origin>Email</Origin>
+    <Priority>LOW</Priority>
+    <CreatedOn>5/02/2026</CreatedOn>
+    <ClosedOn>5/04/2026</ClosedOn>
+    <Status>CLOSED</Status>
+    <LastActivity>5/04/2026</LastActivity>
+    <RaisedBy>customer</RaisedBy>
+    <Subject>Other Request</Subject>
+    <Comment>Unable to capture the latest meter reading. Please investigate testing.</Comment>
+  </Case>
+</Cases>

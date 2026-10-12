@@ -1,0 +1,25 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/BPIndustrialPortal/.vs
+# Visual Studio
+.vs/
+*.user
+*.suo
+
+# Build output
+bin/
+obj/
+**/bin/
+**/obj/
+
+# NuGet
+packages/
+*.nupkg
+
+# Logs
+*.log
+
+# Local settings may contain credentials
+**/appsettings.*.local.json

@@ -1,0 +1,3645 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PricingIntelligenceData>
+	<ContractPricing priceUnit="$/MWh" contractId="CID-10293">
+
+		<Snapshot id="today" label="Today">
+			<TermColumns>
+				<Term months="6"  recommended="false" />
+				<Term months="12" recommended="false" />
+				<Term months="18" recommended="false" />
+				<Term months="24" recommended="false" />
+				<Term months="36" recommended="true"  />
+				<Term months="48" recommended="false" />
+			</TermColumns>
+			<Rows>
+				<Row label="On-Peak">
+					<Price term="6"  value="66.25" range="VeryHigh"    />
+					<Price term="12" value="63.75" range="High"     />
+					<Price term="18" value="61.50" range="Medium"      />
+					<Price term="24" value="59.85" range="Low"         />
+					<Price term="36" value="57.90" range="VeryLow"   />
+					<Price term="48" value="59.20" range="Medium"      />
+				</Row>
+				<Row label="Off-Peak">
+					<Price term="6"  value="52.75" range="VeryHigh"    />
+					<Price term="12" value="50.60" range="High"        />
+					<Price term="18" value="48.75" range="Medium"      />
+					<Price term="24" value="47.20" range="Low"         />
+					<Price term="36" value="45.10" range="BestValue" />
+					<Price term="48" value="46.30" range="Low"         />
+				</Row>
+				<Row label="All Hours">
+					<Price term="6"  value="59.30" range="VeryHigh"    />
+					<Price term="12" value="56.80" range="High"  />
+					<Price term="18" value="55.00" range="Medium"      />
+					<Price term="24" value="53.40" range="Low"      />
+					<Price term="36" value="51.20" range="BestValue" />
+					<Price term="48" value="52.60" range="Low"    />
+				</Row>
+			</Rows>
+		</Snapshot>
+
+		<Snapshot id="3days" label="3 Days Ago">
+			<TermColumns>
+				<Term months="6"  recommended="false" />
+				<Term months="12" recommended="false" />
+				<Term months="18" recommended="false" />
+				<Term months="24" recommended="false" />
+				<Term months="36" recommended="true"  />
+				<Term months="48" recommended="false" />
+			</TermColumns>
+			<Rows>
+				<Row label="On-Peak">
+					<Price term="6" value="67.00" range="VeryHigh"    />
+					<Price term="12" value="64.50" range="High"        />
+					<Price term="18" value="62.10" range="Medium"      />
+					<Price term="24" value="60.40" range="Low"         />
+					<Price term="36" value="58.50" range="VeryLow"     />
+					<Price term="48" value="59.80" range="Medium"  />
+				</Row>
+				<Row label="Off-Peak">
+					<Price term="6"  value="53.20" range="VeryHigh"    />
+					<Price term="12" value="51.00" range="High"        />
+					<Price term="18" value="49.30" range="Medium"      />
+					<Price term="24" value="47.80" range="Low"      />
+					<Price term="36" value="45.60" range="BestValue" />
+					<Price term="48" value="46.90" range="Low"         />
+				</Row>
+				<Row label="All Hours">
+					<Price term="6"  value="60.10" range="VeryHigh"    />
+					<Price term="12" value="57.50" range="High"        />
+					<Price term="18" value="55.70" range="Medium"      />
+					<Price term="24" value="54.10" range="Low"         />
+					<Price term="36" value="52.05" range="BestValue" />
+					<Price term="48" value="53.35" range="Low"     />
+				</Row>
+			</Rows>
+		</Snapshot>
+
+		<Snapshot id="1week" label="1 Week Ago">
+			<TermColumns>
+				<Term months="6"  recommended="false" />
+				<Term months="12" recommended="false" />
+				<Term months="18" recommended="false" />
+				<Term months="24" recommended="false" />
+				<Term months="36" recommended="true"  />
+				<Term months="48" recommended="false" />
+			</TermColumns>
+			<Rows>
+				<Row label="On-Peak">
+					<Price term="6"  value="67.80" range="VeryHigh"    />
+					<Price term="12" value="65.20" range="High"        />
+					<Price term="18" value="62.90" range="Medium"      />
+					<Price term="24" value="61.10" range="Low"         />
+					<Price term="36" value="59.30" range="VeryLow"     />
+					<Price term="48" value="60.50" range="Medium"      />
+				</Row>
+				<Row label="Off-Peak">
+					<Price term="6"  value="54.00" range="VeryHigh"    />
+					<Price term="12" value="51.80" range="High"        />
+					<Price term="18" value="50.10" range="Medium"      />
+					<Price term="24" value="48.60" range="Low"         />
+					<Price term="36" value="46.40" range="BestValue" />
+					<Price term="48" value="47.70" range="Low"         />
+				</Row>
+				<Row label="All Hours">
+					<Price term="6"  value="60.90" range="VeryHigh"    />
+					<Price term="12" value="58.30" range="High"        />
+					<Price term="18" value="56.50" range="Medium" />
+					<Price term="24" value="54.85" range="Low"         />
+					<Price term="36" value="52.85" range="BestValue" />
+					<Price term="48" value="54.10" range="Low"      />
+				</Row>
+			</Rows>
+		</Snapshot>
+
+		<Snapshot id="1month" label="1 Month Ago">
+			<TermColumns>
+				<Term months="6"  recommended="false" />
+				<Term months="12" recommended="false" />
+				<Term months="18" recommended="false" />
+				<Term months="24" recommended="false" />
+				<Term months="36" recommended="true"  />
+				<Term months="48" recommended="false" />
+			</TermColumns>
+			<Rows>
+				<Row label="On-Peak">
+					<Price term="6"  value="69.50" range="VeryHigh"/>
+					<Price term="12" value="66.90" range="High"/>
+					<Price term="18" value="64.60" range="Medium"      />
+					<Price term="24" value="62.80" range="Low"/>
+					<Price term="36" value="61.00" range="VeryLow"     />
+					<Price term="48" value="62.20" range="Medium"      />
+				</Row>
+				<Row label="Off-Peak">
+					<Price term="6"  value="55.70" range="VeryHigh"    />
+					<Price term="12" value="53.50" range="High"        />
+					<Price term="18" value="51.80" range="Medium"    />
+					<Price term="24" value="50.30" range="Low"     />
+					<Price term="36" value="48.10" range="BestValue" />
+					<Price term="48" value="49.40" range="Low"         />
+				</Row>
+				<Row label="All Hours">
+					<Price term="6"  value="62.60" range="VeryHigh"    />
+					<Price term="12" value="60.20" range="High"        />
+					<Price term="18" value="58.20" range="Medium"      />
+					<Price term="24" value="56.55" range="Low"    />
+					<Price term="36" value="54.55" range="BestValue" />
+					<Price term="48" value="55.80" range="Low"         />
+				</Row>
+			</Rows>
+		</Snapshot>
+
+	</ContractPricing>
+	<ContractPricing priceUnit="$/MWh" contractId="CID-10292">
+
+		<Snapshot id="today" label="Today">
+			<TermColumns>
+				<Term months="6"  recommended="false" />
+				<Term months="12" recommended="false" />
+				<Term months="18" recommended="false" />
+				<Term months="24" recommended="false" />
+				<Term months="36" recommended="true"  />
+				<Term months="48" recommended="false" />
+			</TermColumns>
+			<Rows>
+				<Row label="On-Peak">
+					<Price term="6"  value="68.40" range="VeryHigh"    />
+					<Price term="12" value="65.80" range="High"        />
+					<Price term="18" value="63.20" range="Medium"      />
+					<Price term="24" value="61.50" range="Low"         />
+					<Price term="36" value="59.70" range="VeryLow"     />
+					<Price term="48" value="61.00" range="Medium"  />
+				</Row>
+				<Row label="Off-Peak">
+					<Price term="6"  value="54.60" range="VeryHigh"    />
+					<Price term="12" value="52.40" range="High"        />
+					<Price term="18" value="50.55" range="Medium"      />
+					<Price term="24" value="49.00" range="Low"         />
+					<Price term="36" value="46.90" range="BestValue" />
+					<Price term="48" value="48.10" range="Low"         />
+				</Row>
+				<Row label="All Hours">
+					<Price term="6"  value="61.50" range="VeryHigh"    />
+					<Price term="12" value="59.10" range="High"  />
+					<Price term="18" value="56.90" range="Medium"      />
+					<Price term="24" value="55.25" range="Low"         />
+					<Price term="36" value="53.30" range="BestValue" />
+					<Price term="48" value="54.55" range="Low"         />
+				</Row>
+			</Rows>
+		</Snapshot>
+
+		<Snapshot id="3days" label="3 Days Ago">
+			<TermColumns>
+				<Term months="6"  recommended="false" />
+				<Term months="12" recommended="false" />
+				<Term months="18" recommended="false" />
+				<Term months="24" recommended="false" />
+				<Term months="36" recommended="true"  />
+				<Term months="48" recommended="false" />
+			</TermColumns>
+			<Rows>
+				<Row label="On-Peak">
+					<Price term="6"  value="69.10" range="VeryHigh"    />
+					<Price term="12" value="66.40" range="High"        />
+					<Price term="18" value="63.90" range="Medium"      />
+					<Price term="24" value="62.10" range="Low"         />
+					<Price term="36" value="60.30" range="VeryLow"     />
+					<Price term="48" value="61.60" range="Medium"      />
+				</Row>
+				<Row label="Off-Peak">
+					<Price term="6"  value="55.20" range="VeryHigh"    />
+					<Price term="12" value="53.00" range="High"  />
+					<Price term="18" value="51.10" range="Medium"      />
+					<Price term="24" value="49.60" range="Low"  />
+					<Price term="36" value="47.50" range="BestValue" />
+					<Price term="48" value="48.70" range="Low"         />
+				</Row>
+				<Row label="All Hours">
+					<Price term="6"  value="62.15" range="VeryHigh"    />
+					<Price term="12" value="59.70" range="High"        />
+					<Price term="18" value="57.50" range="Medium"      />
+					<Price term="24" value="55.85" range="Low"         />
+					<Price term="36" value="53.90" range="BestValue" />
+					<Price term="48" value="55.15" range="Low"         />
+				</Row>
+			</Rows>
+		</Snapshot>
+
+		<Snapshot id="1week" label="1 Week Ago">
+			<TermColumns>
+				<Term months="6"  recommended="false" />
+				<Term months="12" recommended="false" />
+				<Term months="18" recommended="false" />
+				<Term months="24" recommended="false" />
+				<Term months="36" recommended="true"  />
+				<Term months="48" recommended="false" />
+			</TermColumns>
+			<Rows>
+				<Row label="On-Peak">
+					<Price term="6"  value="69.90" range="VeryHigh"    />
+					<Price term="12" value="67.20" range="High"        />
+					<Price term="18" value="64.70" range="Medium"    />
+					<Price term="24" value="62.80" range="Low"         />
+					<Price term="36" value="61.10" range="VeryLow"     />
+					<Price term="48" value="62.40" range="Medium"      />
+				</Row>
+				<Row label="Off-Peak">
+					<Price term="6"  value="55.90" range="VeryHigh"    />
+					<Price term="12" value="53.70" range="High"        />
+					<Price term="18" value="51.80" range="Medium"      />
+					<Price term="24" value="50.30" range="Low"         />
+					<Price term="36" value="48.20" range="BestValue" />
+					<Price term="48" value="49.50" range="Low"    />
+				</Row>
+				<Row label="All Hours">
+					<Price term="6"  value="62.90" range="VeryHigh"    />
+					<Price term="12" value="60.45" range="High"        />
+					<Price term="18" value="58.25" range="Medium"      />
+					<Price term="24" value="56.55" range="Low"     />
+					<Price term="36" value="54.65" range="BestValue" />
+					<Price term="48" value="55.95" range="Low"         />
+				</Row>
+			</Rows>
+		</Snapshot>
+
+		<Snapshot id="1month" label="1 Month Ago">
+			<TermColumns>
+				<Term months="6"  recommended="false" />
+				<Term months="12" recommended="false" />
+				<Term months="18" recommended="false" />
+				<Term months="24" recommended="false" />
+				<Term months="36" recommended="true"  />
+				<Term months="48" recommended="false" />
+			</TermColumns>
+			<Rows>
+				<Row label="On-Peak">
+					<Price term="6"  value="71.60" range="VeryHigh"    />
+					<Price term="12" value="68.90" range="High"        />
+					<Price term="18" value="66.40" range="Medium"      />
+					<Price term="24" value="64.50" range="Low"       />
+					<Price term="36" value="62.80" range="VeryLow"     />
+					<Price term="48" value="64.10" range="Medium"      />
+				</Row>
+				<Row label="Off-Peak">
+					<Price term="6"  value="57.60" range="VeryHigh"    />
+					<Price term="12" value="55.40" range="High" />
+					<Price term="18" value="53.50" range="Medium"      />
+					<Price term="24" value="52.00" range="Low"       />
+					<Price term="36" value="49.90" range="BestValue" />
+					<Price term="48" value="51.20" range="Low"         />
+				</Row>
+				<Row label="All Hours">
+					<Price term="6"  value="64.60" range="VeryHigh"    />
+					<Price term="12" value="62.15" range="High"        />
+					<Price term="18" value="59.95" range="Medium"      />
+					<Price term="24" value="58.25" range="Low"       />
+					<Price term="36" value="56.35" range="BestValue" />
+					<Price term="48" value="57.65" range="Low"         />
+				</Row>
+			</Rows>
+		</Snapshot>
+
+	</ContractPricing>
+
+	<ContractPricing priceUnit="$/MWh" contractId="CID-10291">
+
+		<Snapshot id="today" label="Today">
+			<TermColumns>
+				<Term months="6"  recommended="false" />
+				<Term months="12" recommended="false" />
+				<Term months="18" recommended="false" />
+				<Term months="24" recommended="false" />
+				<Term months="36" recommended="true"  />
+				<Term months="48" recommended="false" />
+			</TermColumns>
+			<Rows>
+				<Row label="On-Peak">
+					<Price term="6"  value="65.80" range="VeryHigh"    />
+					<Price term="12" value="63.30" range="High"        />
+					<Price term="18" value="61.00" range="Medium"  />
+					<Price term="24" value="59.40" range="Low"         />
+					<Price term="36" value="57.50" range="VeryLow"     />
+					<Price term="48" value="58.80" range="Medium"      />
+				</Row>
+				<Row label="Off-Peak">
+					<Price term="6"  value="52.30" range="VeryHigh"    />
+					<Price term="12" value="50.20" range="High"        />
+					<Price term="18" value="48.40" range="Medium"      />
+					<Price term="24" value="46.80" range="Low"   />
+					<Price term="36" value="44.70" range="BestValue" />
+					<Price term="48" value="45.90" range="Low"         />
+				</Row>
+				<Row label="All Hours">
+					<Price term="6"  value="59.05" range="VeryHigh"    />
+					<Price term="12" value="56.55" range="High"    />
+					<Price term="18" value="54.70" range="Medium"      />
+					<Price term="24" value="53.10" range="Low"  />
+					<Price term="36" value="51.10" range="BestValue" />
+					<Price term="48" value="52.35" range="Low"         />
+				</Row>
+			</Rows>
+		</Snapshot>
+
+		<Snapshot id="3days" label="3 Days Ago">
+			<TermColumns>
+				<Term months="6"  recommended="false" />
+				<Term months="12" recommended="false" />
+				<Term months="18" recommended="false" />
+				<Term months="24" recommended="false" />
+				<Term months="36" recommended="true"  />
+				<Term months="48" recommended="false" />
+			</TermColumns>
+			<Rows>
+				<Row label="On-Peak">
+					<Price term="6"  value="66.50" range="VeryHigh"    />
+					<Price term="12" value="63.95" range="High"      />
+					<Price term="18" value="61.65" range="Medium"      />
+					<Price term="24" value="60.00" range="Low"         />
+					<Price term="36" value="58.10" range="VeryLow"     />
+					<Price term="48" value="59.40" range="Medium"  />
+				</Row>
+				<Row label="Off-Peak">
+					<Price term="6"  value="52.90" range="VeryHigh"    />
+					<Price term="12" value="50.75" range="High"      />
+					<Price term="18" value="48.95" range="Medium"      />
+					<Price term="24" value="47.40" range="Low"         />
+					<Price term="36" value="45.25" range="BestValue" />
+					<Price term="48" value="46.45" range="Low"         />
+				</Row>
+				<Row label="All Hours">
+					<Price term="6"  value="59.70" range="VeryHigh"    />
+					<Price term="12" value="57.15" range="High"        />
+					<Price term="18" value="55.30" range="Medium"      />
+					<Price term="24" value="53.70" range="Low"         />
+					<Price term="36" value="51.68" range="BestValue" />
+					<Price term="48" value="52.93" range="Low"    />
+				</Row>
+			</Rows>
+		</Snapshot>
+
+		<Snapshot id="1week" label="1 Week Ago">
+			<TermColumns>
+				<Term months="6"  recommended="false" />
+				<Term months="12" recommended="false" />
+				<Term months="18" recommended="false" />
+				<Term months="24" recommended="false" />
+				<Term months="36" recommended="true"  />
+				<Term months="48" recommended="false" />
+			</TermColumns>
+			<Rows>
+				<Row label="On-Peak">
+					<Price term="6"  value="67.30" range="VeryHigh"    />
+					<Price term="12" value="64.75" range="High"        />
+					<Price term="18" value="62.40" range="Medium"      />
+					<Price term="24" value="60.75" range="Low"         />
+					<Price term="36" value="58.90" range="VeryLow"     />
+					<Price term="48" value="60.15" range="Medium"/>
+				</Row>
+				<Row label="Off-Peak">
+					<Price term="6"  value="53.55" range="VeryHigh"    />
+					<Price term="12" value="51.40" range="High" />
+					<Price term="18" value="49.60" range="Medium"    />
+					<Price term="24" value="48.05" range="Low"         />
+					<Price term="36" value="45.95" range="BestValue" />
+					<Price term="48" value="47.15" range="Low"         />
+				</Row>
+				<Row label="All Hours">
+					<Price term="6"  value="60.43" range="VeryHigh"    />
+					<Price term="12" value="57.88" range="High"    />
+					<Price term="18" value="56.00" range="Medium"      />
+					<Price term="24" value="54.40" range="Low"   />
+					<Price term="36" value="52.43" range="BestValue" />
+					<Price term="48" value="53.65" range="Low"         />
+				</Row>
+			</Rows>
+		</Snapshot>
+
+		<Snapshot id="1month" label="1 Month Ago">
+			<TermColumns>
+				<Term months="6"  recommended="false" />
+				<Term months="12" recommended="false" />
+				<Term months="18" recommended="false" />
+				<Term months="24" recommended="false" />
+				<Term months="36" recommended="true"  />
+				<Term months="48" recommended="false" />
+			</TermColumns>
+			<Rows>
+				<Row label="On-Peak">
+					<Price term="6"  value="69.10" range="VeryHigh"    />
+					<Price term="12" value="66.50" range="High"        />
+					<Price term="18" value="64.15" range="Medium"    />
+					<Price term="24" value="62.40" range="Low"         />
+					<Price term="36" value="60.55" range="VeryLow"     />
+					<Price term="48" value="61.80" range="Medium"      />
+				</Row>
+				<Row label="Off-Peak">
+					<Price term="6"  value="55.20" range="VeryHigh"    />
+					<Price term="12" value="53.05" range="High"        />
+					<Price term="18" value="51.25" range="Medium"      />
+					<Price term="24" value="49.75" range="Low"         />
+					<Price term="36" value="47.60" range="BestValue" />
+					<Price term="48" value="48.85" range="Low"         />
+				</Row>
+				<Row label="All Hours">
+					<Price term="6"  value="62.15" range="VeryHigh"    />
+					<Price term="12" value="59.78" range="High"        />
+					<Price term="18" value="57.70" range="Medium"   />
+					<Price term="24" value="56.08" range="Low"    />
+					<Price term="36" value="54.08" range="BestValue" />
+					<Price term="48" value="55.33" range="Low"    />
+				</Row>
+			</Rows>
+		</Snapshot>
+
+	</ContractPricing>
+
+	<ContractPricing priceUnit="$/MWh" contractId="CID-10290">
+
+		<Snapshot id="today" label="Today">
+			<TermColumns>
+				<Term months="6"  recommended="false" />
+				<Term months="12" recommended="false" />
+				<Term months="18" recommended="false" />
+				<Term months="24" recommended="false" />
+				<Term months="36" recommended="true"  />
+				<Term months="48" recommended="false" />
+			</TermColumns>
+			<Rows>
+				<Row label="On-Peak">
+					<Price term="6"  value="64.90" range="VeryHigh"    />
+					<Price term="12" value="62.40" range="High"        />
+					<Price term="18" value="60.15" range="Medium"  />
+					<Price term="24" value="58.55" range="Low"         />
+					<Price term="36" value="56.60" range="VeryLow"     />
+					<Price term="48" value="57.90" range="Medium"    />
+				</Row>
+				<Row label="Off-Peak">
+					<Price term="6"  value="51.50" range="VeryHigh"    />
+					<Price term="12" value="49.40" range="High"    />
+					<Price term="18" value="47.60" range="Medium"      />
+					<Price term="24" value="46.05" range="Low"         />
+					<Price term="36" value="43.95" range="BestValue" />
+					<Price term="48" value="45.15" range="Low"  />
+				</Row>
+				<Row label="All Hours">
+					<Price term="6"  value="58.20" range="VeryHigh"    />
+					<Price term="12" value="55.70" range="High"        />
+					<Price term="18" value="53.88" range="Medium" />
+					<Price term="24" value="52.30" range="Low"         />
+					<Price term="36" value="50.28" range="BestValue" />
+					<Price term="48" value="51.53" range="Low"         />
+				</Row>
+			</Rows>
+		</Snapshot>
+
+		<Snapshot id="3days" label="3 Days Ago">
+			<TermColumns>
+				<Term months="6"  recommended="false" />
+				<Term months="12" recommended="false" />
+				<Term months="18" recommended="false" />
+				<Term months="24" recommended="false" />
+				<Term months="36" recommended="true"  />
+				<Term months="48" recommended="false" />
+			</TermColumns>
+			<Rows>
+				<Row label="On-Peak">
+					<Price term="6"  value="65.60" range="VeryHigh"    />
+					<Price term="12" value="63.05" range="High"        />
+					<Price term="18" value="60.75" range="Medium"      />
+					<Price term="24" value="59.15" range="Low"         />
+					<Price term="36" value="57.20" range="VeryLow"     />
+					<Price term="48" value="58.50" range="Medium"      />
+				</Row>
+				<Row label="Off-Peak">
+					<Price term="6"  value="52.10" range="VeryHigh"    />
+					<Price term="12" value="49.95" range="High"  />
+					<Price term="18" value="48.15" range="Medium"      />
+					<Price term="24" value="46.60" range="Low"     />
+					<Price term="36" value="44.50" range="BestValue" />
+					<Price term="48" value="45.70" range="Low"         />
+				</Row>
+				<Row label="All Hours">
+					<Price term="6"  value="58.85" range="VeryHigh"    />
+					<Price term="12" value="56.30" range="High"        />
+					<Price term="18" value="54.45" range="Medium"      />
+					<Price term="24" value="52.88" range="Low"         />
+					<Price term="36" value="50.85" range="BestValue" />
+					<Price term="48" value="52.10" range="Low"      />
+				</Row>
+			</Rows>
+		</Snapshot>
+
+		<Snapshot id="1week" label="1 Week Ago">
+			<TermColumns>
+				<Term months="6"  recommended="false" />
+				<Term months="12" recommended="false" />
+				<Term months="18" recommended="false" />
+				<Term months="24" recommended="false" />
+				<Term months="36" recommended="true"  />
+				<Term months="48" recommended="false" />
+			</TermColumns>
+			<Rows>
+				<Row label="On-Peak">
+					<Price term="6"  value="66.35" range="VeryHigh"    />
+					<Price term="12" value="63.80" range="High"        />
+					<Price term="18" value="61.50" range="Medium"    />
+					<Price term="24" value="59.90" range="Low"         />
+					<Price term="36" value="57.95" range="VeryLow"   />
+					<Price term="48" value="59.25" range="Medium"      />
+				</Row>
+				<Row label="Off-Peak">
+					<Price term="6"  value="52.75" range="VeryHigh"    />
+					<Price term="12" value="50.60" range="High"        />
+					<Price term="18" value="48.80" range="Medium"      />
+					<Price term="24" value="47.25" range="Low"      />
+					<Price term="36" value="45.15" range="BestValue" />
+					<Price term="48" value="46.35" range="Low"         />
+				</Row>
+				<Row label="All Hours">
+					<Price term="6"  value="59.55" range="VeryHigh"    />
+					<Price term="12" value="57.00" range="High"        />
+					<Price term="18" value="55.15" range="Medium"      />
+					<Price term="24" value="53.58" range="Low"       />
+					<Price term="36" value="51.55" range="BestValue" />
+					<Price term="48" value="52.80" range="Low"         />
+				</Row>
+			</Rows>
+		</Snapshot>
+
+		<Snapshot id="1month" label="1 Month Ago">
+			<TermColumns>
+				<Term months="6"  recommended="false" />
+				<Term months="12" recommended="false" />
+				<Term months="18" recommended="false" />
+				<Term months="24" recommended="false" />
+				<Term months="36" recommended="true"  />
+				<Term months="48" recommended="false" />
+			</TermColumns>
+			<Rows>
+				<Row label="On-Peak">
+					<Price term="6"  value="68.10" range="VeryHigh"  />
+					<Price term="12" value="65.55" range="High"        />
+					<Price term="18" value="63.20" range="Medium"      />
+					<Price term="24" value="61.55" range="Low"         />
+					<Price term="36" value="59.65" range="VeryLow"     />
+					<Price term="48" value="60.95" range="Medium"  />
+				</Row>
+				<Row label="Off-Peak">
+					<Price term="6"  value="54.30" range="VeryHigh"    />
+					<Price term="12" value="52.20" range="High"        />
+					<Price term="18" value="50.45" range="Medium"      />
+					<Price term="24" value="48.95" range="Low"         />
+					<Price term="36" value="46.85" range="BestValue" />
+					<Price term="48" value="48.10" range="Low"   />
+				</Row>
+				<Row label="All Hours">
+					<Price term="6"  value="61.20" range="VeryHigh"    />
+					<Price term="12" value="58.88" range="High"        />
+					<Price term="18" value="56.83" range="Medium"    />
+					<Price term="24" value="55.25" range="Low"         />
+					<Price term="36" value="53.25" range="BestValue" />
+					<Price term="48" value="54.53" range="Low"      />
+				</Row>
+			</Rows>
+		</Snapshot>
+
+	</ContractPricing>
+
+	<ContractPricing priceUnit="$/MWh" contractId="CID-10285">
+
+		<Snapshot id="today" label="Today">
+			<TermColumns>
+				<Term months="6"  recommended="false" />
+				<Term months="12" recommended="false" />
+				<Term months="18" recommended="false" />
+				<Term months="24" recommended="false" />
+				<Term months="36" recommended="true"  />
+				<Term months="48" recommended="false" />
+			</TermColumns>
+			<Rows>
+				<Row label="On-Peak">
+					<Price term="6"  value="67.10" range="VeryHigh"    />
+					<Price term="12" value="64.60" range="High"        />
+					<Price term="18" value="62.30" range="Medium"      />
+					<Price term="24" value="60.70" range="Low"         />
+					<Price term="36" value="58.80" range="VeryLow"     />
+					<Price term="48" value="60.10" range="Medium"      />
+				</Row>
+				<Row label="Off-Peak">
+					<Price term="6" value="53.40" range="VeryHigh"    />
+					<Price term="12" value="51.25" range="High"     />
+					<Price term="18" value="49.40" range="Medium"  />
+					<Price term="24" value="47.85" range="Low"       />
+					<Price term="36" value="45.75" range="BestValue" />
+					<Price term="48" value="46.95" range="Low"         />
+				</Row>
+				<Row label="All Hours">
+					<Price term="6"  value="60.25" range="VeryHigh"    />
+					<Price term="12" value="57.93" range="High"        />
+					<Price term="18" value="55.85" range="Medium"    />
+					<Price term="24" value="54.28" range="Low"     />
+					<Price term="36" value="52.28" range="BestValue" />
+					<Price term="48" value="53.53" range="Low"         />
+				</Row>
+			</Rows>
+		</Snapshot>
+
+		<Snapshot id="3days" label="3 Days Ago">
+			<TermColumns>
+				<Term months="6"  recommended="false" />
+				<Term months="12" recommended="false" />
+				<Term months="18" recommended="false" />
+				<Term months="24" recommended="false" />
+				<Term months="36" recommended="true"  />
+				<Term months="48" recommended="false" />
+			</TermColumns>
+			<Rows>
+				<Row label="On-Peak">
+					<Price term="6"  value="67.80" range="VeryHigh"    />
+					<Price term="12" value="65.25" range="High" />
+					<Price term="18" value="62.95" range="Medium"      />
+					<Price term="24" value="61.30" range="Low" />
+					<Price term="36" value="59.40" range="VeryLow"     />
+					<Price term="48" value="60.70" range="Medium"      />
+				</Row>
+				<Row label="Off-Peak">
+					<Price term="6"  value="54.00" range="VeryHigh"    />
+					<Price term="12" value="51.85" range="High"   />
+					<Price term="18" value="49.95" range="Medium"      />
+					<Price term="24" value="48.40" range="Low"         />
+					<Price term="36" value="46.30" range="BestValue" />
+					<Price term="48" value="47.50" range="Low"         />
+				</Row>
+				<Row label="All Hours">
+					<Price term="6"  value="60.90" range="VeryHigh"    />
+					<Price term="12" value="58.55" range="High"        />
+					<Price term="18" value="56.45" range="Medium"      />
+					<Price term="24" value="54.85" range="Low"         />
+					<Price term="36" value="52.85" range="BestValue" />
+					<Price term="48" value="54.10" range="Low"      />
+				</Row>
+			</Rows>
+		</Snapshot>
+
+		<Snapshot id="1week" label="1 Week Ago">
+			<TermColumns>
+				<Term months="6"  recommended="false" />
+				<Term months="12" recommended="false" />
+				<Term months="18" recommended="false" />
+				<Term months="24" recommended="false" />
+				<Term months="36" recommended="true"  />
+				<Term months="48" recommended="false" />
+			</TermColumns>
+			<Rows>
+				<Row label="On-Peak">
+					<Price term="6"  value="68.55" range="VeryHigh"    />
+					<Price term="12" value="66.00" range="High"        />
+					<Price term="18" value="63.70" range="Medium"      />
+					<Price term="24" value="62.05" range="Low"    />
+					<Price term="36" value="60.15" range="VeryLow"     />
+					<Price term="48" value="61.45" range="Medium"  />
+				</Row>
+				<Row label="Off-Peak">
+					<Price term="6"  value="54.65" range="VeryHigh"    />
+					<Price term="12" value="52.50" range="High"        />
+					<Price term="18" value="50.65" range="Medium"      />
+					<Price term="24" value="49.10" range="Low"         />
+					<Price term="36" value="47.00" range="BestValue" />
+					<Price term="48" value="48.20" range="Low"    />
+				</Row>
+				<Row label="All Hours">
+					<Price term="6"  value="61.60" range="VeryHigh"    />
+					<Price term="12" value="59.25" range="High"   />
+					<Price term="18" value="57.18" range="Medium"   />
+					<Price term="24" value="55.58" range="Low"      />
+					<Price term="36" value="53.58" range="BestValue" />
+					<Price term="48" value="54.83" range="Low"       />
+				</Row>
+			</Rows>
+		</Snapshot>
+
+		<Snapshot id="1month" label="1 Month Ago">
+			<TermColumns>
+				<Term months="6"  recommended="false" />
+				<Term months="12" recommended="false" />
+				<Term months="18" recommended="false" />
+				<Term months="24" recommended="false" />
+				<Term months="36" recommended="true"  />
+				<Term months="48" recommended="false" />
+			</TermColumns>
+			<Rows>
+				<Row label="On-Peak">
+					<Price term="6"  value="70.30" range="VeryHigh"    />
+					<Price term="12" value="67.75" range="High"        />
+					<Price term="18" value="65.40" range="Medium"      />
+					<Price term="24" value="63.70" range="Low"         />
+					<Price term="36" value="61.85" range="VeryLow"     />
+					<Price term="48" value="63.15" range="Medium"      />
+				</Row>
+				<Row label="Off-Peak">
+					<Price term="6"  value="56.35" range="VeryHigh"    />
+					<Price term="12" value="54.20" range="High"        />
+					<Price term="18" value="52.35" range="Medium"      />
+					<Price term="24" value="50.80" range="Low"   />
+					<Price term="36" value="48.70" range="BestValue" />
+					<Price term="48" value="49.95" range="Low"         />
+				</Row>
+				<Row label="All Hours">
+					<Price term="6"  value="63.33" range="VeryHigh"  />
+					<Price term="12" value="60.98" range="High"        />
+					<Price term="18" value="58.88" range="Medium"      />
+					<Price term="24" value="57.25" range="Low"   />
+					<Price term="36" value="55.28" range="BestValue" />
+					<Price term="48" value="56.55" range="Low"       />
+				</Row>
+			</Rows>
+		</Snapshot>
+
+	</ContractPricing>
+
+	<ContractPricing priceUnit="$/MWh" contractId="CID-10284">
+
+		<Snapshot id="today" label="Today">
+			<TermColumns>
+				<Term months="6"  recommended="false" />
+				<Term months="12" recommended="false" />
+				<Term months="18" recommended="false" />
+				<Term months="24" recommended="false" />
+				<Term months="36" recommended="true"  />
+				<Term months="48" recommended="false" />
+			</TermColumns>
+			<Rows>
+				<Row label="On-Peak">
+					<Price term="6"  value="65.40" range="VeryHigh"    />
+					<Price term="12" value="62.90" range="High"        />
+					<Price term="18" value="60.65" range="Medium"      />
+					<Price term="24" value="59.05" range="Low"         />
+					<Price term="36" value="57.15" range="VeryLow"     />
+					<Price term="48" value="58.45" range="Medium"      />
+				</Row>
+				<Row label="Off-Peak">
+					<Price term="6"  value="51.90" range="VeryHigh"    />
+					<Price term="12" value="49.80" range="High"        />
+					<Price term="18" value="48.00" range="Medium"      />
+					<Price term="24" value="46.45" range="Low"         />
+					<Price term="36" value="44.35" range="BestValue" />
+					<Price term="48" value="45.55" range="Low"   />
+				</Row>
+				<Row label="All Hours">
+					<Price term="6"  value="58.65" range="VeryHigh"    />
+					<Price term="12" value="56.15" range="High"        />
+					<Price term="18" value="54.33" range="Medium"   />
+					<Price term="24" value="52.75" range="Low"         />
+					<Price term="36" value="50.75" range="BestValue" />
+					<Price term="48" value="52.00" range="Low"   />
+				</Row>
+			</Rows>
+		</Snapshot>
+
+		<Snapshot id="3days" label="3 Days Ago">
+			<TermColumns>
+				<Term months="6"  recommended="false" />
+				<Term months="12" recommended="false" />
+				<Term months="18" recommended="false" />
+				<Term months="24" recommended="false" />
+				<Term months="36" recommended="true"  />
+				<Term months="48" recommended="false" />
+			</TermColumns>
+			<Rows>
+				<Row label="On-Peak">
+					<Price term="6"  value="66.10" range="VeryHigh"    />
+					<Price term="12" value="63.55" range="High"        />
+					<Price term="18" value="61.25" range="Medium"      />
+					<Price term="24" value="59.65" range="Low"         />
+					<Price term="36" value="57.75" range="VeryLow"     />
+					<Price term="48" value="59.05" range="Medium"      />
+				</Row>
+				<Row label="Off-Peak">
+					<Price term="6"  value="52.50" range="VeryHigh"    />
+					<Price term="12" value="50.35" range="High"        />
+					<Price term="18" value="48.55" range="Medium"      />
+					<Price term="24" value="47.00" range="Low"         />
+					<Price term="36" value="44.90" range="BestValue" />
+					<Price term="48" value="46.10" range="Low"         />
+				</Row>
+				<Row label="All Hours">
+					<Price term="6"  value="59.30" range="VeryHigh"    />
+					<Price term="12" value="56.75" range="High"   />
+					<Price term="18" value="54.90" range="Medium"      />
+					<Price term="24" value="53.33" range="Low"         />
+					<Price term="36" value="51.33" range="BestValue" />
+					<Price term="48" value="52.58" range="Low"    />
+				</Row>
+			</Rows>
+		</Snapshot>
+
+		<Snapshot id="1week" label="1 Week Ago">
+			<TermColumns>
+				<Term months="6"  recommended="false" />
+				<Term months="12" recommended="false" />
+				<Term months="18" recommended="false" />
+				<Term months="24" recommended="false" />
+				<Term months="36" recommended="true"  />
+				<Term months="48" recommended="false" />
+			</TermColumns>
+			<Rows>
+				<Row label="On-Peak">
+					<Price term="6"  value="66.85" range="VeryHigh"    />
+					<Price term="12" value="64.30" range="High"        />
+					<Price term="18" value="62.00" range="Medium"      />
+					<Price term="24" value="60.40" range="Low"     />
+					<Price term="36" value="58.50" range="VeryLow"     />
+					<Price term="48" value="59.80" range="Medium"      />
+				</Row>
+				<Row label="Off-Peak">
+					<Price term="6"  value="53.15" range="VeryHigh"    />
+					<Price term="12" value="51.00" range="High"  />
+					<Price term="18" value="49.20" range="Medium"  />
+					<Price term="24" value="47.65" range="Low"         />
+					<Price term="36" value="45.55" range="BestValue" />
+					<Price term="48" value="46.75" range="Low"         />
+				</Row>
+				<Row label="All Hours">
+					<Price term="6"  value="60.00" range="VeryHigh"    />
+					<Price term="12" value="57.45" range="High"        />
+					<Price term="18" value="55.60" range="Medium"      />
+					<Price term="24" value="54.03" range="Low"         />
+					<Price term="36" value="52.03" range="BestValue" />
+					<Price term="48" value="53.28" range="Low"         />
+				</Row>
+			</Rows>
+		</Snapshot>
+
+		<Snapshot id="1month" label="1 Month Ago">
+			<TermColumns>
+				<Term months="6"  recommended="false" />
+				<Term months="12" recommended="false" />
+				<Term months="18" recommended="false" />
+				<Term months="24" recommended="false" />
+				<Term months="36" recommended="true"  />
+				<Term months="48" recommended="false" />
+			</TermColumns>
+			<Rows>
+				<Row label="On-Peak">
+					<Price term="6"  value="68.60" range="VeryHigh"  />
+					<Price term="12" value="66.05" range="High"        />
+					<Price term="18" value="63.70" range="Medium" />
+					<Price term="24" value="62.05" range="Low"         />
+					<Price term="36" value="60.20" range="VeryLow"     />
+					<Price term="48" value="61.50" range="Medium"  />
+				</Row>
+				<Row label="Off-Peak">
+					<Price term="6"  value="54.85" range="VeryHigh"    />
+					<Price term="12" value="52.70" range="High"     />
+					<Price term="18" value="50.90" range="Medium"/>
+					<Price term="24" value="49.35" range="Low"         />
+					<Price term="36" value="47.25" range="BestValue" />
+					<Price term="48" value="48.50" range="Low"         />
+				</Row>
+				<Row label="All Hours">
+					<Price term="6"  value="61.73" range="VeryHigh"    />
+					<Price term="12" value="59.38" range="High"        />
+					<Price term="18" value="57.30" range="Medium"      />
+					<Price term="24" value="55.70" range="Low"       />
+					<Price term="36" value="53.73" range="BestValue" />
+					<Price term="48" value="55.00" range="Low"         />
+				</Row>
+			</Rows>
+		</Snapshot>
+
+	</ContractPricing>
+
+	<ContractPricing priceUnit="$/MWh" contractId="CID-10283">
+
+		<Snapshot id="today" label="Today">
+			<TermColumns>
+				<Term months="6"  recommended="false" />
+				<Term months="12" recommended="false" />
+				<Term months="18" recommended="false" />
+				<Term months="24" recommended="false" />
+				<Term months="36" recommended="true"  />
+				<Term months="48" recommended="false" />
+			</TermColumns>
+			<Rows>
+				<Row label="On-Peak">
+					<Price term="6"  value="65.40" range="VeryHigh"    />
+					<Price term="12" value="62.90" range="High"        />
+					<Price term="18" value="60.65" range="Medium"      />
+					<Price term="24" value="59.05" range="Low"         />
+					<Price term="36" value="57.15" range="VeryLow"     />
+					<Price term="48" value="58.45" range="Medium"      />
+				</Row>
+				<Row label="Off-Peak">
+					<Price term="6"  value="51.90" range="VeryHigh"    />
+					<Price term="12" value="49.80" range="High"        />
+					<Price term="18" value="48.00" range="Medium"      />
+					<Price term="24" value="46.45" range="Low"         />
+					<Price term="36" value="44.35" range="BestValue" />
+					<Price term="48" value="45.55" range="Low"   />
+				</Row>
+				<Row label="All Hours">
+					<Price term="6"  value="58.65" range="VeryHigh"    />
+					<Price term="12" value="56.15" range="High"        />
+					<Price term="18" value="54.33" range="Medium"   />
+					<Price term="24" value="52.75" range="Low"         />
+					<Price term="36" value="50.75" range="BestValue" />
+					<Price term="48" value="52.00" range="Low"   />
+				</Row>
+			</Rows>
+		</Snapshot>
+
+		<Snapshot id="3days" label="3 Days Ago">
+			<TermColumns>
+				<Term months="6"  recommended="false" />
+				<Term months="12" recommended="false" />
+				<Term months="18" recommended="false" />
+				<Term months="24" recommended="false" />
+				<Term months="36" recommended="true"  />
+				<Term months="48" recommended="false" />
+			</TermColumns>
+			<Rows>
+				<Row label="On-Peak">
+					<Price term="6"  value="66.10" range="VeryHigh"    />
+					<Price term="12" value="63.55" range="High"        />
+					<Price term="18" value="61.25" range="Medium"      />
+					<Price term="24" value="59.65" range="Low"         />
+					<Price term="36" value="57.75" range="VeryLow"     />
+					<Price term="48" value="59.05" range="Medium"      />
+				</Row>
+				<Row label="Off-Peak">
+					<Price term="6"  value="52.50" range="VeryHigh"    />
+					<Price term="12" value="50.35" range="High"        />
+					<Price term="18" value="48.55" range="Medium"      />
+					<Price term="24" value="47.00" range="Low"         />
+					<Price term="36" value="44.90" range="BestValue" />
+					<Price term="48" value="46.10" range="Low"         />
+				</Row>
+				<Row label="All Hours">
+					<Price term="6"  value="59.30" range="VeryHigh"    />
+					<Price term="12" value="56.75" range="High"   />
+					<Price term="18" value="54.90" range="Medium"      />
+					<Price term="24" value="53.33" range="Low"         />
+					<Price term="36" value="51.33" range="BestValue" />
+					<Price term="48" value="52.58" range="Low"    />
+				</Row>
+			</Rows>
+		</Snapshot>
+
+		<Snapshot id="1week" label="1 Week Ago">
+			<TermColumns>
+				<Term months="6"  recommended="false" />
+				<Term months="12" recommended="false" />
+				<Term months="18" recommended="false" />
+				<Term months="24" recommended="false" />
+				<Term months="36" recommended="true"  />
+				<Term months="48" recommended="false" />
+			</TermColumns>
+			<Rows>
+				<Row label="On-Peak">
+					<Price term="6"  value="66.85" range="VeryHigh"    />
+					<Price term="12" value="64.30" range="High"        />
+					<Price term="18" value="62.00" range="Medium"      />
+					<Price term="24" value="60.40" range="Low"     />
+					<Price term="36" value="58.50" range="VeryLow"     />
+					<Price term="48" value="59.80" range="Medium"      />
+				</Row>
+				<Row label="Off-Peak">
+					<Price term="6"  value="53.15" range="VeryHigh"    />
+					<Price term="12" value="51.00" range="High"  />
+					<Price term="18" value="49.20" range="Medium"  />
+					<Price term="24" value="47.65" range="Low"         />
+					<Price term="36" value="45.55" range="BestValue" />
+					<Price term="48" value="46.75" range="Low"         />
+				</Row>
+				<Row label="All Hours">
+					<Price term="6"  value="60.00" range="VeryHigh"    />
+					<Price term="12" value="57.45" range="High"        />
+					<Price term="18" value="55.60" range="Medium"      />
+					<Price term="24" value="54.03" range="Low"         />
+					<Price term="36" value="52.03" range="BestValue" />
+					<Price term="48" value="53.28" range="Low"         />
+				</Row>
+			</Rows>
+		</Snapshot>
+
+		<Snapshot id="1month" label="1 Month Ago">
+			<TermColumns>
+				<Term months="6"  recommended="false" />
+				<Term months="12" recommended="false" />
+				<Term months="18" recommended="false" />
+				<Term months="24" recommended="false" />
+				<Term months="36" recommended="true"  />
+				<Term months="48" recommended="false" />
+			</TermColumns>
+			<Rows>
+				<Row label="On-Peak">
+					<Price term="6"  value="68.60" range="VeryHigh"  />
+					<Price term="12" value="66.05" range="High"        />
+					<Price term="18" value="63.70" range="Medium" />
+					<Price term="24" value="62.05" range="Low"         />
+					<Price term="36" value="60.20" range="VeryLow"     />
+					<Price term="48" value="61.50" range="Medium"  />
+				</Row>
+				<Row label="Off-Peak">
+					<Price term="6"  value="54.85" range="VeryHigh"    />
+					<Price term="12" value="52.70" range="High"     />
+					<Price term="18" value="50.90" range="Medium"/>
+					<Price term="24" value="49.35" range="Low"         />
+					<Price term="36" value="47.25" range="BestValue" />
+					<Price term="48" value="48.50" range="Low"         />
+				</Row>
+				<Row label="All Hours">
+					<Price term="6"  value="61.73" range="VeryHigh"    />
+					<Price term="12" value="59.38" range="High"        />
+					<Price term="18" value="57.30" range="Medium"      />
+					<Price term="24" value="55.70" range="Low"       />
+					<Price term="36" value="53.73" range="BestValue" />
+					<Price term="48" value="55.00" range="Low"         />
+				</Row>
+			</Rows>
+		</Snapshot>
+
+	</ContractPricing>
+
+	<ContractPricing priceUnit="$/MWh" contractId="CID-10282">
+
+		<Snapshot id="today" label="Today">
+			<TermColumns>
+				<Term months="6"  recommended="false" />
+				<Term months="12" recommended="false" />
+				<Term months="18" recommended="false" />
+				<Term months="24" recommended="false" />
+				<Term months="36" recommended="true"  />
+				<Term months="48" recommended="false" />
+			</TermColumns>
+			<Rows>
+				<Row label="On-Peak">
+					<Price term="6"  value="65.40" range="VeryHigh"    />
+					<Price term="12" value="62.90" range="High"        />
+					<Price term="18" value="60.65" range="Medium"      />
+					<Price term="24" value="59.05" range="Low"         />
+					<Price term="36" value="57.15" range="VeryLow"     />
+					<Price term="48" value="58.45" range="Medium"      />
+				</Row>
+				<Row label="Off-Peak">
+					<Price term="6"  value="51.90" range="VeryHigh"    />
+					<Price term="12" value="49.80" range="High"        />
+					<Price term="18" value="48.00" range="Medium"      />
+					<Price term="24" value="46.45" range="Low"         />
+					<Price term="36" value="44.35" range="BestValue" />
+					<Price term="48" value="45.55" range="Low"   />
+				</Row>
+				<Row label="All Hours">
+					<Price term="6"  value="58.65" range="VeryHigh"    />
+					<Price term="12" value="56.15" range="High"        />
+					<Price term="18" value="54.33" range="Medium"   />
+					<Price term="24" value="52.75" range="Low"         />
+					<Price term="36" value="50.75" range="BestValue" />
+					<Price term="48" value="52.00" range="Low"   />
+				</Row>
+			</Rows>
+		</Snapshot>
+
+		<Snapshot id="3days" label="3 Days Ago">
+			<TermColumns>
+				<Term months="6"  recommended="false" />
+				<Term months="12" recommended="false" />
+				<Term months="18" recommended="false" />
+				<Term months="24" recommended="false" />
+				<Term months="36" recommended="true"  />
+				<Term months="48" recommended="false" />
+			</TermColumns>
+			<Rows>
+				<Row label="On-Peak">
+					<Price term="6"  value="66.10" range="VeryHigh"    />
+					<Price term="12" value="63.55" range="High"        />
+					<Price term="18" value="61.25" range="Medium"      />
+					<Price term="24" value="59.65" range="Low"         />
+					<Price term="36" value="57.75" range="VeryLow"     />
+					<Price term="48" value="59.05" range="Medium"      />
+				</Row>
+				<Row label="Off-Peak">
+					<Price term="6"  value="52.50" range="VeryHigh"    />
+					<Price term="12" value="50.35" range="High"        />
+					<Price term="18" value="48.55" range="Medium"      />
+					<Price term="24" value="47.00" range="Low"         />
+					<Price term="36" value="44.90" range="BestValue" />
+					<Price term="48" value="46.10" range="Low"         />
+				</Row>
+				<Row label="All Hours">
+					<Price term="6"  value="59.30" range="VeryHigh"    />
+					<Price term="12" value="56.75" range="High"   />
+					<Price term="18" value="54.90" range="Medium"      />
+					<Price term="24" value="53.33" range="Low"         />
+					<Price term="36" value="51.33" range="BestValue" />
+					<Price term="48" value="52.58" range="Low"    />
+				</Row>
+			</Rows>
+		</Snapshot>
+
+		<Snapshot id="1week" label="1 Week Ago">
+			<TermColumns>
+				<Term months="6"  recommended="false" />
+				<Term months="12" recommended="false" />
+				<Term months="18" recommended="false" />
+				<Term months="24" recommended="false" />
+				<Term months="36" recommended="true"  />
+				<Term months="48" recommended="false" />
+			</TermColumns>
+			<Rows>
+				<Row label="On-Peak">
+					<Price term="6"  value="66.85" range="VeryHigh"    />
+					<Price term="12" value="64.30" range="High"        />
+					<Price term="18" value="62.00" range="Medium"      />
+					<Price term="24" value="60.40" range="Low"     />
+					<Price term="36" value="58.50" range="VeryLow"     />
+					<Price term="48" value="59.80" range="Medium"      />
+				</Row>
+				<Row label="Off-Peak">
+					<Price term="6"  value="53.15" range="VeryHigh"    />
+					<Price term="12" value="51.00" range="High"  />
+					<Price term="18" value="49.20" range="Medium"  />
+					<Price term="24" value="47.65" range="Low"         />
+					<Price term="36" value="45.55" range="BestValue" />
+					<Price term="48" value="46.75" range="Low"         />
+				</Row>
+				<Row label="All Hours">
+					<Price term="6"  value="60.00" range="VeryHigh"    />
+					<Price term="12" value="57.45" range="High"        />
+					<Price term="18" value="55.60" range="Medium"      />
+					<Price term="24" value="54.03" range="Low"         />
+					<Price term="36" value="52.03" range="BestValue" />
+					<Price term="48" value="53.28" range="Low"         />
+				</Row>
+			</Rows>
+		</Snapshot>
+
+		<Snapshot id="1month" label="1 Month Ago">
+			<TermColumns>
+				<Term months="6"  recommended="false" />
+				<Term months="12" recommended="false" />
+				<Term months="18" recommended="false" />
+				<Term months="24" recommended="false" />
+				<Term months="36" recommended="true"  />
+				<Term months="48" recommended="false" />
+			</TermColumns>
+			<Rows>
+				<Row label="On-Peak">
+					<Price term="6"  value="68.60" range="VeryHigh"  />
+					<Price term="12" value="66.05" range="High"        />
+					<Price term="18" value="63.70" range="Medium" />
+					<Price term="24" value="62.05" range="Low"         />
+					<Price term="36" value="60.20" range="VeryLow"     />
+					<Price term="48" value="61.50" range="Medium"  />
+				</Row>
+				<Row label="Off-Peak">
+					<Price term="6"  value="54.85" range="VeryHigh"    />
+					<Price term="12" value="52.70" range="High"     />
+					<Price term="18" value="50.90" range="Medium"/>
+					<Price term="24" value="49.35" range="Low"         />
+					<Price term="36" value="47.25" range="BestValue" />
+					<Price term="48" value="48.50" range="Low"         />
+				</Row>
+				<Row label="All Hours">
+					<Price term="6"  value="61.73" range="VeryHigh"    />
+					<Price term="12" value="59.38" range="High"        />
+					<Price term="18" value="57.30" range="Medium"      />
+					<Price term="24" value="55.70" range="Low"       />
+					<Price term="36" value="53.73" range="BestValue" />
+					<Price term="48" value="55.00" range="Low"         />
+				</Row>
+			</Rows>
+		</Snapshot>
+
+	</ContractPricing>
+
+	<ContractPricing priceUnit="$/MWh" contractId="CID-10278">
+
+		<Snapshot id="today" label="Today">
+			<TermColumns>
+				<Term months="6"  recommended="false" />
+				<Term months="12" recommended="false" />
+				<Term months="18" recommended="false" />
+				<Term months="24" recommended="false" />
+				<Term months="36" recommended="true"  />
+				<Term months="48" recommended="false" />
+			</TermColumns>
+			<Rows>
+				<Row label="On-Peak">
+					<Price term="6"  value="65.40" range="VeryHigh"    />
+					<Price term="12" value="62.90" range="High"        />
+					<Price term="18" value="60.65" range="Medium"      />
+					<Price term="24" value="59.05" range="Low"         />
+					<Price term="36" value="57.15" range="VeryLow"     />
+					<Price term="48" value="58.45" range="Medium"      />
+				</Row>
+				<Row label="Off-Peak">
+					<Price term="6"  value="51.90" range="VeryHigh"    />
+					<Price term="12" value="49.80" range="High"        />
+					<Price term="18" value="48.00" range="Medium"      />
+					<Price term="24" value="46.45" range="Low"         />
+					<Price term="36" value="44.35" range="BestValue" />
+					<Price term="48" value="45.55" range="Low"   />
+				</Row>
+				<Row label="All Hours">
+					<Price term="6"  value="58.65" range="VeryHigh"    />
+					<Price term="12" value="56.15" range="High"        />
+					<Price term="18" value="54.33" range="Medium"   />
+					<Price term="24" value="52.75" range="Low"         />
+					<Price term="36" value="50.75" range="BestValue" />
+					<Price term="48" value="52.00" range="Low"   />
+				</Row>
+			</Rows>
+		</Snapshot>
+
+		<Snapshot id="3days" label="3 Days Ago">
+			<TermColumns>
+				<Term months="6"  recommended="false" />
+				<Term months="12" recommended="false" />
+				<Term months="18" recommended="false" />
+				<Term months="24" recommended="false" />
+				<Term months="36" recommended="true"  />
+				<Term months="48" recommended="false" />
+			</TermColumns>
+			<Rows>
+				<Row label="On-Peak">
+					<Price term="6"  value="66.10" range="VeryHigh"    />
+					<Price term="12" value="63.55" range="High"        />
+					<Price term="18" value="61.25" range="Medium"      />
+					<Price term="24" value="59.65" range="Low"         />
+					<Price term="36" value="57.75" range="VeryLow"     />
+					<Price term="48" value="59.05" range="Medium"      />
+				</Row>
+				<Row label="Off-Peak">
+					<Price term="6"  value="52.50" range="VeryHigh"    />
+					<Price term="12" value="50.35" range="High"        />
+					<Price term="18" value="48.55" range="Medium"      />
+					<Price term="24" value="47.00" range="Low"         />
+					<Price term="36" value="44.90" range="BestValue" />
+					<Price term="48" value="46.10" range="Low"         />
+				</Row>
+				<Row label="All Hours">
+					<Price term="6"  value="59.30" range="VeryHigh"    />
+					<Price term="12" value="56.75" range="High"   />
+					<Price term="18" value="54.90" range="Medium"      />
+					<Price term="24" value="53.33" range="Low"         />
+					<Price term="36" value="51.33" range="BestValue" />
+					<Price term="48" value="52.58" range="Low"    />
+				</Row>
+			</Rows>
+		</Snapshot>
+
+		<Snapshot id="1week" label="1 Week Ago">
+			<TermColumns>
+				<Term months="6"  recommended="false" />
+				<Term months="12" recommended="false" />
+				<Term months="18" recommended="false" />
+				<Term months="24" recommended="false" />
+				<Term months="36" recommended="true"  />
+				<Term months="48" recommended="false" />
+			</TermColumns>
+			<Rows>
+				<Row label="On-Peak">
+					<Price term="6"  value="66.85" range="VeryHigh"    />
+					<Price term="12" value="64.30" range="High"        />
+					<Price term="18" value="62.00" range="Medium"      />
+					<Price term="24" value="60.40" range="Low"     />
+					<Price term="36" value="58.50" range="VeryLow"     />
+					<Price term="48" value="59.80" range="Medium"      />
+				</Row>
+				<Row label="Off-Peak">
+					<Price term="6"  value="53.15" range="VeryHigh"    />
+					<Price term="12" value="51.00" range="High"  />
+					<Price term="18" value="49.20" range="Medium"  />
+					<Price term="24" value="47.65" range="Low"         />
+					<Price term="36" value="45.55" range="BestValue" />
+					<Price term="48" value="46.75" range="Low"         />
+				</Row>
+				<Row label="All Hours">
+					<Price term="6"  value="60.00" range="VeryHigh"    />
+					<Price term="12" value="57.45" range="High"        />
+					<Price term="18" value="55.60" range="Medium"      />
+					<Price term="24" value="54.03" range="Low"         />
+					<Price term="36" value="52.03" range="BestValue" />
+					<Price term="48" value="53.28" range="Low"         />
+				</Row>
+			</Rows>
+		</Snapshot>
+
+		<Snapshot id="1month" label="1 Month Ago">
+			<TermColumns>
+				<Term months="6"  recommended="false" />
+				<Term months="12" recommended="false" />
+				<Term months="18" recommended="false" />
+				<Term months="24" recommended="false" />
+				<Term months="36" recommended="true"  />
+				<Term months="48" recommended="false" />
+			</TermColumns>
+			<Rows>
+				<Row label="On-Peak">
+					<Price term="6"  value="68.60" range="VeryHigh"  />
+					<Price term="12" value="66.05" range="High"        />
+					<Price term="18" value="63.70" range="Medium" />
+					<Price term="24" value="62.05" range="Low"         />
+					<Price term="36" value="60.20" range="VeryLow"     />
+					<Price term="48" value="61.50" range="Medium"  />
+				</Row>
+				<Row label="Off-Peak">
+					<Price term="6"  value="54.85" range="VeryHigh"    />
+					<Price term="12" value="52.70" range="High"     />
+					<Price term="18" value="50.90" range="Medium"/>
+					<Price term="24" value="49.35" range="Low"         />
+					<Price term="36" value="47.25" range="BestValue" />
+					<Price term="48" value="48.50" range="Low"         />
+				</Row>
+				<Row label="All Hours">
+					<Price term="6"  value="61.73" range="VeryHigh"    />
+					<Price term="12" value="59.38" range="High"        />
+					<Price term="18" value="57.30" range="Medium"      />
+					<Price term="24" value="55.70" range="Low"       />
+					<Price term="36" value="53.73" range="BestValue" />
+					<Price term="48" value="55.00" range="Low"         />
+				</Row>
+			</Rows>
+		</Snapshot>
+
+	</ContractPricing>
+
+	<ContractPricing priceUnit="$/MWh" contractId="CID-10277">
+
+		<Snapshot id="today" label="Today">
+			<TermColumns>
+				<Term months="6"  recommended="false" />
+				<Term months="12" recommended="false" />
+				<Term months="18" recommended="false" />
+				<Term months="24" recommended="false" />
+				<Term months="36" recommended="true"  />
+				<Term months="48" recommended="false" />
+			</TermColumns>
+			<Rows>
+				<Row label="On-Peak">
+					<Price term="6"  value="65.40" range="VeryHigh"    />
+					<Price term="12" value="62.90" range="High"        />
+					<Price term="18" value="60.65" range="Medium"      />
+					<Price term="24" value="59.05" range="Low"         />
+					<Price term="36" value="57.15" range="VeryLow"     />
+					<Price term="48" value="58.45" range="Medium"      />
+				</Row>
+				<Row label="Off-Peak">
+					<Price term="6"  value="51.90" range="VeryHigh"    />
+					<Price term="12" value="49.80" range="High"        />
+					<Price term="18" value="48.00" range="Medium"      />
+					<Price term="24" value="46.45" range="Low"         />
+					<Price term="36" value="44.35" range="BestValue" />
+					<Price term="48" value="45.55" range="Low"   />
+				</Row>
+				<Row label="All Hours">
+					<Price term="6"  value="58.65" range="VeryHigh"    />
+					<Price term="12" value="56.15" range="High"        />
+					<Price term="18" value="54.33" range="Medium"   />
+					<Price term="24" value="52.75" range="Low"         />
+					<Price term="36" value="50.75" range="BestValue" />
+					<Price term="48" value="52.00" range="Low"   />
+				</Row>
+			</Rows>
+		</Snapshot>
+
+		<Snapshot id="3days" label="3 Days Ago">
+			<TermColumns>
+				<Term months="6"  recommended="false" />
+				<Term months="12" recommended="false" />
+				<Term months="18" recommended="false" />
+				<Term months="24" recommended="false" />
+				<Term months="36" recommended="true"  />
+				<Term months="48" recommended="false" />
+			</TermColumns>
+			<Rows>
+				<Row label="On-Peak">
+					<Price term="6"  value="66.10" range="VeryHigh"    />
+					<Price term="12" value="63.55" range="High"        />
+					<Price term="18" value="61.25" range="Medium"      />
+					<Price term="24" value="59.65" range="Low"         />
+					<Price term="36" value="57.75" range="VeryLow"     />
+					<Price term="48" value="59.05" range="Medium"      />
+				</Row>
+				<Row label="Off-Peak">
+					<Price term="6"  value="52.50" range="VeryHigh"    />
+					<Price term="12" value="50.35" range="High"        />
+					<Price term="18" value="48.55" range="Medium"      />
+					<Price term="24" value="47.00" range="Low"         />
+					<Price term="36" value="44.90" range="BestValue" />
+					<Price term="48" value="46.10" range="Low"         />
+				</Row>
+				<Row label="All Hours">
+					<Price term="6"  value="59.30" range="VeryHigh"    />
+					<Price term="12" value="56.75" range="High"   />
+					<Price term="18" value="54.90" range="Medium"      />
+					<Price term="24" value="53.33" range="Low"         />
+					<Price term="36" value="51.33" range="BestValue" />
+					<Price term="48" value="52.58" range="Low"    />
+				</Row>
+			</Rows>
+		</Snapshot>
+
+		<Snapshot id="1week" label="1 Week Ago">
+			<TermColumns>
+				<Term months="6"  recommended="false" />
+				<Term months="12" recommended="false" />
+				<Term months="18" recommended="false" />
+				<Term months="24" recommended="false" />
+				<Term months="36" recommended="true"  />
+				<Term months="48" recommended="false" />
+			</TermColumns>
+			<Rows>
+				<Row label="On-Peak">
+					<Price term="6"  value="66.85" range="VeryHigh"    />
+					<Price term="12" value="64.30" range="High"        />
+					<Price term="18" value="62.00" range="Medium"      />
+					<Price term="24" value="60.40" range="Low"     />
+					<Price term="36" value="58.50" range="VeryLow"     />
+					<Price term="48" value="59.80" range="Medium"      />
+				</Row>
+				<Row label="Off-Peak">
+					<Price term="6"  value="53.15" range="VeryHigh"    />
+					<Price term="12" value="51.00" range="High"  />
+					<Price term="18" value="49.20" range="Medium"  />
+					<Price term="24" value="47.65" range="Low"         />
+					<Price term="36" value="45.55" range="BestValue" />
+					<Price term="48" value="46.75" range="Low"         />
+				</Row>
+				<Row label="All Hours">
+					<Price term="6"  value="60.00" range="VeryHigh"    />
+					<Price term="12" value="57.45" range="High"        />
+					<Price term="18" value="55.60" range="Medium"      />
+					<Price term="24" value="54.03" range="Low"         />
+					<Price term="36" value="52.03" range="BestValue" />
+					<Price term="48" value="53.28" range="Low"         />
+				</Row>
+			</Rows>
+		</Snapshot>
+
+		<Snapshot id="1month" label="1 Month Ago">
+			<TermColumns>
+				<Term months="6"  recommended="false" />
+				<Term months="12" recommended="false" />
+				<Term months="18" recommended="false" />
+				<Term months="24" recommended="false" />
+				<Term months="36" recommended="true"  />
+				<Term months="48" recommended="false" />
+			</TermColumns>
+			<Rows>
+				<Row label="On-Peak">
+					<Price term="6"  value="68.60" range="VeryHigh"  />
+					<Price term="12" value="66.05" range="High"        />
+					<Price term="18" value="63.70" range="Medium" />
+					<Price term="24" value="62.05" range="Low"         />
+					<Price term="36" value="60.20" range="VeryLow"     />
+					<Price term="48" value="61.50" range="Medium"  />
+				</Row>
+				<Row label="Off-Peak">
+					<Price term="6"  value="54.85" range="VeryHigh"    />
+					<Price term="12" value="52.70" range="High"     />
+					<Price term="18" value="50.90" range="Medium"/>
+					<Price term="24" value="49.35" range="Low"         />
+					<Price term="36" value="47.25" range="BestValue" />
+					<Price term="48" value="48.50" range="Low"         />
+				</Row>
+				<Row label="All Hours">
+					<Price term="6"  value="61.73" range="VeryHigh"    />
+					<Price term="12" value="59.38" range="High"        />
+					<Price term="18" value="57.30" range="Medium"      />
+					<Price term="24" value="55.70" range="Low"       />
+					<Price term="36" value="53.73" range="BestValue" />
+					<Price term="48" value="55.00" range="Low"         />
+				</Row>
+			</Rows>
+		</Snapshot>
+
+	</ContractPricing>
+
+	<ContractPricing priceUnit="$/MWh" contractId="CID-10276">
+
+		<Snapshot id="today" label="Today">
+			<TermColumns>
+				<Term months="6"  recommended="false" />
+				<Term months="12" recommended="false" />
+				<Term months="18" recommended="false" />
+				<Term months="24" recommended="false" />
+				<Term months="36" recommended="true"  />
+				<Term months="48" recommended="false" />
+			</TermColumns>
+			<Rows>
+				<Row label="On-Peak">
+					<Price term="6"  value="65.40" range="VeryHigh"    />
+					<Price term="12" value="62.90" range="High"        />
+					<Price term="18" value="60.65" range="Medium"      />
+					<Price term="24" value="59.05" range="Low"         />
+					<Price term="36" value="57.15" range="VeryLow"     />
+					<Price term="48" value="58.45" range="Medium"      />
+				</Row>
+				<Row label="Off-Peak">
+					<Price term="6"  value="51.90" range="VeryHigh"    />
+					<Price term="12" value="49.80" range="High"        />
+					<Price term="18" value="48.00" range="Medium"      />
+					<Price term="24" value="46.45" range="Low"         />
+					<Price term="36" value="44.35" range="BestValue" />
+					<Price term="48" value="45.55" range="Low"   />
+				</Row>
+				<Row label="All Hours">
+					<Price term="6"  value="58.65" range="VeryHigh"    />
+					<Price term="12" value="56.15" range="High"        />
+					<Price term="18" value="54.33" range="Medium"   />
+					<Price term="24" value="52.75" range="Low"         />
+					<Price term="36" value="50.75" range="BestValue" />
+					<Price term="48" value="52.00" range="Low"   />
+				</Row>
+			</Rows>
+		</Snapshot>
+
+		<Snapshot id="3days" label="3 Days Ago">
+			<TermColumns>
+				<Term months="6"  recommended="false" />
+				<Term months="12" recommended="false" />
+				<Term months="18" recommended="false" />
+				<Term months="24" recommended="false" />
+				<Term months="36" recommended="true"  />
+				<Term months="48" recommended="false" />
+			</TermColumns>
+			<Rows>
+				<Row label="On-Peak">
+					<Price term="6"  value="66.10" range="VeryHigh"    />
+					<Price term="12" value="63.55" range="High"        />
+					<Price term="18" value="61.25" range="Medium"      />
+					<Price term="24" value="59.65" range="Low"         />
+					<Price term="36" value="57.75" range="VeryLow"     />
+					<Price term="48" value="59.05" range="Medium"      />
+				</Row>
+				<Row label="Off-Peak">
+					<Price term="6"  value="52.50" range="VeryHigh"    />
+					<Price term="12" value="50.35" range="High"        />
+					<Price term="18" value="48.55" range="Medium"      />
+					<Price term="24" value="47.00" range="Low"         />
+					<Price term="36" value="44.90" range="BestValue" />
+					<Price term="48" value="46.10" range="Low"         />
+				</Row>
+				<Row label="All Hours">
+					<Price term="6"  value="59.30" range="VeryHigh"    />
+					<Price term="12" value="56.75" range="High"   />
+					<Price term="18" value="54.90" range="Medium"      />
+					<Price term="24" value="53.33" range="Low"         />
+					<Price term="36" value="51.33" range="BestValue" />
+					<Price term="48" value="52.58" range="Low"    />
+				</Row>
+			</Rows>
+		</Snapshot>
+
+		<Snapshot id="1week" label="1 Week Ago">
+			<TermColumns>
+				<Term months="6"  recommended="false" />
+				<Term months="12" recommended="false" />
+				<Term months="18" recommended="false" />
+				<Term months="24" recommended="false" />
+				<Term months="36" recommended="true"  />
+				<Term months="48" recommended="false" />
+			</TermColumns>
+			<Rows>
+				<Row label="On-Peak">
+					<Price term="6"  value="66.85" range="VeryHigh"    />
+					<Price term="12" value="64.30" range="High"        />
+					<Price term="18" value="62.00" range="Medium"      />
+					<Price term="24" value="60.40" range="Low"     />
+					<Price term="36" value="58.50" range="VeryLow"     />
+					<Price term="48" value="59.80" range="Medium"      />
+				</Row>
+				<Row label="Off-Peak">
+					<Price term="6"  value="53.15" range="VeryHigh"    />
+					<Price term="12" value="51.00" range="High"  />
+					<Price term="18" value="49.20" range="Medium"  />
+					<Price term="24" value="47.65" range="Low"         />
+					<Price term="36" value="45.55" range="BestValue" />
+					<Price term="48" value="46.75" range="Low"         />
+				</Row>
+				<Row label="All Hours">
+					<Price term="6"  value="60.00" range="VeryHigh"    />
+					<Price term="12" value="57.45" range="High"        />
+					<Price term="18" value="55.60" range="Medium"      />
+					<Price term="24" value="54.03" range="Low"         />
+					<Price term="36" value="52.03" range="BestValue" />
+					<Price term="48" value="53.28" range="Low"         />
+				</Row>
+			</Rows>
+		</Snapshot>
+
+		<Snapshot id="1month" label="1 Month Ago">
+			<TermColumns>
+				<Term months="6"  recommended="false" />
+				<Term months="12" recommended="false" />
+				<Term months="18" recommended="false" />
+				<Term months="24" recommended="false" />
+				<Term months="36" recommended="true"  />
+				<Term months="48" recommended="false" />
+			</TermColumns>
+			<Rows>
+				<Row label="On-Peak">
+					<Price term="6"  value="68.60" range="VeryHigh"  />
+					<Price term="12" value="66.05" range="High"        />
+					<Price term="18" value="63.70" range="Medium" />
+					<Price term="24" value="62.05" range="Low"         />
+					<Price term="36" value="60.20" range="VeryLow"     />
+					<Price term="48" value="61.50" range="Medium"  />
+				</Row>
+				<Row label="Off-Peak">
+					<Price term="6"  value="54.85" range="VeryHigh"    />
+					<Price term="12" value="52.70" range="High"     />
+					<Price term="18" value="50.90" range="Medium"/>
+					<Price term="24" value="49.35" range="Low"         />
+					<Price term="36" value="47.25" range="BestValue" />
+					<Price term="48" value="48.50" range="Low"         />
+				</Row>
+				<Row label="All Hours">
+					<Price term="6"  value="61.73" range="VeryHigh"    />
+					<Price term="12" value="59.38" range="High"        />
+					<Price term="18" value="57.30" range="Medium"      />
+					<Price term="24" value="55.70" range="Low"       />
+					<Price term="36" value="53.73" range="BestValue" />
+					<Price term="48" value="55.00" range="Low"         />
+				</Row>
+			</Rows>
+		</Snapshot>
+
+	</ContractPricing>
+
+	<ContractPricing priceUnit="$/MWh" contractId="CID-10275">
+
+		<Snapshot id="today" label="Today">
+			<TermColumns>
+				<Term months="6"  recommended="false" />
+				<Term months="12" recommended="false" />
+				<Term months="18" recommended="false" />
+				<Term months="24" recommended="false" />
+				<Term months="36" recommended="true"  />
+				<Term months="48" recommended="false" />
+			</TermColumns>
+			<Rows>
+				<Row label="On-Peak">
+					<Price term="6"  value="65.40" range="VeryHigh"    />
+					<Price term="12" value="62.90" range="High"        />
+					<Price term="18" value="60.65" range="Medium"      />
+					<Price term="24" value="59.05" range="Low"         />
+					<Price term="36" value="57.15" range="VeryLow"     />
+					<Price term="48" value="58.45" range="Medium"      />
+				</Row>
+				<Row label="Off-Peak">
+					<Price term="6"  value="51.90" range="VeryHigh"    />
+					<Price term="12" value="49.80" range="High"        />
+					<Price term="18" value="48.00" range="Medium"      />
+					<Price term="24" value="46.45" range="Low"         />
+					<Price term="36" value="44.35" range="BestValue" />
+					<Price term="48" value="45.55" range="Low"   />
+				</Row>
+				<Row label="All Hours">
+					<Price term="6"  value="58.65" range="VeryHigh"    />
+					<Price term="12" value="56.15" range="High"        />
+					<Price term="18" value="54.33" range="Medium"   />
+					<Price term="24" value="52.75" range="Low"         />
+					<Price term="36" value="50.75" range="BestValue" />
+					<Price term="48" value="52.00" range="Low"   />
+				</Row>
+			</Rows>
+		</Snapshot>
+
+		<Snapshot id="3days" label="3 Days Ago">
+			<TermColumns>
+				<Term months="6"  recommended="false" />
+				<Term months="12" recommended="false" />
+				<Term months="18" recommended="false" />
+				<Term months="24" recommended="false" />
+				<Term months="36" recommended="true"  />
+				<Term months="48" recommended="false" />
+			</TermColumns>
+			<Rows>
+				<Row label="On-Peak">
+					<Price term="6"  value="66.10" range="VeryHigh"    />
+					<Price term="12" value="63.55" range="High"        />
+					<Price term="18" value="61.25" range="Medium"      />
+					<Price term="24" value="59.65" range="Low"         />
+					<Price term="36" value="57.75" range="VeryLow"     />
+					<Price term="48" value="59.05" range="Medium"      />
+				</Row>
+				<Row label="Off-Peak">
+					<Price term="6"  value="52.50" range="VeryHigh"    />
+					<Price term="12" value="50.35" range="High"        />
+					<Price term="18" value="48.55" range="Medium"      />
+					<Price term="24" value="47.00" range="Low"         />
+					<Price term="36" value="44.90" range="BestValue" />
+					<Price term="48" value="46.10" range="Low"         />
+				</Row>
+				<Row label="All Hours">
+					<Price term="6"  value="59.30" range="VeryHigh"    />
+					<Price term="12" value="56.75" range="High"   />
+					<Price term="18" value="54.90" range="Medium"      />
+					<Price term="24" value="53.33" range="Low"         />
+					<Price term="36" value="51.33" range="BestValue" />
+					<Price term="48" value="52.58" range="Low"    />
+				</Row>
+			</Rows>
+		</Snapshot>
+
+		<Snapshot id="1week" label="1 Week Ago">
+			<TermColumns>
+				<Term months="6"  recommended="false" />
+				<Term months="12" recommended="false" />
+				<Term months="18" recommended="false" />
+				<Term months="24" recommended="false" />
+				<Term months="36" recommended="true"  />
+				<Term months="48" recommended="false" />
+			</TermColumns>
+			<Rows>
+				<Row label="On-Peak">
+					<Price term="6"  value="66.85" range="VeryHigh"    />
+					<Price term="12" value="64.30" range="High"        />
+					<Price term="18" value="62.00" range="Medium"      />
+					<Price term="24" value="60.40" range="Low"     />
+					<Price term="36" value="58.50" range="VeryLow"     />
+					<Price term="48" value="59.80" range="Medium"      />
+				</Row>
+				<Row label="Off-Peak">
+					<Price term="6"  value="53.15" range="VeryHigh"    />
+					<Price term="12" value="51.00" range="High"  />
+					<Price term="18" value="49.20" range="Medium"  />
+					<Price term="24" value="47.65" range="Low"         />
+					<Price term="36" value="45.55" range="BestValue" />
+					<Price term="48" value="46.75" range="Low"         />
+				</Row>
+				<Row label="All Hours">
+					<Price term="6"  value="60.00" range="VeryHigh"    />
+					<Price term="12" value="57.45" range="High"        />
+					<Price term="18" value="55.60" range="Medium"      />
+					<Price term="24" value="54.03" range="Low"         />
+					<Price term="36" value="52.03" range="BestValue" />
+					<Price term="48" value="53.28" range="Low"         />
+				</Row>
+			</Rows>
+		</Snapshot>
+
+		<Snapshot id="1month" label="1 Month Ago">
+			<TermColumns>
+				<Term months="6"  recommended="false" />
+				<Term months="12" recommended="false" />
+				<Term months="18" recommended="false" />
+				<Term months="24" recommended="false" />
+				<Term months="36" recommended="true"  />
+				<Term months="48" recommended="false" />
+			</TermColumns>
+			<Rows>
+				<Row label="On-Peak">
+					<Price term="6"  value="68.60" range="VeryHigh"  />
+					<Price term="12" value="66.05" range="High"        />
+					<Price term="18" value="63.70" range="Medium" />
+					<Price term="24" value="62.05" range="Low"         />
+					<Price term="36" value="60.20" range="VeryLow"     />
+					<Price term="48" value="61.50" range="Medium"  />
+				</Row>
+				<Row label="Off-Peak">
+					<Price term="6"  value="54.85" range="VeryHigh"    />
+					<Price term="12" value="52.70" range="High"     />
+					<Price term="18" value="50.90" range="Medium"/>
+					<Price term="24" value="49.35" range="Low"         />
+					<Price term="36" value="47.25" range="BestValue" />
+					<Price term="48" value="48.50" range="Low"         />
+				</Row>
+				<Row label="All Hours">
+					<Price term="6"  value="61.73" range="VeryHigh"    />
+					<Price term="12" value="59.38" range="High"        />
+					<Price term="18" value="57.30" range="Medium"      />
+					<Price term="24" value="55.70" range="Low"       />
+					<Price term="36" value="53.73" range="BestValue" />
+					<Price term="48" value="55.00" range="Low"         />
+				</Row>
+			</Rows>
+		</Snapshot>
+
+	</ContractPricing>
+
+	<ContractPricing priceUnit="$/MWh" contractId="CID-10268">
+
+		<Snapshot id="today" label="Today">
+			<TermColumns>
+				<Term months="6"  recommended="false" />
+				<Term months="12" recommended="false" />
+				<Term months="18" recommended="false" />
+				<Term months="24" recommended="false" />
+				<Term months="36" recommended="true"  />
+				<Term months="48" recommended="false" />
+			</TermColumns>
+			<Rows>
+				<Row label="On-Peak">
+					<Price term="6"  value="65.40" range="VeryHigh"    />
+					<Price term="12" value="62.90" range="High"        />
+					<Price term="18" value="60.65" range="Medium"      />
+					<Price term="24" value="59.05" range="Low"         />
+					<Price term="36" value="57.15" range="VeryLow"     />
+					<Price term="48" value="58.45" range="Medium"      />
+				</Row>
+				<Row label="Off-Peak">
+					<Price term="6"  value="51.90" range="VeryHigh"    />
+					<Price term="12" value="49.80" range="High"        />
+					<Price term="18" value="48.00" range="Medium"      />
+					<Price term="24" value="46.45" range="Low"         />
+					<Price term="36" value="44.35" range="BestValue" />
+					<Price term="48" value="45.55" range="Low"   />
+				</Row>
+				<Row label="All Hours">
+					<Price term="6"  value="58.65" range="VeryHigh"    />
+					<Price term="12" value="56.15" range="High"        />
+					<Price term="18" value="54.33" range="Medium"   />
+					<Price term="24" value="52.75" range="Low"         />
+					<Price term="36" value="50.75" range="BestValue" />
+					<Price term="48" value="52.00" range="Low"   />
+				</Row>
+			</Rows>
+		</Snapshot>
+
+		<Snapshot id="3days" label="3 Days Ago">
+			<TermColumns>
+				<Term months="6"  recommended="false" />
+				<Term months="12" recommended="false" />
+				<Term months="18" recommended="false" />
+				<Term months="24" recommended="false" />
+				<Term months="36" recommended="true"  />
+				<Term months="48" recommended="false" />
+			</TermColumns>
+			<Rows>
+				<Row label="On-Peak">
+					<Price term="6"  value="66.10" range="VeryHigh"    />
+					<Price term="12" value="63.55" range="High"        />
+					<Price term="18" value="61.25" range="Medium"      />
+					<Price term="24" value="59.65" range="Low"         />
+					<Price term="36" value="57.75" range="VeryLow"     />
+					<Price term="48" value="59.05" range="Medium"      />
+				</Row>
+				<Row label="Off-Peak">
+					<Price term="6"  value="52.50" range="VeryHigh"    />
+					<Price term="12" value="50.35" range="High"        />
+					<Price term="18" value="48.55" range="Medium"      />
+					<Price term="24" value="47.00" range="Low"         />
+					<Price term="36" value="44.90" range="BestValue" />
+					<Price term="48" value="46.10" range="Low"         />
+				</Row>
+				<Row label="All Hours">
+					<Price term="6"  value="59.30" range="VeryHigh"    />
+					<Price term="12" value="56.75" range="High"   />
+					<Price term="18" value="54.90" range="Medium"      />
+					<Price term="24" value="53.33" range="Low"         />
+					<Price term="36" value="51.33" range="BestValue" />
+					<Price term="48" value="52.58" range="Low"    />
+				</Row>
+			</Rows>
+		</Snapshot>
+
+		<Snapshot id="1week" label="1 Week Ago">
+			<TermColumns>
+				<Term months="6"  recommended="false" />
+				<Term months="12" recommended="false" />
+				<Term months="18" recommended="false" />
+				<Term months="24" recommended="false" />
+				<Term months="36" recommended="true"  />
+				<Term months="48" recommended="false" />
+			</TermColumns>
+			<Rows>
+				<Row label="On-Peak">
+					<Price term="6"  value="66.85" range="VeryHigh"    />
+					<Price term="12" value="64.30" range="High"        />
+					<Price term="18" value="62.00" range="Medium"      />
+					<Price term="24" value="60.40" range="Low"     />
+					<Price term="36" value="58.50" range="VeryLow"     />
+					<Price term="48" value="59.80" range="Medium"      />
+				</Row>
+				<Row label="Off-Peak">
+					<Price term="6"  value="53.15" range="VeryHigh"    />
+					<Price term="12" value="51.00" range="High"  />
+					<Price term="18" value="49.20" range="Medium"  />
+					<Price term="24" value="47.65" range="Low"         />
+					<Price term="36" value="45.55" range="BestValue" />
+					<Price term="48" value="46.75" range="Low"         />
+				</Row>
+				<Row label="All Hours">
+					<Price term="6"  value="60.00" range="VeryHigh"    />
+					<Price term="12" value="57.45" range="High"        />
+					<Price term="18" value="55.60" range="Medium"      />
+					<Price term="24" value="54.03" range="Low"         />
+					<Price term="36" value="52.03" range="BestValue" />
+					<Price term="48" value="53.28" range="Low"         />
+				</Row>
+			</Rows>
+		</Snapshot>
+
+		<Snapshot id="1month" label="1 Month Ago">
+			<TermColumns>
+				<Term months="6"  recommended="false" />
+				<Term months="12" recommended="false" />
+				<Term months="18" recommended="false" />
+				<Term months="24" recommended="false" />
+				<Term months="36" recommended="true"  />
+				<Term months="48" recommended="false" />
+			</TermColumns>
+			<Rows>
+				<Row label="On-Peak">
+					<Price term="6"  value="68.60" range="VeryHigh"  />
+					<Price term="12" value="66.05" range="High"        />
+					<Price term="18" value="63.70" range="Medium" />
+					<Price term="24" value="62.05" range="Low"         />
+					<Price term="36" value="60.20" range="VeryLow"     />
+					<Price term="48" value="61.50" range="Medium"  />
+				</Row>
+				<Row label="Off-Peak">
+					<Price term="6"  value="54.85" range="VeryHigh"    />
+					<Price term="12" value="52.70" range="High"     />
+					<Price term="18" value="50.90" range="Medium"/>
+					<Price term="24" value="49.35" range="Low"         />
+					<Price term="36" value="47.25" range="BestValue" />
+					<Price term="48" value="48.50" range="Low"         />
+				</Row>
+				<Row label="All Hours">
+					<Price term="6"  value="61.73" range="VeryHigh"    />
+					<Price term="12" value="59.38" range="High"        />
+					<Price term="18" value="57.30" range="Medium"      />
+					<Price term="24" value="55.70" range="Low"       />
+					<Price term="36" value="53.73" range="BestValue" />
+					<Price term="48" value="55.00" range="Low"         />
+				</Row>
+			</Rows>
+		</Snapshot>
+
+	</ContractPricing>
+
+	<ContractPricing priceUnit="$/MWh" contractId="CID-10267">
+
+		<Snapshot id="today" label="Today">
+			<TermColumns>
+				<Term months="6"  recommended="false" />
+				<Term months="12" recommended="false" />
+				<Term months="18" recommended="false" />
+				<Term months="24" recommended="false" />
+				<Term months="36" recommended="true"  />
+				<Term months="48" recommended="false" />
+			</TermColumns>
+			<Rows>
+				<Row label="On-Peak">
+					<Price term="6"  value="65.40" range="VeryHigh"    />
+					<Price term="12" value="62.90" range="High"        />
+					<Price term="18" value="60.65" range="Medium"      />
+					<Price term="24" value="59.05" range="Low"         />
+					<Price term="36" value="57.15" range="VeryLow"     />
+					<Price term="48" value="58.45" range="Medium"      />
+				</Row>
+				<Row label="Off-Peak">
+					<Price term="6"  value="51.90" range="VeryHigh"    />
+					<Price term="12" value="49.80" range="High"        />
+					<Price term="18" value="48.00" range="Medium"      />
+					<Price term="24" value="46.45" range="Low"         />
+					<Price term="36" value="44.35" range="BestValue" />
+					<Price term="48" value="45.55" range="Low"   />
+				</Row>
+				<Row label="All Hours">
+					<Price term="6"  value="58.65" range="VeryHigh"    />
+					<Price term="12" value="56.15" range="High"        />
+					<Price term="18" value="54.33" range="Medium"   />
+					<Price term="24" value="52.75" range="Low"         />
+					<Price term="36" value="50.75" range="BestValue" />
+					<Price term="48" value="52.00" range="Low"   />
+				</Row>
+			</Rows>
+		</Snapshot>
+
+		<Snapshot id="3days" label="3 Days Ago">
+			<TermColumns>
+				<Term months="6"  recommended="false" />
+				<Term months="12" recommended="false" />
+				<Term months="18" recommended="false" />
+				<Term months="24" recommended="false" />
+				<Term months="36" recommended="true"  />
+				<Term months="48" recommended="false" />
+			</TermColumns>
+			<Rows>
+				<Row label="On-Peak">
+					<Price term="6"  value="66.10" range="VeryHigh"    />
+					<Price term="12" value="63.55" range="High"        />
+					<Price term="18" value="61.25" range="Medium"      />
+					<Price term="24" value="59.65" range="Low"         />
+					<Price term="36" value="57.75" range="VeryLow"     />
+					<Price term="48" value="59.05" range="Medium"      />
+				</Row>
+				<Row label="Off-Peak">
+					<Price term="6"  value="52.50" range="VeryHigh"    />
+					<Price term="12" value="50.35" range="High"        />
+					<Price term="18" value="48.55" range="Medium"      />
+					<Price term="24" value="47.00" range="Low"         />
+					<Price term="36" value="44.90" range="BestValue" />
+					<Price term="48" value="46.10" range="Low"         />
+				</Row>
+				<Row label="All Hours">
+					<Price term="6"  value="59.30" range="VeryHigh"    />
+					<Price term="12" value="56.75" range="High"   />
+					<Price term="18" value="54.90" range="Medium"      />
+					<Price term="24" value="53.33" range="Low"         />
+					<Price term="36" value="51.33" range="BestValue" />
+					<Price term="48" value="52.58" range="Low"    />
+				</Row>
+			</Rows>
+		</Snapshot>
+
+		<Snapshot id="1week" label="1 Week Ago">
+			<TermColumns>
+				<Term months="6"  recommended="false" />
+				<Term months="12" recommended="false" />
+				<Term months="18" recommended="false" />
+				<Term months="24" recommended="false" />
+				<Term months="36" recommended="true"  />
+				<Term months="48" recommended="false" />
+			</TermColumns>
+			<Rows>
+				<Row label="On-Peak">
+					<Price term="6"  value="66.85" range="VeryHigh"    />
+					<Price term="12" value="64.30" range="High"        />
+					<Price term="18" value="62.00" range="Medium"      />
+					<Price term="24" value="60.40" range="Low"     />
+					<Price term="36" value="58.50" range="VeryLow"     />
+					<Price term="48" value="59.80" range="Medium"      />
+				</Row>
+				<Row label="Off-Peak">
+					<Price term="6"  value="53.15" range="VeryHigh"    />
+					<Price term="12" value="51.00" range="High"  />
+					<Price term="18" value="49.20" range="Medium"  />
+					<Price term="24" value="47.65" range="Low"         />
+					<Price term="36" value="45.55" range="BestValue" />
+					<Price term="48" value="46.75" range="Low"         />
+				</Row>
+				<Row label="All Hours">
+					<Price term="6"  value="60.00" range="VeryHigh"    />
+					<Price term="12" value="57.45" range="High"        />
+					<Price term="18" value="55.60" range="Medium"      />
+					<Price term="24" value="54.03" range="Low"         />
+					<Price term="36" value="52.03" range="BestValue" />
+					<Price term="48" value="53.28" range="Low"         />
+				</Row>
+			</Rows>
+		</Snapshot>
+
+		<Snapshot id="1month" label="1 Month Ago">
+			<TermColumns>
+				<Term months="6"  recommended="false" />
+				<Term months="12" recommended="false" />
+				<Term months="18" recommended="false" />
+				<Term months="24" recommended="false" />
+				<Term months="36" recommended="true"  />
+				<Term months="48" recommended="false" />
+			</TermColumns>
+			<Rows>
+				<Row label="On-Peak">
+					<Price term="6"  value="68.60" range="VeryHigh"  />
+					<Price term="12" value="66.05" range="High"        />
+					<Price term="18" value="63.70" range="Medium" />
+					<Price term="24" value="62.05" range="Low"         />
+					<Price term="36" value="60.20" range="VeryLow"     />
+					<Price term="48" value="61.50" range="Medium"  />
+				</Row>
+				<Row label="Off-Peak">
+					<Price term="6"  value="54.85" range="VeryHigh"    />
+					<Price term="12" value="52.70" range="High"     />
+					<Price term="18" value="50.90" range="Medium"/>
+					<Price term="24" value="49.35" range="Low"         />
+					<Price term="36" value="47.25" range="BestValue" />
+					<Price term="48" value="48.50" range="Low"         />
+				</Row>
+				<Row label="All Hours">
+					<Price term="6"  value="61.73" range="VeryHigh"    />
+					<Price term="12" value="59.38" range="High"        />
+					<Price term="18" value="57.30" range="Medium"      />
+					<Price term="24" value="55.70" range="Low"       />
+					<Price term="36" value="53.73" range="BestValue" />
+					<Price term="48" value="55.00" range="Low"         />
+				</Row>
+			</Rows>
+		</Snapshot>
+
+	</ContractPricing>
+
+	<ContractPricing priceUnit="$/MWh" contractId="CID-10266">
+
+		<Snapshot id="today" label="Today">
+			<TermColumns>
+				<Term months="6"  recommended="false" />
+				<Term months="12" recommended="false" />
+				<Term months="18" recommended="false" />
+				<Term months="24" recommended="false" />
+				<Term months="36" recommended="true"  />
+				<Term months="48" recommended="false" />
+			</TermColumns>
+			<Rows>
+				<Row label="On-Peak">
+					<Price term="6"  value="65.40" range="VeryHigh"    />
+					<Price term="12" value="62.90" range="High"        />
+					<Price term="18" value="60.65" range="Medium"      />
+					<Price term="24" value="59.05" range="Low"         />
+					<Price term="36" value="57.15" range="VeryLow"     />
+					<Price term="48" value="58.45" range="Medium"      />
+				</Row>
+				<Row label="Off-Peak">
+					<Price term="6"  value="51.90" range="VeryHigh"    />
+					<Price term="12" value="49.80" range="High"        />
+					<Price term="18" value="48.00" range="Medium"      />
+					<Price term="24" value="46.45" range="Low"         />
+					<Price term="36" value="44.35" range="BestValue" />
+					<Price term="48" value="45.55" range="Low"   />
+				</Row>
+				<Row label="All Hours">
+					<Price term="6"  value="58.65" range="VeryHigh"    />
+					<Price term="12" value="56.15" range="High"        />
+					<Price term="18" value="54.33" range="Medium"   />
+					<Price term="24" value="52.75" range="Low"         />
+					<Price term="36" value="50.75" range="BestValue" />
+					<Price term="48" value="52.00" range="Low"   />
+				</Row>
+			</Rows>
+		</Snapshot>
+
+		<Snapshot id="3days" label="3 Days Ago">
+			<TermColumns>
+				<Term months="6"  recommended="false" />
+				<Term months="12" recommended="false" />
+				<Term months="18" recommended="false" />
+				<Term months="24" recommended="false" />
+				<Term months="36" recommended="true"  />
+				<Term months="48" recommended="false" />
+			</TermColumns>
+			<Rows>
+				<Row label="On-Peak">
+					<Price term="6"  value="66.10" range="VeryHigh"    />
+					<Price term="12" value="63.55" range="High"        />
+					<Price term="18" value="61.25" range="Medium"      />
+					<Price term="24" value="59.65" range="Low"         />
+					<Price term="36" value="57.75" range="VeryLow"     />
+					<Price term="48" value="59.05" range="Medium"      />
+				</Row>
+				<Row label="Off-Peak">
+					<Price term="6"  value="52.50" range="VeryHigh"    />
+					<Price term="12" value="50.35" range="High"        />
+					<Price term="18" value="48.55" range="Medium"      />
+					<Price term="24" value="47.00" range="Low"         />
+					<Price term="36" value="44.90" range="BestValue" />
+					<Price term="48" value="46.10" range="Low"         />
+				</Row>
+				<Row label="All Hours">
+					<Price term="6"  value="59.30" range="VeryHigh"    />
+					<Price term="12" value="56.75" range="High"   />
+					<Price term="18" value="54.90" range="Medium"      />
+					<Price term="24" value="53.33" range="Low"         />
+					<Price term="36" value="51.33" range="BestValue" />
+					<Price term="48" value="52.58" range="Low"    />
+				</Row>
+			</Rows>
+		</Snapshot>
+
+		<Snapshot id="1week" label="1 Week Ago">
+			<TermColumns>
+				<Term months="6"  recommended="false" />
+				<Term months="12" recommended="false" />
+				<Term months="18" recommended="false" />
+				<Term months="24" recommended="false" />
+				<Term months="36" recommended="true"  />
+				<Term months="48" recommended="false" />
+			</TermColumns>
+			<Rows>
+				<Row label="On-Peak">
+					<Price term="6"  value="66.85" range="VeryHigh"    />
+					<Price term="12" value="64.30" range="High"        />
+					<Price term="18" value="62.00" range="Medium"      />
+					<Price term="24" value="60.40" range="Low"     />
+					<Price term="36" value="58.50" range="VeryLow"     />
+					<Price term="48" value="59.80" range="Medium"      />
+				</Row>
+				<Row label="Off-Peak">
+					<Price term="6"  value="53.15" range="VeryHigh"    />
+					<Price term="12" value="51.00" range="High"  />
+					<Price term="18" value="49.20" range="Medium"  />
+					<Price term="24" value="47.65" range="Low"         />
+					<Price term="36" value="45.55" range="BestValue" />
+					<Price term="48" value="46.75" range="Low"         />
+				</Row>
+				<Row label="All Hours">
+					<Price term="6"  value="60.00" range="VeryHigh"    />
+					<Price term="12" value="57.45" range="High"        />
+					<Price term="18" value="55.60" range="Medium"      />
+					<Price term="24" value="54.03" range="Low"         />
+					<Price term="36" value="52.03" range="BestValue" />
+					<Price term="48" value="53.28" range="Low"         />
+				</Row>
+			</Rows>
+		</Snapshot>
+
+		<Snapshot id="1month" label="1 Month Ago">
+			<TermColumns>
+				<Term months="6"  recommended="false" />
+				<Term months="12" recommended="false" />
+				<Term months="18" recommended="false" />
+				<Term months="24" recommended="false" />
+				<Term months="36" recommended="true"  />
+				<Term months="48" recommended="false" />
+			</TermColumns>
+			<Rows>
+				<Row label="On-Peak">
+					<Price term="6"  value="68.60" range="VeryHigh"  />
+					<Price term="12" value="66.05" range="High"        />
+					<Price term="18" value="63.70" range="Medium" />
+					<Price term="24" value="62.05" range="Low"         />
+					<Price term="36" value="60.20" range="VeryLow"     />
+					<Price term="48" value="61.50" range="Medium"  />
+				</Row>
+				<Row label="Off-Peak">
+					<Price term="6"  value="54.85" range="VeryHigh"    />
+					<Price term="12" value="52.70" range="High"     />
+					<Price term="18" value="50.90" range="Medium"/>
+					<Price term="24" value="49.35" range="Low"         />
+					<Price term="36" value="47.25" range="BestValue" />
+					<Price term="48" value="48.50" range="Low"         />
+				</Row>
+				<Row label="All Hours">
+					<Price term="6"  value="61.73" range="VeryHigh"    />
+					<Price term="12" value="59.38" range="High"        />
+					<Price term="18" value="57.30" range="Medium"      />
+					<Price term="24" value="55.70" range="Low"       />
+					<Price term="36" value="53.73" range="BestValue" />
+					<Price term="48" value="55.00" range="Low"         />
+				</Row>
+			</Rows>
+		</Snapshot>
+
+	</ContractPricing>
+
+	<ContractPricing priceUnit="$/MWh" contractId="CID-10265">
+
+		<Snapshot id="today" label="Today">
+			<TermColumns>
+				<Term months="6"  recommended="false" />
+				<Term months="12" recommended="false" />
+				<Term months="18" recommended="false" />
+				<Term months="24" recommended="false" />
+				<Term months="36" recommended="true"  />
+				<Term months="48" recommended="false" />
+			</TermColumns>
+			<Rows>
+				<Row label="On-Peak">
+					<Price term="6"  value="65.40" range="VeryHigh"    />
+					<Price term="12" value="62.90" range="High"        />
+					<Price term="18" value="60.65" range="Medium"      />
+					<Price term="24" value="59.05" range="Low"         />
+					<Price term="36" value="57.15" range="VeryLow"     />
+					<Price term="48" value="58.45" range="Medium"      />
+				</Row>
+				<Row label="Off-Peak">
+					<Price term="6"  value="51.90" range="VeryHigh"    />
+					<Price term="12" value="49.80" range="High"        />
+					<Price term="18" value="48.00" range="Medium"      />
+					<Price term="24" value="46.45" range="Low"         />
+					<Price term="36" value="44.35" range="BestValue" />
+					<Price term="48" value="45.55" range="Low"   />
+				</Row>
+				<Row label="All Hours">
+					<Price term="6"  value="58.65" range="VeryHigh"    />
+					<Price term="12" value="56.15" range="High"        />
+					<Price term="18" value="54.33" range="Medium"   />
+					<Price term="24" value="52.75" range="Low"         />
+					<Price term="36" value="50.75" range="BestValue" />
+					<Price term="48" value="52.00" range="Low"   />
+				</Row>
+			</Rows>
+		</Snapshot>
+
+		<Snapshot id="3days" label="3 Days Ago">
+			<TermColumns>
+				<Term months="6"  recommended="false" />
+				<Term months="12" recommended="false" />
+				<Term months="18" recommended="false" />
+				<Term months="24" recommended="false" />
+				<Term months="36" recommended="true"  />
+				<Term months="48" recommended="false" />
+			</TermColumns>
+			<Rows>
+				<Row label="On-Peak">
+					<Price term="6"  value="66.10" range="VeryHigh"    />
+					<Price term="12" value="63.55" range="High"        />
+					<Price term="18" value="61.25" range="Medium"      />
+					<Price term="24" value="59.65" range="Low"         />
+					<Price term="36" value="57.75" range="VeryLow"     />
+					<Price term="48" value="59.05" range="Medium"      />
+				</Row>
+				<Row label="Off-Peak">
+					<Price term="6"  value="52.50" range="VeryHigh"    />
+					<Price term="12" value="50.35" range="High"        />
+					<Price term="18" value="48.55" range="Medium"      />
+					<Price term="24" value="47.00" range="Low"         />
+					<Price term="36" value="44.90" range="BestValue" />
+					<Price term="48" value="46.10" range="Low"         />
+				</Row>
+				<Row label="All Hours">
+					<Price term="6"  value="59.30" range="VeryHigh"    />
+					<Price term="12" value="56.75" range="High"   />
+					<Price term="18" value="54.90" range="Medium"      />
+					<Price term="24" value="53.33" range="Low"         />
+					<Price term="36" value="51.33" range="BestValue" />
+					<Price term="48" value="52.58" range="Low"    />
+				</Row>
+			</Rows>
+		</Snapshot>
+
+		<Snapshot id="1week" label="1 Week Ago">
+			<TermColumns>
+				<Term months="6"  recommended="false" />
+				<Term months="12" recommended="false" />
+				<Term months="18" recommended="false" />
+				<Term months="24" recommended="false" />
+				<Term months="36" recommended="true"  />
+				<Term months="48" recommended="false" />
+			</TermColumns>
+			<Rows>
+				<Row label="On-Peak">
+					<Price term="6"  value="66.85" range="VeryHigh"    />
+					<Price term="12" value="64.30" range="High"        />
+					<Price term="18" value="62.00" range="Medium"      />
+					<Price term="24" value="60.40" range="Low"     />
+					<Price term="36" value="58.50" range="VeryLow"     />
+					<Price term="48" value="59.80" range="Medium"      />
+				</Row>
+				<Row label="Off-Peak">
+					<Price term="6"  value="53.15" range="VeryHigh"    />
+					<Price term="12" value="51.00" range="High"  />
+					<Price term="18" value="49.20" range="Medium"  />
+					<Price term="24" value="47.65" range="Low"         />
+					<Price term="36" value="45.55" range="BestValue" />
+					<Price term="48" value="46.75" range="Low"         />
+				</Row>
+				<Row label="All Hours">
+					<Price term="6"  value="60.00" range="VeryHigh"    />
+					<Price term="12" value="57.45" range="High"        />
+					<Price term="18" value="55.60" range="Medium"      />
+					<Price term="24" value="54.03" range="Low"         />
+					<Price term="36" value="52.03" range="BestValue" />
+					<Price term="48" value="53.28" range="Low"         />
+				</Row>
+			</Rows>
+		</Snapshot>
+
+		<Snapshot id="1month" label="1 Month Ago">
+			<TermColumns>
+				<Term months="6"  recommended="false" />
+				<Term months="12" recommended="false" />
+				<Term months="18" recommended="false" />
+				<Term months="24" recommended="false" />
+				<Term months="36" recommended="true"  />
+				<Term months="48" recommended="false" />
+			</TermColumns>
+			<Rows>
+				<Row label="On-Peak">
+					<Price term="6"  value="68.60" range="VeryHigh"  />
+					<Price term="12" value="66.05" range="High"        />
+					<Price term="18" value="63.70" range="Medium" />
+					<Price term="24" value="62.05" range="Low"         />
+					<Price term="36" value="60.20" range="VeryLow"     />
+					<Price term="48" value="61.50" range="Medium"  />
+				</Row>
+				<Row label="Off-Peak">
+					<Price term="6"  value="54.85" range="VeryHigh"    />
+					<Price term="12" value="52.70" range="High"     />
+					<Price term="18" value="50.90" range="Medium"/>
+					<Price term="24" value="49.35" range="Low"         />
+					<Price term="36" value="47.25" range="BestValue" />
+					<Price term="48" value="48.50" range="Low"         />
+				</Row>
+				<Row label="All Hours">
+					<Price term="6"  value="61.73" range="VeryHigh"    />
+					<Price term="12" value="59.38" range="High"        />
+					<Price term="18" value="57.30" range="Medium"      />
+					<Price term="24" value="55.70" range="Low"       />
+					<Price term="36" value="53.73" range="BestValue" />
+					<Price term="48" value="55.00" range="Low"         />
+				</Row>
+			</Rows>
+		</Snapshot>
+
+	</ContractPricing>
+
+	<ContractPricing priceUnit="$/MWh" contractId="CID-10258">
+
+		<Snapshot id="today" label="Today">
+			<TermColumns>
+				<Term months="6"  recommended="false" />
+				<Term months="12" recommended="false" />
+				<Term months="18" recommended="false" />
+				<Term months="24" recommended="false" />
+				<Term months="36" recommended="true"  />
+				<Term months="48" recommended="false" />
+			</TermColumns>
+			<Rows>
+				<Row label="On-Peak">
+					<Price term="6"  value="65.40" range="VeryHigh"    />
+					<Price term="12" value="62.90" range="High"        />
+					<Price term="18" value="60.65" range="Medium"      />
+					<Price term="24" value="59.05" range="Low"         />
+					<Price term="36" value="57.15" range="VeryLow"     />
+					<Price term="48" value="58.45" range="Medium"      />
+				</Row>
+				<Row label="Off-Peak">
+					<Price term="6"  value="51.90" range="VeryHigh"    />
+					<Price term="12" value="49.80" range="High"        />
+					<Price term="18" value="48.00" range="Medium"      />
+					<Price term="24" value="46.45" range="Low"         />
+					<Price term="36" value="44.35" range="BestValue" />
+					<Price term="48" value="45.55" range="Low"   />
+				</Row>
+				<Row label="All Hours">
+					<Price term="6"  value="58.65" range="VeryHigh"    />
+					<Price term="12" value="56.15" range="High"        />
+					<Price term="18" value="54.33" range="Medium"   />
+					<Price term="24" value="52.75" range="Low"         />
+					<Price term="36" value="50.75" range="BestValue" />
+					<Price term="48" value="52.00" range="Low"   />
+				</Row>
+			</Rows>
+		</Snapshot>
+
+		<Snapshot id="3days" label="3 Days Ago">
+			<TermColumns>
+				<Term months="6"  recommended="false" />
+				<Term months="12" recommended="false" />
+				<Term months="18" recommended="false" />
+				<Term months="24" recommended="false" />
+				<Term months="36" recommended="true"  />
+				<Term months="48" recommended="false" />
+			</TermColumns>
+			<Rows>
+				<Row label="On-Peak">
+					<Price term="6"  value="66.10" range="VeryHigh"    />
+					<Price term="12" value="63.55" range="High"        />
+					<Price term="18" value="61.25" range="Medium"      />
+					<Price term="24" value="59.65" range="Low"         />
+					<Price term="36" value="57.75" range="VeryLow"     />
+					<Price term="48" value="59.05" range="Medium"      />
+				</Row>
+				<Row label="Off-Peak">
+					<Price term="6"  value="52.50" range="VeryHigh"    />
+					<Price term="12" value="50.35" range="High"        />
+					<Price term="18" value="48.55" range="Medium"      />
+					<Price term="24" value="47.00" range="Low"         />
+					<Price term="36" value="44.90" range="BestValue" />
+					<Price term="48" value="46.10" range="Low"         />
+				</Row>
+				<Row label="All Hours">
+					<Price term="6"  value="59.30" range="VeryHigh"    />
+					<Price term="12" value="56.75" range="High"   />
+					<Price term="18" value="54.90" range="Medium"      />
+					<Price term="24" value="53.33" range="Low"         />
+					<Price term="36" value="51.33" range="BestValue" />
+					<Price term="48" value="52.58" range="Low"    />
+				</Row>
+			</Rows>
+		</Snapshot>
+
+		<Snapshot id="1week" label="1 Week Ago">
+			<TermColumns>
+				<Term months="6"  recommended="false" />
+				<Term months="12" recommended="false" />
+				<Term months="18" recommended="false" />
+				<Term months="24" recommended="false" />
+				<Term months="36" recommended="true"  />
+				<Term months="48" recommended="false" />
+			</TermColumns>
+			<Rows>
+				<Row label="On-Peak">
+					<Price term="6"  value="66.85" range="VeryHigh"    />
+					<Price term="12" value="64.30" range="High"        />
+					<Price term="18" value="62.00" range="Medium"      />
+					<Price term="24" value="60.40" range="Low"     />
+					<Price term="36" value="58.50" range="VeryLow"     />
+					<Price term="48" value="59.80" range="Medium"      />
+				</Row>
+				<Row label="Off-Peak">
+					<Price term="6"  value="53.15" range="VeryHigh"    />
+					<Price term="12" value="51.00" range="High"  />
+					<Price term="18" value="49.20" range="Medium"  />
+					<Price term="24" value="47.65" range="Low"         />
+					<Price term="36" value="45.55" range="BestValue" />
+					<Price term="48" value="46.75" range="Low"         />
+				</Row>
+				<Row label="All Hours">
+					<Price term="6"  value="60.00" range="VeryHigh"    />
+					<Price term="12" value="57.45" range="High"        />
+					<Price term="18" value="55.60" range="Medium"      />
+					<Price term="24" value="54.03" range="Low"         />
+					<Price term="36" value="52.03" range="BestValue" />
+					<Price term="48" value="53.28" range="Low"         />
+				</Row>
+			</Rows>
+		</Snapshot>
+
+		<Snapshot id="1month" label="1 Month Ago">
+			<TermColumns>
+				<Term months="6"  recommended="false" />
+				<Term months="12" recommended="false" />
+				<Term months="18" recommended="false" />
+				<Term months="24" recommended="false" />
+				<Term months="36" recommended="true"  />
+				<Term months="48" recommended="false" />
+			</TermColumns>
+			<Rows>
+				<Row label="On-Peak">
+					<Price term="6"  value="68.60" range="VeryHigh"  />
+					<Price term="12" value="66.05" range="High"        />
+					<Price term="18" value="63.70" range="Medium" />
+					<Price term="24" value="62.05" range="Low"         />
+					<Price term="36" value="60.20" range="VeryLow"     />
+					<Price term="48" value="61.50" range="Medium"  />
+				</Row>
+				<Row label="Off-Peak">
+					<Price term="6"  value="54.85" range="VeryHigh"    />
+					<Price term="12" value="52.70" range="High"     />
+					<Price term="18" value="50.90" range="Medium"/>
+					<Price term="24" value="49.35" range="Low"         />
+					<Price term="36" value="47.25" range="BestValue" />
+					<Price term="48" value="48.50" range="Low"         />
+				</Row>
+				<Row label="All Hours">
+					<Price term="6"  value="61.73" range="VeryHigh"    />
+					<Price term="12" value="59.38" range="High"        />
+					<Price term="18" value="57.30" range="Medium"      />
+					<Price term="24" value="55.70" range="Low"       />
+					<Price term="36" value="53.73" range="BestValue" />
+					<Price term="48" value="55.00" range="Low"         />
+				</Row>
+			</Rows>
+		</Snapshot>
+
+	</ContractPricing>
+
+	<ContractPricing priceUnit="$/MWh" contractId="CID-10257">
+
+		<Snapshot id="today" label="Today">
+			<TermColumns>
+				<Term months="6"  recommended="false" />
+				<Term months="12" recommended="false" />
+				<Term months="18" recommended="false" />
+				<Term months="24" recommended="false" />
+				<Term months="36" recommended="true"  />
+				<Term months="48" recommended="false" />
+			</TermColumns>
+			<Rows>
+				<Row label="On-Peak">
+					<Price term="6"  value="65.40" range="VeryHigh"    />
+					<Price term="12" value="62.90" range="High"        />
+					<Price term="18" value="60.65" range="Medium"      />
+					<Price term="24" value="59.05" range="Low"         />
+					<Price term="36" value="57.15" range="VeryLow"     />
+					<Price term="48" value="58.45" range="Medium"      />
+				</Row>
+				<Row label="Off-Peak">
+					<Price term="6"  value="51.90" range="VeryHigh"    />
+					<Price term="12" value="49.80" range="High"        />
+					<Price term="18" value="48.00" range="Medium"      />
+					<Price term="24" value="46.45" range="Low"         />
+					<Price term="36" value="44.35" range="BestValue" />
+					<Price term="48" value="45.55" range="Low"   />
+				</Row>
+				<Row label="All Hours">
+					<Price term="6"  value="58.65" range="VeryHigh"    />
+					<Price term="12" value="56.15" range="High"        />
+					<Price term="18" value="54.33" range="Medium"   />
+					<Price term="24" value="52.75" range="Low"         />
+					<Price term="36" value="50.75" range="BestValue" />
+					<Price term="48" value="52.00" range="Low"   />
+				</Row>
+			</Rows>
+		</Snapshot>
+
+		<Snapshot id="3days" label="3 Days Ago">
+			<TermColumns>
+				<Term months="6"  recommended="false" />
+				<Term months="12" recommended="false" />
+				<Term months="18" recommended="false" />
+				<Term months="24" recommended="false" />
+				<Term months="36" recommended="true"  />
+				<Term months="48" recommended="false" />
+			</TermColumns>
+			<Rows>
+				<Row label="On-Peak">
+					<Price term="6"  value="66.10" range="VeryHigh"    />
+					<Price term="12" value="63.55" range="High"        />
+					<Price term="18" value="61.25" range="Medium"      />
+					<Price term="24" value="59.65" range="Low"         />
+					<Price term="36" value="57.75" range="VeryLow"     />
+					<Price term="48" value="59.05" range="Medium"      />
+				</Row>
+				<Row label="Off-Peak">
+					<Price term="6"  value="52.50" range="VeryHigh"    />
+					<Price term="12" value="50.35" range="High"        />
+					<Price term="18" value="48.55" range="Medium"      />
+					<Price term="24" value="47.00" range="Low"         />
+					<Price term="36" value="44.90" range="BestValue" />
+					<Price term="48" value="46.10" range="Low"         />
+				</Row>
+				<Row label="All Hours">
+					<Price term="6"  value="59.30" range="VeryHigh"    />
+					<Price term="12" value="56.75" range="High"   />
+					<Price term="18" value="54.90" range="Medium"      />
+					<Price term="24" value="53.33" range="Low"         />
+					<Price term="36" value="51.33" range="BestValue" />
+					<Price term="48" value="52.58" range="Low"    />
+				</Row>
+			</Rows>
+		</Snapshot>
+
+		<Snapshot id="1week" label="1 Week Ago">
+			<TermColumns>
+				<Term months="6"  recommended="false" />
+				<Term months="12" recommended="false" />
+				<Term months="18" recommended="false" />
+				<Term months="24" recommended="false" />
+				<Term months="36" recommended="true"  />
+				<Term months="48" recommended="false" />
+			</TermColumns>
+			<Rows>
+				<Row label="On-Peak">
+					<Price term="6"  value="66.85" range="VeryHigh"    />
+					<Price term="12" value="64.30" range="High"        />
+					<Price term="18" value="62.00" range="Medium"      />
+					<Price term="24" value="60.40" range="Low"     />
+					<Price term="36" value="58.50" range="VeryLow"     />
+					<Price term="48" value="59.80" range="Medium"      />
+				</Row>
+				<Row label="Off-Peak">
+					<Price term="6"  value="53.15" range="VeryHigh"    />
+					<Price term="12" value="51.00" range="High"  />
+					<Price term="18" value="49.20" range="Medium"  />
+					<Price term="24" value="47.65" range="Low"         />
+					<Price term="36" value="45.55" range="BestValue" />
+					<Price term="48" value="46.75" range="Low"         />
+				</Row>
+				<Row label="All Hours">
+					<Price term="6"  value="60.00" range="VeryHigh"    />
+					<Price term="12" value="57.45" range="High"        />
+					<Price term="18" value="55.60" range="Medium"      />
+					<Price term="24" value="54.03" range="Low"         />
+					<Price term="36" value="52.03" range="BestValue" />
+					<Price term="48" value="53.28" range="Low"         />
+				</Row>
+			</Rows>
+		</Snapshot>
+
+		<Snapshot id="1month" label="1 Month Ago">
+			<TermColumns>
+				<Term months="6"  recommended="false" />
+				<Term months="12" recommended="false" />
+				<Term months="18" recommended="false" />
+				<Term months="24" recommended="false" />
+				<Term months="36" recommended="true"  />
+				<Term months="48" recommended="false" />
+			</TermColumns>
+			<Rows>
+				<Row label="On-Peak">
+					<Price term="6"  value="68.60" range="VeryHigh"  />
+					<Price term="12" value="66.05" range="High"        />
+					<Price term="18" value="63.70" range="Medium" />
+					<Price term="24" value="62.05" range="Low"         />
+					<Price term="36" value="60.20" range="VeryLow"     />
+					<Price term="48" value="61.50" range="Medium"  />
+				</Row>
+				<Row label="Off-Peak">
+					<Price term="6"  value="54.85" range="VeryHigh"    />
+					<Price term="12" value="52.70" range="High"     />
+					<Price term="18" value="50.90" range="Medium"/>
+					<Price term="24" value="49.35" range="Low"         />
+					<Price term="36" value="47.25" range="BestValue" />
+					<Price term="48" value="48.50" range="Low"         />
+				</Row>
+				<Row label="All Hours">
+					<Price term="6"  value="61.73" range="VeryHigh"    />
+					<Price term="12" value="59.38" range="High"        />
+					<Price term="18" value="57.30" range="Medium"      />
+					<Price term="24" value="55.70" range="Low"       />
+					<Price term="36" value="53.73" range="BestValue" />
+					<Price term="48" value="55.00" range="Low"         />
+				</Row>
+			</Rows>
+		</Snapshot>
+
+	</ContractPricing>
+
+	<ContractPricing priceUnit="$/MWh" contractId="CID-10256">
+
+		<Snapshot id="today" label="Today">
+			<TermColumns>
+				<Term months="6"  recommended="false" />
+				<Term months="12" recommended="false" />
+				<Term months="18" recommended="false" />
+				<Term months="24" recommended="false" />
+				<Term months="36" recommended="true"  />
+				<Term months="48" recommended="false" />
+			</TermColumns>
+			<Rows>
+				<Row label="On-Peak">
+					<Price term="6"  value="65.40" range="VeryHigh"    />
+					<Price term="12" value="62.90" range="High"        />
+					<Price term="18" value="60.65" range="Medium"      />
+					<Price term="24" value="59.05" range="Low"         />
+					<Price term="36" value="57.15" range="VeryLow"     />
+					<Price term="48" value="58.45" range="Medium"      />
+				</Row>
+				<Row label="Off-Peak">
+					<Price term="6"  value="51.90" range="VeryHigh"    />
+					<Price term="12" value="49.80" range="High"        />
+					<Price term="18" value="48.00" range="Medium"      />
+					<Price term="24" value="46.45" range="Low"         />
+					<Price term="36" value="44.35" range="BestValue" />
+					<Price term="48" value="45.55" range="Low"   />
+				</Row>
+				<Row label="All Hours">
+					<Price term="6"  value="58.65" range="VeryHigh"    />
+					<Price term="12" value="56.15" range="High"        />
+					<Price term="18" value="54.33" range="Medium"   />
+					<Price term="24" value="52.75" range="Low"         />
+					<Price term="36" value="50.75" range="BestValue" />
+					<Price term="48" value="52.00" range="Low"   />
+				</Row>
+			</Rows>
+		</Snapshot>
+
+		<Snapshot id="3days" label="3 Days Ago">
+			<TermColumns>
+				<Term months="6"  recommended="false" />
+				<Term months="12" recommended="false" />
+				<Term months="18" recommended="false" />
+				<Term months="24" recommended="false" />
+				<Term months="36" recommended="true"  />
+				<Term months="48" recommended="false" />
+			</TermColumns>
+			<Rows>
+				<Row label="On-Peak">
+					<Price term="6"  value="66.10" range="VeryHigh"    />
+					<Price term="12" value="63.55" range="High"        />
+					<Price term="18" value="61.25" range="Medium"      />
+					<Price term="24" value="59.65" range="Low"         />
+					<Price term="36" value="57.75" range="VeryLow"     />
+					<Price term="48" value="59.05" range="Medium"      />
+				</Row>
+				<Row label="Off-Peak">
+					<Price term="6"  value="52.50" range="VeryHigh"    />
+					<Price term="12" value="50.35" range="High"        />
+					<Price term="18" value="48.55" range="Medium"      />
+					<Price term="24" value="47.00" range="Low"         />
+					<Price term="36" value="44.90" range="BestValue" />
+					<Price term="48" value="46.10" range="Low"         />
+				</Row>
+				<Row label="All Hours">
+					<Price term="6"  value="59.30" range="VeryHigh"    />
+					<Price term="12" value="56.75" range="High"   />
+					<Price term="18" value="54.90" range="Medium"      />
+					<Price term="24" value="53.33" range="Low"         />
+					<Price term="36" value="51.33" range="BestValue" />
+					<Price term="48" value="52.58" range="Low"    />
+				</Row>
+			</Rows>
+		</Snapshot>
+
+		<Snapshot id="1week" label="1 Week Ago">
+			<TermColumns>
+				<Term months="6"  recommended="false" />
+				<Term months="12" recommended="false" />
+				<Term months="18" recommended="false" />
+				<Term months="24" recommended="false" />
+				<Term months="36" recommended="true"  />
+				<Term months="48" recommended="false" />
+			</TermColumns>
+			<Rows>
+				<Row label="On-Peak">
+					<Price term="6"  value="66.85" range="VeryHigh"    />
+					<Price term="12" value="64.30" range="High"        />
+					<Price term="18" value="62.00" range="Medium"      />
+					<Price term="24" value="60.40" range="Low"     />
+					<Price term="36" value="58.50" range="VeryLow"     />
+					<Price term="48" value="59.80" range="Medium"      />
+				</Row>
+				<Row label="Off-Peak">
+					<Price term="6"  value="53.15" range="VeryHigh"    />
+					<Price term="12" value="51.00" range="High"  />
+					<Price term="18" value="49.20" range="Medium"  />
+					<Price term="24" value="47.65" range="Low"         />
+					<Price term="36" value="45.55" range="BestValue" />
+					<Price term="48" value="46.75" range="Low"         />
+				</Row>
+				<Row label="All Hours">
+					<Price term="6"  value="60.00" range="VeryHigh"    />
+					<Price term="12" value="57.45" range="High"        />
+					<Price term="18" value="55.60" range="Medium"      />
+					<Price term="24" value="54.03" range="Low"         />
+					<Price term="36" value="52.03" range="BestValue" />
+					<Price term="48" value="53.28" range="Low"         />
+				</Row>
+			</Rows>
+		</Snapshot>
+
+		<Snapshot id="1month" label="1 Month Ago">
+			<TermColumns>
+				<Term months="6"  recommended="false" />
+				<Term months="12" recommended="false" />
+				<Term months="18" recommended="false" />
+				<Term months="24" recommended="false" />
+				<Term months="36" recommended="true"  />
+				<Term months="48" recommended="false" />
+			</TermColumns>
+			<Rows>
+				<Row label="On-Peak">
+					<Price term="6"  value="68.60" range="VeryHigh"  />
+					<Price term="12" value="66.05" range="High"        />
+					<Price term="18" value="63.70" range="Medium" />
+					<Price term="24" value="62.05" range="Low"         />
+					<Price term="36" value="60.20" range="VeryLow"     />
+					<Price term="48" value="61.50" range="Medium"  />
+				</Row>
+				<Row label="Off-Peak">
+					<Price term="6"  value="54.85" range="VeryHigh"    />
+					<Price term="12" value="52.70" range="High"     />
+					<Price term="18" value="50.90" range="Medium"/>
+					<Price term="24" value="49.35" range="Low"         />
+					<Price term="36" value="47.25" range="BestValue" />
+					<Price term="48" value="48.50" range="Low"         />
+				</Row>
+				<Row label="All Hours">
+					<Price term="6"  value="61.73" range="VeryHigh"    />
+					<Price term="12" value="59.38" range="High"        />
+					<Price term="18" value="57.30" range="Medium"      />
+					<Price term="24" value="55.70" range="Low"       />
+					<Price term="36" value="53.73" range="BestValue" />
+					<Price term="48" value="55.00" range="Low"         />
+				</Row>
+			</Rows>
+		</Snapshot>
+
+	</ContractPricing>
+
+	<ContractPricing priceUnit="$/MWh" contractId="CID-10255">
+
+		<Snapshot id="today" label="Today">
+			<TermColumns>
+				<Term months="6"  recommended="false" />
+				<Term months="12" recommended="false" />
+				<Term months="18" recommended="false" />
+				<Term months="24" recommended="false" />
+				<Term months="36" recommended="true"  />
+				<Term months="48" recommended="false" />
+			</TermColumns>
+			<Rows>
+				<Row label="On-Peak">
+					<Price term="6"  value="65.40" range="VeryHigh"    />
+					<Price term="12" value="62.90" range="High"        />
+					<Price term="18" value="60.65" range="Medium"      />
+					<Price term="24" value="59.05" range="Low"         />
+					<Price term="36" value="57.15" range="VeryLow"     />
+					<Price term="48" value="58.45" range="Medium"      />
+				</Row>
+				<Row label="Off-Peak">
+					<Price term="6"  value="51.90" range="VeryHigh"    />
+					<Price term="12" value="49.80" range="High"        />
+					<Price term="18" value="48.00" range="Medium"      />
+					<Price term="24" value="46.45" range="Low"         />
+					<Price term="36" value="44.35" range="BestValue" />
+					<Price term="48" value="45.55" range="Low"   />
+				</Row>
+				<Row label="All Hours">
+					<Price term="6"  value="58.65" range="VeryHigh"    />
+					<Price term="12" value="56.15" range="High"        />
+					<Price term="18" value="54.33" range="Medium"   />
+					<Price term="24" value="52.75" range="Low"         />
+					<Price term="36" value="50.75" range="BestValue" />
+					<Price term="48" value="52.00" range="Low"   />
+				</Row>
+			</Rows>
+		</Snapshot>
+
+		<Snapshot id="3days" label="3 Days Ago">
+			<TermColumns>
+				<Term months="6"  recommended="false" />
+				<Term months="12" recommended="false" />
+				<Term months="18" recommended="false" />
+				<Term months="24" recommended="false" />
+				<Term months="36" recommended="true"  />
+				<Term months="48" recommended="false" />
+			</TermColumns>
+			<Rows>
+				<Row label="On-Peak">
+					<Price term="6"  value="66.10" range="VeryHigh"    />
+					<Price term="12" value="63.55" range="High"        />
+					<Price term="18" value="61.25" range="Medium"      />
+					<Price term="24" value="59.65" range="Low"         />
+					<Price term="36" value="57.75" range="VeryLow"     />
+					<Price term="48" value="59.05" range="Medium"      />
+				</Row>
+				<Row label="Off-Peak">
+					<Price term="6"  value="52.50" range="VeryHigh"    />
+					<Price term="12" value="50.35" range="High"        />
+					<Price term="18" value="48.55" range="Medium"      />
+					<Price term="24" value="47.00" range="Low"         />
+					<Price term="36" value="44.90" range="BestValue" />
+					<Price term="48" value="46.10" range="Low"         />
+				</Row>
+				<Row label="All Hours">
+					<Price term="6"  value="59.30" range="VeryHigh"    />
+					<Price term="12" value="56.75" range="High"   />
+					<Price term="18" value="54.90" range="Medium"      />
+					<Price term="24" value="53.33" range="Low"         />
+					<Price term="36" value="51.33" range="BestValue" />
+					<Price term="48" value="52.58" range="Low"    />
+				</Row>
+			</Rows>
+		</Snapshot>
+
+		<Snapshot id="1week" label="1 Week Ago">
+			<TermColumns>
+				<Term months="6"  recommended="false" />
+				<Term months="12" recommended="false" />
+				<Term months="18" recommended="false" />
+				<Term months="24" recommended="false" />
+				<Term months="36" recommended="true"  />
+				<Term months="48" recommended="false" />
+			</TermColumns>
+			<Rows>
+				<Row label="On-Peak">
+					<Price term="6"  value="66.85" range="VeryHigh"    />
+					<Price term="12" value="64.30" range="High"        />
+					<Price term="18" value="62.00" range="Medium"      />
+					<Price term="24" value="60.40" range="Low"     />
+					<Price term="36" value="58.50" range="VeryLow"     />
+					<Price term="48" value="59.80" range="Medium"      />
+				</Row>
+				<Row label="Off-Peak">
+					<Price term="6"  value="53.15" range="VeryHigh"    />
+					<Price term="12" value="51.00" range="High"  />
+					<Price term="18" value="49.20" range="Medium"  />
+					<Price term="24" value="47.65" range="Low"         />
+					<Price term="36" value="45.55" range="BestValue" />
+					<Price term="48" value="46.75" range="Low"         />
+				</Row>
+				<Row label="All Hours">
+					<Price term="6"  value="60.00" range="VeryHigh"    />
+					<Price term="12" value="57.45" range="High"        />
+					<Price term="18" value="55.60" range="Medium"      />
+					<Price term="24" value="54.03" range="Low"         />
+					<Price term="36" value="52.03" range="BestValue" />
+					<Price term="48" value="53.28" range="Low"         />
+				</Row>
+			</Rows>
+		</Snapshot>
+
+		<Snapshot id="1month" label="1 Month Ago">
+			<TermColumns>
+				<Term months="6"  recommended="false" />
+				<Term months="12" recommended="false" />
+				<Term months="18" recommended="false" />
+				<Term months="24" recommended="false" />
+				<Term months="36" recommended="true"  />
+				<Term months="48" recommended="false" />
+			</TermColumns>
+			<Rows>
+				<Row label="On-Peak">
+					<Price term="6"  value="68.60" range="VeryHigh"  />
+					<Price term="12" value="66.05" range="High"        />
+					<Price term="18" value="63.70" range="Medium" />
+					<Price term="24" value="62.05" range="Low"         />
+					<Price term="36" value="60.20" range="VeryLow"     />
+					<Price term="48" value="61.50" range="Medium"  />
+				</Row>
+				<Row label="Off-Peak">
+					<Price term="6"  value="54.85" range="VeryHigh"    />
+					<Price term="12" value="52.70" range="High"     />
+					<Price term="18" value="50.90" range="Medium"/>
+					<Price term="24" value="49.35" range="Low"         />
+					<Price term="36" value="47.25" range="BestValue" />
+					<Price term="48" value="48.50" range="Low"         />
+				</Row>
+				<Row label="All Hours">
+					<Price term="6"  value="61.73" range="VeryHigh"    />
+					<Price term="12" value="59.38" range="High"        />
+					<Price term="18" value="57.30" range="Medium"      />
+					<Price term="24" value="55.70" range="Low"       />
+					<Price term="36" value="53.73" range="BestValue" />
+					<Price term="48" value="55.00" range="Low"         />
+				</Row>
+			</Rows>
+		</Snapshot>
+
+	</ContractPricing>
+<ContractPricing priceUnit="$/MWh" contractId="2453">
+
+		<Snapshot id="today" label="Today">
+			<TermColumns>
+				<Term months="6"  recommended="false" />
+				<Term months="12" recommended="false" />
+				<Term months="18" recommended="false" />
+				<Term months="24" recommended="false" />
+				<Term months="36" recommended="true"  />
+				<Term months="48" recommended="false" />
+			</TermColumns>
+			<Rows>
+				<Row label="On-Peak">
+					<Price term="6"  value="66.25" range="VeryHigh"    />
+					<Price term="12" value="63.75" range="High"     />
+					<Price term="18" value="61.50" range="Medium"      />
+					<Price term="24" value="59.85" range="Low"         />
+					<Price term="36" value="57.90" range="VeryLow"   />
+					<Price term="48" value="59.20" range="Medium"      />
+				</Row>
+				<Row label="Off-Peak">
+					<Price term="6"  value="52.75" range="VeryHigh"    />
+					<Price term="12" value="50.60" range="High"        />
+					<Price term="18" value="48.75" range="Medium"      />
+					<Price term="24" value="47.20" range="Low"         />
+					<Price term="36" value="45.10" range="BestValue" />
+					<Price term="48" value="46.30" range="Low"         />
+				</Row>
+				<Row label="All Hours">
+					<Price term="6"  value="59.30" range="VeryHigh"    />
+					<Price term="12" value="56.80" range="High"  />
+					<Price term="18" value="55.00" range="Medium"      />
+					<Price term="24" value="53.40" range="Low"      />
+					<Price term="36" value="51.20" range="BestValue" />
+					<Price term="48" value="52.60" range="Low"    />
+				</Row>
+			</Rows>
+		</Snapshot>
+
+		<Snapshot id="3days" label="3 Days Ago">
+			<TermColumns>
+				<Term months="6"  recommended="false" />
+				<Term months="12" recommended="false" />
+				<Term months="18" recommended="false" />
+				<Term months="24" recommended="false" />
+				<Term months="36" recommended="true"  />
+				<Term months="48" recommended="false" />
+			</TermColumns>
+			<Rows>
+				<Row label="On-Peak">
+					<Price term="6" value="67.00" range="VeryHigh"    />
+					<Price term="12" value="64.50" range="High"        />
+					<Price term="18" value="62.10" range="Medium"      />
+					<Price term="24" value="60.40" range="Low"         />
+					<Price term="36" value="58.50" range="VeryLow"     />
+					<Price term="48" value="59.80" range="Medium"  />
+				</Row>
+				<Row label="Off-Peak">
+					<Price term="6"  value="53.20" range="VeryHigh"    />
+					<Price term="12" value="51.00" range="High"        />
+					<Price term="18" value="49.30" range="Medium"      />
+					<Price term="24" value="47.80" range="Low"      />
+					<Price term="36" value="45.60" range="BestValue" />
+					<Price term="48" value="46.90" range="Low"         />
+				</Row>
+				<Row label="All Hours">
+					<Price term="6"  value="60.10" range="VeryHigh"    />
+					<Price term="12" value="57.50" range="High"        />
+					<Price term="18" value="55.70" range="Medium"      />
+					<Price term="24" value="54.10" range="Low"         />
+					<Price term="36" value="52.05" range="BestValue" />
+					<Price term="48" value="53.35" range="Low"     />
+				</Row>
+			</Rows>
+		</Snapshot>
+
+		<Snapshot id="1week" label="1 Week Ago">
+			<TermColumns>
+				<Term months="6"  recommended="false" />
+				<Term months="12" recommended="false" />
+				<Term months="18" recommended="false" />
+				<Term months="24" recommended="false" />
+				<Term months="36" recommended="true"  />
+				<Term months="48" recommended="false" />
+			</TermColumns>
+			<Rows>
+				<Row label="On-Peak">
+					<Price term="6"  value="67.80" range="VeryHigh"    />
+					<Price term="12" value="65.20" range="High"        />
+					<Price term="18" value="62.90" range="Medium"      />
+					<Price term="24" value="61.10" range="Low"         />
+					<Price term="36" value="59.30" range="VeryLow"     />
+					<Price term="48" value="60.50" range="Medium"      />
+				</Row>
+				<Row label="Off-Peak">
+					<Price term="6"  value="54.00" range="VeryHigh"    />
+					<Price term="12" value="51.80" range="High"        />
+					<Price term="18" value="50.10" range="Medium"      />
+					<Price term="24" value="48.60" range="Low"         />
+					<Price term="36" value="46.40" range="BestValue" />
+					<Price term="48" value="47.70" range="Low"         />
+				</Row>
+				<Row label="All Hours">
+					<Price term="6"  value="60.90" range="VeryHigh"    />
+					<Price term="12" value="58.30" range="High"        />
+					<Price term="18" value="56.50" range="Medium" />
+					<Price term="24" value="54.85" range="Low"         />
+					<Price term="36" value="52.85" range="BestValue" />
+					<Price term="48" value="54.10" range="Low"      />
+				</Row>
+			</Rows>
+		</Snapshot>
+
+		<Snapshot id="1month" label="1 Month Ago">
+			<TermColumns>
+				<Term months="6"  recommended="false" />
+				<Term months="12" recommended="false" />
+				<Term months="18" recommended="false" />
+				<Term months="24" recommended="false" />
+				<Term months="36" recommended="true"  />
+				<Term months="48" recommended="false" />
+			</TermColumns>
+			<Rows>
+				<Row label="On-Peak">
+					<Price term="6"  value="69.50" range="VeryHigh"/>
+					<Price term="12" value="66.90" range="High"/>
+					<Price term="18" value="64.60" range="Medium"      />
+					<Price term="24" value="62.80" range="Low"/>
+					<Price term="36" value="61.00" range="VeryLow"     />
+					<Price term="48" value="62.20" range="Medium"      />
+				</Row>
+				<Row label="Off-Peak">
+					<Price term="6"  value="55.70" range="VeryHigh"    />
+					<Price term="12" value="53.50" range="High"        />
+					<Price term="18" value="51.80" range="Medium"    />
+					<Price term="24" value="50.30" range="Low"     />
+					<Price term="36" value="48.10" range="BestValue" />
+					<Price term="48" value="49.40" range="Low"         />
+				</Row>
+				<Row label="All Hours">
+					<Price term="6"  value="62.60" range="VeryHigh"    />
+					<Price term="12" value="60.20" range="High"        />
+					<Price term="18" value="58.20" range="Medium"      />
+					<Price term="24" value="56.55" range="Low"    />
+					<Price term="36" value="54.55" range="BestValue" />
+					<Price term="48" value="55.80" range="Low"         />
+				</Row>
+			</Rows>
+		</Snapshot>
+
+	</ContractPricing>
+	<ContractPricing priceUnit="$/MWh" contractId="2452">
+
+		<Snapshot id="today" label="Today">
+			<TermColumns>
+				<Term months="6"  recommended="false" />
+				<Term months="12" recommended="false" />
+				<Term months="18" recommended="false" />
+				<Term months="24" recommended="false" />
+				<Term months="36" recommended="true"  />
+				<Term months="48" recommended="false" />
+			</TermColumns>
+			<Rows>
+				<Row label="On-Peak">
+					<Price term="6"  value="66.25" range="VeryHigh"    />
+					<Price term="12" value="63.75" range="High"     />
+					<Price term="18" value="61.50" range="Medium"      />
+					<Price term="24" value="59.85" range="Low"         />
+					<Price term="36" value="57.90" range="VeryLow"   />
+					<Price term="48" value="59.20" range="Medium"      />
+				</Row>
+				<Row label="Off-Peak">
+					<Price term="6"  value="52.75" range="VeryHigh"    />
+					<Price term="12" value="50.60" range="High"        />
+					<Price term="18" value="48.75" range="Medium"      />
+					<Price term="24" value="47.20" range="Low"         />
+					<Price term="36" value="45.10" range="BestValue" />
+					<Price term="48" value="46.30" range="Low"         />
+				</Row>
+				<Row label="All Hours">
+					<Price term="6"  value="59.30" range="VeryHigh"    />
+					<Price term="12" value="56.80" range="High"  />
+					<Price term="18" value="55.00" range="Medium"      />
+					<Price term="24" value="53.40" range="Low"      />
+					<Price term="36" value="51.20" range="BestValue" />
+					<Price term="48" value="52.60" range="Low"    />
+				</Row>
+			</Rows>
+		</Snapshot>
+
+		<Snapshot id="3days" label="3 Days Ago">
+			<TermColumns>
+				<Term months="6"  recommended="false" />
+				<Term months="12" recommended="false" />
+				<Term months="18" recommended="false" />
+				<Term months="24" recommended="false" />
+				<Term months="36" recommended="true"  />
+				<Term months="48" recommended="false" />
+			</TermColumns>
+			<Rows>
+				<Row label="On-Peak">
+					<Price term="6" value="67.00" range="VeryHigh"    />
+					<Price term="12" value="64.50" range="High"        />
+					<Price term="18" value="62.10" range="Medium"      />
+					<Price term="24" value="60.40" range="Low"         />
+					<Price term="36" value="58.50" range="VeryLow"     />
+					<Price term="48" value="59.80" range="Medium"  />
+				</Row>
+				<Row label="Off-Peak">
+					<Price term="6"  value="53.20" range="VeryHigh"    />
+					<Price term="12" value="51.00" range="High"        />
+					<Price term="18" value="49.30" range="Medium"      />
+					<Price term="24" value="47.80" range="Low"      />
+					<Price term="36" value="45.60" range="BestValue" />
+					<Price term="48" value="46.90" range="Low"         />
+				</Row>
+				<Row label="All Hours">
+					<Price term="6"  value="60.10" range="VeryHigh"    />
+					<Price term="12" value="57.50" range="High"        />
+					<Price term="18" value="55.70" range="Medium"      />
+					<Price term="24" value="54.10" range="Low"         />
+					<Price term="36" value="52.05" range="BestValue" />
+					<Price term="48" value="53.35" range="Low"     />
+				</Row>
+			</Rows>
+		</Snapshot>
+
+		<Snapshot id="1week" label="1 Week Ago">
+			<TermColumns>
+				<Term months="6"  recommended="false" />
+				<Term months="12" recommended="false" />
+				<Term months="18" recommended="false" />
+				<Term months="24" recommended="false" />
+				<Term months="36" recommended="true"  />
+				<Term months="48" recommended="false" />
+			</TermColumns>
+			<Rows>
+				<Row label="On-Peak">
+					<Price term="6"  value="67.80" range="VeryHigh"    />
+					<Price term="12" value="65.20" range="High"        />
+					<Price term="18" value="62.90" range="Medium"      />
+					<Price term="24" value="61.10" range="Low"         />
+					<Price term="36" value="59.30" range="VeryLow"     />
+					<Price term="48" value="60.50" range="Medium"      />
+				</Row>
+				<Row label="Off-Peak">
+					<Price term="6"  value="54.00" range="VeryHigh"    />
+					<Price term="12" value="51.80" range="High"        />
+					<Price term="18" value="50.10" range="Medium"      />
+					<Price term="24" value="48.60" range="Low"         />
+					<Price term="36" value="46.40" range="BestValue" />
+					<Price term="48" value="47.70" range="Low"         />
+				</Row>
+				<Row label="All Hours">
+					<Price term="6"  value="60.90" range="VeryHigh"    />
+					<Price term="12" value="58.30" range="High"        />
+					<Price term="18" value="56.50" range="Medium" />
+					<Price term="24" value="54.85" range="Low"         />
+					<Price term="36" value="52.85" range="BestValue" />
+					<Price term="48" value="54.10" range="Low"      />
+				</Row>
+			</Rows>
+		</Snapshot>
+
+		<Snapshot id="1month" label="1 Month Ago">
+			<TermColumns>
+				<Term months="6"  recommended="false" />
+				<Term months="12" recommended="false" />
+				<Term months="18" recommended="false" />
+				<Term months="24" recommended="false" />
+				<Term months="36" recommended="true"  />
+				<Term months="48" recommended="false" />
+			</TermColumns>
+			<Rows>
+				<Row label="On-Peak">
+					<Price term="6"  value="69.50" range="VeryHigh"/>
+					<Price term="12" value="66.90" range="High"/>
+					<Price term="18" value="64.60" range="Medium"      />
+					<Price term="24" value="62.80" range="Low"/>
+					<Price term="36" value="61.00" range="VeryLow"     />
+					<Price term="48" value="62.20" range="Medium"      />
+				</Row>
+				<Row label="Off-Peak">
+					<Price term="6"  value="55.70" range="VeryHigh"    />
+					<Price term="12" value="53.50" range="High"        />
+					<Price term="18" value="51.80" range="Medium"    />
+					<Price term="24" value="50.30" range="Low"     />
+					<Price term="36" value="48.10" range="BestValue" />
+					<Price term="48" value="49.40" range="Low"         />
+				</Row>
+				<Row label="All Hours">
+					<Price term="6"  value="62.60" range="VeryHigh"    />
+					<Price term="12" value="60.20" range="High"        />
+					<Price term="18" value="58.20" range="Medium"      />
+					<Price term="24" value="56.55" range="Low"    />
+					<Price term="36" value="54.55" range="BestValue" />
+					<Price term="48" value="55.80" range="Low"         />
+				</Row>
+			</Rows>
+		</Snapshot>
+
+	</ContractPricing>
+	<ContractPricing priceUnit="$/MWh" contractId="2451">
+
+		<Snapshot id="today" label="Today">
+			<TermColumns>
+				<Term months="6"  recommended="false" />
+				<Term months="12" recommended="false" />
+				<Term months="18" recommended="false" />
+				<Term months="24" recommended="false" />
+				<Term months="36" recommended="true"  />
+				<Term months="48" recommended="false" />
+			</TermColumns>
+			<Rows>
+				<Row label="On-Peak">
+					<Price term="6"  value="66.25" range="VeryHigh"    />
+					<Price term="12" value="63.75" range="High"     />
+					<Price term="18" value="61.50" range="Medium"      />
+					<Price term="24" value="59.85" range="Low"         />
+					<Price term="36" value="57.90" range="VeryLow"   />
+					<Price term="48" value="59.20" range="Medium"      />
+				</Row>
+				<Row label="Off-Peak">
+					<Price term="6"  value="52.75" range="VeryHigh"    />
+					<Price term="12" value="50.60" range="High"        />
+					<Price term="18" value="48.75" range="Medium"      />
+					<Price term="24" value="47.20" range="Low"         />
+					<Price term="36" value="45.10" range="BestValue" />
+					<Price term="48" value="46.30" range="Low"         />
+				</Row>
+				<Row label="All Hours">
+					<Price term="6"  value="59.30" range="VeryHigh"    />
+					<Price term="12" value="56.80" range="High"  />
+					<Price term="18" value="55.00" range="Medium"      />
+					<Price term="24" value="53.40" range="Low"      />
+					<Price term="36" value="51.20" range="BestValue" />
+					<Price term="48" value="52.60" range="Low"    />
+				</Row>
+			</Rows>
+		</Snapshot>
+
+		<Snapshot id="3days" label="3 Days Ago">
+			<TermColumns>
+				<Term months="6"  recommended="false" />
+				<Term months="12" recommended="false" />
+				<Term months="18" recommended="false" />
+				<Term months="24" recommended="false" />
+				<Term months="36" recommended="true"  />
+				<Term months="48" recommended="false" />
+			</TermColumns>
+			<Rows>
+				<Row label="On-Peak">
+					<Price term="6" value="67.00" range="VeryHigh"    />
+					<Price term="12" value="64.50" range="High"        />
+					<Price term="18" value="62.10" range="Medium"      />
+					<Price term="24" value="60.40" range="Low"         />
+					<Price term="36" value="58.50" range="VeryLow"     />
+					<Price term="48" value="59.80" range="Medium"  />
+				</Row>
+				<Row label="Off-Peak">
+					<Price term="6"  value="53.20" range="VeryHigh"    />
+					<Price term="12" value="51.00" range="High"        />
+					<Price term="18" value="49.30" range="Medium"      />
+					<Price term="24" value="47.80" range="Low"      />
+					<Price term="36" value="45.60" range="BestValue" />
+					<Price term="48" value="46.90" range="Low"         />
+				</Row>
+				<Row label="All Hours">
+					<Price term="6"  value="60.10" range="VeryHigh"    />
+					<Price term="12" value="57.50" range="High"        />
+					<Price term="18" value="55.70" range="Medium"      />
+					<Price term="24" value="54.10" range="Low"         />
+					<Price term="36" value="52.05" range="BestValue" />
+					<Price term="48" value="53.35" range="Low"     />
+				</Row>
+			</Rows>
+		</Snapshot>
+
+		<Snapshot id="1week" label="1 Week Ago">
+			<TermColumns>
+				<Term months="6"  recommended="false" />
+				<Term months="12" recommended="false" />
+				<Term months="18" recommended="false" />
+				<Term months="24" recommended="false" />
+				<Term months="36" recommended="true"  />
+				<Term months="48" recommended="false" />
+			</TermColumns>
+			<Rows>
+				<Row label="On-Peak">
+					<Price term="6"  value="67.80" range="VeryHigh"    />
+					<Price term="12" value="65.20" range="High"        />
+					<Price term="18" value="62.90" range="Medium"      />
+					<Price term="24" value="61.10" range="Low"         />
+					<Price term="36" value="59.30" range="VeryLow"     />
+					<Price term="48" value="60.50" range="Medium"      />
+				</Row>
+				<Row label="Off-Peak">
+					<Price term="6"  value="54.00" range="VeryHigh"    />
+					<Price term="12" value="51.80" range="High"        />
+					<Price term="18" value="50.10" range="Medium"      />
+					<Price term="24" value="48.60" range="Low"         />
+					<Price term="36" value="46.40" range="BestValue" />
+					<Price term="48" value="47.70" range="Low"         />
+				</Row>
+				<Row label="All Hours">
+					<Price term="6"  value="60.90" range="VeryHigh"    />
+					<Price term="12" value="58.30" range="High"        />
+					<Price term="18" value="56.50" range="Medium" />
+					<Price term="24" value="54.85" range="Low"         />
+					<Price term="36" value="52.85" range="BestValue" />
+					<Price term="48" value="54.10" range="Low"      />
+				</Row>
+			</Rows>
+		</Snapshot>
+
+		<Snapshot id="1month" label="1 Month Ago">
+			<TermColumns>
+				<Term months="6"  recommended="false" />
+				<Term months="12" recommended="false" />
+				<Term months="18" recommended="false" />
+				<Term months="24" recommended="false" />
+				<Term months="36" recommended="true"  />
+				<Term months="48" recommended="false" />
+			</TermColumns>
+			<Rows>
+				<Row label="On-Peak">
+					<Price term="6"  value="69.50" range="VeryHigh"/>
+					<Price term="12" value="66.90" range="High"/>
+					<Price term="18" value="64.60" range="Medium"      />
+					<Price term="24" value="62.80" range="Low"/>
+					<Price term="36" value="61.00" range="VeryLow"     />
+					<Price term="48" value="62.20" range="Medium"      />
+				</Row>
+				<Row label="Off-Peak">
+					<Price term="6"  value="55.70" range="VeryHigh"    />
+					<Price term="12" value="53.50" range="High"        />
+					<Price term="18" value="51.80" range="Medium"    />
+					<Price term="24" value="50.30" range="Low"     />
+					<Price term="36" value="48.10" range="BestValue" />
+					<Price term="48" value="49.40" range="Low"         />
+				</Row>
+				<Row label="All Hours">
+					<Price term="6"  value="62.60" range="VeryHigh"    />
+					<Price term="12" value="60.20" range="High"        />
+					<Price term="18" value="58.20" range="Medium"      />
+					<Price term="24" value="56.55" range="Low"    />
+					<Price term="36" value="54.55" range="BestValue" />
+					<Price term="48" value="55.80" range="Low"         />
+				</Row>
+			</Rows>
+		</Snapshot>
+
+	</ContractPricing>
+	<ContractPricing priceUnit="$/MWh" contractId="2450">
+
+		<Snapshot id="today" label="Today">
+			<TermColumns>
+				<Term months="6"  recommended="false" />
+				<Term months="12" recommended="false" />
+				<Term months="18" recommended="false" />
+				<Term months="24" recommended="false" />
+				<Term months="36" recommended="true"  />
+				<Term months="48" recommended="false" />
+			</TermColumns>
+			<Rows>
+				<Row label="On-Peak">
+					<Price term="6"  value="66.25" range="VeryHigh"    />
+					<Price term="12" value="63.75" range="High"     />
+					<Price term="18" value="61.50" range="Medium"      />
+					<Price term="24" value="59.85" range="Low"         />
+					<Price term="36" value="57.90" range="VeryLow"   />
+					<Price term="48" value="59.20" range="Medium"      />
+				</Row>
+				<Row label="Off-Peak">
+					<Price term="6"  value="52.75" range="VeryHigh"    />
+					<Price term="12" value="50.60" range="High"        />
+					<Price term="18" value="48.75" range="Medium"      />
+					<Price term="24" value="47.20" range="Low"         />
+					<Price term="36" value="45.10" range="BestValue" />
+					<Price term="48" value="46.30" range="Low"         />
+				</Row>
+				<Row label="All Hours">
+					<Price term="6"  value="59.30" range="VeryHigh"    />
+					<Price term="12" value="56.80" range="High"  />
+					<Price term="18" value="55.00" range="Medium"      />
+					<Price term="24" value="53.40" range="Low"      />
+					<Price term="36" value="51.20" range="BestValue" />
+					<Price term="48" value="52.60" range="Low"    />
+				</Row>
+			</Rows>
+		</Snapshot>
+
+		<Snapshot id="3days" label="3 Days Ago">
+			<TermColumns>
+				<Term months="6"  recommended="false" />
+				<Term months="12" recommended="false" />
+				<Term months="18" recommended="false" />
+				<Term months="24" recommended="false" />
+				<Term months="36" recommended="true"  />
+				<Term months="48" recommended="false" />
+			</TermColumns>
+			<Rows>
+				<Row label="On-Peak">
+					<Price term="6" value="67.00" range="VeryHigh"    />
+					<Price term="12" value="64.50" range="High"        />
+					<Price term="18" value="62.10" range="Medium"      />
+					<Price term="24" value="60.40" range="Low"         />
+					<Price term="36" value="58.50" range="VeryLow"     />
+					<Price term="48" value="59.80" range="Medium"  />
+				</Row>
+				<Row label="Off-Peak">
+					<Price term="6"  value="53.20" range="VeryHigh"    />
+					<Price term="12" value="51.00" range="High"        />
+					<Price term="18" value="49.30" range="Medium"      />
+					<Price term="24" value="47.80" range="Low"      />
+					<Price term="36" value="45.60" range="BestValue" />
+					<Price term="48" value="46.90" range="Low"         />
+				</Row>
+				<Row label="All Hours">
+					<Price term="6"  value="60.10" range="VeryHigh"    />
+					<Price term="12" value="57.50" range="High"        />
+					<Price term="18" value="55.70" range="Medium"      />
+					<Price term="24" value="54.10" range="Low"         />
+					<Price term="36" value="52.05" range="BestValue" />
+					<Price term="48" value="53.35" range="Low"     />
+				</Row>
+			</Rows>
+		</Snapshot>
+
+		<Snapshot id="1week" label="1 Week Ago">
+			<TermColumns>
+				<Term months="6"  recommended="false" />
+				<Term months="12" recommended="false" />
+				<Term months="18" recommended="false" />
+				<Term months="24" recommended="false" />
+				<Term months="36" recommended="true"  />
+				<Term months="48" recommended="false" />
+			</TermColumns>
+			<Rows>
+				<Row label="On-Peak">
+					<Price term="6"  value="67.80" range="VeryHigh"    />
+					<Price term="12" value="65.20" range="High"        />
+					<Price term="18" value="62.90" range="Medium"      />
+					<Price term="24" value="61.10" range="Low"         />
+					<Price term="36" value="59.30" range="VeryLow"     />
+					<Price term="48" value="60.50" range="Medium"      />
+				</Row>
+				<Row label="Off-Peak">
+					<Price term="6"  value="54.00" range="VeryHigh"    />
+					<Price term="12" value="51.80" range="High"        />
+					<Price term="18" value="50.10" range="Medium"      />
+					<Price term="24" value="48.60" range="Low"         />
+					<Price term="36" value="46.40" range="BestValue" />
+					<Price term="48" value="47.70" range="Low"         />
+				</Row>
+				<Row label="All Hours">
+					<Price term="6"  value="60.90" range="VeryHigh"    />
+					<Price term="12" value="58.30" range="High"        />
+					<Price term="18" value="56.50" range="Medium" />
+					<Price term="24" value="54.85" range="Low"         />
+					<Price term="36" value="52.85" range="BestValue" />
+					<Price term="48" value="54.10" range="Low"      />
+				</Row>
+			</Rows>
+		</Snapshot>
+
+		<Snapshot id="1month" label="1 Month Ago">
+			<TermColumns>
+				<Term months="6"  recommended="false" />
+				<Term months="12" recommended="false" />
+				<Term months="18" recommended="false" />
+				<Term months="24" recommended="false" />
+				<Term months="36" recommended="true"  />
+				<Term months="48" recommended="false" />
+			</TermColumns>
+			<Rows>
+				<Row label="On-Peak">
+					<Price term="6"  value="69.50" range="VeryHigh"/>
+					<Price term="12" value="66.90" range="High"/>
+					<Price term="18" value="64.60" range="Medium"      />
+					<Price term="24" value="62.80" range="Low"/>
+					<Price term="36" value="61.00" range="VeryLow"     />
+					<Price term="48" value="62.20" range="Medium"      />
+				</Row>
+				<Row label="Off-Peak">
+					<Price term="6"  value="55.70" range="VeryHigh"    />
+					<Price term="12" value="53.50" range="High"        />
+					<Price term="18" value="51.80" range="Medium"    />
+					<Price term="24" value="50.30" range="Low"     />
+					<Price term="36" value="48.10" range="BestValue" />
+					<Price term="48" value="49.40" range="Low"         />
+				</Row>
+				<Row label="All Hours">
+					<Price term="6"  value="62.60" range="VeryHigh"    />
+					<Price term="12" value="60.20" range="High"        />
+					<Price term="18" value="58.20" range="Medium"      />
+					<Price term="24" value="56.55" range="Low"    />
+					<Price term="36" value="54.55" range="BestValue" />
+					<Price term="48" value="55.80" range="Low"         />
+				</Row>
+			</Rows>
+		</Snapshot>
+
+	</ContractPricing>
+</PricingIntelligenceData>

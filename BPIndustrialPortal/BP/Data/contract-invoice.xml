@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<InvoiceHistory>
+  <Invoices>
+
+    <Invoice>
+      <InvoiceId>INV006</InvoiceId>
+      <Date>4/1/2026</Date>
+      <TotalDue>496000.00</TotalDue>
+      <PastDue>0.00</PastDue>
+    </Invoice>
+
+    <Invoice>
+      <InvoiceId>INV005</InvoiceId>
+      <Date>3/1/2026</Date>
+      <TotalDue>238920.00</TotalDue>
+      <PastDue>15000.00</PastDue>
+    </Invoice>
+
+    <Invoice>
+      <InvoiceId>INV004</InvoiceId>
+      <Date>2/1/2026</Date>
+      <TotalDue>412750.00</TotalDue>
+      <PastDue>0.00</PastDue>
+    </Invoice>
+
+    <Invoice>
+      <InvoiceId>INV003</InvoiceId>
+      <Date>1/1/2026</Date>
+      <TotalDue>598300.00</TotalDue>
+      <PastDue>42500.00</PastDue>
+    </Invoice>
+
+    <Invoice>
+      <InvoiceId>INV002</InvoiceId>
+      <Date>12/1/2025</Date>
+      <TotalDue>327850.00</TotalDue>
+      <PastDue>0.00</PastDue>
+    </Invoice>
+
+    <Invoice>
+      <InvoiceId>INV001</InvoiceId>
+      <Date>11/1/2025</Date>
+      <TotalDue>486120.00</TotalDue>
+      <PastDue>28750.00</PastDue>
+    </Invoice>
+
+  </Invoices>
+</InvoiceHistory>

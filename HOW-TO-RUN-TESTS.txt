@@ -1,0 +1,176 @@
+========================================================
+  BP Industrial Portal Middleware - How to Run Tests
+========================================================
+
+PROJECT: BP.Tests
+LOCATION: BPIndustrialPortal/BP.Tests/BP.Tests.csproj
+FRAMEWORK: xUnit, Moq, FluentAssertions, Microsoft.AspNetCore.Mvc.Testing
+TEST TYPES: Unit Tests + Integration Tests
+
+
+--------------------------------------------------------
+PREREQUISITES
+--------------------------------------------------------
+1. .NET 9 SDK installed
+   - Verify: dotnet --version  (should show 9.x.x)
+2. All NuGet packages restored
+   - Run: dotnet restore BPIndustrialPortal/BP.Tests/BP.Tests.csproj
+
+
+--------------------------------------------------------
+HOW TO RUN ALL TESTS
+--------------------------------------------------------
+From the repository root:
+
+  dotnet test BPIndustrialPortal/BP.Tests/BP.Tests.csproj
+
+Expected output:
+  Passed!  - Failed: 0, Passed: 67, Skipped: 1, Total: 68
+
+
+--------------------------------------------------------
+HOW TO RUN WITH DETAILED OUTPUT
+--------------------------------------------------------
+  dotnet test BPIndustrialPortal/BP.Tests/BP.Tests.csproj --logger "console;verbosity=detailed"
+
+
+--------------------------------------------------------
+HOW TO RUN ONLY UNIT TESTS
+--------------------------------------------------------
+  dotnet test BPIndustrialPortal/BP.Tests/BP.Tests.csproj --filter "FullyQualifiedName~Unit"
+
+
+--------------------------------------------------------
+HOW TO RUN ONLY INTEGRATION TESTS
+--------------------------------------------------------
+  dotnet test BPIndustrialPortal/BP.Tests/BP.Tests.csproj --filter "FullyQualifiedName~Integration"
+
+
+--------------------------------------------------------
+HOW TO RUN A SPECIFIC TEST CLASS
+--------------------------------------------------------
+  dotnet test BPIndustrialPortal/BP.Tests/BP.Tests.csproj --filter "ClassName=BP.Tests.Unit.BrokerHomeServiceTests"
+  dotnet test BPIndustrialPortal/BP.Tests/BP.Tests.csproj --filter "ClassName=BP.Tests.Integration.BrokerHomeControllerTests"
+
+
+--------------------------------------------------------
+HOW TO RUN A SPECIFIC TEST METHOD
+--------------------------------------------------------
+  dotnet test BPIndustrialPortal/BP.Tests/BP.Tests.csproj --filter "FullyQualifiedName~GetSummaryMetrics_Returns_CorrectData"
+
+
+--------------------------------------------------------
+HOW TO RUN WITH CODE COVERAGE
+--------------------------------------------------------
+  dotnet test BPIndustrialPortal/BP.Tests/BP.Tests.csproj --collect:"XPlat Code Coverage"
+
+  Coverage report will be written to:
+  BP.Tests/TestResults/<guid>/coverage.cobertura.xml
+
+
+--------------------------------------------------------
+HOW TO RUN AND EXPORT RESULTS (TRX format for CI/CD)
+--------------------------------------------------------
+  dotnet test BPIndustrialPortal/BP.Tests/BP.Tests.csproj ^
+    --logger "trx;LogFileName=test-results.trx" ^
+    --results-directory ./test-results
+
+  Result file: ./test-results/test-results.trx
+
+
+--------------------------------------------------------
+HOW TO RUN IN RELEASE CONFIGURATION
+--------------------------------------------------------
+  dotnet test BPIndustrialPortal/BP.Tests/BP.Tests.csproj --configuration Release
+
+
+--------------------------------------------------------
+HOW TO RUN IN VISUAL STUDIO / VS CODE
+--------------------------------------------------------
+Visual Studio:
+  - Open Test Explorer (Test > Test Explorer)
+  - Click "Run All Tests" or right-click a specific test
+
+VS Code:
+  - Install the ".NET Core Test Explorer" extension
+  - Tests appear in the Testing sidebar (flask icon)
+  - Click the play button next to any test or group
+
+
+--------------------------------------------------------
+HOW TESTS RUN IN CI/CD (GITHUB ACTIONS)
+--------------------------------------------------------
+The pipeline file is at:
+  .github/workflows/dotnet-backenddeploy.yml
+
+The test step runs automatically on every push to main:
+
+  - name: Test
+    run: dotnet test BPIndustrialPortal/BP.Tests/BP.Tests.csproj
+         --configuration Release
+         --no-build
+         --logger "trx;LogFileName=test-results.trx"
+         --results-directory ./test-results
+
+  - name: Upload test results
+    if: always()
+    uses: actions/upload-artifact@v4
+    with:
+      name: test-results
+      path: ./test-results/test-results.trx
+
+If ANY test fails, the pipeline stops and the deployment
+to Azure Web App is blocked.
+
+The TRX file is uploaded as an artifact so you can
+download and inspect it from the GitHub Actions run page.
+
+
+--------------------------------------------------------
+SKIPPED TESTS (KNOWN)
+--------------------------------------------------------
+
+
+--------------------------------------------------------
+TEST PROJECT STRUCTURE
+--------------------------------------------------------
+BP.Tests/
+  GlobalUsings.cs               <- global using statements
+  BP.Tests.csproj               <- project file with NuGet refs
+  Helpers/
+    BrokerApiFactory.cs         <- WebApplicationFactory for integration tests
+    BrokerHomeServiceFixture.cs <- creates temp XML data files for unit tests
+    JwtTokenHelper.cs           <- generates test JWT tokens (Broker / Billing)
+    TestXmlData.cs              <- in-memory XML test data strings
+  Unit/
+    BrokerHomeServiceTests.cs   <- 38 unit tests for BrokerHomeService
+  Integration/
+    BrokerHomeControllerTests.cs <- 30 integration tests for BrokerHomeController
+
+
+--------------------------------------------------------
+HOW INTEGRATION TESTS WORK
+--------------------------------------------------------
+Integration tests spin up the full ASP.NET Core app in
+memory using WebApplicationFactory<Program>.
+
+- No real HTTP server is started
+- Uses the actual Program.cs startup (DI, middleware, auth)
+- HTTPS redirection is disabled in "Testing" environment
+- JWT tokens are generated using the same key as production
+- XML data is read from the real broker/Data/*.xml files
+
+
+--------------------------------------------------------
+HOW UNIT TESTS WORK
+--------------------------------------------------------
+Unit tests instantiate BrokerHomeService directly without
+the web host.
+
+- A temp directory with test XML files is created via
+  BrokerHomeServiceFixture (IDisposable, auto-cleaned up)
+- No HTTP layer involved
+- BrokerHomeService is tested in isolation
+
+
+========================================================

@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CaseChatData>
+  <Messages>
+  <Message>
+      <MessageId>MSG-001</MessageId>
+   <CaseId>CASE-234</CaseId>
+ <Sender>ServiceRep</Sender>
+      <SenderName>Albert Floxes</SenderName>
+      <Text>Hello! Thank you for submitting your moving service request. How can I assist you today?</Text>
+      <SentAt>2026-06-25T09:00:00</SentAt>
+    </Message>
+    <Message>
+      <MessageId>MSG-002</MessageId>
+      <CaseId>CASE-234</CaseId>
+      <Sender>Customer</Sender>
+      <SenderName>Customer</SenderName>
+  <Text>Hi, I need to transfer my electricity service to a new address next month.</Text>
+      <SentAt>2026-06-25T09:22:00</SentAt>
+    </Message>
+    <Message>
+      <MessageId>MSG-003</MessageId>
+      <CaseId>CASE-234</CaseId>
+      <Sender>ServiceRep</Sender>
+      <SenderName>Albert Floxes</SenderName>
+      <Text>Of course! Could you please confirm your current meter number and provide the new service address?</Text>
+      <SentAt>2026-06-25T09:35:00</SentAt>
+    </Message>
+    <Message>
+      <MessageId>MSG-004</MessageId>
+      <CaseId>CASE-234</CaseId>
+      <Sender>Customer</Sender>
+      <SenderName>Customer</SenderName>
+      <Text>My meter is 00313867. I'll be moving to 742 Evergreen Terrace, Springfield.</Text>
+   <SentAt>2026-06-25T10:05:00</SentAt>
+</Message>
+
+    <Message>
+      <MessageId>MSG-005</MessageId>
+      <CaseId>CASE-233</CaseId>
+      <Sender>ServiceRep</Sender>
+      <SenderName>Sarah Mitchell</SenderName>
+      <Text>Hello! We're here to help. What can we do for you?</Text>
+    <SentAt>2026-06-22T15:24:00</SentAt>
+    </Message>
+    <Message>
+  <MessageId>MSG-006</MessageId>
+      <CaseId>CASE-233</CaseId>
+      <Sender>ServiceRep</Sender>
+      <SenderName>Sarah Mitchell</SenderName>
+      <Text>Thanks for contacting us! What support do you need?</Text>
+      <SentAt>2026-06-22T15:24:30</SentAt>
+    </Message>
+    <Message>
+      <MessageId>MSG-007</MessageId>
+      <CaseId>CASE-233</CaseId>
+      <Sender>Customer</Sender>
+      <SenderName>Customer</SenderName>
+    <Text>Hi, I believe there is an issue with the charges on my latest invoice. The billed amount seems higher than expected. Could you please review it?</Text>
+   <SentAt>2026-06-22T16:15:00</SentAt>
+    </Message>
+    <Message>
+      <MessageId>MSG-008</MessageId>
+      <CaseId>CASE-233</CaseId>
+<Sender>ServiceRep</Sender>
+      <SenderName>Sarah Mitchell</SenderName>
+<Text>Thank you for reaching out. We'd be happy to help. Could you please provide the invoice number and details of the discrepancy you've identified?</Text>
+      <SentAt>2026-06-22T16:45:00</SentAt>
+    </Message>
+
+    <Message>
+      <MessageId>MSG-009</MessageId>
+      <CaseId>CASE-232</CaseId>
+      <Sender>ServiceRep</Sender>
+      <SenderName>James Carter</SenderName>
+      <Text>Hello! How can we assist you today?</Text>
+      <SentAt>2026-06-18T10:00:00</SentAt>
+ </Message>
+    <Message>
+      <MessageId>MSG-010</MessageId>
+  <CaseId>CASE-232</CaseId>
+      <Sender>Customer</Sender>
+      <SenderName>Customer</SenderName>
+      <Text>I'd like to know more about the contract renewal process and the steps needed to extend our current agreement.</Text>
+    <SentAt>2026-06-18T10:15:00</SentAt>
+    </Message>
+    <Message>
+   <MessageId>MSG-011</MessageId>
+      <CaseId>CASE-232</CaseId>
+      <Sender>ServiceRep</Sender>
+    <SenderName>James Carter</SenderName>
+      <Text>Your current contract is set to expire on 8/31/2026. I can walk you through the renewal steps.</Text>
+      <SentAt>2026-06-18T10:20:00</SentAt>
+    </Message>
+    <Message>
+      <MessageId>MSG-012</MessageId>
+ <CaseId>CASE-232</CaseId>
+      <Sender>Customer</Sender>
+      <SenderName>Customer</SenderName>
+      <Text>Please go ahead.</Text>
+      <SentAt>2026-06-18T10:30:00</SentAt>
+    </Message>
+ <Message>
+      <MessageId>MSG-013</MessageId>
+      <CaseId>CASE-232</CaseId>
+  <Sender>ServiceRep</Sender>
+      <SenderName>James Carter</SenderName>
+      <Text>We'll send you a renewal proposal 30 days before expiry. You can review and sign it online through the portal.</Text>
+      <SentAt>2026-06-18T10:35:00</SentAt>
+    </Message>
+    <Message>
+      <MessageId>MSG-014</MessageId>
+      <CaseId>CASE-232</CaseId>
+   <Sender>Customer</Sender>
+      <SenderName>Customer</SenderName>
+      <Text>Perfect. Thank you for the information.</Text>
+      <SentAt>2026-06-18T10:50:00</SentAt>
+    </Message>
+    <Message>
+      <MessageId>MSG-015</MessageId>
+      <CaseId>CASE-232</CaseId>
+      <Sender>ServiceRep</Sender>
+      <SenderName>James Carter</SenderName>
+      <Text>You're welcome! Is there anything else I can help you with? This case is now resolved.</Text>
+ <SentAt>2026-06-18T10:55:00</SentAt>
+    </Message>
+
+    <Message>
+      <MessageId>MSG-016</MessageId>
+      <CaseId>CASE-231</CaseId>
+      <Sender>ServiceRep</Sender>
+      <SenderName>Sarah Mitchell</SenderName>
+      <Text>Hi there! How can I help you today?</Text>
+ <SentAt>2026-06-15T14:00:00</SentAt>
+    </Message>
+    <Message>
+      <MessageId>MSG-017</MessageId>
+ <CaseId>CASE-231</CaseId>
+  <Sender>Customer</Sender>
+      <SenderName>Customer</SenderName>
+      <Text>I have a quick question regarding meter reading schedules and how they align with our monthly billing cycle.</Text>
+      <SentAt>2026-06-15T14:10:00</SentAt>
+    </Message>
+    <Message>
+      <MessageId>MSG-018</MessageId>
+      <CaseId>CASE-231</CaseId>
+      <Sender>ServiceRep</Sender>
+      <SenderName>Sarah Mitchell</SenderName>
+      <Text>Sure! Your meter is read on the 1st of every month. The next reading is scheduled for 7/1/2026.</Text>
+      <SentAt>2026-06-15T14:15:00</SentAt>
+    </Message>
+  <Message>
+      <MessageId>MSG-019</MessageId>
+      <CaseId>CASE-231</CaseId>
+      <Sender>Customer</Sender>
+      <SenderName>Customer</SenderName>
+<Text>Does the billing cycle align with that?</Text>
+      <SentAt>2026-06-15T14:22:00</SentAt>
+    </Message>
+    <Message>
+   <MessageId>MSG-020</MessageId>
+<CaseId>CASE-231</CaseId>
+      <Sender>ServiceRep</Sender>
+      <SenderName>Sarah Mitchell</SenderName>
+      <Text>Yes, bills are generated within 3 business days following the meter reading date.</Text>
+      <SentAt>2026-06-15T14:28:00</SentAt>
+    </Message>
+    <Message>
+      <MessageId>MSG-021</MessageId>
+  <CaseId>CASE-231</CaseId>
+      <Sender>Customer</Sender>
+      <SenderName>Customer</SenderName>
+      <Text>That clears it up. Thanks a lot!</Text>
+      <SentAt>2026-06-15T14:35:00</SentAt>
+    </Message>
+
+    <!-- CASE-230: Technical Support -->
+    <Message>
+      <MessageId>MSG-022</MessageId>
+    <CaseId>CASE-230</CaseId>
+    <Sender>ServiceRep</Sender>
+      <SenderName>Emily Rogers</SenderName>
+      <Text>Hello! We received your technical support request regarding the meter reading discrepancy. We're looking into it.</Text>
+      <SentAt>2026-06-12T11:00:00</SentAt>
+    </Message>
+    <Message>
+      <MessageId>MSG-023</MessageId>
+  <CaseId>CASE-230</CaseId>
+      <Sender>Customer</Sender>
+   <SenderName>Customer</SenderName>
+    <Text>Thank you. The readings have been unusually high compared to the previous months.</Text>
+    <SentAt>2026-06-12T11:20:00</SentAt>
+    </Message>
+    <Message>
+      <MessageId>MSG-024</MessageId>
+   <CaseId>CASE-230</CaseId>
+   <Sender>ServiceRep</Sender>
+      <SenderName>Emily Rogers</SenderName>
+      <Text>I understand your concern. I have escalated this to our technical team for an on-site inspection.</Text>
+      <SentAt>2026-06-12T11:30:00</SentAt>
+    </Message>
+    <Message>
+      <MessageId>MSG-025</MessageId>
+      <CaseId>CASE-230</CaseId>
+      <Sender>Customer</Sender>
+      <SenderName>Customer</SenderName>
+      <Text>When can I expect the inspection team to arrive?</Text>
+      <SentAt>2026-06-12T11:45:00</SentAt>
+    </Message>
+    <Message>
+      <MessageId>MSG-026</MessageId>
+      <CaseId>CASE-230</CaseId>
+      <Sender>ServiceRep</Sender>
+      <SenderName>Emily Rogers</SenderName>
+   <Text>We are scheduling the inspection within the next 5 business days. You will receive a confirmation with the exact date and time shortly.</Text>
+      <SentAt>2026-06-12T12:00:00</SentAt>
+    </Message>
+
+    <Message>
+      <MessageId>MSG-027</MessageId>
+      <CaseId>CASE-229</CaseId>
+      <Sender>ServiceRep</Sender>
+      <SenderName>James Carter</SenderName>
+      <Text>Hello! I see you have raised a billing dispute. How can I assist you?</Text>
+      <SentAt>2026-06-08T09:00:00</SentAt>
+    </Message>
+    <Message>
+      <MessageId>MSG-028</MessageId>
+      <CaseId>CASE-229</CaseId>
+      <Sender>Customer</Sender>
+      <SenderName>Customer</SenderName>
+      <Text>The invoice from July 25th does not reflect the peak-hour reduction discount that was agreed upon in our contract.</Text>
+      <SentAt>2026-06-08T09:15:00</SentAt>
+    </Message>
+    <Message>
+      <MessageId>MSG-029</MessageId>
+      <CaseId>CASE-229</CaseId>
+      <Sender>ServiceRep</Sender>
+      <SenderName>James Carter</SenderName>
+ <Text>I apologize for the inconvenience. Let me review your account and the agreed contract terms right away.</Text>
+      <SentAt>2026-06-08T09:25:00</SentAt>
+    </Message>
+    <Message>
+      <MessageId>MSG-030</MessageId>
+      <CaseId>CASE-229</CaseId>
+   <Sender>Customer</Sender>
+      <SenderName>Customer</SenderName>
+   <Text>Please check the contract signed on 3/15/2026. The discount should be 12% on peak hours.</Text>
+      <SentAt>2026-06-08T09:40:00</SentAt>
+    </Message>
+    <Message>
+      <MessageId>MSG-031</MessageId>
+      <CaseId>CASE-229</CaseId>
+      <Sender>ServiceRep</Sender>
+      <SenderName>James Carter</SenderName>
+      <Text>I have reviewed the contract. You are correct � the 12% peak-hour discount was not applied. I will reissue the corrected invoice immediately.</Text>
+      <SentAt>2026-06-08T09:55:00</SentAt>
+  </Message>
+ <Message>
+   <MessageId>MSG-032</MessageId>
+  <CaseId>CASE-229</CaseId>
+      <Sender>Customer</Sender>
+      <SenderName>Customer</SenderName>
+      <Text>Thank you for resolving this so quickly.</Text>
+      <SentAt>2026-06-08T10:05:00</SentAt>
+    </Message>
+    <Message>
+      <MessageId>MSG-033</MessageId>
+      <CaseId>CASE-229</CaseId>
+      <Sender>ServiceRep</Sender>
+      <SenderName>James Carter</SenderName>
+      <Text>The corrected invoice has been sent to your registered email address. This case is now closed.</Text>
+      <SentAt>2026-06-08T10:15:00</SentAt>
+    </Message>
+
+  </Messages>
+</CaseChatData>

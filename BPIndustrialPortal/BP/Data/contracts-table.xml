@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContractsTable>
+	<Contracts>
+		<Contract>
+			<ContractId>2453</ContractId>
+			<ContractType>Load Following</ContractType>
+			<MeterCount>3</MeterCount>
+			<Amendments>1</Amendments>
+			<Status>EXPIRING</Status>
+			<StartDate>8/1/2024</StartDate>
+			<EndDate>4/30/2025</EndDate>
+			<Documents>
+				<Document>
+					<DocumentId>1</DocumentId>
+					<DocumentName>Energy Supply Agreement - Fixed Price</DocumentName>
+					<Type>Original Contract</Type>
+					<SignedDate>5/1/2024</SignedDate>
+				</Document>
+				<Document>
+					<DocumentId>2</DocumentId>
+					<DocumentName>Letter of Authorization (LOA)</DocumentName>
+					<Type>Authorization</Type>
+					<SignedDate>5/1/2024</SignedDate>
+				</Document>
+				<Document>
+					<DocumentId>3</DocumentId>
+					<DocumentName>Amendment #1 - Meter Addition</DocumentName>
+					<Type>Amendment</Type>
+					<SignedDate>11/15/2024</SignedDate>
+				</Document>
+				<Document>
+					<DocumentId>4</DocumentId>
+					<DocumentName>Amendment #2 - Service Address Update</DocumentName>
+					<Type>Amendment</Type>
+					<SignedDate>6/10/2025</SignedDate>
+				</Document>
+				<Document>
+					<DocumentId>5</DocumentId>
+					<DocumentName>Renewal Amendment - Fixed Price 24 Month Term</DocumentName>
+					<Type>Renewal</Type>
+					<SignedDate>2/15/2026</SignedDate>
+				</Document>
+			</Documents>
+		</Contract>
+		<Contract>
+			<ContractId>2452</ContractId>
+			<ContractType>Fixed</ContractType>
+			<MeterCount>2</MeterCount>
+			<Amendments>1</Amendments>
+			<Status>EXPIRING</Status>
+			<StartDate>8/1/2024</StartDate>
+			<EndDate>1/5/2026</EndDate>
+			<Documents>
+				<Document>
+					<DocumentId>6</DocumentId>
+					<DocumentName>Load Following Energy Supply Agreement</DocumentName>
+					<Type>Original Contract</Type>
+					<SignedDate>11/30/2024</SignedDate>
+				</Document>
+				<Document>
+					<DocumentId>7</DocumentId>
+					<DocumentName>Letter of Authorization (LOA)</DocumentName>
+					<Type>Authorization</Type>
+					<SignedDate>11/30/2024</SignedDate>
+				</Document>
+				<Document>
+					<DocumentId>8</DocumentId>
+					<DocumentName>Amendment #1 - Additional Service Location</DocumentName>
+					<Type>Amendment</Type>
+					<SignedDate>5/15/2025</SignedDate>
+				</Document>
+				<Document>
+					<DocumentId>9</DocumentId>
+					<DocumentName>Amendment #2 - Meter Removal</DocumentName>
+					<Type>Amendment</Type>
+					<SignedDate>1/20/2026</SignedDate>
+				</Document>
+				<Document>
+					<DocumentId>10</DocumentId>
+					<DocumentName>Amendment #3 - Contract Term Extension</DocumentName>
+					<Type>Amendment</Type>
+					<SignedDate>1/20/2026</SignedDate>
+				</Document>
+				<Document>
+					<DocumentId>11</DocumentId>
+					<DocumentName>Renewal Agreement - Load Following</DocumentName>
+					<Type>Renewal</Type>
+					<SignedDate>7/10/2026</SignedDate>
+				</Document>
+			</Documents>
+		</Contract>
+		<Contract>
+			<ContractId>2451</ContractId>
+			<ContractType>Load Following</ContractType>
+			<MeterCount>2</MeterCount>
+			<Amendments>0</Amendments>
+			<Status>ACTIVE</Status>
+			<StartDate>8/1/2024</StartDate>
+			<EndDate>12/3/2025</EndDate>
+			<Documents>
+				<Document>
+					<DocumentId>12</DocumentId>
+					<DocumentName>Energy Supply Agreement - Fixed Price</DocumentName>
+					<Type>Original Contract</Type>
+					<SignedDate>5/1/2024</SignedDate>
+				</Document>
+				<Document>
+					<DocumentId>13</DocumentId>
+					<DocumentName>Letter of Authorization (LOA)</DocumentName>
+					<Type>Authorization</Type>
+					<SignedDate>5/1/2024</SignedDate>
+				</Document>
+				<Document>
+					<DocumentId>14</DocumentId>
+					<DocumentName>Amendment #1 - Meter Addition</DocumentName>
+					<Type>Amendment</Type>
+					<SignedDate>11/15/2024</SignedDate>
+				</Document>
+				<Document>
+					<DocumentId>15</DocumentId>
+					<DocumentName>Amendment #2 - Service Address Update</DocumentName>
+					<Type>Amendment</Type>
+					<SignedDate>6/10/2025</SignedDate>
+				</Document>
+				<Document>
+					<DocumentId>16</DocumentId>
+					<DocumentName>Renewal Amendment - Fixed Price 24 Month Term</DocumentName>
+					<Type>Renewal</Type>
+					<SignedDate>2/15/2026</SignedDate>
+				</Document>
+			</Documents>
+		</Contract>
+		<Contract>
+			<ContractId>2450</ContractId>
+			<ContractType>Fixed</ContractType>
+			<MeterCount>2</MeterCount>
+			<Amendments>0</Amendments>
+			<Status>ACTIVE</Status>
+			<StartDate>8/1/2024</StartDate>
+			<EndDate>3/15/2026</EndDate>
+			<Documents>
+				<Document>
+					<DocumentId>17</DocumentId>
+					<DocumentName>Energy Supply Agreement - Fixed Price</DocumentName>
+					<Type>Original Contract</Type>
+					<SignedDate>5/1/2024</SignedDate>
+				</Document>
+				<Document>
+					<DocumentId>18</DocumentId>
+					<DocumentName>Letter of Authorization (LOA)</DocumentName>
+					<Type>Authorization</Type>
+					<SignedDate>5/1/2024</SignedDate>
+				</Document>
+				<Document>
+					<DocumentId>19</DocumentId>
+					<DocumentName>Amendment #1 - Meter Addition</DocumentName>
+					<Type>Amendment</Type>
+					<SignedDate>11/15/2024</SignedDate>
+				</Document>
+				<Document>
+					<DocumentId>20</DocumentId>
+					<DocumentName>Amendment #2 - Service Address Update</DocumentName>
+					<Type>Amendment</Type>
+					<SignedDate>6/10/2025</SignedDate>
+				</Document>
+				<Document>
+					<DocumentId>21</DocumentId>
+					<DocumentName>Renewal Amendment - Fixed Price 24 Month Term</DocumentName>
+					<Type>Renewal</Type>
+					<SignedDate>2/15/2026</SignedDate>
+				</Document>
+			</Documents>
+		</Contract>
+		<Contract>
+			<ContractId>2449</ContractId>
+			<ContractType>Load Following</ContractType>
+			<MeterCount>2</MeterCount>
+			<Amendments>0</Amendments>
+			<Status>ACTIVE</Status>
+			<StartDate>8/1/2024</StartDate>
+			<EndDate>2/2/2026</EndDate>
+			<Documents>
+				<Document>
+					<DocumentId>22</DocumentId>
+					<DocumentName>Energy Supply Agreement - Fixed Price</DocumentName>
+					<Type>Original Contract</Type>
+					<SignedDate>5/1/2024</SignedDate>
+				</Document>
+				<Document>
+					<DocumentId>23</DocumentId>
+					<DocumentName>Letter of Authorization (LOA)</DocumentName>
+					<Type>Authorization</Type>
+					<SignedDate>5/1/2024</SignedDate>
+				</Document>
+				<Document>
+					<DocumentId>24</DocumentId>
+					<DocumentName>Amendment #1 - Meter Addition</DocumentName>
+					<Type>Amendment</Type>
+					<SignedDate>11/15/2024</SignedDate>
+				</Document>
+				<Document>
+					<DocumentId>25</DocumentId>
+					<DocumentName>Amendment #2 - Service Address Update</DocumentName>
+					<Type>Amendment</Type>
+					<SignedDate>6/10/2025</SignedDate>
+				</Document>
+				<Document>
+					<DocumentId>26</DocumentId>
+					<DocumentName>Renewal Amendment - Fixed Price 24 Month Term</DocumentName>
+					<Type>Renewal</Type>
+					<SignedDate>2/15/2026</SignedDate>
+				</Document>
+			</Documents>
+		</Contract>
+		<Contract>
+			<ContractId>2448</ContractId>
+			<ContractType>Fixed</ContractType>
+			<MeterCount>1</MeterCount>
+			<Amendments>0</Amendments>
+			<Status>ACTIVE</Status>
+			<StartDate>8/1/2024</StartDate>
+			<EndDate>1/10/2026</EndDate>
+			<Documents>
+				<Document>
+					<DocumentId>27</DocumentId>
+					<DocumentName>Energy Supply Agreement - Fixed Price</DocumentName>
+					<Type>Original Contract</Type>
+					<SignedDate>5/1/2024</SignedDate>
+				</Document>
+				<Document>
+					<DocumentId>28</DocumentId>
+					<DocumentName>Letter of Authorization (LOA)</DocumentName>
+					<Type>Authorization</Type>
+					<SignedDate>5/1/2024</SignedDate>
+				</Document>
+				<Document>
+					<DocumentId>29</DocumentId>
+					<DocumentName>Amendment #1 - Meter Addition</DocumentName>
+					<Type>Amendment</Type>
+					<SignedDate>11/15/2024</SignedDate>
+				</Document>
+				<Document>
+					<DocumentId>30</DocumentId>
+					<DocumentName>Amendment #2 - Service Address Update</DocumentName>
+					<Type>Amendment</Type>
+					<SignedDate>6/10/2025</SignedDate>
+				</Document>
+				<Document>
+					<DocumentId>31</DocumentId>
+					<DocumentName>Renewal Amendment - Fixed Price 24 Month Term</DocumentName>
+					<Type>Renewal</Type>
+					<SignedDate>2/15/2026</SignedDate>
+				</Document>
+			</Documents>
+		</Contract>
+	</Contracts>
+</ContractsTable>

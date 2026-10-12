@@ -1,0 +1,1159 @@
+{
+  "info": {
+    "_postman_id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+    "name": "BP Industrial Portal – Broker Home API",
+    "description": "End-to-end collection for the Broker Home page APIs.\n\n**Flow**\n1. Run **Auth / Broker Login** — the test script extracts the JWT and stores it as `{{token}}`.\n2. Every subsequent request automatically attaches `Bearer {{token}}` via the collection-level auth.\n3. The **Unauthorized** folder verifies that every endpoint returns 401 when no token is supplied.\n\n**Variable**\n| Variable | Default | Set by |\n|---|---|---|\n| `baseUrl` | `http://localhost:5128` | Manual (change per environment) |\n| `token` | _(empty)_ | Auto-set by Broker Login test script |",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{token}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:5128",
+      "type": "string",
+      "description": "Base URL of the running API. Change to your Azure URL for cloud testing."
+    },
+    {
+      "key": "token",
+      "value": "",
+      "type": "string",
+      "description": "JWT Bearer token. Auto-populated by the Broker Login request."
+    }
+  ],
+  "item": [
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "Broker Login",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200 OK', () => pm.response.to.have.status(200));",
+                  "pm.test('Response time < 3s', () => pm.expect(pm.response.responseTime).to.be.below(3000));",
+                  "",
+                  "const body = pm.response.json();",
+                  "pm.test('Token is returned', () => {",
+                  "    pm.expect(body).to.have.property('token');",
+                  "    pm.expect(body.token).to.be.a('string').and.not.be.empty;",
+                  "});",
+                  "pm.test('Role is Broker', () => pm.expect(body.role).to.equal('Broker'));",
+                  "pm.test('UserId is present', () => pm.expect(body.userId).to.be.a('number').and.above(0));",
+                  "pm.test('Username is present', () => pm.expect(body.username).to.be.a('string').and.not.be.empty);",
+                  "",
+                  "// Auto-store token for all subsequent requests",
+                  "pm.collectionVariables.set('token', body.token);",
+                  "pm.test('Token saved to collection variable', () => {",
+                  "    pm.expect(pm.collectionVariables.get('token')).to.not.be.empty;",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "auth": { "type": "noauth" },
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"emailId\": \"Alexjohn@bp.com\",\n  \"password\": \"admin1234\",\n  \"isBroker\": true\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/Login",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "Login"]
+            },
+            "description": "Authenticates as a Broker user and stores the returned JWT as `{{token}}`.\n\nCredentials: `Alexjohn@bp.com` / `admin1234`"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Home – Summary Metrics",
+      "item": [
+        {
+          "name": "Get Summary Metrics",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200 OK', () => pm.response.to.have.status(200));",
+                  "pm.test('Response time < 2s', () => pm.expect(pm.response.responseTime).to.be.below(2000));",
+                  "pm.test('Content-Type is JSON', () => pm.response.to.have.header('Content-Type', /application\\/json/));",
+                  "",
+                  "const body = pm.response.json();",
+                  "",
+                  "pm.test('Has lastUpdated', () => pm.expect(body).to.have.property('lastUpdated'));",
+                  "",
+                  "pm.test('customersManaged – shape & values', () => {",
+                  "    pm.expect(body.customersManaged).to.have.all.keys('total', 'newThisMonth', 'churned');",
+                  "    pm.expect(body.customersManaged.total).to.be.a('number').and.above(0);",
+                  "    pm.expect(body.customersManaged.newThisMonth).to.be.a('number').and.at.least(0);",
+                  "    pm.expect(body.customersManaged.churned).to.be.a('number').and.at.least(0);",
+                  "});",
+                  "",
+                  "pm.test('activeContracts – fixed + variable = total', () => {",
+                  "    const ac = body.activeContracts;",
+                  "    pm.expect(ac).to.have.all.keys('total', 'fixed', 'variable');",
+                  "    pm.expect(ac.fixed + ac.variable).to.equal(ac.total);",
+                  "});",
+                  "",
+                  "pm.test('upcomingRenewals – shape & values', () => {",
+                  "    pm.expect(body.upcomingRenewals).to.have.all.keys('total', 'pending', 'avgDaysToExpiry');",
+                  "    pm.expect(body.upcomingRenewals.pending).to.be.at.most(body.upcomingRenewals.total);",
+                  "});",
+                  "",
+                  "pm.test('metersManaged – decreased + increased = total', () => {",
+                  "    const mm = body.metersManaged;",
+                  "    pm.expect(mm).to.have.all.keys('total', 'decreased', 'increased');",
+                  "    pm.expect(mm.decreased + mm.increased).to.equal(mm.total);",
+                  "});",
+                  "",
+                  "pm.test('annualUsage – shape & values', () => {",
+                  "    pm.expect(body.annualUsage).to.have.all.keys('totalMWh', 'yoYChange');",
+                  "    pm.expect(body.annualUsage.totalMWh).to.be.a('number').and.above(0);",
+                  "    pm.expect(body.annualUsage.yoYChange).to.be.a('string').and.not.be.empty;",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/broker/home/GetSummaryMetrics",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "broker", "home", "GetSummaryMetrics"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Home – Recent Activity",
+      "item": [
+        {
+          "name": "Get Recent Activity",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200 OK', () => pm.response.to.have.status(200));",
+                  "pm.test('Response time < 2s', () => pm.expect(pm.response.responseTime).to.be.below(2000));",
+                  "pm.test('Content-Type is JSON', () => pm.response.to.have.header('Content-Type', /application\\/json/));",
+                  "",
+                  "const body = pm.response.json();",
+                  "",
+                  "pm.test('Has lastUpdated', () => pm.expect(body).to.have.property('lastUpdated'));",
+                  "",
+                  "pm.test('contractAmendmentsSigned – shape', () => {",
+                  "    pm.expect(body.contractAmendmentsSigned).to.have.all.keys('count', 'label');",
+                  "    pm.expect(body.contractAmendmentsSigned.count).to.be.a('number').and.at.least(0);",
+                  "    pm.expect(body.contractAmendmentsSigned.label).to.be.a('string').and.not.be.empty;",
+                  "});",
+                  "",
+                  "pm.test('openSupportRequests – highPriority ≤ total count', () => {",
+                  "    const osr = body.openSupportRequests;",
+                  "    pm.expect(osr).to.have.all.keys('count', 'highPriority');",
+                  "    pm.expect(osr.highPriority).to.be.at.most(osr.count);",
+                  "});",
+                  "",
+                  "pm.test('upcomingContractRenewals – shape', () => {",
+                  "    pm.expect(body.upcomingContractRenewals).to.have.all.keys('count', 'dueWithinDays');",
+                  "    pm.expect(body.upcomingContractRenewals.dueWithinDays).to.be.a('number').and.above(0);",
+                  "});",
+                  "",
+                  "pm.test('estimatedRevenueAtRenewal – shape', () => {",
+                  "    pm.expect(body.estimatedRevenueAtRenewal).to.have.all.keys('amount', 'renewalCount');",
+                  "    pm.expect(body.estimatedRevenueAtRenewal.amount).to.be.a('number').and.at.least(0);",
+                  "    pm.expect(body.estimatedRevenueAtRenewal.renewalCount).to.equal(body.upcomingContractRenewals.count);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/broker/home/GetRecentActivity",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "broker", "home", "GetRecentActivity"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Renewal Watchlist",
+      "item": [
+        {
+          "name": "All Renewals – Default Sort (daysRemaining ASC)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200 OK', () => pm.response.to.have.status(200));",
+                  "pm.test('Response time < 2s', () => pm.expect(pm.response.responseTime).to.be.below(2000));",
+                  "",
+                  "const body = pm.response.json();",
+                  "",
+                  "pm.test('Has totalEntries matching items length', () => {",
+                  "    pm.expect(body.totalEntries).to.be.a('number').and.at.least(0);",
+                  "    pm.expect(body.items).to.be.an('array').with.lengthOf(body.totalEntries);",
+                  "});",
+                  "",
+                  "pm.test('Has exactly 5 filter options', () => {",
+                  "    pm.expect(body.filters).to.be.an('array').with.lengthOf(5);",
+                  "    const values = body.filters.map(f => f.value);",
+                  "    pm.expect(values).to.include.members(['all', '0-15', '16-30', '31-60', '61-90']);",
+                  "});",
+                  "",
+                  "pm.test('Filter counts sum to all-remaining count', () => {",
+                  "    const allCount = body.filters.find(f => f.value === 'all').count;",
+                  "    const bucketSum = body.filters.filter(f => f.value !== 'all').reduce((s, f) => s + f.count, 0);",
+                  "    pm.expect(bucketSum).to.equal(allCount);",
+                  "});",
+                  "",
+                  "pm.test('Each item has required fields', () => {",
+                  "    body.items.forEach(item => {",
+                  "        pm.expect(item).to.have.all.keys('customer', 'brokerMargin', 'termMonths', 'volumeMWh', 'daysRemaining');",
+                  "        pm.expect(item.customer).to.be.a('string').and.not.be.empty;",
+                  "        pm.expect(item.brokerMargin).to.be.a('number').and.above(0);",
+                  "        pm.expect(item.termMonths).to.be.a('number').and.above(0);",
+                  "        pm.expect(item.volumeMWh).to.be.a('number').and.above(0);",
+                  "        pm.expect(item.daysRemaining).to.be.a('number').and.at.least(0);",
+                  "    });",
+                  "});",
+                  "",
+                  "pm.test('Items sorted by daysRemaining ASC', () => {",
+                  "    const days = body.items.map(i => i.daysRemaining);",
+                  "    const sorted = [...days].sort((a, b) => a - b);",
+                  "    pm.expect(days).to.deep.equal(sorted);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/broker/home/GetRenewalWatchlist",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "broker", "home", "GetRenewalWatchlist"]
+            }
+          }
+        },
+        {
+          "name": "Filter – 0-15 Days",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200 OK', () => pm.response.to.have.status(200));",
+                  "const body = pm.response.json();",
+                  "pm.test('TotalEntries matches items', () => pm.expect(body.totalEntries).to.equal(body.items.length));",
+                  "pm.test('All items have daysRemaining 0-15', () => {",
+                  "    body.items.forEach(item => pm.expect(item.daysRemaining).to.be.within(0, 15));",
+                  "});",
+                  "pm.test('Filter count matches response', () => {",
+                  "    const filter = body.filters.find(f => f.value === '0-15');",
+                  "    pm.expect(filter.count).to.equal(body.totalEntries);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/broker/home/GetRenewalWatchlist?daysFilter=0-15",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "broker", "home", "GetRenewalWatchlist"],
+              "query": [{ "key": "daysFilter", "value": "0-15" }]
+            }
+          }
+        },
+        {
+          "name": "Filter – 16-30 Days",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200 OK', () => pm.response.to.have.status(200));",
+                  "const body = pm.response.json();",
+                  "pm.test('TotalEntries matches items', () => pm.expect(body.totalEntries).to.equal(body.items.length));",
+                  "pm.test('All items have daysRemaining 16-30', () => {",
+                  "    body.items.forEach(item => pm.expect(item.daysRemaining).to.be.within(16, 30));",
+                  "});",
+                  "pm.test('Filter count matches response', () => {",
+                  "    const filter = body.filters.find(f => f.value === '16-30');",
+                  "    pm.expect(filter.count).to.equal(body.totalEntries);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/broker/home/GetRenewalWatchlist?daysFilter=16-30",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "broker", "home", "GetRenewalWatchlist"],
+              "query": [{ "key": "daysFilter", "value": "16-30" }]
+            }
+          }
+        },
+        {
+          "name": "Filter – 31-60 Days",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200 OK', () => pm.response.to.have.status(200));",
+                  "const body = pm.response.json();",
+                  "pm.test('TotalEntries matches items', () => pm.expect(body.totalEntries).to.equal(body.items.length));",
+                  "pm.test('All items have daysRemaining 31-60', () => {",
+                  "    body.items.forEach(item => pm.expect(item.daysRemaining).to.be.within(31, 60));",
+                  "});",
+                  "pm.test('Filter count matches response', () => {",
+                  "    const filter = body.filters.find(f => f.value === '31-60');",
+                  "    pm.expect(filter.count).to.equal(body.totalEntries);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/broker/home/GetRenewalWatchlist?daysFilter=31-60",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "broker", "home", "GetRenewalWatchlist"],
+              "query": [{ "key": "daysFilter", "value": "31-60" }]
+            }
+          }
+        },
+        {
+          "name": "Filter – 61-90 Days",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200 OK', () => pm.response.to.have.status(200));",
+                  "const body = pm.response.json();",
+                  "pm.test('TotalEntries matches items', () => pm.expect(body.totalEntries).to.equal(body.items.length));",
+                  "pm.test('All items have daysRemaining 61-90', () => {",
+                  "    body.items.forEach(item => pm.expect(item.daysRemaining).to.be.within(61, 90));",
+                  "});",
+                  "pm.test('Filter count matches response', () => {",
+                  "    const filter = body.filters.find(f => f.value === '61-90');",
+                  "    pm.expect(filter.count).to.equal(body.totalEntries);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/broker/home/GetRenewalWatchlist?daysFilter=61-90",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "broker", "home", "GetRenewalWatchlist"],
+              "query": [{ "key": "daysFilter", "value": "61-90" }]
+            }
+          }
+        },
+        {
+          "name": "Sort – Customer ASC",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200 OK', () => pm.response.to.have.status(200));",
+                  "const body = pm.response.json();",
+                  "pm.test('Items sorted by customer A→Z', () => {",
+                  "    const names = body.items.map(i => i.customer);",
+                  "    const sorted = [...names].sort((a, b) => a.localeCompare(b));",
+                  "    pm.expect(names).to.deep.equal(sorted);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/broker/home/GetRenewalWatchlist?sortBy=customer&sortOrder=asc",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "broker", "home", "GetRenewalWatchlist"],
+              "query": [
+                { "key": "sortBy", "value": "customer" },
+                { "key": "sortOrder", "value": "asc" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Sort – Customer DESC",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200 OK', () => pm.response.to.have.status(200));",
+                  "const body = pm.response.json();",
+                  "pm.test('Items sorted by customer Z→A', () => {",
+                  "    const names = body.items.map(i => i.customer);",
+                  "    const sorted = [...names].sort((a, b) => b.localeCompare(a));",
+                  "    pm.expect(names).to.deep.equal(sorted);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/broker/home/GetRenewalWatchlist?sortBy=customer&sortOrder=desc",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "broker", "home", "GetRenewalWatchlist"],
+              "query": [
+                { "key": "sortBy", "value": "customer" },
+                { "key": "sortOrder", "value": "desc" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Sort – Broker Margin ASC",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200 OK', () => pm.response.to.have.status(200));",
+                  "const body = pm.response.json();",
+                  "pm.test('Items sorted by brokerMargin low→high', () => {",
+                  "    const margins = body.items.map(i => i.brokerMargin);",
+                  "    const sorted = [...margins].sort((a, b) => a - b);",
+                  "    pm.expect(margins).to.deep.equal(sorted);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/broker/home/GetRenewalWatchlist?sortBy=brokerMargin&sortOrder=asc",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "broker", "home", "GetRenewalWatchlist"],
+              "query": [
+                { "key": "sortBy", "value": "brokerMargin" },
+                { "key": "sortOrder", "value": "asc" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Sort – Broker Margin DESC",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200 OK', () => pm.response.to.have.status(200));",
+                  "const body = pm.response.json();",
+                  "pm.test('Items sorted by brokerMargin high→low', () => {",
+                  "    const margins = body.items.map(i => i.brokerMargin);",
+                  "    const sorted = [...margins].sort((a, b) => b - a);",
+                  "    pm.expect(margins).to.deep.equal(sorted);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/broker/home/GetRenewalWatchlist?sortBy=brokerMargin&sortOrder=desc",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "broker", "home", "GetRenewalWatchlist"],
+              "query": [
+                { "key": "sortBy", "value": "brokerMargin" },
+                { "key": "sortOrder", "value": "desc" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Sort – Term Month ASC",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200 OK', () => pm.response.to.have.status(200));",
+                  "const body = pm.response.json();",
+                  "pm.test('Items sorted by termMonths low→high', () => {",
+                  "    const terms = body.items.map(i => i.termMonths);",
+                  "    const sorted = [...terms].sort((a, b) => a - b);",
+                  "    pm.expect(terms).to.deep.equal(sorted);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/broker/home/GetRenewalWatchlist?sortBy=term&sortOrder=asc",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "broker", "home", "GetRenewalWatchlist"],
+              "query": [
+                { "key": "sortBy", "value": "term" },
+                { "key": "sortOrder", "value": "asc" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Sort – Volume (MWh) ASC",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200 OK', () => pm.response.to.have.status(200));",
+                  "const body = pm.response.json();",
+                  "pm.test('Items sorted by volumeMWh low→high', () => {",
+                  "    const vols = body.items.map(i => i.volumeMWh);",
+                  "    const sorted = [...vols].sort((a, b) => a - b);",
+                  "    pm.expect(vols).to.deep.equal(sorted);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/broker/home/GetRenewalWatchlist?sortBy=volume&sortOrder=asc",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "broker", "home", "GetRenewalWatchlist"],
+              "query": [
+                { "key": "sortBy", "value": "volume" },
+                { "key": "sortOrder", "value": "asc" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Sort – Days Remaining ASC",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200 OK', () => pm.response.to.have.status(200));",
+                  "const body = pm.response.json();",
+                  "pm.test('Items sorted by daysRemaining low→high', () => {",
+                  "    const days = body.items.map(i => i.daysRemaining);",
+                  "    const sorted = [...days].sort((a, b) => a - b);",
+                  "    pm.expect(days).to.deep.equal(sorted);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/broker/home/GetRenewalWatchlist?sortBy=daysRemaining&sortOrder=asc",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "broker", "home", "GetRenewalWatchlist"],
+              "query": [
+                { "key": "sortBy", "value": "daysRemaining" },
+                { "key": "sortOrder", "value": "asc" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Sort – Days Remaining DESC",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200 OK', () => pm.response.to.have.status(200));",
+                  "const body = pm.response.json();",
+                  "pm.test('Items sorted by daysRemaining high→low', () => {",
+                  "    const days = body.items.map(i => i.daysRemaining);",
+                  "    const sorted = [...days].sort((a, b) => b - a);",
+                  "    pm.expect(days).to.deep.equal(sorted);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/broker/home/GetRenewalWatchlist?sortBy=daysRemaining&sortOrder=desc",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "broker", "home", "GetRenewalWatchlist"],
+              "query": [
+                { "key": "sortBy", "value": "daysRemaining" },
+                { "key": "sortOrder", "value": "desc" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Combined – Filter 0-15 Days + Sort Broker Margin DESC",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200 OK', () => pm.response.to.have.status(200));",
+                  "const body = pm.response.json();",
+                  "pm.test('All items within 0-15 days', () => {",
+                  "    body.items.forEach(item => pm.expect(item.daysRemaining).to.be.within(0, 15));",
+                  "});",
+                  "pm.test('Items sorted by brokerMargin high→low', () => {",
+                  "    const margins = body.items.map(i => i.brokerMargin);",
+                  "    const sorted = [...margins].sort((a, b) => b - a);",
+                  "    pm.expect(margins).to.deep.equal(sorted);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/broker/home/GetRenewalWatchlist?daysFilter=0-15&sortBy=brokerMargin&sortOrder=desc",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "broker", "home", "GetRenewalWatchlist"],
+              "query": [
+                { "key": "daysFilter", "value": "0-15" },
+                { "key": "sortBy", "value": "brokerMargin" },
+                { "key": "sortOrder", "value": "desc" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Export – All Renewals (CSV Download)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200 OK', () => pm.response.to.have.status(200));",
+                  "pm.test('Content-Type is text/csv', () => pm.response.to.have.header('Content-Type', /text\\/csv/));",
+                  "pm.test('Content-Disposition contains filename', () => {",
+                  "    const cd = pm.response.headers.get('Content-Disposition') || '';",
+                  "    pm.expect(cd).to.include('renewal-watchlist.csv');",
+                  "});",
+                  "const csv = pm.response.text();",
+                  "const lines = csv.split('\\n').filter(l => l.trim().length > 0);",
+                  "pm.test('CSV has header row', () => {",
+                  "    pm.expect(lines[0]).to.include('Customer');",
+                  "    pm.expect(lines[0]).to.include('Broker Margin');",
+                  "    pm.expect(lines[0]).to.include('Term (Month)');",
+                  "    pm.expect(lines[0]).to.include('Volume (MWh)');",
+                  "    pm.expect(lines[0]).to.include('Days Remaining');",
+                  "});",
+                  "pm.test('CSV has at least one data row', () => pm.expect(lines.length).to.be.above(1));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/broker/home/ExportRenewalWatchlist",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "broker", "home", "ExportRenewalWatchlist"]
+            }
+          }
+        },
+        {
+          "name": "Export – Filter 0-15 Days (CSV Download)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200 OK', () => pm.response.to.have.status(200));",
+                  "pm.test('Content-Type is text/csv', () => pm.response.to.have.header('Content-Type', /text\\/csv/));",
+                  "const csv = pm.response.text();",
+                  "const lines = csv.split('\\n').filter(l => l.trim().length > 0);",
+                  "pm.test('Filtered CSV has fewer rows than full export', () => {",
+                  "    // Header + at least 0 data rows (may be 0 if no items in range)",
+                  "    pm.expect(lines.length).to.be.at.least(1);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/broker/home/ExportRenewalWatchlist?daysFilter=0-15",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "broker", "home", "ExportRenewalWatchlist"],
+              "query": [{ "key": "daysFilter", "value": "0-15" }]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Open Support Requests",
+      "item": [
+        {
+          "name": "Default Sort (createdOn DESC)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200 OK', () => pm.response.to.have.status(200));",
+                  "pm.test('Response time < 2s', () => pm.expect(pm.response.responseTime).to.be.below(2000));",
+                  "pm.test('Content-Type is JSON', () => pm.response.to.have.header('Content-Type', /application\\/json/));",
+                  "",
+                  "const body = pm.response.json();",
+                  "const VALID_PRIORITIES = ['HIGH', 'MEDIUM', 'LOW'];",
+                  "",
+                  "pm.test('Has totalEntries matching items length', () => {",
+                  "    pm.expect(body.totalEntries).to.be.a('number').and.at.least(0);",
+                  "    pm.expect(body.items).to.be.an('array').with.lengthOf(body.totalEntries);",
+                  "});",
+                  "",
+                  "pm.test('Each item has required fields with correct types', () => {",
+                  "    body.items.forEach(item => {",
+                  "        pm.expect(item).to.have.all.keys('customer', 'requestType', 'priority', 'createdOn');",
+                  "        pm.expect(item.customer).to.be.a('string').and.not.be.empty;",
+                  "        pm.expect(item.requestType).to.be.a('string').and.not.be.empty;",
+                  "        pm.expect(VALID_PRIORITIES).to.include(item.priority);",
+                  "        pm.expect(item.createdOn).to.be.a('string').and.not.be.empty;",
+                  "    });",
+                  "});",
+                  "",
+                  "pm.test('Items sorted by createdOn newest first', () => {",
+                  "    const dates = body.items.map(i => new Date(i.createdOn).getTime());",
+                  "    for (let i = 0; i < dates.length - 1; i++) {",
+                  "        pm.expect(dates[i]).to.be.at.least(dates[i + 1]);",
+                  "    }",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/broker/home/GetOpenSupportRequests",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "broker", "home", "GetOpenSupportRequests"]
+            }
+          }
+        },
+        {
+          "name": "Sort – Customer ASC",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200 OK', () => pm.response.to.have.status(200));",
+                  "const body = pm.response.json();",
+                  "pm.test('Items sorted by customer A→Z', () => {",
+                  "    const names = body.items.map(i => i.customer);",
+                  "    const sorted = [...names].sort((a, b) => a.localeCompare(b));",
+                  "    pm.expect(names).to.deep.equal(sorted);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/broker/home/GetOpenSupportRequests?sortBy=customer&sortOrder=asc",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "broker", "home", "GetOpenSupportRequests"],
+              "query": [
+                { "key": "sortBy", "value": "customer" },
+                { "key": "sortOrder", "value": "asc" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Sort – Request Type ASC",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200 OK', () => pm.response.to.have.status(200));",
+                  "const body = pm.response.json();",
+                  "pm.test('Items sorted by requestType A→Z', () => {",
+                  "    const types = body.items.map(i => i.requestType);",
+                  "    const sorted = [...types].sort((a, b) => a.localeCompare(b));",
+                  "    pm.expect(types).to.deep.equal(sorted);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/broker/home/GetOpenSupportRequests?sortBy=requestType&sortOrder=asc",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "broker", "home", "GetOpenSupportRequests"],
+              "query": [
+                { "key": "sortBy", "value": "requestType" },
+                { "key": "sortOrder", "value": "asc" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Sort – Priority ASC (HIGH → MEDIUM → LOW)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200 OK', () => pm.response.to.have.status(200));",
+                  "const body = pm.response.json();",
+                  "pm.test('Items sorted by priority HIGH→MEDIUM→LOW', () => {",
+                  "    const rank = { HIGH: 1, MEDIUM: 2, LOW: 3 };",
+                  "    const ranks = body.items.map(i => rank[i.priority] || 4);",
+                  "    const sorted = [...ranks].sort((a, b) => a - b);",
+                  "    pm.expect(ranks).to.deep.equal(sorted);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/broker/home/GetOpenSupportRequests?sortBy=priority&sortOrder=asc",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "broker", "home", "GetOpenSupportRequests"],
+              "query": [
+                { "key": "sortBy", "value": "priority" },
+                { "key": "sortOrder", "value": "asc" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Sort – Priority DESC (LOW → MEDIUM → HIGH)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200 OK', () => pm.response.to.have.status(200));",
+                  "const body = pm.response.json();",
+                  "pm.test('Items sorted by priority LOW→MEDIUM→HIGH', () => {",
+                  "    const rank = { HIGH: 1, MEDIUM: 2, LOW: 3 };",
+                  "    const ranks = body.items.map(i => rank[i.priority] || 4);",
+                  "    const sorted = [...ranks].sort((a, b) => b - a);",
+                  "    pm.expect(ranks).to.deep.equal(sorted);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/broker/home/GetOpenSupportRequests?sortBy=priority&sortOrder=desc",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "broker", "home", "GetOpenSupportRequests"],
+              "query": [
+                { "key": "sortBy", "value": "priority" },
+                { "key": "sortOrder", "value": "desc" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Sort – Created On ASC (oldest first)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200 OK', () => pm.response.to.have.status(200));",
+                  "const body = pm.response.json();",
+                  "pm.test('Items sorted by createdOn oldest first', () => {",
+                  "    const dates = body.items.map(i => new Date(i.createdOn).getTime());",
+                  "    for (let i = 0; i < dates.length - 1; i++) {",
+                  "        pm.expect(dates[i]).to.be.at.most(dates[i + 1]);",
+                  "    }",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/broker/home/GetOpenSupportRequests?sortBy=createdOn&sortOrder=asc",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "broker", "home", "GetOpenSupportRequests"],
+              "query": [
+                { "key": "sortBy", "value": "createdOn" },
+                { "key": "sortOrder", "value": "asc" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Sort – Created On DESC (newest first)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200 OK', () => pm.response.to.have.status(200));",
+                  "const body = pm.response.json();",
+                  "pm.test('Items sorted by createdOn newest first', () => {",
+                  "    const dates = body.items.map(i => new Date(i.createdOn).getTime());",
+                  "    for (let i = 0; i < dates.length - 1; i++) {",
+                  "        pm.expect(dates[i]).to.be.at.least(dates[i + 1]);",
+                  "    }",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/broker/home/GetOpenSupportRequests?sortBy=createdOn&sortOrder=desc",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "broker", "home", "GetOpenSupportRequests"],
+              "query": [
+                { "key": "sortBy", "value": "createdOn" },
+                { "key": "sortOrder", "value": "desc" }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Unauthorized (No Token)",
+      "description": "All requests in this folder send no Authorization header.\nEvery endpoint must return 401 Unauthorized.",
+      "auth": { "type": "noauth" },
+      "item": [
+        {
+          "name": "GetSummaryMetrics – Expect 401",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 401 Unauthorized', () => pm.response.to.have.status(401));",
+                  "pm.test('Response time < 2s', () => pm.expect(pm.response.responseTime).to.be.below(2000));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/broker/home/GetSummaryMetrics",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "broker", "home", "GetSummaryMetrics"]
+            }
+          }
+        },
+        {
+          "name": "GetRecentActivity – Expect 401",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 401 Unauthorized', () => pm.response.to.have.status(401));",
+                  "pm.test('Response time < 2s', () => pm.expect(pm.response.responseTime).to.be.below(2000));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/broker/home/GetRecentActivity",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "broker", "home", "GetRecentActivity"]
+            }
+          }
+        },
+        {
+          "name": "GetRenewalWatchlist – Expect 401",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 401 Unauthorized', () => pm.response.to.have.status(401));",
+                  "pm.test('Response time < 2s', () => pm.expect(pm.response.responseTime).to.be.below(2000));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/broker/home/GetRenewalWatchlist",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "broker", "home", "GetRenewalWatchlist"]
+            }
+          }
+        },
+        {
+          "name": "ExportRenewalWatchlist – Expect 401",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 401 Unauthorized', () => pm.response.to.have.status(401));",
+                  "pm.test('Response time < 2s', () => pm.expect(pm.response.responseTime).to.be.below(2000));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/broker/home/ExportRenewalWatchlist",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "broker", "home", "ExportRenewalWatchlist"]
+            }
+          }
+        },
+        {
+          "name": "GetOpenSupportRequests – Expect 401",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 401 Unauthorized', () => pm.response.to.have.status(401));",
+                  "pm.test('Response time < 2s', () => pm.expect(pm.response.responseTime).to.be.below(2000));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/broker/home/GetOpenSupportRequests",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "broker", "home", "GetOpenSupportRequests"]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SupportCaseData>
+  <Cases>
+    <Case>
+      <CaseId>CASE-237</CaseId>
+      <CreatedOn>7-21-2026</CreatedOn>
+      <ContractId>2454</ContractId>
+      <Meter>00313867</Meter>
+      <RequestType>Moving Service</RequestType>
+      <Priority>HIGH</Priority>
+      <Subject>Meter Reading Issue</Subject>
+      <Comments>Unable to capture the latest meter reading. Please investigate testing.</Comments>
+      <Status>OPEN</Status>
+      <Origin>Portal</Origin>
+      <ServiceRep>Albert Floxes</ServiceRep>
+      <ClosedDate></ClosedDate>
+    </Case>
+    <Case>
+      <CaseId>CASE-236</CaseId>
+      <CreatedOn>6-26-2026</CreatedOn>
+      <ContractId>2453</ContractId>
+      <Meter>00313867</Meter>
+      <RequestType>Moving Service</RequestType>
+      <Priority>HIGH</Priority>
+      <Subject>Meter Reading Issue</Subject>
+      <Comments>Unable to capture the latest meter reading. Please investigate testing.</Comments>
+      <Status>OPEN</Status>
+      <Origin>Portal</Origin>
+      <ServiceRep>Albert Floxes</ServiceRep>
+      <ClosedDate></ClosedDate>
+    </Case>
+    <Case>
+      <CaseId>CASE-235</CaseId>
+      <CreatedOn>6-26-2026</CreatedOn>
+      <ContractId>2453</ContractId>
+      <Meter>00313867</Meter>
+      <RequestType>Moving Service</RequestType>
+      <Priority>HIGH</Priority>
+      <Subject>Meter Reading Issue</Subject>
+      <Comments>Unable to capture the latest meter reading. Please investigate.</Comments>
+      <Status>OPEN</Status>
+      <Origin>Portal</Origin>
+      <ServiceRep>Albert Floxes</ServiceRep>
+      <ClosedDate></ClosedDate>
+    </Case>
+    <Case>
+      <CaseId>CASE-234</CaseId>
+      <CreatedOn>6/25/2026</CreatedOn>
+      <ContractId>2453</ContractId>
+      <Meter>00313867</Meter>
+      <RequestType>Moving Service</RequestType>
+      <Priority>HIGH</Priority>
+      <Subject>Meter Reading Issue</Subject>
+      <Comments>Unable to capture the latest meter reading. Please investigate.</Comments>
+      <Status>OPEN</Status>
+      <ServiceRep>Albert Floxes</ServiceRep>
+      <ClosedDate></ClosedDate>
+    </Case>
+    <Case>
+      <CaseId>CASE-233</CaseId>
+      <CreatedOn>6/22/2026</CreatedOn>
+      <ContractId>2453</ContractId>
+      <Meter>00313867</Meter>
+      <RequestType>Billing Dispute</RequestType>
+      <Priority>HIGH</Priority>
+      <Subject>Assistance Needed with Account</Subject>
+      <Comments>There appears to be a discrepancy in the billing statement for the month of July. The amount charged does not match the contracted rate.</Comments>
+      <Status>OPEN</Status>
+      <ServiceRep>Sarah Mitchell</ServiceRep>
+      <ClosedDate></ClosedDate>
+    </Case>
+    <Case>
+      <CaseId>CASE-232</CaseId>
+      <CreatedOn>6/18/2026</CreatedOn>
+      <ContractId>2451</ContractId>
+      <Meter>00313865</Meter>
+      <RequestType>Information Request</RequestType>
+      <Priority>LOW</Priority>
+      <Subject>Assistance Needed with Account</Subject>
+      <Comments>I have a quick question regarding the contract renewal process and the steps needed to extend our current agreement.</Comments>
+      <Status>CLOSED</Status>
+      <ServiceRep>James Carter</ServiceRep>
+      <ClosedDate>6/20/2026</ClosedDate>
+    </Case>
+    <Case>
+      <CaseId>CASE-231</CaseId>
+      <CreatedOn>6/15/2026</CreatedOn>
+      <ContractId>2452</ContractId>
+      <Meter>00313867</Meter>
+      <RequestType>Others</RequestType>
+      <Priority>MEDIUM</Priority>
+      <Subject>Assistance Needed with Account</Subject>
+      <Comments>I have a quick question regarding meter reading schedules and how they align with our monthly billing cycle.</Comments>
+      <Status>CLOSED</Status>
+      <ServiceRep>Sarah Mitchell</ServiceRep>
+      <ClosedDate>6/14/2026</ClosedDate>
+    </Case>
+    <Case>
+      <CaseId>CASE-230</CaseId>
+      <CreatedOn>6/12/2026</CreatedOn>
+      <ContractId>2453</ContractId>
+      <Meter>00313865</Meter>
+      <RequestType>Technical Support</RequestType>
+      <Priority>HIGH</Priority>
+      <Subject>Meter Reading Discrepancy</Subject>
+      <Comments>The meter readings for July seem unusually high compared to previous months. Requesting an on-site inspection to verify the data.</Comments>
+      <Status>AWAITING RESPONSE</Status>
+      <ServiceRep>Emily Rogers</ServiceRep>
+      <ClosedDate></ClosedDate>
+    </Case>
+    <Case>
+      <CaseId>CASE-229</CaseId>
+      <CreatedOn>6/8/2026</CreatedOn>
+      <ContractId>2453</ContractId>
+      <Meter>00313867</Meter>
+      <RequestType>Billing Dispute</RequestType>
+      <Priority>LOW</Priority>
+      <Subject>Invoice Amount Mismatch</Subject>
+      <Comments>The invoice received on July 25th does not reflect the agreed-upon discount for peak-hour reduction. Please review and reissue.</Comments>
+      <Status>CLOSED</Status>
+      <ServiceRep>James Carter</ServiceRep>
+      <ClosedDate>6/10/2026</ClosedDate>
+    </Case>
+  </Cases>
+</SupportCaseData>

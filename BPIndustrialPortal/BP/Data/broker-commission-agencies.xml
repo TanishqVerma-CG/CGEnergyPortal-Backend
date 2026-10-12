@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AgenciesData>
+  <Agencies>
+
+    <Agency>
+      <AgencyId>1</AgencyId>
+      <AgencyName>New Sales Agency</AgencyName>
+      <ContactName>New Sales Agency</ContactName>
+      <NumberOfContracts>64</NumberOfContracts>
+      <Address>
+        <Street>12900 Gail St</Street>
+        <City>Anchorage</City>
+        <State>AK</State>
+        <Zip>99515</Zip>
+      </Address>
+      <NumberOfAgents>40</NumberOfAgents>
+      <NumberOfDeals>64</NumberOfDeals>
+      <CurrentPayment>1604256.00</CurrentPayment>
+      <CurrentPaymentPeriod>Jul-16</CurrentPaymentPeriod>
+      <PreviousPayment>27640.19</PreviousPayment>
+      <PreviousPaymentPeriod>May-16</PreviousPaymentPeriod>
+      <ForecastedPayment>45341488.00</ForecastedPayment>
+      <YearToDatePayment>183631.50</YearToDatePayment>
+      <OnFlowDeals>
+        <DataPoint><Month>Mar-16</Month><DealCount>20</DealCount></DataPoint>
+        <DataPoint><Month>Apr-16</Month><DealCount>23</DealCount></DataPoint>
+        <DataPoint><Month>May-16</Month><DealCount>11</DealCount></DataPoint>
+        <DataPoint><Month>Jun-16</Month><DealCount>10</DealCount></DataPoint>
+      </OnFlowDeals>
+      <PaymentHistory>
+        <DataPoint><Month>Jul-16</Month><Amount>999.53</Amount><IsForecasted>false</IsForecasted></DataPoint>
+        <DataPoint><Month>Oct-16</Month><Amount>79679.02</Amount><IsForecasted>false</IsForecasted></DataPoint>
+        <DataPoint><Month>Nov-16</Month><Amount>43941150.00</Amount><IsForecasted>false</IsForecasted></DataPoint>
+        <DataPoint><Month>Dec-16</Month><Amount>132606.20</Amount><IsForecasted>true</IsForecasted></DataPoint>
+        <DataPoint><Month>Jan-17</Month><Amount>145000.00</Amount><IsForecasted>true</IsForecasted></DataPoint>
+        <DataPoint><Month>Feb-17</Month><Amount>158000.00</Amount><IsForecasted>true</IsForecasted></DataPoint>
+      </PaymentHistory>
+      <Agents>
+        <Agent>
+          <AgentId>A001</AgentId>
+          <AgentName>Pricing Desk</AgentName>
+          <Role>Pricing Analyst</Role>
+          <Email>pricing.desk@newsalesagency.example.com</Email>
+          <Phone>907-555-0101</Phone>
+          <ActiveDeals>12</ActiveDeals>
+        </Agent>
+        <Agent>
+          <AgentId>A002</AgentId>
+          <AgentName>Abhinav Miglani</AgentName>
+          <Role>Senior Sales Agent</Role>
+          <Email>a.miglani@newsalesagency.example.com</Email>
+          <Phone>907-555-0102</Phone>
+          <ActiveDeals>9</ActiveDeals>
+        </Agent>
+        <Agent>
+          <AgentId>A003</AgentId>
+          <AgentName>Amit Sharma</AgentName>
+          <Role>Sales Agent</Role>
+          <Email>a.sharma@newsalesagency.example.com</Email>
+          <Phone>907-555-0103</Phone>
+          <ActiveDeals>7</ActiveDeals>
+        </Agent>
+        <Agent>
+          <AgentId>A004</AgentId>
+          <AgentName>First Last</AgentName>
+          <Role>Sales Agent</Role>
+          <Email>first.last@newsalesagency.example.com</Email>
+          <Phone>907-555-0104</Phone>
+          <ActiveDeals>5</ActiveDeals>
+        </Agent>
+        <Agent>
+          <AgentId>A005</AgentId>
+          <AgentName>Neha Khan</AgentName>
+          <Role>Account Manager</Role>
+          <Email>n.khan@newsalesagency.example.com</Email>
+          <Phone>907-555-0105</Phone>
+          <ActiveDeals>8</ActiveDeals>
+        </Agent>
+        <Agent>
+          <AgentId>A006</AgentId>
+          <AgentName>Test Abhay</AgentName>
+          <Role>Sales Agent</Role>
+          <Email>t.abhay@newsalesagency.example.com</Email>
+          <Phone>907-555-0106</Phone>
+          <ActiveDeals>4</ActiveDeals>
+        </Agent>
+        <Agent>
+          <AgentId>A007</AgentId>
+          <AgentName>abhi miglani</AgentName>
+          <Role>Junior Sales Agent</Role>
+          <Email>abhi.miglani@newsalesagency.example.com</Email>
+          <Phone>907-555-0107</Phone>
+          <ActiveDeals>3</ActiveDeals>
+        </Agent>
+      </Agents>
+    </Agency>
+
+    <Agency>
+      <AgencyId>2</AgencyId>
+      <AgencyName>Test Sales Agency 004</AgencyName>
+      <ContactName>Test Sales Agency 004</ContactName>
+      <NumberOfContracts>38</NumberOfContracts>
+      <Address>
+        <Street>500 Commerce St</Street>
+        <City>Dallas</City>
+        <State>TX</State>
+        <Zip>75202</Zip>
+      </Address>
+      <NumberOfAgents>15</NumberOfAgents>
+      <NumberOfDeals>38</NumberOfDeals>
+      <CurrentPayment>402100.00</CurrentPayment>
+      <CurrentPaymentPeriod>Jul-16</CurrentPaymentPeriod>
+      <PreviousPayment>18500.00</PreviousPayment>
+      <PreviousPaymentPeriod>May-16</PreviousPaymentPeriod>
+      <ForecastedPayment>8200000.00</ForecastedPayment>
+      <YearToDatePayment>62300.00</YearToDatePayment>
+      <OnFlowDeals>
+        <DataPoint><Month>Mar-16</Month><DealCount>8</DealCount></DataPoint>
+        <DataPoint><Month>Apr-16</Month><DealCount>12</DealCount></DataPoint>
+        <DataPoint><Month>May-16</Month><DealCount>9</DealCount></DataPoint>
+        <DataPoint><Month>Jun-16</Month><DealCount>9</DealCount></DataPoint>
+      </OnFlowDeals>
+      <PaymentHistory>
+        <DataPoint><Month>Apr-16</Month><Amount>5200.00</Amount><IsForecasted>false</IsForecasted></DataPoint>
+        <DataPoint><Month>May-16</Month><Amount>18500.00</Amount><IsForecasted>false</IsForecasted></DataPoint>
+        <DataPoint><Month>Jun-16</Month><Amount>402100.00</Amount><IsForecasted>false</IsForecasted></DataPoint>
+        <DataPoint><Month>Jul-16</Month><Amount>8200000.00</Amount><IsForecasted>true</IsForecasted></DataPoint>
+        <DataPoint><Month>Aug-16</Month><Amount>8500000.00</Amount><IsForecasted>true</IsForecasted></DataPoint>
+        <DataPoint><Month>Sep-16</Month><Amount>8750000.00</Amount><IsForecasted>true</IsForecasted></DataPoint>
+      </PaymentHistory>
+      <Agents>
+        <Agent>
+          <AgentId>A010</AgentId>
+          <AgentName>John Doe</AgentName>
+          <Role>Senior Sales Agent</Role>
+          <Email>j.doe@testsalesagency004.example.com</Email>
+          <Phone>214-555-0110</Phone>
+          <ActiveDeals>14</ActiveDeals>
+        </Agent>
+        <Agent>
+          <AgentId>A011</AgentId>
+          <AgentName>Jane Smith</AgentName>
+          <Role>Account Manager</Role>
+          <Email>j.smith@testsalesagency004.example.com</Email>
+          <Phone>214-555-0111</Phone>
+          <ActiveDeals>11</ActiveDeals>
+        </Agent>
+        <Agent>
+          <AgentId>A012</AgentId>
+          <AgentName>Robert Green</AgentName>
+          <Role>Sales Agent</Role>
+          <Email>r.green@testsalesagency004.example.com</Email>
+          <Phone>214-555-0112</Phone>
+          <ActiveDeals>6</ActiveDeals>
+        </Agent>
+      </Agents>
+    </Agency>
+
+    <Agency>
+      <AgencyId>3</AgencyId>
+      <AgencyName>SmokeTesting215</AgencyName>
+      <ContactName>SmokeTesting215</ContactName>
+      <NumberOfContracts>31</NumberOfContracts>
+      <Address>
+        <Street>1800 Market Blvd</Street>
+        <City>Houston</City>
+        <State>TX</State>
+        <Zip>77002</Zip>
+      </Address>
+      <NumberOfAgents>8</NumberOfAgents>
+      <NumberOfDeals>31</NumberOfDeals>
+      <CurrentPayment>95400.00</CurrentPayment>
+      <CurrentPaymentPeriod>Jun-16</CurrentPaymentPeriod>
+      <PreviousPayment>7200.00</PreviousPayment>
+      <PreviousPaymentPeriod>Apr-16</PreviousPaymentPeriod>
+      <ForecastedPayment>1100000.00</ForecastedPayment>
+      <YearToDatePayment>21500.00</YearToDatePayment>
+      <OnFlowDeals>
+        <DataPoint><Month>Feb-16</Month><DealCount>5</DealCount></DataPoint>
+        <DataPoint><Month>Mar-16</Month><DealCount>8</DealCount></DataPoint>
+        <DataPoint><Month>Apr-16</Month><DealCount>10</DealCount></DataPoint>
+        <DataPoint><Month>May-16</Month><DealCount>8</DealCount></DataPoint>
+      </OnFlowDeals>
+      <PaymentHistory>
+        <DataPoint><Month>Mar-16</Month><Amount>2100.00</Amount><IsForecasted>false</IsForecasted></DataPoint>
+        <DataPoint><Month>Apr-16</Month><Amount>7200.00</Amount><IsForecasted>false</IsForecasted></DataPoint>
+        <DataPoint><Month>May-16</Month><Amount>95400.00</Amount><IsForecasted>false</IsForecasted></DataPoint>
+        <DataPoint><Month>Jun-16</Month><Amount>1100000.00</Amount><IsForecasted>true</IsForecasted></DataPoint>
+        <DataPoint><Month>Jul-16</Month><Amount>1150000.00</Amount><IsForecasted>true</IsForecasted></DataPoint>
+        <DataPoint><Month>Aug-16</Month><Amount>1200000.00</Amount><IsForecasted>true</IsForecasted></DataPoint>
+      </PaymentHistory>
+      <Agents>
+        <Agent>
+          <AgentId>A020</AgentId>
+          <AgentName>Alice Brown</AgentName>
+          <Role>Sales Agent</Role>
+          <Email>a.brown@smoketesting215.example.com</Email>
+          <Phone>713-555-0120</Phone>
+          <ActiveDeals>5</ActiveDeals>
+        </Agent>
+        <Agent>
+          <AgentId>A021</AgentId>
+          <AgentName>Bob White</AgentName>
+          <Role>Junior Sales Agent</Role>
+          <Email>b.white@smoketesting215.example.com</Email>
+          <Phone>713-555-0121</Phone>
+          <ActiveDeals>3</ActiveDeals>
+        </Agent>
+      </Agents>
+    </Agency>
+
+    <Agency>
+      <AgencyId>4</AgencyId>
+      <AgencyName>Demo Agency</AgencyName>
+      <ContactName>Demo Agency</ContactName>
+      <NumberOfContracts>20</NumberOfContracts>
+      <Address>
+        <Street>300 Demo Lane</Street>
+        <City>Chicago</City>
+        <State>IL</State>
+        <Zip>60601</Zip>
+      </Address>
+      <NumberOfAgents>6</NumberOfAgents>
+      <NumberOfDeals>20</NumberOfDeals>
+      <CurrentPayment>43.62</CurrentPayment>
+      <CurrentPaymentPeriod>Jan-16</CurrentPaymentPeriod>
+      <PreviousPayment>0.00</PreviousPayment>
+      <PreviousPaymentPeriod>NA</PreviousPaymentPeriod>
+      <ForecastedPayment>68.95</ForecastedPayment>
+      <YearToDatePayment>0.00</YearToDatePayment>
+      <OnFlowDeals>
+        <DataPoint><Month>Dec-15</Month><DealCount>3</DealCount></DataPoint>
+        <DataPoint><Month>Jan-16</Month><DealCount>5</DealCount></DataPoint>
+        <DataPoint><Month>Feb-16</Month><DealCount>7</DealCount></DataPoint>
+        <DataPoint><Month>Mar-16</Month><DealCount>5</DealCount></DataPoint>
+      </OnFlowDeals>
+      <PaymentHistory>
+        <DataPoint><Month>Dec-15</Month><Amount>21.91</Amount><IsForecasted>false</IsForecasted></DataPoint>
+        <DataPoint><Month>Jan-16</Month><Amount>43.62</Amount><IsForecasted>false</IsForecasted></DataPoint>
+        <DataPoint><Month>Jul-16</Month><Amount>47.14</Amount><IsForecasted>true</IsForecasted></DataPoint>
+        <DataPoint><Month>Aug-16</Month><Amount>50.00</Amount><IsForecasted>true</IsForecasted></DataPoint>
+        <DataPoint><Month>Sep-16</Month><Amount>52.50</Amount><IsForecasted>true</IsForecasted></DataPoint>
+      </PaymentHistory>
+      <Agents>
+        <Agent>
+          <AgentId>A030</AgentId>
+          <AgentName>Pratap Singh</AgentName>
+          <Role>Account Manager</Role>
+          <Email>p.singh@demoagency.example.com</Email>
+          <Phone>312-555-0130</Phone>
+          <ActiveDeals>8</ActiveDeals>
+        </Agent>
+        <Agent>
+          <AgentId>A031</AgentId>
+          <AgentName>manoj kumar</AgentName>
+          <Role>Sales Agent</Role>
+          <Email>m.kumar@demoagency.example.com</Email>
+          <Phone>312-555-0131</Phone>
+          <ActiveDeals>6</ActiveDeals>
+        </Agent>
+      </Agents>
+    </Agency>
+
+    <Agency>
+      <AgencyId>13</AgencyId>
+      <AgencyName>TFS Energy Solutions LLC</AgencyName>
+      <ContactName>TFS Energy Solutions LLC</ContactName>
+      <NumberOfContracts>12</NumberOfContracts>
+      <Address>
+        <Street>4200 Energy Pkwy</Street>
+        <City>Atlanta</City>
+        <State>GA</State>
+        <Zip>30301</Zip>
+      </Address>
+      <NumberOfAgents>5</NumberOfAgents>
+      <NumberOfDeals>12</NumberOfDeals>
+      <CurrentPayment>80.10</CurrentPayment>
+      <CurrentPaymentPeriod>Jul-16</CurrentPaymentPeriod>
+      <PreviousPayment>0.00</PreviousPayment>
+      <PreviousPaymentPeriod>NA</PreviousPaymentPeriod>
+      <ForecastedPayment>145.00</ForecastedPayment>
+      <YearToDatePayment>80.10</YearToDatePayment>
+      <OnFlowDeals>
+        <DataPoint><Month>Apr-16</Month><DealCount>2</DealCount></DataPoint>
+        <DataPoint><Month>May-16</Month><DealCount>3</DealCount></DataPoint>
+        <DataPoint><Month>Jun-16</Month><DealCount>4</DealCount></DataPoint>
+        <DataPoint><Month>Jul-16</Month><DealCount>3</DealCount></DataPoint>
+      </OnFlowDeals>
+      <PaymentHistory>
+        <DataPoint><Month>May-16</Month><Amount>0.00</Amount><IsForecasted>false</IsForecasted></DataPoint>
+        <DataPoint><Month>Jun-16</Month><Amount>65.00</Amount><IsForecasted>false</IsForecasted></DataPoint>
+        <DataPoint><Month>Jul-16</Month><Amount>80.10</Amount><IsForecasted>false</IsForecasted></DataPoint>
+        <DataPoint><Month>Aug-16</Month><Amount>145.00</Amount><IsForecasted>true</IsForecasted></DataPoint>
+        <DataPoint><Month>Sep-16</Month><Amount>160.00</Amount><IsForecasted>true</IsForecasted></DataPoint>
+        <DataPoint><Month>Oct-16</Month><Amount>175.00</Amount><IsForecasted>true</IsForecasted></DataPoint>
+      </PaymentHistory>
+      <Agents>
+        <Agent>
+          <AgentId>A040</AgentId>
+          <AgentName>Carlos Rivera</AgentName>
+          <Role>Senior Sales Agent</Role>
+          <Email>c.rivera@tfsenergy.example.com</Email>
+          <Phone>404-555-0140</Phone>
+          <ActiveDeals>4</ActiveDeals>
+        </Agent>
+        <Agent>
+          <AgentId>A041</AgentId>
+          <AgentName>Emily Chen</AgentName>
+          <Role>Account Manager</Role>
+          <Email>e.chen@tfsenergy.example.com</Email>
+          <Phone>404-555-0141</Phone>
+          <ActiveDeals>3</ActiveDeals>
+        </Agent>
+        <Agent>
+          <AgentId>A042</AgentId>
+          <AgentName>Marcus Lee</AgentName>
+          <Role>Sales Agent</Role>
+          <Email>m.lee@tfsenergy.example.com</Email>
+          <Phone>404-555-0142</Phone>
+          <ActiveDeals>2</ActiveDeals>
+        </Agent>
+      </Agents>
+    </Agency>
+
+  </Agencies>
+</AgenciesData>

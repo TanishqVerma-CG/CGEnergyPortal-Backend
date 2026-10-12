@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PricingSnapshotDetailsData>
+
+	<ContractSnapshotDetails contractId="2453">
+		<Date>2026-05-06</Date>
+		<PricingZone>ERCOT North</PricingZone>
+		<Product>Standard Fixed</Product>
+		<TodaysLowestPrice>
+			<TermMonths>36</TermMonths>
+			<Price>45.10</Price>
+			<PriceUnit>$/MWh</PriceUnit>
+			<ChangeVsYesterday>-1.20</ChangeVsYesterday>
+			<ChangePercentVsYesterday>-2.6</ChangePercentVsYesterday>
+		</TodaysLowestPrice>
+	</ContractSnapshotDetails>
+
+	<ContractSnapshotDetails contractId="2452">
+		<Date>2026-05-06</Date>
+		<PricingZone>ERCOT Houston</PricingZone>
+		<Product>Standard Fixed</Product>
+		<TodaysLowestPrice>
+			<TermMonths>36</TermMonths>
+			<Price>46.90</Price>
+			<PriceUnit>$/MWh</PriceUnit>
+			<ChangeVsYesterday>-0.60</ChangeVsYesterday>
+			<ChangePercentVsYesterday>-1.3</ChangePercentVsYesterday>
+		</TodaysLowestPrice>
+	</ContractSnapshotDetails>
+
+	<ContractSnapshotDetails contractId="2451">
+		<Date>2026-05-06</Date>
+		<PricingZone>ERCOT West</PricingZone>
+		<Product>Standard Fixed</Product>
+		<TodaysLowestPrice>
+			<TermMonths>36</TermMonths>
+			<Price>44.70</Price>
+			<PriceUnit>$/MWh</PriceUnit>
+			<ChangeVsYesterday>-0.80</ChangeVsYesterday>
+			<ChangePercentVsYesterday>-1.8</ChangePercentVsYesterday>
+		</TodaysLowestPrice>
+	</ContractSnapshotDetails>
+
+	<ContractSnapshotDetails contractId="2449">
+		<Date>2026-05-06</Date>
+		<PricingZone>ERCOT South</PricingZone>
+		<Product>Standard Fixed</Product>
+		<TodaysLowestPrice>
+			<TermMonths>36</TermMonths>
+			<Price>48.40</Price>
+			<PriceUnit>$/MWh</PriceUnit>
+			<ChangeVsYesterday>-0.40</ChangeVsYesterday>
+			<ChangePercentVsYesterday>-0.8</ChangePercentVsYesterday>
+		</TodaysLowestPrice>
+	</ContractSnapshotDetails>
+
+	<ContractSnapshotDetails contractId="2450">
+		<Date>2026-05-06</Date>
+		<PricingZone>ERCOT North</PricingZone>
+		<Product>Standard Fixed</Product>
+		<TodaysLowestPrice>
+			<TermMonths>36</TermMonths>
+			<Price>46.20</Price>
+			<PriceUnit>$/MWh</PriceUnit>
+			<ChangeVsYesterday>-0.90</ChangeVsYesterday>
+			<ChangePercentVsYesterday>-1.9</ChangePercentVsYesterday>
+		</TodaysLowestPrice>
+	</ContractSnapshotDetails>
+
+	<ContractSnapshotDetails contractId="2448">
+		<Date>2026-05-06</Date>
+		<PricingZone>ERCOT Houston</PricingZone>
+		<Product>Standard Fixed</Product>
+		<TodaysLowestPrice>
+			<TermMonths>36</TermMonths>
+			<Price>44.00</Price>
+			<PriceUnit>$/MWh</PriceUnit>
+			<ChangeVsYesterday>-1.50</ChangeVsYesterday>
+			<ChangePercentVsYesterday>-3.3</ChangePercentVsYesterday>
+		</TodaysLowestPrice>
+	</ContractSnapshotDetails>
+
+	<ContractSnapshotDetails contractId="CID-10293">
+		<Date>2026-05-06</Date>
+		<PricingZone>ERCOT North</PricingZone>
+		<Product>Standard Fixed</Product>
+		<TodaysLowestPrice>
+			<TermMonths>36</TermMonths>
+			<Price>45.10</Price>
+			<PriceUnit>$/MWh</PriceUnit>
+			<ChangeVsYesterday>-1.20</ChangeVsYesterday>
+			<ChangePercentVsYesterday>-2.6</ChangePercentVsYesterday>
+		</TodaysLowestPrice>
+	</ContractSnapshotDetails>
+
+	<ContractSnapshotDetails contractId="CID-10292">
+		<Date>2026-05-06</Date>
+		<PricingZone>ERCOT North</PricingZone>
+		<Product>Standard Fixed</Product>
+		<TodaysLowestPrice>
+			<TermMonths>36</TermMonths>
+			<Price>45.10</Price>
+			<PriceUnit>$/MWh</PriceUnit>
+			<ChangeVsYesterday>-1.20</ChangeVsYesterday>
+			<ChangePercentVsYesterday>-2.6</ChangePercentVsYesterday>
+		</TodaysLowestPrice>
+	</ContractSnapshotDetails>
+
+	<ContractSnapshotDetails contractId="CID-10291">
+		<Date>2026-05-06</Date>
+		<PricingZone>ERCOT North</PricingZone>
+		<Product>Standard Fixed</Product>
+		<TodaysLowestPrice>
+			<TermMonths>36</TermMonths>
+			<Price>45.10</Price>
+			<PriceUnit>$/MWh</PriceUnit>
+			<ChangeVsYesterday>-1.20</ChangeVsYesterday>
+			<ChangePercentVsYesterday>-2.6</ChangePercentVsYesterday>
+		</TodaysLowestPrice>
+	</ContractSnapshotDetails>
+
+	<ContractSnapshotDetails contractId="CID-10290">
+		<Date>2026-05-06</Date>
+		<PricingZone>ERCOT North</PricingZone>
+		<Product>Standard Fixed</Product>
+		<TodaysLowestPrice>
+			<TermMonths>36</TermMonths>
+			<Price>45.10</Price>
+			<PriceUnit>$/MWh</PriceUnit>
+			<ChangeVsYesterday>-1.20</ChangeVsYesterday>
+			<ChangePercentVsYesterday>-2.6</ChangePercentVsYesterday>
+		</TodaysLowestPrice>
+	</ContractSnapshotDetails>
+
+	<ContractSnapshotDetails contractId="CID-10285">
+		<Date>2026-05-06</Date>
+		<PricingZone>ERCOT North</PricingZone>
+		<Product>Standard Fixed</Product>
+		<TodaysLowestPrice>
+			<TermMonths>36</TermMonths>
+			<Price>45.10</Price>
+			<PriceUnit>$/MWh</PriceUnit>
+			<ChangeVsYesterday>-1.20</ChangeVsYesterday>
+			<ChangePercentVsYesterday>-2.6</ChangePercentVsYesterday>
+		</TodaysLowestPrice>
+	</ContractSnapshotDetails>
+
+	<ContractSnapshotDetails contractId="CID-10284">
+		<Date>2026-05-06</Date>
+		<PricingZone>ERCOT North</PricingZone>
+		<Product>Standard Fixed</Product>
+		<TodaysLowestPrice>
+			<TermMonths>36</TermMonths>
+			<Price>45.10</Price>
+			<PriceUnit>$/MWh</PriceUnit>
+			<ChangeVsYesterday>-1.20</ChangeVsYesterday>
+			<ChangePercentVsYesterday>-2.6</ChangePercentVsYesterday>
+		</TodaysLowestPrice>
+	</ContractSnapshotDetails>
+
+	<ContractSnapshotDetails contractId="CID-10283">
+		<Date>2026-05-06</Date>
+		<PricingZone>ERCOT North</PricingZone>
+		<Product>Standard Fixed</Product>
+		<TodaysLowestPrice>
+			<TermMonths>36</TermMonths>
+			<Price>45.10</Price>
+			<PriceUnit>$/MWh</PriceUnit>
+			<ChangeVsYesterday>-1.20</ChangeVsYesterday>
+			<ChangePercentVsYesterday>-2.6</ChangePercentVsYesterday>
+		</TodaysLowestPrice>
+	</ContractSnapshotDetails>
+
+	<ContractSnapshotDetails contractId="CID-10282">
+		<Date>2026-05-06</Date>
+		<PricingZone>ERCOT North</PricingZone>
+		<Product>Standard Fixed</Product>
+		<TodaysLowestPrice>
+			<TermMonths>36</TermMonths>
+			<Price>45.10</Price>
+			<PriceUnit>$/MWh</PriceUnit>
+			<ChangeVsYesterday>-1.20</ChangeVsYesterday>
+			<ChangePercentVsYesterday>-2.6</ChangePercentVsYesterday>
+		</TodaysLowestPrice>
+	</ContractSnapshotDetails>
+
+	<ContractSnapshotDetails contractId="CID-10278">
+		<Date>2026-05-06</Date>
+		<PricingZone>ERCOT North</PricingZone>
+		<Product>Standard Fixed</Product>
+		<TodaysLowestPrice>
+			<TermMonths>36</TermMonths>
+			<Price>45.10</Price>
+			<PriceUnit>$/MWh</PriceUnit>
+			<ChangeVsYesterday>-1.20</ChangeVsYesterday>
+			<ChangePercentVsYesterday>-2.6</ChangePercentVsYesterday>
+		</TodaysLowestPrice>
+	</ContractSnapshotDetails>
+
+	<ContractSnapshotDetails contractId="CID-10277">
+		<Date>2026-05-06</Date>
+		<PricingZone>ERCOT North</PricingZone>
+		<Product>Standard Fixed</Product>
+		<TodaysLowestPrice>
+			<TermMonths>36</TermMonths>
+			<Price>45.10</Price>
+			<PriceUnit>$/MWh</PriceUnit>
+			<ChangeVsYesterday>-1.20</ChangeVsYesterday>
+			<ChangePercentVsYesterday>-2.6</ChangePercentVsYesterday>
+		</TodaysLowestPrice>
+	</ContractSnapshotDetails>
+
+	<ContractSnapshotDetails contractId="CID-10276">
+		<Date>2026-05-06</Date>
+		<PricingZone>ERCOT North</PricingZone>
+		<Product>Standard Fixed</Product>
+		<TodaysLowestPrice>
+			<TermMonths>36</TermMonths>
+			<Price>45.10</Price>
+			<PriceUnit>$/MWh</PriceUnit>
+			<ChangeVsYesterday>-1.20</ChangeVsYesterday>
+			<ChangePercentVsYesterday>-2.6</ChangePercentVsYesterday>
+		</TodaysLowestPrice>
+	</ContractSnapshotDetails>
+
+	<ContractSnapshotDetails contractId="CID-10275">
+		<Date>2026-05-06</Date>
+		<PricingZone>ERCOT North</PricingZone>
+		<Product>Standard Fixed</Product>
+		<TodaysLowestPrice>
+			<TermMonths>36</TermMonths>
+			<Price>45.10</Price>
+			<PriceUnit>$/MWh</PriceUnit>
+			<ChangeVsYesterday>-1.20</ChangeVsYesterday>
+			<ChangePercentVsYesterday>-2.6</ChangePercentVsYesterday>
+		</TodaysLowestPrice>
+	</ContractSnapshotDetails>
+
+	<ContractSnapshotDetails contractId="CID-10268">
+		<Date>2026-05-06</Date>
+		<PricingZone>ERCOT North</PricingZone>
+		<Product>Standard Fixed</Product>
+		<TodaysLowestPrice>
+			<TermMonths>36</TermMonths>
+			<Price>45.10</Price>
+			<PriceUnit>$/MWh</PriceUnit>
+			<ChangeVsYesterday>-1.20</ChangeVsYesterday>
+			<ChangePercentVsYesterday>-2.6</ChangePercentVsYesterday>
+		</TodaysLowestPrice>
+	</ContractSnapshotDetails>
+
+	<ContractSnapshotDetails contractId="CID-10267">
+		<Date>2026-05-06</Date>
+		<PricingZone>ERCOT North</PricingZone>
+		<Product>Standard Fixed</Product>
+		<TodaysLowestPrice>
+			<TermMonths>36</TermMonths>
+			<Price>45.10</Price>
+			<PriceUnit>$/MWh</PriceUnit>
+			<ChangeVsYesterday>-1.20</ChangeVsYesterday>
+			<ChangePercentVsYesterday>-2.6</ChangePercentVsYesterday>
+		</TodaysLowestPrice>
+	</ContractSnapshotDetails>
+
+	<ContractSnapshotDetails contractId="CID-10266">
+		<Date>2026-05-06</Date>
+		<PricingZone>ERCOT North</PricingZone>
+		<Product>Standard Fixed</Product>
+		<TodaysLowestPrice>
+			<TermMonths>36</TermMonths>
+			<Price>45.10</Price>
+			<PriceUnit>$/MWh</PriceUnit>
+			<ChangeVsYesterday>-1.20</ChangeVsYesterday>
+			<ChangePercentVsYesterday>-2.6</ChangePercentVsYesterday>
+		</TodaysLowestPrice>
+	</ContractSnapshotDetails>
+
+	<ContractSnapshotDetails contractId="CID-10265">
+		<Date>2026-05-06</Date>
+		<PricingZone>ERCOT North</PricingZone>
+		<Product>Standard Fixed</Product>
+		<TodaysLowestPrice>
+			<TermMonths>36</TermMonths>
+			<Price>45.10</Price>
+			<PriceUnit>$/MWh</PriceUnit>
+			<ChangeVsYesterday>-1.20</ChangeVsYesterday>
+			<ChangePercentVsYesterday>-2.6</ChangePercentVsYesterday>
+		</TodaysLowestPrice>
+	</ContractSnapshotDetails>
+
+	<ContractSnapshotDetails contractId="CID-10258">
+		<Date>2026-05-06</Date>
+		<PricingZone>ERCOT North</PricingZone>
+		<Product>Standard Fixed</Product>
+		<TodaysLowestPrice>
+			<TermMonths>36</TermMonths>
+			<Price>45.10</Price>
+			<PriceUnit>$/MWh</PriceUnit>
+			<ChangeVsYesterday>-1.20</ChangeVsYesterday>
+			<ChangePercentVsYesterday>-2.6</ChangePercentVsYesterday>
+		</TodaysLowestPrice>
+	</ContractSnapshotDetails>
+
+	<ContractSnapshotDetails contractId="CID-10257">
+		<Date>2026-05-06</Date>
+		<PricingZone>ERCOT North</PricingZone>
+		<Product>Standard Fixed</Product>
+		<TodaysLowestPrice>
+			<TermMonths>36</TermMonths>
+			<Price>45.10</Price>
+			<PriceUnit>$/MWh</PriceUnit>
+			<ChangeVsYesterday>-1.20</ChangeVsYesterday>
+			<ChangePercentVsYesterday>-2.6</ChangePercentVsYesterday>
+		</TodaysLowestPrice>
+	</ContractSnapshotDetails>
+
+	<ContractSnapshotDetails contractId="CID-10256">
+		<Date>2026-05-06</Date>
+		<PricingZone>ERCOT North</PricingZone>
+		<Product>Standard Fixed</Product>
+		<TodaysLowestPrice>
+			<TermMonths>36</TermMonths>
+			<Price>45.10</Price>
+			<PriceUnit>$/MWh</PriceUnit>
+			<ChangeVsYesterday>-1.20</ChangeVsYesterday>
+			<ChangePercentVsYesterday>-2.6</ChangePercentVsYesterday>
+		</TodaysLowestPrice>
+	</ContractSnapshotDetails>
+
+	<ContractSnapshotDetails contractId="CID-10255">
+		<Date>2026-05-06</Date>
+		<PricingZone>ERCOT North</PricingZone>
+		<Product>Standard Fixed</Product>
+		<TodaysLowestPrice>
+			<TermMonths>36</TermMonths>
+			<Price>45.10</Price>
+			<PriceUnit>$/MWh</PriceUnit>
+			<ChangeVsYesterday>-1.20</ChangeVsYesterday>
+			<ChangePercentVsYesterday>-2.6</ChangePercentVsYesterday>
+		</TodaysLowestPrice>
+	</ContractSnapshotDetails>
+
+</PricingSnapshotDetailsData>

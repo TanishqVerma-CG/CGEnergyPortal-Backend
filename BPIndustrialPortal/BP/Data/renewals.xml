@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Renewals>
+
+    <Contracts>
+
+        <Contract>
+            <ContractId>CID-10293</ContractId>
+            <CompanyName>Acme Manufacturing Ltd.</CompanyName>
+            <ServiceAddress>456 Oak Street, Dallas, TX 75201</ServiceAddress>
+            <ContractStatus>ACTIVE</ContractStatus>
+            <CurrentPlan>24</CurrentPlan>
+            <EndDate>7/10/2026</EndDate>
+            <DaysRemaining>12</DaysRemaining>
+            <LastQuoteStatus>QUOTE SENT</LastQuoteStatus>
+            <ProductType>Fixed</ProductType>
+            <ContactTerm>36 Month</ContactTerm>
+            <MeterCount>5</MeterCount>
+            <StartDate>6/4/2024</StartDate>
+            <QuoteHistory>
+                <Quote>
+                    <QuoteId>QT-10033</QuoteId>
+                    <RequestedOn>5/10/2026</RequestedOn>
+                    <RequestedPlan>Market Index</RequestedPlan>
+                    <TermLength>24</TermLength>
+                    <QuotedPrice>62.45</QuotedPrice>
+                    <Status>QUOTE SENT</Status>
+                    <SentOn>5/21/2026</SentOn>
+                    <RateType>Fixed</RateType>
+                    <BaseCharge>5</BaseCharge>
+                    <BaseChargeUnit>month</BaseChargeUnit>
+                    <BrokerMargin>0.025</BrokerMargin>
+                    <FinalRate>62.475</FinalRate>
+                    <QuoteValidTill>7 July, 2026</QuoteValidTill>
+                </Quote>
+                <Quote>
+                    <QuoteId>QT-10019</QuoteId>
+                    <RequestedOn>5/10/2026</RequestedOn>
+                    <RequestedPlan>Fixed Price</RequestedPlan>
+                    <TermLength>24</TermLength>
+                    <QuotedPrice>61.10</QuotedPrice>
+                    <Status>REJECTED</Status>
+                    <SentOn>5/12/2026</SentOn>
+                    <RateType>Fixed</RateType>
+                    <BaseCharge>5</BaseCharge>
+                    <BaseChargeUnit>month</BaseChargeUnit>
+                    <BrokerMargin>0.025</BrokerMargin>
+                    <FinalRate>61.125</FinalRate>
+                    <QuoteValidTill>30 May, 2026</QuoteValidTill>
+                </Quote>
+                <Quote>
+                    <QuoteId>QT-10005</QuoteId>
+                    <RequestedOn>4/25/2026</RequestedOn>
+                    <RequestedPlan>Fixed Price</RequestedPlan>
+                    <TermLength>18</TermLength>
+                    <QuotedPrice>63.80</QuotedPrice>
+                    <Status>REJECTED</Status>
+                    <SentOn>4/27/2026</SentOn>
+                    <RateType>Fixed</RateType>
+                    <BaseCharge>5</BaseCharge>
+                    <BaseChargeUnit>month</BaseChargeUnit>
+                    <BrokerMargin>0.025</BrokerMargin>
+                    <FinalRate>63.825</FinalRate>
+                    <QuoteValidTill>15 May, 2026</QuoteValidTill>
+                </Quote>
+            </QuoteHistory>
+        </Contract>
+
+        <Contract>
+            <ContractId>CID-10292</ContractId>
+            <CompanyName>Acme Manufacturing Ltd.</CompanyName>
+            <ServiceAddress>321 Birch Lane, Austin, TX 78701</ServiceAddress>
+            <ContractStatus>ACTIVE</ContractStatus>
+            <CurrentPlan>24</CurrentPlan>
+            <EndDate>6/15/2026</EndDate>
+            <DaysRemaining>15</DaysRemaining>
+            <LastQuoteStatus>REQUESTED</LastQuoteStatus>
+            <ProductType>Fixed</ProductType>
+            <ContactTerm>24 Month</ContactTerm>
+            <MeterCount>3</MeterCount>
+            <StartDate>6/15/2024</StartDate>
+            <QuoteHistory>
+                <Quote>
+                    <QuoteId>QT-10032</QuoteId>
+                    <RequestedOn>5/10/2026</RequestedOn>
+                    <RequestedPlan>Market Index</RequestedPlan>
+                    <TermLength>24</TermLength>
+                    <QuotedPrice>62.45</QuotedPrice>
+                    <Status>QUOTE SENT</Status>
+                    <SentOn>5/21/2026</SentOn>
+                    <RateType>Market Index</RateType>
+                    <BaseCharge>5</BaseCharge>
+                    <BaseChargeUnit>month</BaseChargeUnit>
+                    <BrokerMargin>0.025</BrokerMargin>
+                    <FinalRate>62.475</FinalRate>
+                    <QuoteValidTill>7 July, 2026</QuoteValidTill>
+                </Quote>
+                <Quote>
+                    <QuoteId>QT-10018</QuoteId>
+                    <RequestedOn>5/10/2026</RequestedOn>
+                    <RequestedPlan>Fixed Price</RequestedPlan>
+                    <TermLength>24</TermLength>
+                    <QuotedPrice>61.10</QuotedPrice>
+                    <Status>REJECTED</Status>
+                    <SentOn>5/12/2026</SentOn>
+                    <RateType>Fixed</RateType>
+                    <BaseCharge>5</BaseCharge>
+                    <BaseChargeUnit>month</BaseChargeUnit>
+                    <BrokerMargin>0.025</BrokerMargin>
+                    <FinalRate>61.125</FinalRate>
+                    <QuoteValidTill>30 May, 2026</QuoteValidTill>
+                </Quote>
+                <Quote>
+                    <QuoteId>QT-10009</QuoteId>
+                    <RequestedOn>4/25/2026</RequestedOn>
+                    <RequestedPlan>Fixed Price</RequestedPlan>
+                    <TermLength>18</TermLength>
+                    <QuotedPrice>63.80</QuotedPrice>
+                    <Status>REJECTED</Status>
+                    <SentOn>4/27/2026</SentOn>
+                    <RateType>Fixed</RateType>
+                    <BaseCharge>5</BaseCharge>
+                    <BaseChargeUnit>month</BaseChargeUnit>
+                    <BrokerMargin>0.025</BrokerMargin>
+                    <FinalRate>63.825</FinalRate>
+                    <QuoteValidTill>15 May, 2026</QuoteValidTill>
+                </Quote>
+            </QuoteHistory>
+        </Contract>
+
+        <Contract>
+            <ContractId>CID-10291</ContractId>
+            <CompanyName>Acme Manufacturing Ltd.</CompanyName>
+            <ServiceAddress>321 Birch Lane, Austin, TX 78701</ServiceAddress>
+            <ContractStatus>ACTIVE</ContractStatus>
+            <CurrentPlan>24</CurrentPlan>
+            <EndDate>6/25/2026</EndDate>
+            <DaysRemaining>25</DaysRemaining>
+            <LastQuoteStatus>APPROVED</LastQuoteStatus>
+            <ProductType>Fixed</ProductType>
+            <ContactTerm>24 Month</ContactTerm>
+            <MeterCount>2</MeterCount>
+            <StartDate>6/25/2024</StartDate>
+            <QuoteHistory>
+                <Quote>
+                    <QuoteId>QT-10031</QuoteId>
+                    <RequestedOn>5/8/2026</RequestedOn>
+                    <RequestedPlan>Fixed Price</RequestedPlan>
+                    <TermLength>24</TermLength>
+                    <QuotedPrice>60.50</QuotedPrice>
+                    <Status>APPROVED</Status>
+                    <SentOn>5/20/2026</SentOn>
+                    <RateType>Fixed</RateType>
+                    <BaseCharge>5</BaseCharge>
+                    <BaseChargeUnit>month</BaseChargeUnit>
+                    <BrokerMargin>0.025</BrokerMargin>
+                    <FinalRate>60.525</FinalRate>
+                    <QuoteValidTill>30 June, 2026</QuoteValidTill>
+                </Quote>
+                <Quote>
+                    <QuoteId>QT-10017</QuoteId>
+                    <RequestedOn>4/28/2026</RequestedOn>
+                    <RequestedPlan>Market Index</RequestedPlan>
+                    <TermLength>24</TermLength>
+                    <QuotedPrice>62.45</QuotedPrice>
+                    <Status>REJECTED</Status>
+                    <SentOn>5/1/2026</SentOn>
+                    <RateType>Market Index</RateType>
+                    <BaseCharge>5</BaseCharge>
+                    <BaseChargeUnit>month</BaseChargeUnit>
+                    <BrokerMargin>0.025</BrokerMargin>
+                    <FinalRate>62.475</FinalRate>
+                    <QuoteValidTill>20 May, 2026</QuoteValidTill>
+                </Quote>
+                <Quote>
+                    <QuoteId>QT-10004</QuoteId>
+                    <RequestedOn>4/20/2026</RequestedOn>
+                    <RequestedPlan>Fixed Price</RequestedPlan>
+                    <TermLength>18</TermLength>
+                    <QuotedPrice>64.20</QuotedPrice>
+                    <Status>REJECTED</Status>
+                    <SentOn>4/22/2026</SentOn>
+                    <RateType>Fixed</RateType>
+                    <BaseCharge>5</BaseCharge>
+                    <BaseChargeUnit>month</BaseChargeUnit>
+                    <BrokerMargin>0.025</BrokerMargin>
+                    <FinalRate>64.225</FinalRate>
+                    <QuoteValidTill>10 May, 2026</QuoteValidTill>
+                </Quote>
+            </QuoteHistory>
+        </Contract>
+
+        <Contract>
+            <ContractId>CID-10290</ContractId>
+            <CompanyName>Acme Manufacturing Ltd.</CompanyName>
+            <ServiceAddress>123 Maplewood Avenue, San Antonio, TX 78205</ServiceAddress>
+            <ContractStatus>ACTIVE</ContractStatus>
+            <CurrentPlan>24</CurrentPlan>
+            <EndDate>6/20/2026</EndDate>
+            <DaysRemaining>30</DaysRemaining>
+            <LastQuoteStatus>REQUESTED</LastQuoteStatus>
+            <ProductType>Fixed</ProductType>
+            <ContactTerm>24 Month</ContactTerm>
+            <MeterCount>4</MeterCount>
+            <StartDate>6/20/2024</StartDate>
+            <QuoteHistory>
+                <Quote>
+                    <QuoteId>QT-10030</QuoteId>
+                    <RequestedOn>5/8/2026</RequestedOn>
+                    <RequestedPlan>Fixed Price</RequestedPlan>
+                    <TermLength>24</TermLength>
+                    <QuotedPrice>61.20</QuotedPrice>
+                    <Status>REQUESTED</Status>
+                    <SentOn></SentOn>
+                    <RateType>Fixed</RateType>
+                    <BaseCharge>5</BaseCharge>
+                    <BaseChargeUnit>month</BaseChargeUnit>
+                    <BrokerMargin>0.025</BrokerMargin>
+                    <FinalRate>61.225</FinalRate>
+                    <QuoteValidTill>20 June, 2026</QuoteValidTill>
+                </Quote>
+                <Quote>
+                    <QuoteId>QT-10016</QuoteId>
+                    <RequestedOn>4/22/2026</RequestedOn>
+                    <RequestedPlan>Market Index</RequestedPlan>
+                    <TermLength>18</TermLength>
+                    <QuotedPrice>63.80</QuotedPrice>
+                    <Status>REJECTED</Status>
+                    <SentOn>4/25/2026</SentOn>
+                    <RateType>Market Index</RateType>
+                    <BaseCharge>5</BaseCharge>
+                    <BaseChargeUnit>month</BaseChargeUnit>
+                    <BrokerMargin>0.025</BrokerMargin>
+                    <FinalRate>63.825</FinalRate>
+                    <QuoteValidTill>10 May, 2026</QuoteValidTill>
+                </Quote>
+            </QuoteHistory>
+        </Contract>
+
+    </Contracts>
+
+</Renewals>

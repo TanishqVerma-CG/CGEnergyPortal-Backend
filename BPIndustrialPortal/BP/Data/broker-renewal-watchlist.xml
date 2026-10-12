@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BrokerRenewalWatchlist>
+    <LastUpdated>2025-08-06T13:59:00</LastUpdated>
+    <Items>
+        <Item>
+            <Customer>Acme Manufacturing Ltd.</Customer>
+            <BrokerMargin>0.025</BrokerMargin>
+            <TermMonths>24</TermMonths>
+            <VolumeMWh>12500</VolumeMWh>
+            <DaysRemaining>12</DaysRemaining>
+        </Item>
+        <Item>
+            <Customer>Greenfield Retail Group</Customer>
+            <BrokerMargin>0.075</BrokerMargin>
+            <TermMonths>36</TermMonths>
+            <VolumeMWh>8200</VolumeMWh>
+            <DaysRemaining>15</DaysRemaining>
+        </Item>
+        <Item>
+            <Customer>Horizon Logistics</Customer>
+            <BrokerMargin>0.029</BrokerMargin>
+            <TermMonths>18</TermMonths>
+            <VolumeMWh>15800</VolumeMWh>
+            <DaysRemaining>25</DaysRemaining>
+        </Item>
+        <Item>
+            <Customer>Northstar Warehousing</Customer>
+            <BrokerMargin>0.050</BrokerMargin>
+            <TermMonths>12</TermMonths>
+            <VolumeMWh>12500</VolumeMWh>
+            <DaysRemaining>30</DaysRemaining>
+        </Item>
+        <Item>
+            <Customer>Elite Business Park</Customer>
+            <BrokerMargin>0.034</BrokerMargin>
+            <TermMonths>24</TermMonths>
+            <VolumeMWh>10400</VolumeMWh>
+            <DaysRemaining>40</DaysRemaining>
+        </Item>
+        <Item>
+            <Customer>Greenfield Retail Group</Customer>
+            <BrokerMargin>0.098</BrokerMargin>
+            <TermMonths>18</TermMonths>
+            <VolumeMWh>10400</VolumeMWh>
+            <DaysRemaining>50</DaysRemaining>
+        </Item>
+        <Item>
+            <Customer>Horizon Logistics</Customer>
+            <BrokerMargin>0.023</BrokerMargin>
+            <TermMonths>12</TermMonths>
+            <VolumeMWh>8200</VolumeMWh>
+            <DaysRemaining>60</DaysRemaining>
+        </Item>
+        <Item>
+            <Customer>Northstar Warehousing</Customer>
+            <BrokerMargin>0.047</BrokerMargin>
+            <TermMonths>36</TermMonths>
+            <VolumeMWh>15800</VolumeMWh>
+            <DaysRemaining>65</DaysRemaining>
+        </Item>
+        <Item>
+            <Customer>Horizon Logistics</Customer>
+            <BrokerMargin>0.028</BrokerMargin>
+            <TermMonths>18</TermMonths>
+            <VolumeMWh>8200</VolumeMWh>
+            <DaysRemaining>80</DaysRemaining>
+        </Item>
+        <Item>
+            <Customer>Elite Business Park</Customer>
+            <BrokerMargin>0.480</BrokerMargin>
+            <TermMonths>12</TermMonths>
+            <VolumeMWh>15800</VolumeMWh>
+            <DaysRemaining>90</DaysRemaining>
+        </Item>
+    </Items>
+</BrokerRenewalWatchlist>
